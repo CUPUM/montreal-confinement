@@ -87,7 +87,7 @@ export default {
 
 <style scoped>
 #wordcloud-container {
-	height: 900px;
+	height: 1000px;
 	width: 100%;
 }
 #select {
