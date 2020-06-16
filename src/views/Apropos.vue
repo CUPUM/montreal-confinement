@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<h2>Analyse de regards photographiques du paysage urbain</h2>
+	<div class="apropos">		
+		<h2>Vous êtes présentement à l'onglet À propos</h2>
 	</div>
 </template>
 
@@ -8,7 +8,7 @@
 // @ is an alias to /src
 
 export default {
-	name: 'Sensible',
+	name: 'Apropos',
 	components: {
 
 	}

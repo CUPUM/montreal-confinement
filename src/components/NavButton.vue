@@ -28,16 +28,16 @@ export default {
 #nav-button {
 	cursor: pointer;
 	position: fixed;
-	top: 30px;
-	right: 40px;
-	width: 32px;
-	height: 32px;
+	top: 50px;
+	right: 50px;
+	width: 40px;
+	height: 40px;
 }
 
 /* Normal icon */
 .bar {
 	width: 100%;
-	height: 10%;
+	height: 5%;
 	background-color: rgb(46, 46, 46);
 	position: absolute;
 	border-radius: 1px;

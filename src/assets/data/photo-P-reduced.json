@@ -1,0 +1,692 @@
+﻿{
+    "caracterisation-visuelle": [
+        {
+            "mot": "noir et blanc",
+            "poids": "49"
+        },
+        {
+            "mot": "lieu générique",
+            "poids": "47"
+        },
+        {
+            "mot": "vue axiale",
+            "poids": "43"
+        },
+        {
+            "mot": "métro",
+            "poids": "33"
+        },
+        {
+            "mot": "station",
+            "poids": "24"
+        },
+        {
+            "mot": "aucune circulation automobile",
+            "poids": "23"
+        },
+        {
+            "mot": "lumière crue",
+            "poids": "23"
+        },
+        {
+            "mot": "lumière très crue",
+            "poids": "22"
+        },
+        {
+            "mot": "effet de perspective",
+            "poids": "20"
+        },
+        {
+            "mot": "rue montréalaise",
+            "poids": "20"
+        },
+        {
+            "mot": "vue frontale",
+            "poids": "19"
+        },
+        {
+            "mot": "premier plan",
+            "poids": "18"
+        },
+        {
+            "mot": "sans ombre",
+            "poids": "18"
+        },
+        {
+            "mot": "trottoir",
+            "poids": "18"
+        },
+        {
+            "mot": "troisième plan",
+            "poids": "17"
+        },
+        {
+            "mot": "rame de métro",
+            "poids": "15"
+        },
+        {
+            "mot": "éclairage cru",
+            "poids": "14"
+        },
+        {
+            "mot": "boulevard",
+            "poids": "13"
+        },
+        {
+            "mot": "polychromie",
+            "poids": "13"
+        },
+        {
+            "mot": "ciel gris",
+            "poids": "12"
+        },
+        {
+            "mot": "entrée",
+            "poids": "12"
+        },
+        {
+            "mot": "ombre",
+            "poids": "12"
+        },
+        {
+            "mot": "quai de métro",
+            "poids": "12"
+        },
+        {
+            "mot": "soleil",
+            "poids": "12"
+        },
+        {
+            "mot": "ciel dégagé",
+            "poids": "11"
+        },
+        {
+            "mot": "deuxième plan",
+            "poids": "11"
+        },
+        {
+            "mot": "montréal",
+            "poids": "11"
+        },
+        {
+            "mot": "sol mouillé",
+            "poids": "11"
+        },
+        {
+            "mot": "architecture ancienne",
+            "poids": "10"
+        },
+        {
+            "mot": "architecture vernaculaire",
+            "poids": "10"
+        },
+        {
+            "mot": "vue latérale",
+            "poids": "10"
+        }
+    ],
+    "ambiance": [
+        {
+            "mot": "triste",
+            "poids": "21"
+        },
+        {
+            "mot": "désertique",
+            "poids": "16"
+        },
+        {
+            "mot": "normale",
+            "poids": "15"
+        },
+        {
+            "mot": "anormale",
+            "poids": "10"
+        },
+        {
+            "mot": "positive",
+            "poids": "10"
+        },
+        {
+            "mot": "pénombre",
+            "poids": "5"
+        },
+        {
+            "mot": "lourde",
+            "poids": "3"
+        },
+        {
+            "mot": "matinale",
+            "poids": "3"
+        },
+        {
+            "mot": "calme",
+            "poids": "2"
+        },
+        {
+            "mot": "froide",
+            "poids": "2"
+        },
+        {
+            "mot": "naturelle",
+            "poids": "2"
+        },
+        {
+            "mot": "peu rassurante",
+            "poids": "2"
+        },
+        {
+            "mot": "sans âme",
+            "poids": "2"
+        }
+    ],
+    "elements-physiques": [
+        {
+            "mot": "rue",
+            "poids": "25"
+        },
+        {
+            "mot": "métro",
+            "poids": "23"
+        },
+        {
+            "mot": "trottoir",
+            "poids": "16"
+        },
+        {
+            "mot": "boulevard",
+            "poids": "11"
+        },
+        {
+            "mot": "quai de métro",
+            "poids": "11"
+        },
+        {
+            "mot": "rame de métro",
+            "poids": "11"
+        },
+        {
+            "mot": "architecture ancienne",
+            "poids": "10"
+        },
+        {
+            "mot": "architecture vernaculaire",
+            "poids": "10"
+        },
+        {
+            "mot": "façade",
+            "poids": "9"
+        },
+        {
+            "mot": "intersection",
+            "poids": "9"
+        },
+        {
+            "mot": "architecture contemporaine",
+            "poids": "8"
+        },
+        {
+            "mot": "urbain",
+            "poids": "8"
+        },
+        {
+            "mot": "vieux montréal",
+            "poids": "8"
+        },
+        {
+            "mot": "rue commerciale",
+            "poids": "7"
+        },
+        {
+            "mot": "centre-ville",
+            "poids": "6"
+        },
+        {
+            "mot": "commerce",
+            "poids": "6"
+        },
+        {
+            "mot": "arbre",
+            "poids": "5"
+        },
+        {
+            "mot": "épicerie",
+            "poids": "5"
+        },
+        {
+            "mot": "façades",
+            "poids": "5"
+        },
+        {
+            "mot": "résidentielle",
+            "poids": "5"
+        },
+        {
+            "mot": "traverse",
+            "poids": "5"
+        },
+        {
+            "mot": "couloir",
+            "poids": "4"
+        },
+        {
+            "mot": "parc",
+            "poids": "4"
+        },
+        {
+            "mot": "passage",
+            "poids": "4"
+        },
+        {
+            "mot": "affichage",
+            "poids": "3"
+        },
+        {
+            "mot": "bâtiment",
+            "poids": "3"
+        },
+        {
+            "mot": "escalier",
+            "poids": "3"
+        },
+        {
+            "mot": "graffitis",
+            "poids": "3"
+        },
+        {
+            "mot": "mur",
+            "poids": "3"
+        },
+        {
+            "mot": "place publique",
+            "poids": "3"
+        },
+        {
+            "mot": "résidentiel",
+            "poids": "3"
+        },
+        {
+            "mot": "stationnement",
+            "poids": "3"
+        },
+        {
+            "mot": "textures architecturales",
+            "poids": "3"
+        },
+        {
+            "mot": "végétation",
+            "poids": "3"
+        },
+        {
+            "mot": "anciennes",
+            "poids": "2"
+        },
+        {
+            "mot": "arbres",
+            "poids": "2"
+        },
+        {
+            "mot": "architectures",
+            "poids": "2"
+        },
+        {
+            "mot": "autobus",
+            "poids": "2"
+        },
+        {
+            "mot": "chinois",
+            "poids": "2"
+        },
+        {
+            "mot": "contemporaines",
+            "poids": "2"
+        },
+        {
+            "mot": "déchets",
+            "poids": "2"
+        },
+        {
+            "mot": "emblématique",
+            "poids": "2"
+        },
+        {
+            "mot": "enfants",
+            "poids": "2"
+        },
+        {
+            "mot": "espace public",
+            "poids": "2"
+        },
+        {
+            "mot": "et commerciale",
+            "poids": "2"
+        },
+        {
+            "mot": "fleurs",
+            "poids": "2"
+        },
+        {
+            "mot": "flore",
+            "poids": "2"
+        },
+        {
+            "mot": "jeux",
+            "poids": "2"
+        },
+        {
+            "mot": "magasin",
+            "poids": "2"
+        },
+        {
+            "mot": "point",
+            "poids": "2"
+        },
+        {
+            "mot": "portail",
+            "poids": "2"
+        },
+        {
+            "mot": "quartier",
+            "poids": "2"
+        },
+        {
+            "mot": "repère",
+            "poids": "2"
+        },
+        {
+            "mot": "sans feuille",
+            "poids": "2"
+        },
+        {
+            "mot": "terrain",
+            "poids": "2"
+        },
+        {
+            "mot": "wagon",
+            "poids": "2"
+        }
+    ],
+    "presence-humaine": [
+        {
+            "mot": "deuxième plan",
+            "poids": "48"
+        },
+        {
+            "mot": "premier plan",
+            "poids": "37"
+        },
+        {
+            "mot": "piéton",
+            "poids": "34"
+        },
+        {
+            "mot": "absence",
+            "poids": "28"
+        },
+        {
+            "mot": "en mouvement",
+            "poids": "24"
+        },
+        {
+            "mot": "femme",
+            "poids": "22"
+        },
+        {
+            "mot": "homme",
+            "poids": "20"
+        },
+        {
+            "mot": "piétons",
+            "poids": "18"
+        },
+        {
+            "mot": "troisième plan",
+            "poids": "16"
+        },
+        {
+            "mot": "deux",
+            "poids": "15"
+        },
+        {
+            "mot": "passager",
+            "poids": "7"
+        },
+        {
+            "mot": "cyclistes",
+            "poids": "7"
+        },
+        {
+            "mot": "en attente",
+            "poids": "6"
+        },
+        {
+            "mot": "file",
+            "poids": "5"
+        },
+        {
+            "mot": "fixe",
+            "poids": "5"
+        },
+        {
+            "mot": "plusieurs",
+            "poids": "3"
+        },
+        {
+            "mot": "quelques",
+            "poids": "3"
+        },
+        {
+            "mot": "trois",
+            "poids": "3"
+        },
+        {
+            "mot": "humains",
+            "poids": "2"
+        },
+        {
+            "mot": "masque",
+            "poids": "2"
+        },
+        {
+            "mot": "personnage",
+            "poids": "2"
+        },
+        {
+            "mot": "rame de métro",
+            "poids": "2"
+        },
+        {
+            "mot": "regard",
+            "poids": "2"
+        },
+        {
+            "mot": "repos",
+            "poids": "2"
+        },
+        {
+            "mot": "agent de sécurité",
+            "poids": "2"
+        }
+    ],
+    "evocation-sentiment-sensation": [
+        {
+            "mot": "solitude",
+            "poids": "48"
+        },
+        {
+            "mot": "froideur",
+            "poids": "38"
+        },
+        {
+            "mot": "normalité",
+            "poids": "28"
+        },
+        {
+            "mot": "incongruité",
+            "poids": "18"
+        },
+        {
+            "mot": "tristesse",
+            "poids": "18"
+        },
+        {
+            "mot": "indifférence",
+            "poids": "12"
+        },
+        {
+            "mot": "sans âme",
+            "poids": "10"
+        },
+        {
+            "mot": "vide",
+            "poids": "10"
+        },
+        {
+            "mot": "beau",
+            "poids": "9"
+        },
+        {
+            "mot": "analogie",
+            "poids": "7"
+        },
+        {
+            "mot": "effort quotidien",
+            "poids": "7"
+        },
+        {
+            "mot": "humide",
+            "poids": "6"
+        },
+        {
+            "mot": "scène nocturne",
+            "poids": "6"
+        },
+        {
+            "mot": "abandon",
+            "poids": "5"
+        },
+        {
+            "mot": "l'air est pur",
+            "poids": "5"
+        },
+        {
+            "mot": "printemps",
+            "poids": "4"
+        },
+        {
+            "mot": "sans vie",
+            "poids": "4"
+        },
+        {
+            "mot": "ciel bleu",
+            "poids": "3"
+        },
+        {
+            "mot": "dimanche",
+            "poids": "3"
+        },
+        {
+            "mot": "expression",
+            "poids": "3"
+        },
+        {
+            "mot": "fin de semaine",
+            "poids": "3"
+        },
+        {
+            "mot": "froide",
+            "poids": "3"
+        },
+        {
+            "mot": "hiver",
+            "poids": "3"
+        },
+        {
+            "mot": "inquiétude",
+            "poids": "3"
+        },
+        {
+            "mot": "itinérance",
+            "poids": "3"
+        },
+        {
+            "mot": "matin",
+            "poids": "3"
+        },
+        {
+            "mot": "peur",
+            "poids": "3"
+        },
+        {
+            "mot": "seul",
+            "poids": "3"
+        },
+        {
+            "mot": "absence de vie",
+            "poids": "2"
+        },
+        {
+            "mot": "cadrage",
+            "poids": "2"
+        },
+        {
+            "mot": "composition",
+            "poids": "2"
+        },
+        {
+            "mot": "décor urbain",
+            "poids": "2"
+        },
+        {
+            "mot": "encadrement",
+            "poids": "2"
+        },
+        {
+            "mot": "étrange",
+            "poids": "2"
+        },
+        {
+            "mot": "la vie est belle",
+            "poids": "2"
+        },
+        {
+            "mot": "monde",
+            "poids": "2"
+        },
+        {
+            "mot": "morbide",
+            "poids": "2"
+        },
+        {
+            "mot": "non lieu",
+            "poids": "2"
+        },
+        {
+            "mot": "quotidienneté",
+            "poids": "2"
+        },
+        {
+            "mot": "rassemblement",
+            "poids": "2"
+        },
+        {
+            "mot": "rue désertique",
+            "poids": "2"
+        },
+        {
+            "mot": "son",
+            "poids": "2"
+        },
+        {
+            "mot": "urbain",
+            "poids": "2"
+        },
+        {
+            "mot": "ville",
+            "poids": "2"
+        },
+        {
+            "mot": "ville sans âme",
+            "poids": "2"
+        }
+    ]
+}

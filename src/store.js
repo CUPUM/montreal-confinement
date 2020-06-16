@@ -1,7 +1,8 @@
 import Vue from "vue";
 
 export const store = Vue.observable({
-	isNav: false
+	isNav: false,
+	lang: 'fr'
 });
 
 export const mutations = {
@@ -16,5 +17,11 @@ export const mutations = {
 	},
 	closeNav() {
 		store.isNav = false
+	},
+	langEn() {
+		if (store.lang != 'en') store.lang = 'en'
+	},
+	langFr() {
+		if (store.lang != 'fr') store.lang = 'fr'
 	}
 };

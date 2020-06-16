@@ -1,52 +1,52 @@
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
+import Accueil from '../views/Accueil.vue'
+import Apropos from '../views/Apropos.vue'
 
 const routes = [
 	{
 		path: '/',
-		name: 'Home',
-		component: Home,
+		name: 'Accueil',
+		component: Accueil,
 		title: 'Accueil',
 		isChapter: false,
 		id: "01"
 	},
 	{
-		path: '/about',
-		name: 'About',
-		component: About,
+		path: '/apropos',
+		name: 'Apropos',
+		component: Apropos,
 		title: 'À propos',
 		isChapter: false,
 		id: "02"
 	},
 	{
-		path: '/timeline',
-		name: 'Timeline',
-		component: () => import(/* webpackChunkName: "timline" */ '../views/Timeline.vue'), // Pour lazy-loading
-		title: 'Ligne du temps',
+		path: '/initiatives',
+		name: 'Initiatives',
+		component: () => import(/* webpackChunkName: "timline" */ '../views/Initiatives.vue'), // Pour lazy-loading
+		title: 'Carte temporelle des initiatives',
 		isChapter: true,
 		id: "03"
 	},
 	{
-		path: '/wordcloud',
-		name: 'Wordcloud',
-		component: () => import(/* webpackChunkName: "wordcloud" */ '../views/Wordcloud.vue'),
-		title: 'Nuage de mots',
+		path: '/humain',
+		name: 'Humain',
+		component: () => import(/* webpackChunkName: "photography" */ '../views/Humain.vue'),
+		title: "L'humain & la ville en COVID-19",
 		isChapter: true,
 		id: "04"
 	},
 	{
-		path: '/photography',
-		name: 'Photography',
-		component: () => import(/* webpackChunkName: "photography" */ '../views/Photography.vue'),
-		title: 'Analyse de photographies',
+		path: '/rubrique-attributs',
+		name: 'RubriqueAttributs',
+		component: () => import(/* webpackChunkName: "photography" */ '../views/RubriqueAttributs.vue'),
+		title: 'Attributs urbains dans la presse écrite',
 		isChapter: true,
 		id: "05"
 	},
 	{
-		path: '/caracterisation',
-		name: 'rubcarac',
-		component: () => import(/* webpackChunkName: "photography" */ '../views/RubCarac.vue'),
-		title: 'Caractérisation des attributs',
+		path: '/analyse-photo',
+		name: 'AnalysePhoto',
+		component: () => import(/* webpackChunkName: "wordcloud" */ '../views/AnalysePhoto.vue'),
+		title: 'Analyse de photographies',
 		isChapter: true,
 		id: "06"
 	}

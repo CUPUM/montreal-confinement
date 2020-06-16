@@ -10,6 +10,14 @@
 //import { store, mutations } from '@/store.js'
 
 export default {
+	data() {
+		return {
+			message: {
+				en: 'This here is an english message teehee',
+				fr: 'Ce message est français'
+			}
+		}
+	},
 	computed: {
 	},
 	methods: {		
@@ -20,8 +28,8 @@ export default {
 </script>
 
 <style scoped>
-#lang-switch {
-	font-size: 12px;
+/* #lang-switch {
+	font-size: 16px;
 	position: fixed;
 	display: inline-block;
 	width: auto;
@@ -31,6 +39,20 @@ export default {
 	right: 50px;
 	top: 50%;
 	margin-top: -50px;
+} */
+#lang-switch {
+	margin: 0px;
+	padding: 0px;
+	position: fixed;
+	display: block;
+	width: auto;
+	height: auto;
+	font-size: 16px;
+	line-height: 2em;
+	right: 24px;
+	top: 50%;
+	transform-origin: center;
+	transform: translateY(-50%) rotate(90deg) translateY(-50%);
 }
 input {
 	display: none;
@@ -44,9 +66,9 @@ input:checked+label {
 }
 #separator {
 	display: inline-block;
-	margin: 16px 0px;
-	height: 1px;
-	width: .9em;
+	margin: 0px 12px;
+	width: 1px;
+	height: .9em;
 	background: rgba(0,0,0,.5);
 }
 </style>

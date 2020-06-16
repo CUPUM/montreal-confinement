@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h2>Nuage de mots</h2>
+		<h2>L'humain dans la ville en temps de crise de COVID-19</h2>
 	</div>
 </template>
 
@@ -8,7 +8,7 @@
 // @ is an alias to /src
 
 export default {
-	name: 'Wordcloud',
+	name: 'Humain',
 	components: {
 
 	}

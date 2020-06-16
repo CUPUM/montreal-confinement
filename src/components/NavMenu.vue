@@ -25,7 +25,7 @@ import { store, mutations } from '@/store.js'
 export default {
 	data() {
 		return {
-			staggerDelay: .07
+			staggerDelay: .05
 		}
 	},
 	computed: {
@@ -72,23 +72,24 @@ export default {
 }
 
 #backdrop {
-	opacity: .75;
+	opacity: .8;
 	box-sizing: content-box;
 	position: absolute;
-	background: linear-gradient(45deg, rgba(222,120,51,1) 0%, rgba(247,89,68,1) 50%, rgba(242,83,44,1) 100%);
-	width: 0px;
-	height: 0px;
-	padding: 0px 0px;
+	background-image: url('~@/assets/noise-texture-lighter.png');
+	background-color: rgb(58, 216, 97);
+	background-repeat: repeat;
+	background-position: center;
+	width: 1px;
+	height: 1px;
+	padding: 0vw 0vh;
 	top: 0px;
 	right: 0px;
-	border-radius: 65%;
+	border-radius: 55%;
 	transform: translate(0px,0px) translate(0px,0px) rotate(45deg);
 	transition: all .5s ease-in-out;
 }
 #backdrop.show {
 	opacity: 1;
-	box-sizing: content-box;
-	position: absolute;
 	/* width: calc(200vh + 200vw);
 	height: calc(200vh + 200vw); */
 	width: 200vw;
@@ -102,6 +103,8 @@ export default {
 }
 
 nav {
+	box-sizing: border-box;
+	font-weight: 500;
 	position: relative;
 	top: 0px;
 	left: 0px;
@@ -111,23 +114,25 @@ nav {
 	text-align: center;
 	line-height: 100vh;
 	vertical-align: middle;
+	padding: 0px 90px;
 }
 nav ul {
-	padding: 24px;
+	padding: 0px;
 	vertical-align: middle;
 	display: inline-block;
-	max-width: 850px;
-	min-width: 350px;
+	max-width: 750px;
+	min-width: 250px;
 	text-align: left;
-	line-height: 1.25em;
-	font-family: sans-serif;
-	font-weight: thin;
-	font-size: 48px;
+	line-height: 1.15em;
+	font-family: 'Spectral', serif;
+	font-weight: 800;
+	font-size: 32px;
 	background-color: rgba(0,0,0,0);
 }
 
 /* Outer list-item element */
 nav li {
+	margin: 6px 0px;
 	position: relative;
 	overflow: hidden;
 	cursor: pointer;
@@ -135,9 +140,9 @@ nav li {
 	display: block;
 	float: left;
 	clear: left;
-	background-color: rgba(0,0,0,0);
+	background-color: transparent;
 	text-indent: 0px;
-	border-radius: 0 150% 150% 150%;
+	border-radius: 0% 100% 0% 0%;
 	transition: all .5s;
 }
 nav li.show {
@@ -149,36 +154,38 @@ nav li.vue-active-link {
 
 /* Inner text wrapper */
 nav li .inner-wrapper {
+	opacity: 0;
 	display: block;
-	transition: all .5s ease;
-	transform: translate(200px,-200px);
+	transition: all .4s cubic-bezier(0.8, 0, 0.2, 1);
+	transform: translate(100px,-100px);
 }
 nav li.show .inner-wrapper {
+	opacity: 1;
 	transform: translate(0px,0px);
 }
 
 /* Inner text span */
 nav li span {
-	margin: 2px 8px;
+	margin: 2px 6px;
 	display: block;
-	color: rgb(241, 248, 237);
-	transition: all .25s ease;
+	color: rgb(248, 248, 248);
+	transition: all .25s cubic-bezier(.5,0,.5,1);
 }
 
 nav li:not(.vue-active-link):hover span {
-	color: rgb(247, 89, 68);
+	color: rgb(58, 216, 97);
 }
 nav li.vue-active-link span {
-	opacity: .5;
+	opacity: .35;
 }
 
 
 .highlighter {
 	opacity: 0;
 	bottom: 0px;
-	border-radius: 2px;
+	border-radius: 1px;
 	position: absolute;
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(248, 248, 248);
 	width: 0%;
 	height: 100%;
 	transition: all .15s ease-in-out;

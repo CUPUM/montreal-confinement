@@ -1,0 +1,1332 @@
+﻿{
+    "caracterisation-visuelle": [
+        {
+            "mot": "échelle humaine",
+            "poids": "61"
+        },
+        {
+            "mot": "clarté",
+            "poids": "58"
+        },
+        {
+            "mot": "contraste lumineux faible",
+            "poids": "38"
+        },
+        {
+            "mot": "ouverture à distance moyenne",
+            "poids": "30"
+        },
+        {
+            "mot": "fermeture basse",
+            "poids": "29"
+        },
+        {
+            "mot": "couleur blême",
+            "poids": "28"
+        },
+        {
+            "mot": "point de fuite en étranglement",
+            "poids": "28"
+        },
+        {
+            "mot": "fermeture rapprochée",
+            "poids": "26"
+        },
+        {
+            "mot": "couleur vive",
+            "poids": "24"
+        },
+        {
+            "mot": "étranglement",
+            "poids": "24"
+        },
+        {
+            "mot": "lumière artificielle",
+            "poids": "24"
+        },
+        {
+            "mot": "lumière diffuse",
+            "poids": "21"
+        },
+        {
+            "mot": "néon",
+            "poids": "21"
+        },
+        {
+            "mot": "ligne directrice oblique",
+            "poids": "20"
+        },
+        {
+            "mot": "texture douce",
+            "poids": "20"
+        },
+        {
+            "mot": "contraste lumineux",
+            "poids": "18"
+        },
+        {
+            "mot": "ouverture basse",
+            "poids": "18"
+        },
+        {
+            "mot": "encadrement",
+            "poids": "16"
+        },
+        {
+            "mot": "dominante",
+            "poids": "15"
+        },
+        {
+            "mot": "échelle large",
+            "poids": "15"
+        },
+        {
+            "mot": "plan unique",
+            "poids": "15"
+        },
+        {
+            "mot": "superposition des plans",
+            "poids": "15"
+        },
+        {
+            "mot": "obscurité",
+            "poids": "14"
+        },
+        {
+            "mot": "perspective planaire",
+            "poids": "12"
+        },
+        {
+            "mot": "encadrement physique",
+            "poids": "12"
+        },
+        {
+            "mot": "fermeture à distance moyenne",
+            "poids": "12"
+        },
+        {
+            "mot": "lumière naturelle diffuse",
+            "poids": "11"
+        },
+        {
+            "mot": "ouverture reculée",
+            "poids": "11"
+        },
+        {
+            "mot": "lumière naturelle",
+            "poids": "10"
+        },
+        {
+            "mot": "photo",
+            "poids": "10"
+        }
+    ],
+    "ambiance": [
+        {
+            "mot": "sans vie",
+            "poids": "39"
+        },
+        {
+            "mot": "figée",
+            "poids": "33"
+        },
+        {
+            "mot": "monotone",
+            "poids": "32"
+        },
+        {
+            "mot": "vide",
+            "poids": "25"
+        },
+        {
+            "mot": "calme",
+            "poids": "20"
+        },
+        {
+            "mot": "ennuyeuse",
+            "poids": "12"
+        },
+        {
+            "mot": "lourde",
+            "poids": "11"
+        },
+        {
+            "mot": "fade",
+            "poids": "10"
+        },
+        {
+            "mot": "figé",
+            "poids": "8"
+        },
+        {
+            "mot": "désertique",
+            "poids": "7"
+        },
+        {
+            "mot": "sombre",
+            "poids": "7"
+        },
+        {
+            "mot": "morose",
+            "poids": "6"
+        },
+        {
+            "mot": "silencieux",
+            "poids": "6"
+        },
+        {
+            "mot": "étrange",
+            "poids": "5"
+        },
+        {
+            "mot": "lugubre",
+            "poids": "5"
+        },
+        {
+            "mot": "froide",
+            "poids": "4"
+        },
+        {
+            "mot": "silencieuse",
+            "poids": "4"
+        },
+        {
+            "mot": "sinistre",
+            "poids": "3"
+        },
+        {
+            "mot": "anormale",
+            "poids": "2"
+        },
+        {
+            "mot": "ennuyeux",
+            "poids": "2"
+        }
+    ],
+    "elements-physiques": [
+        {
+            "mot": "façades",
+            "poids": "40"
+        },
+        {
+            "mot": "rue",
+            "poids": "38"
+        },
+        {
+            "mot": "lampadaires",
+            "poids": "22"
+        },
+        {
+            "mot": "trottoir étroit",
+            "poids": "18"
+        },
+        {
+            "mot": "arbres décharnés",
+            "poids": "18"
+        },
+        {
+            "mot": "troisième plan",
+            "poids": "17"
+        },
+        {
+            "mot": "métro",
+            "poids": "16"
+        },
+        {
+            "mot": "façades hétérogènes",
+            "poids": "13"
+        },
+        {
+            "mot": "signalisation",
+            "poids": "13"
+        },
+        {
+            "mot": "rue vide",
+            "poids": "12"
+        },
+        {
+            "mot": "sans vie",
+            "poids": "12"
+        },
+        {
+            "mot": "trottoir",
+            "poids": "12"
+        },
+        {
+            "mot": "automobiles stationnées",
+            "poids": "12"
+        },
+        {
+            "mot": "fenêtres",
+            "poids": "11"
+        },
+        {
+            "mot": "édifice",
+            "poids": "9"
+        },
+        {
+            "mot": "public",
+            "poids": "9"
+        },
+        {
+            "mot": "quai d'embarquement",
+            "poids": "9"
+        },
+        {
+            "mot": "feu de circulation",
+            "poids": "9"
+        },
+        {
+            "mot": "arrière-plan",
+            "poids": "8"
+        },
+        {
+            "mot": "intersection",
+            "poids": "8"
+        },
+        {
+            "mot": "stationnement",
+            "poids": "8"
+        },
+        {
+            "mot": "premier plan",
+            "poids": "7"
+        },
+        {
+            "mot": "wagon de métro",
+            "poids": "7"
+        },
+        {
+            "mot": "briques",
+            "poids": "6"
+        },
+        {
+            "mot": "centre",
+            "poids": "6"
+        },
+        {
+            "mot": "ciel",
+            "poids": "6"
+        },
+        {
+            "mot": "escalier",
+            "poids": "6"
+        },
+        {
+            "mot": "mur",
+            "poids": "6"
+        },
+        {
+            "mot": "arche",
+            "poids": "5"
+        },
+        {
+            "mot": "autos",
+            "poids": "5"
+        },
+        {
+            "mot": "borne",
+            "poids": "5"
+        },
+        {
+            "mot": "différentes époques",
+            "poids": "5"
+        },
+        {
+            "mot": "intérieur",
+            "poids": "5"
+        },
+        {
+            "mot": "magasins",
+            "poids": "5"
+        },
+        {
+            "mot": "métro en mouvement",
+            "poids": "5"
+        },
+        {
+            "mot": "neige",
+            "poids": "5"
+        },
+        {
+            "mot": "façade résidentielle",
+            "poids": "5"
+        },
+        {
+            "mot": "rues",
+            "poids": "5"
+        },
+        {
+            "mot": "sans animation",
+            "poids": "5"
+        },
+        {
+            "mot": "série",
+            "poids": "5"
+        },
+        {
+            "mot": "trottoir vide",
+            "poids": "5"
+        },
+        {
+            "mot": "végétation",
+            "poids": "5"
+        },
+        {
+            "mot": "animation",
+            "poids": "4"
+        },
+        {
+            "mot": "bleu",
+            "poids": "4"
+        },
+        {
+            "mot": "brique",
+            "poids": "4"
+        },
+        {
+            "mot": "claire",
+            "poids": "4"
+        },
+        {
+            "mot": "déchets",
+            "poids": "4"
+        },
+        {
+            "mot": "deux",
+            "poids": "4"
+        },
+        {
+            "mot": "deuxième plan",
+            "poids": "4"
+        },
+        {
+            "mot": "édifices",
+            "poids": "4"
+        },
+        {
+            "mot": "époques",
+            "poids": "4"
+        },
+        {
+            "mot": "extérieur",
+            "poids": "4"
+        },
+        {
+            "mot": "immobiles",
+            "poids": "4"
+        },
+        {
+            "mot": "journée",
+            "poids": "4"
+        },
+        {
+            "mot": "parc",
+            "poids": "4"
+        },
+        {
+            "mot": "place déserte",
+            "poids": "4"
+        },
+        {
+            "mot": "pluvieuse",
+            "poids": "4"
+        },
+        {
+            "mot": "portes",
+            "poids": "4"
+        },
+        {
+            "mot": "rideau",
+            "poids": "4"
+        },
+        {
+            "mot": "sans action",
+            "poids": "4"
+        },
+        {
+            "mot": "graffiti",
+            "poids": "4"
+        },
+        {
+            "mot": "abîmée",
+            "poids": "3"
+        },
+        {
+            "mot": "auto stationnée",
+            "poids": "3"
+        },
+        {
+            "mot": "banc",
+            "poids": "3"
+        },
+        {
+            "mot": "bancs",
+            "poids": "3"
+        },
+        {
+            "mot": "béton",
+            "poids": "3"
+        },
+        {
+            "mot": "commerçantes",
+            "poids": "3"
+        },
+        {
+            "mot": "danger",
+            "poids": "3"
+        },
+        {
+            "mot": "décharnée",
+            "poids": "3"
+        },
+        {
+            "mot": "désertique",
+            "poids": "3"
+        },
+        {
+            "mot": "espace",
+            "poids": "3"
+        },
+        {
+            "mot": "fontaine",
+            "poids": "3"
+        },
+        {
+            "mot": "habitation",
+            "poids": "3"
+        },
+        {
+            "mot": "hauteur",
+            "poids": "3"
+        },
+        {
+            "mot": "inanimées",
+            "poids": "3"
+        },
+        {
+            "mot": "loin",
+            "poids": "3"
+        },
+        {
+            "mot": "magasin",
+            "poids": "3"
+        },
+        {
+            "mot": "menant",
+            "poids": "3"
+        },
+        {
+            "mot": "murale",
+            "poids": "3"
+        },
+        {
+            "mot": "pavé",
+            "poids": "3"
+        },
+        {
+            "mot": "petit",
+            "poids": "3"
+        },
+        {
+            "mot": "pierre",
+            "poids": "3"
+        },
+        {
+            "mot": "plusieurs",
+            "poids": "3"
+        },
+        {
+            "mot": "publicité",
+            "poids": "3"
+        },
+        {
+            "mot": "publique",
+            "poids": "3"
+        },
+        {
+            "mot": "résidentiel",
+            "poids": "3"
+        },
+        {
+            "mot": "rues vides",
+            "poids": "3"
+        },
+        {
+            "mot": "sanitaire",
+            "poids": "3"
+        },
+        {
+            "mot": "station de métro vide",
+            "poids": "3"
+        },
+        {
+            "mot": "terre plein",
+            "poids": "3"
+        },
+        {
+            "mot": "totalement vide",
+            "poids": "3"
+        },
+        {
+            "mot": "trottoir large",
+            "poids": "3"
+        },
+        {
+            "mot": "trottoirs vides",
+            "poids": "3"
+        },
+        {
+            "mot": "vitrine",
+            "poids": "3"
+        },
+        {
+            "mot": "vitrines",
+            "poids": "3"
+        },
+        {
+            "mot": "activité faible",
+            "poids": "2"
+        },
+        {
+            "mot": "affiches",
+            "poids": "2"
+        },
+        {
+            "mot": "allée",
+            "poids": "2"
+        },
+        {
+            "mot": "aménagement",
+            "poids": "2"
+        },
+        {
+            "mot": "arbre nu",
+            "poids": "2"
+        },
+        {
+            "mot": "arbres",
+            "poids": "2"
+        },
+        {
+            "mot": "arbres décharnées",
+            "poids": "2"
+        },
+        {
+            "mot": "architecture",
+            "poids": "2"
+        },
+        {
+            "mot": "attente",
+            "poids": "2"
+        },
+        {
+            "mot": "auto en mouvement",
+            "poids": "2"
+        },
+        {
+            "mot": "automobiles",
+            "poids": "2"
+        },
+        {
+            "mot": "automobile stationnée",
+            "poids": "2"
+        },
+        {
+            "mot": "autres",
+            "poids": "2"
+        },
+        {
+            "mot": "banderole",
+            "poids": "2"
+        },
+        {
+            "mot": "bâtiment",
+            "poids": "2"
+        },
+        {
+            "mot": "bâtiments",
+            "poids": "2"
+        },
+        {
+            "mot": "bouche",
+            "poids": "2"
+        },
+        {
+            "mot": "boutique",
+            "poids": "2"
+        },
+        {
+            "mot": "clôture",
+            "poids": "2"
+        },
+        {
+            "mot": "coin",
+            "poids": "2"
+        },
+        {
+            "mot": "colonnade",
+            "poids": "2"
+        },
+        {
+            "mot": "commerçante",
+            "poids": "2"
+        },
+        {
+            "mot": "commerce",
+            "poids": "2"
+        },
+        {
+            "mot": "cône",
+            "poids": "2"
+        },
+        {
+            "mot": "couvert",
+            "poids": "2"
+        },
+        {
+            "mot": "cyclable",
+            "poids": "2"
+        },
+        {
+            "mot": "décharné",
+            "poids": "2"
+        },
+        {
+            "mot": "désert",
+            "poids": "2"
+        },
+        {
+            "mot": "désertes",
+            "poids": "2"
+        },
+        {
+            "mot": "dont",
+            "poids": "2"
+        },
+        {
+            "mot": "duplex",
+            "poids": "2"
+        },
+        {
+            "mot": "écrit",
+            "poids": "2"
+        },
+        {
+            "mot": "égout",
+            "poids": "2"
+        },
+        {
+            "mot": "embarcation",
+            "poids": "2"
+        },
+        {
+            "mot": "entrée",
+            "poids": "2"
+        },
+        {
+            "mot": "entrepôts",
+            "poids": "2"
+        },
+        {
+            "mot": "entretenu",
+            "poids": "2"
+        },
+        {
+            "mot": "escaliers",
+            "poids": "2"
+        },
+        {
+            "mot": "escalier vide",
+            "poids": "2"
+        },
+        {
+            "mot": "essentiel",
+            "poids": "2"
+        },
+        {
+            "mot": "file",
+            "poids": "2"
+        },
+        {
+            "mot": "fondante",
+            "poids": "2"
+        },
+        {
+            "mot": "fonte",
+            "poids": "2"
+        },
+        {
+            "mot": "grande",
+            "poids": "2"
+        },
+        {
+            "mot": "inanimée",
+            "poids": "2"
+        },
+        {
+            "mot": "indiquant",
+            "poids": "2"
+        },
+        {
+            "mot": "industriel",
+            "poids": "2"
+        },
+        {
+            "mot": "installations",
+            "poids": "2"
+        },
+        {
+            "mot": "intersection vide",
+            "poids": "2"
+        },
+        {
+            "mot": "jeux",
+            "poids": "2"
+        },
+        {
+            "mot": "magasin/entrepôt",
+            "poids": "2"
+        },
+        {
+            "mot": "marché",
+            "poids": "2"
+        },
+        {
+            "mot": "murs",
+            "poids": "2"
+        },
+        {
+            "mot": "néoclassique",
+            "poids": "2"
+        },
+        {
+            "mot": "noir",
+            "poids": "2"
+        },
+        {
+            "mot": "orange",
+            "poids": "2"
+        },
+        {
+            "mot": "passage",
+            "poids": "2"
+        },
+        {
+            "mot": "portique",
+            "poids": "2"
+        },
+        {
+            "mot": "poubelle",
+            "poids": "2"
+        },
+        {
+            "mot": "premier",
+            "poids": "2"
+        },
+        {
+            "mot": "propre",
+            "poids": "2"
+        },
+        {
+            "mot": "publicités",
+            "poids": "2"
+        },
+        {
+            "mot": "publics",
+            "poids": "2"
+        },
+        {
+            "mot": "quartier",
+            "poids": "2"
+        },
+        {
+            "mot": "résidentielles",
+            "poids": "2"
+        },
+        {
+            "mot": "rez de chaussé",
+            "poids": "2"
+        },
+        {
+            "mot": "rez de chaussée",
+            "poids": "2"
+        },
+        {
+            "mot": "roulant",
+            "poids": "2"
+        },
+        {
+            "mot": "sans aucune",
+            "poids": "2"
+        },
+        {
+            "mot": "sans circulation",
+            "poids": "2"
+        },
+        {
+            "mot": "second",
+            "poids": "2"
+        },
+        {
+            "mot": "secours",
+            "poids": "2"
+        },
+        {
+            "mot": "sentier",
+            "poids": "2"
+        },
+        {
+            "mot": "seulement",
+            "poids": "2"
+        },
+        {
+            "mot": "siège",
+            "poids": "2"
+        },
+        {
+            "mot": "sol",
+            "poids": "2"
+        },
+        {
+            "mot": "sombres",
+            "poids": "2"
+        },
+        {
+            "mot": "station de métro",
+            "poids": "2"
+        },
+        {
+            "mot": "surplombant",
+            "poids": "2"
+        },
+        {
+            "mot": "tour",
+            "poids": "2"
+        },
+        {
+            "mot": "variées",
+            "poids": "2"
+        },
+        {
+            "mot": "viaduc",
+            "poids": "2"
+        },
+        {
+            "mot": "vie",
+            "poids": "2"
+        },
+        {
+            "mot": "vitrine vide",
+            "poids": "2"
+        }
+    ],
+    "presence-humaine": [
+        {
+            "mot": "un.e",
+            "poids": "55"
+        },
+        {
+            "mot": "en marche",
+            "poids": "36"
+        },
+        {
+            "mot": "seul.e",
+            "poids": "35"
+        },
+        {
+            "mot": "absence",
+            "poids": "28"
+        },
+        {
+            "mot": "homme",
+            "poids": "24"
+        },
+        {
+            "mot": "femme",
+            "poids": "19"
+        },
+        {
+            "mot": "immobile",
+            "poids": "14"
+        },
+        {
+            "mot": "debout",
+            "poids": "12"
+        },
+        {
+            "mot": "deux",
+            "poids": "12"
+        },
+        {
+            "mot": "rue",
+            "poids": "11"
+        },
+        {
+            "mot": "premier plan",
+            "poids": "10"
+        },
+        {
+            "mot": "son",
+            "poids": "10"
+        },
+        {
+            "mot": "assis",
+            "poids": "9"
+        },
+        {
+            "mot": "troisième plan",
+            "poids": "9"
+        },
+        {
+            "mot": "trottoir",
+            "poids": "9"
+        },
+        {
+            "mot": "dos",
+            "poids": "8"
+        },
+        {
+            "mot": "personne",
+            "poids": "8"
+        },
+        {
+            "mot": "hommes",
+            "poids": "7"
+        },
+        {
+            "mot": "immobiles",
+            "poids": "7"
+        },
+        {
+            "mot": "en mouvement",
+            "poids": "7"
+        },
+        {
+            "mot": "attente",
+            "poids": "6"
+        },
+        {
+            "mot": "couple",
+            "poids": "6"
+        },
+        {
+            "mot": "deuxième plan",
+            "poids": "6"
+        },
+        {
+            "mot": "file",
+            "poids": "6"
+        },
+        {
+            "mot": "assise",
+            "poids": "5"
+        },
+        {
+            "mot": "cycliste",
+            "poids": "4"
+        },
+        {
+            "mot": "milieu",
+            "poids": "4"
+        },
+        {
+            "mot": "photo",
+            "poids": "4"
+        },
+        {
+            "mot": "trois",
+            "poids": "4"
+        },
+        {
+            "mot": "côté",
+            "poids": "4"
+        },
+        {
+            "mot": "banc",
+            "poids": "3"
+        },
+        {
+            "mot": "centre",
+            "poids": "3"
+        },
+        {
+            "mot": "entrer",
+            "poids": "3"
+        },
+        {
+            "mot": "magasin",
+            "poids": "3"
+        },
+        {
+            "mot": "nombreuses",
+            "poids": "3"
+        },
+        {
+            "mot": "parapluie",
+            "poids": "3"
+        },
+        {
+            "mot": "regardant",
+            "poids": "3"
+        },
+        {
+            "mot": "traversant",
+            "poids": "3"
+        },
+        {
+            "mot": "vélo",
+            "poids": "3"
+        },
+        {
+            "mot": "wagon de métro",
+            "poids": "3"
+        },
+        {
+            "mot": "agents",
+            "poids": "2"
+        },
+        {
+            "mot": "arrière plan",
+            "poids": "2"
+        },
+        {
+            "mot": "attendant",
+            "poids": "2"
+        },
+        {
+            "mot": "cellulaire",
+            "poids": "2"
+        },
+        {
+            "mot": "contemplant",
+            "poids": "2"
+        },
+        {
+            "mot": "distancées",
+            "poids": "2"
+        },
+        {
+            "mot": "distanciation",
+            "poids": "2"
+        },
+        {
+            "mot": "face",
+            "poids": "2"
+        },
+        {
+            "mot": "fenêtres",
+            "poids": "2"
+        },
+        {
+            "mot": "groupe",
+            "poids": "2"
+        },
+        {
+            "mot": "humains",
+            "poids": "2"
+        },
+        {
+            "mot": "itinérant",
+            "poids": "2"
+        },
+        {
+            "mot": "allée",
+            "poids": "2"
+        },
+        {
+            "mot": "lavant",
+            "poids": "2"
+        },
+        {
+            "mot": "escalier",
+            "poids": "2"
+        },
+        {
+            "mot": "marche",
+            "poids": "2"
+        },
+        {
+            "mot": "métro",
+            "poids": "2"
+        },
+        {
+            "mot": "ombre",
+            "poids": "2"
+        },
+        {
+            "mot": "respectant",
+            "poids": "2"
+        },
+        {
+            "mot": "roulant",
+            "poids": "2"
+        },
+        {
+            "mot": "section",
+            "poids": "2"
+        },
+        {
+            "mot": "sécurité",
+            "poids": "2"
+        },
+        {
+            "mot": "sens",
+            "poids": "2"
+        },
+        {
+            "mot": "seules",
+            "poids": "2"
+        },
+        {
+            "mot": "seuls",
+            "poids": "2"
+        },
+        {
+            "mot": "siège",
+            "poids": "2"
+        },
+        {
+            "mot": "sombre",
+            "poids": "2"
+        }
+    ],
+    "evocation-sentiment-sensation": [
+        {
+            "mot": "froid",
+            "poids": "74"
+        },
+        {
+            "mot": "solitude",
+            "poids": "56"
+        },
+        {
+            "mot": "ennui",
+            "poids": "41"
+        },
+        {
+            "mot": "vide",
+            "poids": "27"
+        },
+        {
+            "mot": "anormal",
+            "poids": "25"
+        },
+        {
+            "mot": "anormalité",
+            "poids": "17"
+        },
+        {
+            "mot": "inquiétude",
+            "poids": "17"
+        },
+        {
+            "mot": "calme",
+            "poids": "11"
+        },
+        {
+            "mot": "étrangeté",
+            "poids": "11"
+        },
+        {
+            "mot": "inconnu",
+            "poids": "11"
+        },
+        {
+            "mot": "peur",
+            "poids": "7"
+        },
+        {
+            "mot": "déprime",
+            "poids": "6"
+        },
+        {
+            "mot": "silence",
+            "poids": "6"
+        },
+        {
+            "mot": "tristesse",
+            "poids": "6"
+        },
+        {
+            "mot": "chaud",
+            "poids": "5"
+        },
+        {
+            "mot": "espoir",
+            "poids": "5"
+        },
+        {
+            "mot": "étranger",
+            "poids": "5"
+        },
+        {
+            "mot": "immobilité",
+            "poids": "5"
+        },
+        {
+            "mot": "agitation",
+            "poids": "4"
+        },
+        {
+            "mot": "arrêt",
+            "poids": "4"
+        },
+        {
+            "mot": "lassitude",
+            "poids": "4"
+        },
+        {
+            "mot": "lenteur",
+            "poids": "4"
+        },
+        {
+            "mot": "désintérêt",
+            "poids": "3"
+        },
+        {
+            "mot": "inactivité",
+            "poids": "3"
+        },
+        {
+            "mot": "inhabituel",
+            "poids": "3"
+        },
+        {
+            "mot": "nouvelle normalité",
+            "poids": "3"
+        },
+        {
+            "mot": "changement",
+            "poids": "2"
+        },
+        {
+            "mot": "désertique",
+            "poids": "2"
+        },
+        {
+            "mot": "énervement",
+            "poids": "2"
+        },
+        {
+            "mot": "lassant",
+            "poids": "2"
+        },
+        {
+            "mot": "nature",
+            "poids": "2"
+        },
+        {
+            "mot": "pause",
+            "poids": "2"
+        },
+        {
+            "mot": "sans caractère",
+            "poids": "2"
+        },
+        {
+            "mot": "situation",
+            "poids": "2"
+        }
+    ]
+}

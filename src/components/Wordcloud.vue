@@ -1,175 +1,106 @@
 <template>
-	<div id="wordcloud">
-		<svg id="chart">
-			<!-- <circle v-for="(node, i) in preparedData" :key="i" :r="node.radius" :cx="node.x" :cy="node.y">test</circle> -->
-		</svg>
+	<div :id="chartID" ref="container">
+		<h4>{{ title }}</h4>
 	</div>
 </template>
 
 <script>
 //import { store, mutations } from '@/store.js'
 import * as d3 from 'd3'
+import * as d3cloud from 'd3-cloud'
 
 export default {
 	props: {
+		chartID: String,
 		weightKey: String,
 		wordKey: String,
-		dataArray: Array
+		groupKey: String,
+		colorKey: String,
+		dataArray: Array,
+		title: String
 	},
 	data() {
 		return {
 			chart: null,
-			plots: null,
-			simulation: null,
-			svgWidth: 1000,	// rendre responsive, potentiellement avec props
-			svgHeight: 650,	// rendre responsive, potentiellement avec props
+			svgWidth: 0,
+			svgHeight: 0,
+			ratio: 1
 		}
 	},
 	computed: {
-		preparedData() {
-			const maxSize = d3.max(this.dataArray, d => d[this.weightKey]);
-			const minSize = d3.min(this.dataArray, d => d[this.weightKey]);
-
-			var reducedArray = this.dataArray;
-
-			if (minSize == 1 && maxSize != minSize) {
-				reducedArray = this.dataArray.filter( word => word[this.weightKey] > 1 )
-			}
-			
-			const radiusScale = d3.scaleSqrt()
-				.domain([0, maxSize])
-				.range([0, this.svgHeight/10])
-
-			const polishedData = reducedArray.map(d => ({
-				...d, radius: radiusScale(d[this.weightKey]),
-				x: Math.random() * this.svgWidth,
-				y: Math.random() * this.svgHeight,
-				factor: d[this.weightKey] / maxSize
-			}))
-
-			return polishedData;
-		}
 	},
 	methods: {
-		graph() {
-			const center = { x: this.svgWidth/2, y: this.svgHeight/2 };
-			const gravity = 0.03;
-			const fillColor = "#000000";
-			const textColor = "#ffffff"
-			const padding = 1;
-			const dataNodes = this.preparedData;
-
-			function makeResponsive(svg) {
-				// get container + svg aspect ratio
-				const container = d3.select(svg.node().parentNode);
-				var width = parseInt(svg.style("width"));
-				var height = parseInt(svg.style("height"));
-				var aspect = width / height;
-				// add viewBox and preserveAspectRatio properties,
-				// and call resize so that svg resizes on inital page load
-				svg.attr("viewBox", "0 0 " + width + " " + height)
-					.attr("perserveAspectRatio", "xMinYMid")
-					.call(resize);
-				// to register multiple listeners for same event type, 
-				// you need to add namespace, i.e., 'click.foo'
-				// necessary if you call invoke this function for multiple svgs
-				// api docs: https://github.com/mbostock/d3/wiki/Selections#on
-				d3.select(window).on("resize." + container.attr("id"), resize);
-				// get width of container and resize svg to fit it
-				function resize() {
-					var targetWidth = parseInt(container.style("width"));
-					svg.attr("width", targetWidth);
-					svg.attr("height", Math.round(targetWidth / aspect));
-				}
-			}
-
-			let svg = d3.select('#chart')
-				.attr('width', this.svgWidth)
-				.attr('height', this.svgHeight)
-				.call(makeResponsive)
-
-			this.simulation = d3.forceSimulation()	
-				.force('x', d3.forceX().strength(gravity))
-				.force('y', d3.forceY().strength(gravity))
-				.force('center', d3.forceCenter(center.x, center.y))
-				.force('charge', d3.forceManyBody().strength(5))
-				.force('collision', d3.forceCollide().radius(d => d.radius + padding));
-			
-			// var draggable = d3.drag()
-			// 	.on('start', function dragstarted(d) {
-			// 		if (!d3.event.active) this.simulation.alphaTarget(.03).restart();
-			// 		d.fx = d.x;
-			// 		d.fy = d.y;
-			// 	})
-			// 	.on('drag', function dragged(d) {
-			// 		d.fx = d3.event.x;
-			// 		d.fy = d3.event.y
-			// 	})
-			// 	.on('end', function dragended(d) {
-			// 		if (!d3.event.active) this.simulation.alphaTarget(.03);
-			// 		d.fx = null;
-			// 		d.fy = null
-			// 	});
-
-			this.plots = svg.selectAll('.plot')
-				.data(dataNodes/* , d => d[this.wordKey] */)
-				.enter()
-				.append('g')
-				.attr('class', 'plot')
-				.attr('cursor', 'pointer')
-				//.call(draggable);
-
-			let bubbles = this.plots.append('circle')
-				.attr('class', 'bubble')
-				.attr('r', d => d.radius)
-				.attr('fill', fillColor)
-				.attr('opacity', d => d.factor)
-
-			let labels = this.plots.append('text')
-				.attr('class', 'label')
-				.text(d => d[this.wordKey])
-				.style('text-anchor','middle')
-				.attr('dominant-baseline', 'central')
-				.attr('font-family', 'sans-serif')
-				.attr('font-size', d => d.radius * 0.25)
-				.attr('font-weight','normal')
-				.attr('fill', textColor)
-				.attr('width', d => d.radius * 1.5);
-
-			function ticked() {
-				bubbles.attr('cx', d => d.x).attr('cy', d => d.y);
-				labels.attr('x', d => d.x).attr('y', d => d.y)
-			}
-			this.simulation.nodes(dataNodes)
-				.on('tick', ticked)
-				.restart();
-
-			console.log("Le souper est sur la table. La fonction de visualisation a été exécutée!");
-			console.log(this.preparedData);
-
-			return svg.node();
+		setSize() {
+			this.svgWidth = document.querySelector('#'+this.chartID).clientWidth; //this.$refs.container.clientWidth;
+			this.svgHeight = document.querySelector('#'+this.chartID).clientHeight; //this.$refs.container.clientHeight;
 		}
 	},
 	mounted() {
-		//this.graph();
+		this.setSize();
+		const width = 1000;
+		const ratio = this.ratio;
+		const uniqueChart = '#'+this.chartID;
+		const maxWeight = this.dataArray[1][this.weightKey];
+		const factor = width*.1 / maxWeight
+
+		console.log(maxWeight)
+
+		let layout = d3cloud()
+			.size([width,width*ratio])
+			.words(this.dataArray.map( d => { return {text: d[this.wordKey], size: d[this.weightKey]*factor }})) // Remapping selon les props reçus du parent
+			.spiral(function(size) {
+				var e = size[0] / size[1];
+				return function(t) {
+					return [e * (t *= .1) * Math.cos(t), t * Math.sin(t)];
+				};
+			})
+			.random(function() {return .5})
+			.padding(5)
+			.rotate(0)
+			.font('"Poppins", sans-serif') //.font('"Nunito", sans-serif')
+			.fontWeight(600)
+			.fontSize(function(d) { return d.size; })
+			.on('end', draw);
+
+		layout.start();
+
+		function draw(words) {
+			this.chart = d3.select(uniqueChart).append('svg');
+
+			this.chart.attr('width', width)
+				//.attr('height', layout.size()[1])
+				.append('g')
+				.attr('transform', 'translate(' + width / 2 + ',' + width*ratio / 2 + ')')
+				.selectAll('text')
+				.data(words)
+				.enter().append('text')
+				.style('font-size', d => d.size + 'px')
+				.style('font-family', '"Poppins", sans-serif')
+				.style('font-weight', '600')
+				//.style('fill', d => 'hsl(285, 65%,'+ (maxWeight - d[weightKey])/maxWeight*80 +'%)') //Pourquoi ça ne fonctionne pas!?
+				.attr('text-anchor', 'middle')
+				.attr('transform', function(d) {
+					return 'translate(' + [d.x, d.y] + ')';
+				})
+				.text( d => d.text );
+
+			this.chart.attr("viewBox", "0 0 " + width + " " + width*ratio)
+				.attr("perserveAspectRatio", "xMidYMid")
+				.attr('width', '100%')
+		}
 	},
 	watch: {
-		dataArray() {
-			if (this.plots != null) { this.plots.remove() } // À corriger: laisse trainer les <g> vides
-			this.graph();
-		}
 	}
 }
 </script>
 
 <style scoped>
 #wordcloud {
-	background-color: transparent;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	background-color: white;
 	width: 100%;
-	height: 100%;
 	overflow: hidden;
-}
-#chart {
-	background-color: transparent;
 }
 </style>
