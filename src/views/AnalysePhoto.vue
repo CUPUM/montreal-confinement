@@ -10,25 +10,25 @@
 		<div class="center-col">
 			<h3>Caractérisation visuelle<br><small>(Analyse de la composition &amp; du sujet)</small></h3>
 		</div>
-		<div class="wordcloud-row">
-			<div class="wordcloud-wrapper">
-				<WordCloud
+		<div class="WordClouds-row">
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart1-1'"
 					:title="'1er titre'"
 					:dataArray="data1['caracterisation-visuelle']"
 					:wordKey="'mot'"
 					:weightKey="'poids'"/>
 			</div>
-			<div class="wordcloud-wrapper">
-				<WordCloud
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart1-2'"
 					:title="'2e titre'"
 					:dataArray="data2['caracterisation-visuelle']"
 					:wordKey="'mot'"
 					:weightKey="'poids'"/>
 			</div>			
-			<div class="wordcloud-wrapper">
-				<WordCloud
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart1-3'"
 					:title="'3e titre'"
 					:dataArray="data3['caracterisation-visuelle']"
@@ -42,25 +42,25 @@
 		<div class="center-col">
 			<h3>Contexte urbain &amp; éléments physiques</h3>
 		</div>
-		<div class="wordcloud-row">
-			<div class="wordcloud-wrapper">
-				<WordCloud
+		<div class="WordClouds-row">
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart2-1'"
 					:title="'1er titre'"
 					:dataArray="data1['elements-physiques']"
 					:wordKey="'mot'"
 					:weightKey="'poids'"/>
 			</div>
-			<div class="wordcloud-wrapper">
-				<WordCloud
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart2-2'"
 					:title="'2e titre'"
 					:dataArray="data2['elements-physiques']"
 					:wordKey="'mot'"
 					:weightKey="'poids'"/>
 			</div>			
-			<div class="wordcloud-wrapper">
-				<WordCloud
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart2-3'"
 					:title="'3e titre'"
 					:dataArray="data3['elements-physiques']"
@@ -74,25 +74,25 @@
 		<div class="center-col">
 			<h3>Présence humaine dans la composition</h3>
 		</div>
-		<div class="wordcloud-row">
-			<div class="wordcloud-wrapper">
-				<WordCloud
+		<div class="WordClouds-row">
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart3-1'"
 					:title="'1er titre'"
 					:dataArray="data1['presence-humaine']"
 					:wordKey="'mot'"
 					:weightKey="'poids'"/>
 			</div>
-			<div class="wordcloud-wrapper">
-				<WordCloud
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart3-2'"
 					:title="'2e titre'"
 					:dataArray="data2['presence-humaine']"
 					:wordKey="'mot'"
 					:weightKey="'poids'"/>
 			</div>			
-			<div class="wordcloud-wrapper">
-				<WordCloud
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart3-3'"
 					:title="'3e titre'"
 					:dataArray="data3['presence-humaine']"
@@ -106,25 +106,25 @@
 		<div class="center-col">
 			<h3>Ambiance</h3>
 		</div>
-		<div class="wordcloud-row">
-			<div class="wordcloud-wrapper">
-				<WordCloud
+		<div class="WordClouds-row">
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart4-1'"
 					:title="'1er titre'"
 					:dataArray="data1['ambiance']"
 					:wordKey="'mot'"
 					:weightKey="'poids'"/>
 			</div>
-			<div class="wordcloud-wrapper">
-				<WordCloud
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart4-2'"
 					:title="'2e titre'"
 					:dataArray="data2['ambiance']"
 					:wordKey="'mot'"
 					:weightKey="'poids'"/>
 			</div>			
-			<div class="wordcloud-wrapper">
-				<WordCloud
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart4-3'"
 					:title="'3e titre'"
 					:dataArray="data3['ambiance']"
@@ -138,25 +138,25 @@
 		<div class="center-col">
 			<h3>Évocation/sentiment/sensation</h3>
 		</div>
-		<div class="wordcloud-row">
-			<div class="wordcloud-wrapper">
-				<WordCloud
+		<div class="WordClouds-row">
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart5-1'"
 					:title="'1er titre'"
 					:dataArray="data1['evocation-sentiment-sensation']"
 					:wordKey="'mot'"
 					:weightKey="'poids'"/>
 			</div>
-			<div class="wordcloud-wrapper">
-				<WordCloud
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart5-2'"
 					:title="'2e titre'"
 					:dataArray="data2['evocation-sentiment-sensation']"
 					:wordKey="'mot'"
 					:weightKey="'poids'"/>
 			</div>			
-			<div class="wordcloud-wrapper">
-				<WordCloud
+			<div class="WordClouds-wrapper">
+				<WordClouds
 					:chartID="'chart5-3'"
 					:title="'3e titre'"
 					:dataArray="data3['evocation-sentiment-sensation']"
@@ -171,7 +171,7 @@
 
 <script>
 // @ is an alias to /src
-import WordCloud from '@/components/WordCloud'
+import WordClouds from '@/components/WordClouds'
 import data1 from '@/assets/data/photo-P-reduced2.json'
 import data2 from '@/assets/data/photo-E-reduced2.json'
 import data3 from '@/assets/data/photo-C-reduced2.json'
@@ -179,7 +179,7 @@ import data3 from '@/assets/data/photo-C-reduced2.json'
 export default {
 	name: 'AnalysePhoto',
 	components: {
-		WordCloud
+		WordClouds
 	},
 	computed: {
 		themes() {
@@ -206,14 +206,14 @@ export default {
 	height: 100%;
 	overflow-y: auto;
 }
-.wordcloud-row {
+.WordClouds-row {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 80px;
 	width: 100%;
 	text-align: center;
 }
-.wordcloud-wrapper {
+.WordClouds-wrapper {
 	box-sizing: border-box;
 	display: inline-block;
 	padding: 20px;
