@@ -7,15 +7,17 @@ const routes = [
 		name: 'Accueil',
 		component: Accueil,
 		title: 'Accueil',
-		isChapter: false,
+		isChapter: true,
+		chapter: 1,
 		id: "01"
 	},
 	{
-		path: '/apropos',
+		path: '/a-propos',
 		name: 'Apropos',
 		component: Apropos,
 		title: 'À propos',
-		isChapter: false,
+		isChapter: true,
+		chapter: 2,
 		id: "02"
 	},
 	{

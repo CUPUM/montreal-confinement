@@ -41,6 +41,7 @@ export default {
 	margin-top: -50px;
 } */
 #lang-switch {
+	z-index: 9999;
 	margin: 0px;
 	padding: 0px;
 	position: fixed;
@@ -49,7 +50,7 @@ export default {
 	height: auto;
 	font-size: 16px;
 	line-height: 2em;
-	right: 24px;
+	right: 30px;
 	top: 50%;
 	transform-origin: center;
 	transform: translateY(-50%) rotate(90deg) translateY(-50%);

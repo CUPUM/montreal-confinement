@@ -19,6 +19,7 @@ export default {
 
 <style scoped>
 #chair-link {
+	z-index: 9999;
 	margin: 0px;
 	padding: 0px;
 	position: fixed;
@@ -27,7 +28,7 @@ export default {
 	height: auto;
 	font-size: 16px;
 	line-height: 2em;
-	left: 24px;
+	left: 32px;
 	top: 50%;
 	transform-origin: center;
 	transform: translateY(-50%) rotate(-90deg) translateY(-50%);

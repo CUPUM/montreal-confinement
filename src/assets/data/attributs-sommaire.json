@@ -1,0 +1,857 @@
+﻿{
+    "sommaire": [
+        {
+            "attributs": "Rue",
+            "occurrences": "367"
+        },
+        {
+            "attributs": "Parc ",
+            "occurrences": "211"
+        },
+        {
+            "attributs": "Commerce",
+            "occurrences": "126"
+        },
+        {
+            "attributs": "Ville ",
+            "occurrences": "114"
+        },
+        {
+            "attributs": "Automobile",
+            "occurrences": "103"
+        },
+        {
+            "attributs": "Stationnement",
+            "occurrences": "80"
+        },
+        {
+            "attributs": "Habitat",
+            "occurrences": "62"
+        },
+        {
+            "attributs": "Marché public ",
+            "occurrences": "59"
+        },
+        {
+            "attributs": "Espace public",
+            "occurrences": "54"
+        },
+        {
+            "attributs": "Corridor sanitaire ",
+            "occurrences": "53"
+        },
+        {
+            "attributs": "Trottoir ",
+            "occurrences": "49"
+        },
+        {
+            "attributs": "Métro",
+            "occurrences": "47"
+        },
+        {
+            "attributs": "Autobus",
+            "occurrences": "45"
+        },
+        {
+            "attributs": "Transport en commun ",
+            "occurrences": "42"
+        },
+        {
+            "attributs": "Piste cyclable ",
+            "occurrences": "35"
+        },
+        {
+            "attributs": "Terrasse",
+            "occurrences": "35"
+        },
+        {
+            "attributs": "Jardin communautaire",
+            "occurrences": "34"
+        },
+        {
+            "attributs": "Fleuve",
+            "occurrences": "34"
+        },
+        {
+            "attributs": "Densité ",
+            "occurrences": "28"
+        },
+        {
+            "attributs": "Station de Bixi",
+            "occurrences": "27"
+        },
+        {
+            "attributs": "Nature",
+            "occurrences": "22"
+        },
+        {
+            "attributs": "Cour arrière",
+            "occurrences": "21"
+        },
+        {
+            "attributs": "Humain",
+            "occurrences": "21"
+        },
+        {
+            "attributs": "Rue commerciale",
+            "occurrences": "21"
+        },
+        {
+            "attributs": "Ruelle",
+            "occurrences": "19"
+        },
+        {
+            "attributs": "Centre-ville",
+            "occurrences": "18"
+        },
+        {
+            "attributs": "Piscine ",
+            "occurrences": "10"
+        },
+        {
+            "attributs": "Place publique ",
+            "occurrences": "9"
+        },
+        {
+            "attributs": "Module de jeux",
+            "occurrences": "8"
+        },
+        {
+            "attributs": "Arbre",
+            "occurrences": "5"
+        },
+        {
+            "attributs": "Animaux",
+            "occurrences": "4"
+        },
+        {
+            "attributs": "Terrain de sports ",
+            "occurrences": "4"
+        },
+        {
+            "attributs": "Parc à chien",
+            "occurrences": "3"
+        },
+        {
+            "attributs": "Intersection",
+            "occurrences": "2"
+        }
+    ],
+    "articles": [
+        {
+            "Date ": "3/13/20",
+            "Semaine": "1",
+            "Parc": "1",
+            "Rue": "0",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/14/20",
+            "Semaine": "1",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/15/20",
+            "Semaine": "1",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/16/20",
+            "Semaine": "1",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/17/20",
+            "Semaine": "1",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "1",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/18/20",
+            "Semaine": "1",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/19/20",
+            "Semaine": "1",
+            "Parc": "1",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/20/20",
+            "Semaine": "2",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/21/20",
+            "Semaine": "2",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/22/20",
+            "Semaine": "2",
+            "Parc": "1",
+            "Rue": "0",
+            "Ville": "2",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/23/20",
+            "Semaine": "2",
+            "Parc": "1",
+            "Rue": "2",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "1",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/24/20",
+            "Semaine": "2",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/25/20",
+            "Semaine": "2",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/26/20",
+            "Semaine": "2",
+            "Parc": "1",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/27/20",
+            "Semaine": "3",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/28/20",
+            "Semaine": "3",
+            "Parc": "1",
+            "Rue": "0",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/29/20",
+            "Semaine": "3",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "1",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/30/20",
+            "Semaine": "3",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "1",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "3/31/20",
+            "Semaine": "3",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/1/20",
+            "Semaine": "3",
+            "Parc": "1",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "1",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/2/20",
+            "Semaine": "3",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/3/20",
+            "Semaine": "4",
+            "Parc": "1",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "1",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/4/20",
+            "Semaine": "4",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/5/20",
+            "Semaine": "4",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/6/20",
+            "Semaine": "4",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/7/20",
+            "Semaine": "4",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/8/20",
+            "Semaine": "4",
+            "Parc": "2",
+            "Rue": "3",
+            "Ville": "3",
+            "Automobile": "0",
+            "Piéton": "1",
+            "Commerce": "1",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/9/20",
+            "Semaine": "4",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "2",
+            "Automobile": "0",
+            "Piéton": "1",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/10/20",
+            "Semaine": "5",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/11/20",
+            "Semaine": "5",
+            "Parc": "1",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "1",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/12/20",
+            "Semaine": "5",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/13/20",
+            "Semaine": "5",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "2",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/14/20",
+            "Semaine": "5",
+            "Parc": "3",
+            "Rue": "3",
+            "Ville": "4",
+            "Automobile": "1",
+            "Piéton": "2",
+            "Commerce": "3",
+            "Corridor sanitaire": "2"
+        },
+        {
+            "Date ": "4/15/20",
+            "Semaine": "5",
+            "Parc": "3",
+            "Rue": "3",
+            "Ville": "4",
+            "Automobile": "1",
+            "Piéton": "0",
+            "Commerce": "2",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/16/20",
+            "Semaine": "5",
+            "Parc": "1",
+            "Rue": "1",
+            "Ville": "2",
+            "Automobile": "0",
+            "Piéton": "1",
+            "Commerce": "1",
+            "Corridor sanitaire": "1"
+        },
+        {
+            "Date ": "4/17/20",
+            "Semaine": "6",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "1",
+            "Commerce": "1",
+            "Corridor sanitaire": "1"
+        },
+        {
+            "Date ": "4/18/20",
+            "Semaine": "6",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "1",
+            "Piéton": "1",
+            "Commerce": "0",
+            "Corridor sanitaire": "1"
+        },
+        {
+            "Date ": "4/19/20",
+            "Semaine": "6",
+            "Parc": "1",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/20/20",
+            "Semaine": "6",
+            "Parc": "0",
+            "Rue": "2",
+            "Ville": "3",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/21/20",
+            "Semaine": "6",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "1",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/22/20",
+            "Semaine": "6",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/23/20",
+            "Semaine": "6",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/24/20",
+            "Semaine": "7",
+            "Parc": "0",
+            "Rue": "2",
+            "Ville": "2",
+            "Automobile": "0",
+            "Piéton": "1",
+            "Commerce": "1",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/25/20",
+            "Semaine": "7",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "0",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/26/20",
+            "Semaine": "7",
+            "Parc": "2",
+            "Rue": "1",
+            "Ville": "2",
+            "Automobile": "1",
+            "Piéton": "2",
+            "Commerce": "0",
+            "Corridor sanitaire": "1"
+        },
+        {
+            "Date ": "4/27/20",
+            "Semaine": "7",
+            "Parc": "1",
+            "Rue": "0",
+            "Ville": "2",
+            "Automobile": "0",
+            "Piéton": "1",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "4/28/20",
+            "Semaine": "7",
+            "Parc": "1",
+            "Rue": "2",
+            "Ville": "2",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "1",
+            "Corridor sanitaire": "1"
+        },
+        {
+            "Date ": "4/29/20",
+            "Semaine": "7",
+            "Parc": "4",
+            "Rue": "6",
+            "Ville": "5",
+            "Automobile": "2",
+            "Piéton": "3",
+            "Commerce": "4",
+            "Corridor sanitaire": "1"
+        },
+        {
+            "Date ": "4/30/20",
+            "Semaine": "7",
+            "Parc": "3",
+            "Rue": "2",
+            "Ville": "4",
+            "Automobile": "0",
+            "Piéton": "1",
+            "Commerce": "1",
+            "Corridor sanitaire": "2"
+        },
+        {
+            "Date ": "5/1/20",
+            "Semaine": "8",
+            "Parc": "0",
+            "Rue": "2",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "1"
+        },
+        {
+            "Date ": "5/2/20",
+            "Semaine": "8",
+            "Parc": "4",
+            "Rue": "2",
+            "Ville": "4",
+            "Automobile": "1",
+            "Piéton": "2",
+            "Commerce": "2",
+            "Corridor sanitaire": "1"
+        },
+        {
+            "Date ": "5/3/20",
+            "Semaine": "8",
+            "Parc": "0",
+            "Rue": "1",
+            "Ville": "1",
+            "Automobile": "1",
+            "Piéton": "1",
+            "Commerce": "1",
+            "Corridor sanitaire": "1"
+        },
+        {
+            "Date ": "5/4/20",
+            "Semaine": "8",
+            "Parc": "4",
+            "Rue": "3",
+            "Ville": "5",
+            "Automobile": "2",
+            "Piéton": "3",
+            "Commerce": "4",
+            "Corridor sanitaire": "2"
+        },
+        {
+            "Date ": "5/5/20",
+            "Semaine": "8",
+            "Parc": "2",
+            "Rue": "2",
+            "Ville": "2",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "5/6/20",
+            "Semaine": "8",
+            "Parc": "1",
+            "Rue": "4",
+            "Ville": "2",
+            "Automobile": "1",
+            "Piéton": "2",
+            "Commerce": "2",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "5/7/20",
+            "Semaine": "8",
+            "Parc": "2",
+            "Rue": "3",
+            "Ville": "0",
+            "Automobile": "2",
+            "Piéton": "2",
+            "Commerce": "2",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "5/8/20",
+            "Semaine": "9",
+            "Parc": "2",
+            "Rue": "1",
+            "Ville": "3",
+            "Automobile": "1",
+            "Piéton": "1",
+            "Commerce": "4",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "5/9/20",
+            "Semaine": "9",
+            "Parc": "1",
+            "Rue": "1",
+            "Ville": "3",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "2",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "5/10/20",
+            "Semaine": "9",
+            "Parc": "1",
+            "Rue": "1",
+            "Ville": "2",
+            "Automobile": "1",
+            "Piéton": "1",
+            "Commerce": "2",
+            "Corridor sanitaire": "1"
+        },
+        {
+            "Date ": "5/11/20",
+            "Semaine": "9",
+            "Parc": "1",
+            "Rue": "4",
+            "Ville": "5",
+            "Automobile": "1",
+            "Piéton": "3",
+            "Commerce": "4",
+            "Corridor sanitaire": "1"
+        },
+        {
+            "Date ": "5/12/20",
+            "Semaine": "9",
+            "Parc": "0",
+            "Rue": "0",
+            "Ville": "3",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "5/13/20",
+            "Semaine": "9",
+            "Parc": "1",
+            "Rue": "2",
+            "Ville": "3",
+            "Automobile": "2",
+            "Piéton": "2",
+            "Commerce": "1",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "5/14/20",
+            "Semaine": "9",
+            "Parc": "3",
+            "Rue": "1",
+            "Ville": "2",
+            "Automobile": "0",
+            "Piéton": "1",
+            "Commerce": "2",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Date ": "5/15/20",
+            "Semaine": "10",
+            "Parc": "3",
+            "Rue": "4",
+            "Ville": "4",
+            "Automobile": "3",
+            "Piéton": "4",
+            "Commerce": "3",
+            "Corridor sanitaire": "1"
+        },
+        {
+            "Date ": "5/16/20",
+            "Semaine": "10",
+            "Parc": "2",
+            "Rue": "2",
+            "Ville": "2",
+            "Automobile": "2",
+            "Piéton": "2",
+            "Commerce": "1",
+            "Corridor sanitaire": "0"
+        }
+    ]
+}

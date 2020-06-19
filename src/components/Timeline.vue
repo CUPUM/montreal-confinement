@@ -8,18 +8,19 @@
 					<div class="numeral">{{week+1}}</div>
 				</div>
 			</template>
+			<div class="arrow"></div>
 
-			<div class="date-labels">
+			<div v-if="this.showDates" class="date-labels">
 				{{ this.startDate.toLocaleDateString('fr-CA', {month: 'long', year: 'numeric', day: 'numeric'}) }}
 			</div>
 
-			<div class="date-labels" :style="{left: endPos}">
+			<div v-if="this.showDates" class="date-labels" :style="{left: endPos}">
 				{{ this.endDate.toLocaleDateString('fr-CA', {month: 'long', year: 'numeric', day: 'numeric'}) }}
 			</div>
 
 			<div :id="this.chartID+'-points'">
 				<transition-group name="pointed">
-					<div class="points" v-for="(point, i) in dataArray" :key="point[keyForIndex]+i" :style="{left: pointX(point), transitionDelay: i*.1+'s'}"></div>
+					<div class="points" v-for="(point, i) in dataArray" :key="point[keyForIndex]+i" :style="{left: pointX(point), backgroundColor: pointColor(point), transitionDelay: i*.1+'s'}"></div>
 				</transition-group>
 			</div>
 		</div>
@@ -40,7 +41,9 @@ export default {
 		groupKey: String,
 		weightKey: String,
 		startDate: Date,
-		endDate: Date
+		endDate: Date,
+		showDates: Boolean,
+		colorKey: String
 	},
 	data() {
 		return {
@@ -73,13 +76,23 @@ export default {
 		}
 	},
 	methods: {
-		toDate(dateString, separator) {
-			const Array = dateString.split(separator);
-			const date = new Date(Array[2].trim(), Array[1].trim()-1, Array[0].trim());
-			return date
-		},
+		// toDate(dateString, separator) {
+		// 	const Array = dateString.split(separator);
+		// 	const date = new Date(Array[2].trim(), Array[1].trim()-1, Array[0].trim());
+		// 	return date
+		// },
 		pointX(point) {
 			return (point[this.timeKey].getTime() - this.startDate.getTime()) / this.msInWeek / Math.ceil(this.nWeeks) * 100+'%'
+		},
+		pointColor(point) {
+			var color;
+			if (this.colorKey != (null && undefined && '')) {
+				color = 'rgb('+point[this.colorKey]['r']+','+point[this.colorKey]['g']+','+point[this.colorKey]['b']+')'
+			} else {
+				color = 'rgb(35,35,35)'
+			}
+			console.log(color);
+			return color
 		}
 	},
 	mounted() {
@@ -93,18 +106,17 @@ export default {
 #timeline {
 	background-color: transparent;
 	width: 100%;
-	height: 100%;
+	height: 100px;
 	overflow: hidden;
 }
 
 .points {
 	display: inline-block;
 	position: absolute;
-	opacity: .65;
-	width: 30px;
-	height: 30px;
+	opacity: .75;
+	width: 24px;
+	height: 24px;
 	border-radius: 50%;
-	background: turquoise;
 	transform: translate(-50%, -50%);
 }
 .pointed-enter-active,
@@ -131,13 +143,26 @@ export default {
 	display: block;
 	height: 0px;
 	width: 100%;
-	border-width: 0px 0px 2px 0px;
+	border-width: 0px 0px 1px 0px;
 	border-style: solid;
-	border-color: rgba(0,0,0,.2);
+	border-color: rgba(0,0,0,.5);
+}
+.arrow {
+	width: 6px;
+	height: 6px;
+	right: -2px;
+	top: -3px;
+	border-width: 1px 1px 0px 0px;
+	border-style: solid;
+	border-color: black;
+	border-radius: 0px 3px 0px 0px;
+	position: absolute;
+	transform-origin: center;
+	transform: rotate(45deg);
 }
 .mark {
 	position: absolute;
-	height: 4px;
+	height: 3px;
 	width: 2px;
 	background: rgb(100,100,100);
 	left: -1px;
@@ -146,16 +171,17 @@ export default {
 .numeral {
 	margin: 16px 0px 0px 0px;
 	font-size: 12px;
-	font-weight: 500;
-	font-style: italic;
+	font-weight: 600;
 	padding: 0px;
 	text-indent: 0px;
 	text-align: center;
+	color: rgba(0,0,0,.5)
 }
 .date-labels {
+	font-style: italic;
 	white-space: nowrap;
 	left: 0px;
-	bottom: 25px;
+	bottom: 35px;
 	margin: 0px;
 	padding: 0px;
 	font-size: 12px;
@@ -169,9 +195,9 @@ export default {
 	display: inline-block;
 	background: rgba(0,0,0,.2);
 	width: 1px;
-	height: 20px;
+	height: 30px;
 	position: absolute;
 	left: 50%;
-	bottom: -25px;
+	bottom: -35px;
 }
 </style>

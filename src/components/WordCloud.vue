@@ -40,14 +40,17 @@ export default {
 		const width = 1000;
 		const ratio = this.ratio;
 		const uniqueChart = '#'+this.chartID;
-		const maxWeight = this.dataArray[1][this.weightKey];
+		const maxWeight = parseInt(this.dataArray[1][this.weightKey]);
 		const factor = width*.1 / maxWeight
-
-		console.log(maxWeight)
 
 		let layout = d3cloud()
 			.size([width,width*ratio])
-			.words(this.dataArray.map( d => { return {text: d[this.wordKey], size: d[this.weightKey]*factor }})) // Remapping selon les props reçus du parent
+			.words(this.dataArray.map( d => { return {
+					text: d[this.wordKey],
+					size: d[this.weightKey]*factor,
+					color: 'hsl(150,'+((maxWeight - d[this.weightKey])/maxWeight*75+15)+'%,'+(((maxWeight - d[this.weightKey])/maxWeight*60)+25)+'%)'
+				}
+			})) // Remapping selon les props reçus du parent
 			.spiral(function(size) {
 				var e = size[0] / size[1];
 				return function(t) {
@@ -77,7 +80,7 @@ export default {
 				.style('font-size', d => d.size + 'px')
 				.style('font-family', '"Poppins", sans-serif')
 				.style('font-weight', '600')
-				//.style('fill', d => 'hsl(285, 65%,'+ (maxWeight - d[weightKey])/maxWeight*80 +'%)') //Pourquoi ça ne fonctionne pas!?
+				.style('fill', d => d.color)
 				.attr('text-anchor', 'middle')
 				.attr('transform', function(d) {
 					return 'translate(' + [d.x, d.y] + ')';

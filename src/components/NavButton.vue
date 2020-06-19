@@ -1,9 +1,11 @@
 <template>
 	<div id="nav-button" class="noselect" v-on:click='toggleNav' v-bind:class="{ x: isNav }">
-		<div id="upper" class="bar"></div>
-		<div id="mid" class="bar"></div>
-		<div id="lower" class="bar"></div>
-		<div id="nav-button-bg"></div>
+		<div id="nav-button-inner-wrapper">
+			<div id="upper" class="bar"></div>
+			<div id="mid" class="bar"></div>
+			<div id="lower" class="bar"></div>
+			<div id="nav-button-bg"></div>
+		</div>
 	</div>
 </template>
 
@@ -26,12 +28,23 @@ export default {
 
 <style scoped>
 #nav-button {
+	z-index: 9999;
+	box-sizing: content-box;
 	cursor: pointer;
 	position: fixed;
-	top: 50px;
-	right: 50px;
+	top: 30px;
+	right: 30px;
 	width: 40px;
 	height: 40px;
+	padding: 5px;
+}
+
+#nav-button-inner-wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 /* Normal icon */
@@ -41,7 +54,7 @@ export default {
 	background-color: rgb(46, 46, 46);
 	position: absolute;
 	border-radius: 1px;
-	transition: all .25s cubic-bezier(.2,.15,.25,1);	/* cubic-bezier(.8,0,.2,1); */
+	transition: all .2s ease;	/* cubic-bezier(.8,0,.2,1); .25s cubic-bezier(.2,.15,.25,1) */
 }
 .x .bar {
 	background-color: rgb(232, 240, 241);

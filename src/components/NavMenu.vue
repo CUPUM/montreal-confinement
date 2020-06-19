@@ -56,6 +56,7 @@ export default {
 
 <style scoped>
 #menu {
+	z-index: 9900;
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -71,7 +72,8 @@ export default {
 	transition-delay: 0s !important;
 }
 
-#backdrop {
+/* Diagonal rounded sweep */
+ /* #backdrop {
 	opacity: .8;
 	box-sizing: content-box;
 	position: absolute;
@@ -90,16 +92,36 @@ export default {
 }
 #backdrop.show {
 	opacity: 1;
-	/* width: calc(200vh + 200vw);
-	height: calc(200vh + 200vw); */
 	width: 200vw;
 	height: 200vh;
 	padding: 100vw 100vh;
-	/* top: calc(-100vh - 100vw);
-	right: calc(-100vh - 100vw); */
 	border-radius: 0%;
 	transform: translate(100vh,-100vw) translate(100vw,-100vh) rotate(45deg);
 	transition: all .5s ease-in-out;
+} */
+
+ #backdrop {
+	opacity: .8;
+	box-sizing: content-box;
+	position: absolute;
+	background-image: url('~@/assets/noise-texture-lighter.png');
+	background-color: rgb(58, 216, 97);
+	background-repeat: repeat;
+	background-position: top right;
+	width: calc(400 * (1vw + 1vh - 1vmin));
+	height: calc(400 * (1vw + 1vh - 1vmin));
+	padding: 0;
+	top: 0px;
+	right: 0px;
+	border-radius: 45%;
+	transform: translate(50%, -50%) rotate(45deg) scale(0);
+	transition: all .5s ease-in-out;
+}
+#backdrop.show {
+	opacity: 1;
+	border-radius: 0%;
+	transform: translate(50%, -50%) rotate(45deg) scale(1);
+	transition: all .6s ease-in-out;
 }
 
 nav {
@@ -158,6 +180,7 @@ nav li .inner-wrapper {
 	display: block;
 	transition: all .4s cubic-bezier(0.8, 0, 0.2, 1);
 	transform: translate(100px,-100px);
+	will-change: transform, opacity;
 }
 nav li.show .inner-wrapper {
 	opacity: 1;
