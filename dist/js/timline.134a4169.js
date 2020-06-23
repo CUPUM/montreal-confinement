@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["timline"],{"6e85":function(e,n,t){"use strict";t.r(n);var i=function(){var e=this,n=e.$createElement;e._self._c;return e._m(0)},a=[function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[t("h2",[e._v("Ligne du temps | COVID-19 Montréal")])])}],r={name:"Initiatives",components:{}},s=r,c=t("2877"),l=Object(c["a"])(s,i,a,!1,null,"d3f0310a",null);n["default"]=l.exports}}]);
-//# sourceMappingURL=timline.134a4169.js.map
