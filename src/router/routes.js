@@ -7,7 +7,7 @@ const routes = [
 		name: 'Accueil',
 		component: Accueil,
 		title: 'Accueil',
-		isChapter: true,
+		isSubChapter: false,
 		chapter: 1,
 		id: "01"
 	},
@@ -16,42 +16,106 @@ const routes = [
 		name: 'Apropos',
 		component: Apropos,
 		title: 'À propos',
-		isChapter: true,
+		isSubChapter: false,
 		chapter: 2,
 		id: "02"
+	},
+	{
+		path: '/analyse-de-la-veille-informationnelle',
+		name: 'AnalyseVeilleInformationnelle',
+		component: () => import(/* webpackChunkName: "AnalyseVeilleInformationnelle" */ '../views/AnalyseVeilleInformationnelle.vue'),
+		title: 'Les enjeux du paysage urbain montréalais',
+		isSubChapter: false,
+		chapter: 3,
+		id: "03"
+	},
+	{
+		path: '/analyse-de-la-veille-informationnelle',
+		name: 'AnalyseVeilleInformationnelle',
+		component: () => import(/* webpackChunkName: "AnalyseVeilleInformationnelle" */ '../views/AnalyseVeilleInformationnelle.vue'),
+		title: 'Analyse de la veille informationnelle auprès des médias montréalais',
+		chapter: 3,
+		isSubChapter: true,
+		subChapter: 1,
+		id: "04"
+	},
+	{
+		path: '/questionnemments',
+		name: 'Questionnements',
+		component: () => import(/* webpackChunkName: "Questionnements" */ '../views/Questionnements.vue'),
+		title: 'Les questionnements en quête de réponses',
+		chapter: 3,
+		isSubChapter: true,
+		subChapter: 2,
+		id: "05"
+	},
+	{
+		path: '/attributs-urbains',
+		name: 'AttributsUrbains',
+		component: () => import(/* webpackChunkName: "AttributsUrbains" */ '../views/AttributsUrbains.vue'),
+		title: 'Les attributs urbains ciblés',
+		chapter: 3,
+		isSubChapter: true,
+		subChapter: 3,
+		id: "06"
 	},
 	{
 		path: '/initiatives',
 		name: 'Initiatives',
 		component: () => import(/* webpackChunkName: "timline" */ '../views/Initiatives.vue'), // Pour lazy-loading
-		title: 'Carte temporelle des initiatives',
-		isChapter: true,
-		id: "03"
+		title: 'Localisation des initiatives sur le territoire montréalais',
+		chapter: 3,
+		isSubChapter: true,
+		subChapter: 4,
+		id: "07"
 	},
 	{
 		path: '/humain',
 		name: 'Humain',
-		component: () => import(/* webpackChunkName: "photography" */ '../views/Humain.vue'),
-		title: "L'humain & la ville en COVID-19",
-		isChapter: true,
-		id: "04"
+		component: () => import(/* webpackChunkName: "Humain" */ '../views/Humain.vue'),
+		title: "L'humain en qualificatifs",
+		chapter: 3,
+		isSubChapter: true,
+		subChapter: 5,
+		id: "08"
 	},
 	{
-		path: '/rubrique-attributs',
-		name: 'RubriqueAttributs',
-		component: () => import(/* webpackChunkName: "photography" */ '../views/RubriqueAttributs.vue'),
-		title: 'Attributs urbains dans la presse écrite',
-		isChapter: true,
-		id: "05"
-	},
-	{
-		path: '/analyse-photo',
+		path: '/analyse-de-photographies',
 		name: 'AnalysePhoto',
-		component: () => import(/* webpackChunkName: "wordcloud" */ '../views/AnalysePhoto.vue'),
+		component: () => import(/* webpackChunkName: "AnalysePhoto" */ '../views/AnalysePhoto.vue'),
+		title: 'Regards photographiques sur le paysage urbain',
+		chapter: 4,
+		isSubChapter: false,
+		id: "09"
+	},
+	{
+		path: '/analyse-de-photographies',
+		name: 'AnalysePhoto',
+		component: () => import(/* webpackChunkName: "AnalysePhoto" */ '../views/AnalysePhoto.vue'),
 		title: 'Analyse de photographies',
-		isChapter: true,
-		id: "06"
-	}
+		chapter: 4,
+		isSubChapter: true,
+		subChapter: 1,
+		id: "10"
+	},
+	{
+		path: '/perspectives',
+		name: 'Perspectives',
+		component: () => import(/* webpackChunkName: "Perspectives" */ '../views/Perspectives.vue'),
+		title: 'Perspectives',
+		chapter: 5,
+		isSubChapter: false,
+		id: "11"
+	},
+	{
+		path: '/bibliographie',
+		name: 'Bibliographie',
+		component: () => import(/* webpackChunkName: "Bibliographie" */ '../views/Bibliographie.vue'),
+		title: 'Bibliographie',
+		chapter: 6,
+		isSubChapter: false,
+		id: "12"
+	},
 ]
 
 export default routes

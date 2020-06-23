@@ -1,14 +1,16 @@
 <template>
-	<div :id="this.chartID">
-		<div class="echelle-wrapper">
-			<template v-for="(week, i) in fullWeeksArray">
-				<div class="unit" :key="i" :style="{width: 100/Math.ceil(nWeeks)+'%', left: 100/Math.ceil(nWeeks)*week+'%'}">
-					<div class="echelle"></div>
-					<div class="mark"></div>
-					<div class="numeral">{{week+1}}</div>
-				</div>
-			</template>
-			<div class="arrow"></div>
+	<div :id="this.chartID" class="timeline">
+		<div class="timeline-inner-wrap">
+			<div class="echelle-wrap">
+				<template v-for="(week, i) in fullWeeksArray">
+					<div class="unit" :key="i" :style="{width: 100/Math.ceil(nWeeks)+'%', left: 100/Math.ceil(nWeeks)*week+'%'}">
+						<div v-if="showScaleLine" class="echelle"></div>
+						<div :class="{'mark-inter': marksPos=='inter', 'mark-intra': marksPos=='intra'}"></div>
+						<div v-if="showScaleLabel" class="numeral" :class="{'numeral-intra': marksPos=='intra'}">{{week+1}}</div>
+					</div>
+				</template>
+				<div v-if="showScaleLine" class="arrow"></div>
+			</div>
 
 			<div v-if="this.showDates" class="date-labels">
 				{{ this.startDate.toLocaleDateString('fr-CA', {month: 'long', year: 'numeric', day: 'numeric'}) }}
@@ -18,9 +20,24 @@
 				{{ this.endDate.toLocaleDateString('fr-CA', {month: 'long', year: 'numeric', day: 'numeric'}) }}
 			</div>
 
+			<div v-if="this.showScaleLabel" class="scale-label" :class="{'scale-label-intra': marksPos=='intra'}">{{ this.scaleLabel }}</div>
+
 			<div :id="this.chartID+'-points'">
 				<transition-group name="pointed">
-					<div class="points" v-for="(point, i) in dataArray" :key="point[keyForIndex]+i" :style="{left: pointX(point), backgroundColor: pointColor(point), transitionDelay: i*.1+'s'}"></div>
+					<template v-for="(point, i) in dataArray">
+						<div class="points" 
+							:key="point[keyForIndex]+i"
+							:style="{
+								width: pointSize(point),
+								height: pointSize(point),
+								left: pointX(point),
+								backgroundColor: pointColor(point),
+								transitionDelay: i*.1+'s'
+							}">
+							<div v-if="hasId(point) && pointSize(point) != '0px'" class="id-label">{{ point[keyForId] }}</div>
+							<!-- <div v-if="hasTooltip(point)" class="bubble-tooltip">{{ point[keyForTooltip] }}</div> -->
+						</div>
+					</template>
 				</transition-group>
 			</div>
 		</div>
@@ -38,12 +55,17 @@ export default {
 		timeKey: String,
 		wordKey: String,
 		textKey: String,
-		groupKey: String,
+		idKey: String,
 		weightKey: String,
+		//tooltipKey: String,
 		startDate: Date,
 		endDate: Date,
 		showDates: Boolean,
-		colorKey: String
+		colorKey: String,
+		scaleLabel: String,
+		showScaleLabel: Boolean,
+		showScaleLine: Boolean,
+		marksPos: String
 	},
 	data() {
 		return {
@@ -53,6 +75,9 @@ export default {
 		}
 	},
 	computed: {
+		keyForId() {
+			return this.idKey
+		},
 		keyForIndex() {
 			return this.wordKey
 		},
@@ -76,10 +101,11 @@ export default {
 		}
 	},
 	methods: {
-		// toDate(dateString, separator) {
-		// 	const Array = dateString.split(separator);
-		// 	const date = new Date(Array[2].trim(), Array[1].trim()-1, Array[0].trim());
-		// 	return date
+		hasId(point) {
+			return (this.idKey != (undefined && null && '') && point[this.idKey] != (undefined && null && ''))
+		},
+		// hasTooltip(point) {
+		// 	return (this.tooltipKey != (undefined && null && '') && point[this.tooltipKey] != (undefined && null && ''))
 		// },
 		pointX(point) {
 			return (point[this.timeKey].getTime() - this.startDate.getTime()) / this.msInWeek / Math.ceil(this.nWeeks) * 100+'%'
@@ -87,12 +113,16 @@ export default {
 		pointColor(point) {
 			var color;
 			if (this.colorKey != (null && undefined && '')) {
-				color = 'rgb('+point[this.colorKey]['r']+','+point[this.colorKey]['g']+','+point[this.colorKey]['b']+')'
+				color = point[this.colorKey]
 			} else {
 				color = 'rgb(35,35,35)'
 			}
-			console.log(color);
 			return color
+		},
+		pointSize(point) {
+			if (this.weightKey != (null && undefined && '')) {
+				return point[this.weightKey]+'px'
+			} else return '24px'
 		}
 	},
 	mounted() {
@@ -103,19 +133,18 @@ export default {
 </script>
 
 <style scoped>
-#timeline {
+.timeline {
 	background-color: transparent;
 	width: 100%;
-	height: 100px;
-	overflow: hidden;
+	height: auto;
+	overflow: visible;
+	padding: 15px 10px 35px 10px;
 }
 
 .points {
 	display: inline-block;
 	position: absolute;
-	opacity: .75;
-	width: 24px;
-	height: 24px;
+	opacity: .95;
 	border-radius: 50%;
 	transform: translate(-50%, -50%);
 }
@@ -125,14 +154,36 @@ export default {
 }
 .pointed-enter,
 .pointed-leave-to {
-	width: 0px;
-	height: 0px;
+	width: 0px !important;
+	height: 0px !important;
+	opacity: 0;
 }
 
-.echelle-wrapper {
+.id-label {
+	user-select: none;
+	letter-spacing: .5px;
+	font-style: normal;
 	position: relative;
-	margin: 50px;
+	/* top: -16px; */
+	top: 50%;
+	text-align: center;
+	width: 100%;
+	font-size: 12px;
+	font-weight: 400;
+	color: white;
+	transform: translateY(-50%);
 }
+
+.timeline-inner-wrap {
+	position: relative;
+	margin: 20px;
+}
+.echelle-wrap {
+	position: absolute;
+	width: 100%;
+	vertical-align: middle;
+}
+
 .unit {
 	text-align: center;
 	display: inline-block;
@@ -141,11 +192,12 @@ export default {
 }
 .echelle {
 	display: block;
+	position: absolute;
 	height: 0px;
 	width: 100%;
 	border-width: 0px 0px 1px 0px;
-	border-style: solid;
-	border-color: rgba(0,0,0,.5);
+	border-style: dotted;
+	border-color: rgba(0,0,0,.25);
 }
 .arrow {
 	width: 6px;
@@ -160,22 +212,49 @@ export default {
 	transform-origin: center;
 	transform: rotate(45deg);
 }
-.mark {
+.mark-inter {
 	position: absolute;
-	height: 3px;
+	height: 5px;
 	width: 2px;
 	background: rgb(100,100,100);
 	left: -1px;
+	top: -2px;
+}
+.mark-intra {
+	position: absolute;
+	height: 3px;
+	width: 2px;
+	background: rgb(124, 124, 124);
+	left: -1px;
 	top: -1px;
+	margin-left: 50%;
 }
 .numeral {
-	margin: 16px 0px 0px 0px;
-	font-size: 12px;
+	margin: 24px 0px 0px 0px;
+	font-size: 11px;
 	font-weight: 600;
 	padding: 0px;
 	text-indent: 0px;
 	text-align: center;
 	color: rgba(0,0,0,.5)
+}
+.numeral-intra {
+	margin: 45px 0px 0px 0px;
+}
+.scale-label {
+	position: absolute;
+	width: 100%;
+	top: 50px;
+	margin: 0px;
+	font-size: 12px;
+	font-weight: 600;
+	padding: 0px;
+	text-indent: 0px;
+	text-align: center;
+	color: rgba(0,0,0,.35)
+}
+.scale-label-intra {
+	top: 70px;
 }
 .date-labels {
 	font-style: italic;

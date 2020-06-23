@@ -853,5 +853,117 @@
             "Commerce": "1",
             "Corridor sanitaire": "0"
         }
+    ],
+    "semaines": [
+        {
+            "Semaine": "1",
+            "Date milieu": "3/16/20",
+            "Parc": "2",
+            "Rue": "2",
+            "Ville": "1",
+            "Automobile": "0",
+            "Piéton": "0",
+            "Commerce": "1",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Semaine": "2",
+            "Date milieu": "3/23/20",
+            "Parc": "3",
+            "Rue": "4",
+            "Ville": "5",
+            "Automobile": "0",
+            "Piéton": "1",
+            "Commerce": "0",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Semaine": "3",
+            "Date milieu": "3/30/20",
+            "Parc": "2",
+            "Rue": "3",
+            "Ville": "4",
+            "Automobile": "1",
+            "Piéton": "0",
+            "Commerce": "2",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Semaine": "4",
+            "Date milieu": "4/6/20",
+            "Parc": "3",
+            "Rue": "7",
+            "Ville": "8",
+            "Automobile": "0",
+            "Piéton": "3",
+            "Commerce": "1",
+            "Corridor sanitaire": "0"
+        },
+        {
+            "Semaine": "5",
+            "Date milieu": "4/13/20",
+            "Parc": "8",
+            "Rue": "9",
+            "Ville": "12",
+            "Automobile": "2",
+            "Piéton": "3",
+            "Commerce": "9",
+            "Corridor sanitaire": "3"
+        },
+        {
+            "Semaine": "6",
+            "Date milieu": "4/20/20",
+            "Parc": "1",
+            "Rue": "6",
+            "Ville": "8",
+            "Automobile": "1",
+            "Piéton": "2",
+            "Commerce": "2",
+            "Corridor sanitaire": "2"
+        },
+        {
+            "Semaine": "7",
+            "Date milieu": "4/27/20",
+            "Parc": "11",
+            "Rue": "13",
+            "Ville": "17",
+            "Automobile": "3",
+            "Piéton": "8",
+            "Commerce": "7",
+            "Corridor sanitaire": "5"
+        },
+        {
+            "Semaine": "8",
+            "Date milieu": "5/4/20",
+            "Parc": "13",
+            "Rue": "17",
+            "Ville": "15",
+            "Automobile": "7",
+            "Piéton": "10",
+            "Commerce": "11",
+            "Corridor sanitaire": "5"
+        },
+        {
+            "Semaine": "9",
+            "Date milieu": "5/11/20",
+            "Parc": "9",
+            "Rue": "10",
+            "Ville": "21",
+            "Automobile": "5",
+            "Piéton": "8",
+            "Commerce": "15",
+            "Corridor sanitaire": "2"
+        },
+        {
+            "Semaine": "10",
+            "Date milieu": "5/16/20",
+            "Parc": "5",
+            "Rue": "6",
+            "Ville": "6",
+            "Automobile": "5",
+            "Piéton": "6",
+            "Commerce": "4",
+            "Corridor sanitaire": "1"
+        }
     ]
 }

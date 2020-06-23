@@ -1,6 +1,12 @@
 <template>
 	<div :id="this.chartID" class="bubble-cluster">
 		<svg :id="this.chartID+'-chart'" perserveAspectRatio="xMidYMid">
+			<defs>
+				<linearGradient id="defaultGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+					<stop offset="0%" style="stop-color:rgb(95,92,78);stop-opacity:1" />
+					<stop offset="100%" style="stop-color:rgb(78,92,95);stop-opacity:1" />
+				</linearGradient>
+			</defs>
 			<!-- <circle v-for="(node, i) in preparedData" :key="i" :r="node.radius" :cx="node.x" :cy="node.y">test</circle> -->
 		</svg>
 	</div>
@@ -23,29 +29,33 @@ export default {
 			plots: null,
 			svgWidth: 1000,
 			svgHeight: 1000
+			//svgWidth: Number,
+			//svgHeight: Number
 		}
 	},
 	computed: {
 		preparedData() {
-			const width = this.svgWidth; // alternativement... document.querySelector('#'+this.chartID).clientWidth;
-			const height = this.svgHeight; // alternativement... document.querySelector('#'+this.chartID).clientHeight;
+			const width = this.svgWidth;
+			const height = this.svgHeight;
 			const sizeKey = this.weightKey;
 
-			this.dataArray.forEach(d => {d[sizeKey] = parseFloat(d[sizeKey])}); // parseInt parceque d3 est incapable de gérer les strings...
+			this.dataArray.forEach(d => {d[sizeKey] = parseFloat(d[sizeKey])}); // parseFloat parceque d3 ne gère pas les strings...
 
-			const maxSize = d3.max(this.dataArray, d => d[sizeKey]);
-			const minSize = d3.min(this.dataArray, d => d[sizeKey]);
+			// var reducedArray = this.dataArray;
+			// if (minSize == 1 && maxSize > 2) {
+			// 	reducedArray = this.dataArray.filter( word => word[this.weightKey] > 1 )
+			// }
 
-			var reducedArray = this.dataArray;
-			if (minSize == 1 && maxSize > 2) {
-				reducedArray = this.dataArray.filter( word => word[this.weightKey] > 1 )
-			}
+			//var reducedArray = this.dataArray.filter(word => word[this.weightKey] > 2)
+
+			const maxSize = d3.max(this.dataArray, function(d) {return d[sizeKey]});
+			//const minSize = d3.min(this.dataArray, function(d) {return d[sizeKey]});
 
 			var radiusScale = d3.scaleSqrt()
 				.domain([0, maxSize])
-				.range([0, width/7]);
+				.range([0, height*width/6500]);
 
-			const polishedData = reducedArray.map(d => ({
+			const polishedData = this.dataArray.map(d => ({
 				...d,
 				//paragraphs: d[textKey].split(' '),
 				radius: radiusScale(d[sizeKey]),
@@ -60,24 +70,24 @@ export default {
 		}
 	},
 	methods: {
-		graph() {			
+		graph() {
 			const selector = '#'+this.chartID+'-chart';
-			var width = this.svgWidth;
-			var height = this.svgHeight;
-			var center = { x: width/2, y: height/2 };
+			// var width = this.svgWidth;
+			// var height = this.svgHeight;
+			const width = this.svgWidth //= document.querySelector('#'+this.chartID).clientWidth;
+			const height = this.svgHeight //= document.querySelector('#'+this.chartID).clientHeight;
+
+			const center = { x: width/2, y: height/2 };
 			const gravity = 0.05;
 			const textColor = "#ffffff"
-			const defaultFillColor = "#666666"
 			const padding = 1;
 			const dataNodes = this.preparedData;
 			const colorKey = this.colorKey;
-			//const wordKey = this.wordKey
 
 			function fillColor(node) {
 				if (colorKey != (undefined && null) && node[colorKey] != (undefined && null && "")) {
-					let color = node[colorKey]
-					return 'rgb('+color.r+','+color.g+','+color.b+')'
-				} else return defaultFillColor
+					return node[colorKey]
+				} else return 'rgb(100,100,100)' //'url(#defaultGradient)'
 			}
 
 			let svg = d3.select(selector)
@@ -117,34 +127,16 @@ export default {
 
 			let bubbles = this.plots.append('circle')
 				.attr('class', 'bubble')
-				//.attr('r', d => d.radius/3)
-				.attr('r', 0)
+				.attr('r', 0) // début de transition (ici r=0...)
 				.attr('fill', d => fillColor(d))
 				.attr('opacity', 1)
-
 			bubbles.transition()
 				.duration(750)
 				.delay((d,i) => i*35)
 				.attr('r', d => d.radius);
 
-			// const divID = '#'+this.chartID
-			// let tooltip = d3.select(divID)
-			// 	.append('div')
-			// 	.attr('class', 'tooldtip')
-
-			// bubbles.on("mouseover", function(d) {		
-			// 		tooltip.transition()
-			// 			.duration(250)
-			// 			.style("opacity", .9);
-			// 		tooltip.html(d[this.weightKey]+' occurrences')
-			// 			.style("left", (d3.event.pageX) + "px")
-			// 			.style("top", (d3.event.pageY - 28) + "px");
-			// 	})
-			// 	.on("mouseout", function() {
-			// 		tooltip.transition()		
-			// 		.duration(500)		
-			// 		.style("opacity", 0);
-			// 	});
+			let tooltips = this.plots.append('svg:title');
+			tooltips.text(d => d[this.weightKey]+' '+this.weightKey);
 
 			let labels = this.plots.append('text')
 				.attr('class', 'label')
@@ -157,6 +149,7 @@ export default {
 				.attr('fill', textColor)
 				.attr('width', d => d.radius * 1.5)
 				.attr('opacity', 0)
+				// Ci dessous: fonction pour retour de ligne automatique (whoa + ouch + oof)
 				.each(function(d) {
 					const text = d3.select(this);
 					const width = (d.radius - 10) * 2;
@@ -167,7 +160,7 @@ export default {
 					var lineNumber = 0;
 					var lineHeight = 1.4;
 					var tspan = text.text(null).append("tspan").attr("x", x).attr("y", y);
-					while ( (word = words.pop()) ) { // Le linter chiale si la condition word = words.pop() n'est pas encadrée par une parenthèse supplémentaire...
+					while ((word = words.pop())) { // Le linter chiale si la condition word = words.pop() n'est pas encadrée par une parenthèse supplémentaire...
 						line.push(word);
 						tspan.text(line.join(" "));
 						if (tspan.node().getComputedTextLength() > width) {
@@ -183,7 +176,6 @@ export default {
 						d3.select(this).attr('dy', parseFloat(dyAbs) - lineHeight*lineNumber/2 +'em')
 					})
 				});
-
 			labels.transition()
 				.duration(750)
 				.delay((d,i) => i*35+750)
@@ -191,9 +183,14 @@ export default {
 
 			function ticked() {
 				bubbles.attr('cx', d => d.x).attr('cy', d => d.y);
-				labels.attr('x', d => d.x).attr('y', d => d.y)
+				labels.attr('x', d => d.x).attr('y', d => d.y);
 				labels.selectAll('tspan').attr('x', d => d.x).attr('y', d => d.y)
+				// Bounding box (mais les collisions ne fonctionne pas bien, à arranger...) :
+				// bubbles.attr('cx', d => Math.max(d.radius, Math.min(width - d.radius, d.x))).attr('cy', d => Math.max(d.radius, Math.min(height - d.radius, d.y)));
+				// labels.attr('x', d => Math.max(d.radius, Math.min(width - d.radius, d.x))).attr('y', d => Math.max(d.radius, Math.min(height - d.radius, d.y)));
+				// labels.selectAll('tspan').attr('x', d => Math.max(d.radius, Math.min(width - d.radius, d.x))).attr('y', d => Math.max(d.radius, Math.min(height - d.radius, d.y)))
 			}
+
 			simulation.nodes(dataNodes)
 				.on('tick', ticked)
 				.restart();
@@ -206,7 +203,7 @@ export default {
 	},
 	watch: {
 		dataArray() {
-			if (this.plots != null) { this.plots.remove() } // À corriger: laisse trainer les <g> vides
+			if (this.plots != null) { this.plots.remove() } // À corriger: laisse trainer des <g> vides ?
 			this.graph();
 		}
 	}
@@ -224,11 +221,5 @@ export default {
 .bubble-cluster svg {
 	width: 100%;
 	height: 100%;
-}
-.tooltip {
-	position: absolute;
-	width: 50px;
-	height: 50px;
-	display: inline-block;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
-	<div :id="chartID" ref="container">
-		<h4>{{ title }}</h4>
+	<div class="wordcloud" :id="chartID" ref="container">
+		<svg :id="this.chartID+'-wordcloud'" perserveAspectRatio="xMidYMid"></svg>
+		<!-- <h4>{{ title }}</h4> -->
 	</div>
 </template>
 
@@ -17,40 +18,49 @@ export default {
 		groupKey: String,
 		colorKey: String,
 		dataArray: Array,
-		title: String
+		title: String,
+		ratio: Number,
+		baseHue: Number
 	},
 	data() {
 		return {
 			chart: null,
-			svgWidth: 0,
-			svgHeight: 0,
-			ratio: 1
+			svgWidth: Number,
+			svgHeight: Number,
 		}
 	},
 	computed: {
 	},
 	methods: {
 		setSize() {
-			this.svgWidth = document.querySelector('#'+this.chartID).clientWidth; //this.$refs.container.clientWidth;
-			this.svgHeight = document.querySelector('#'+this.chartID).clientHeight; //this.$refs.container.clientHeight;
+			this.svgWidth = document.querySelector('#'+this.chartID).parentNode.clientWidth; //this.$refs.container.clientWidth;
+			this.svgHeight = document.querySelector('#'+this.chartID).parentNode.clientHeight; //this.$refs.container.clientHeight;
 		}
 	},
 	mounted() {
+		const selector = '#'+this.chartID+'-wordcloud';
 		this.setSize();
-		const width = 1000;
-		const ratio = this.ratio;
-		const uniqueChart = '#'+this.chartID;
-		const maxWeight = parseInt(this.dataArray[1][this.weightKey]);
-		const factor = width*.1 / maxWeight
+		const height = this.svgHeight;
+		const width = (this.ratio != (null && undefined)) ? this.ratio*height : this.svgWidth;
+		console.log(width)
+		console.log(height)
+
+		const maxWeight = parseInt(this.dataArray[0][this.weightKey]);
+		const minWeight = parseInt(this.dataArray[this.dataArray.length-1][this.weightKey]);
+
+		var textScale = d3.scaleLinear()
+				.domain([minWeight, maxWeight])
+				.range([14, height/9]);
 
 		let layout = d3cloud()
-			.size([width,width*ratio])
-			.words(this.dataArray.map( d => { return {
+			.size([width,height])
+			.words(this.dataArray.map( (d,i) => { return {
 					text: d[this.wordKey],
-					size: d[this.weightKey]*factor,
-					color: 'hsl(150,'+((maxWeight - d[this.weightKey])/maxWeight*75+15)+'%,'+(((maxWeight - d[this.weightKey])/maxWeight*60)+25)+'%)'
+					occurrences: d[this.weightKey],
+					size: textScale(d[this.weightKey]),
+					color: 'hsl('+(this.baseHue-i*2)+',60%,'+(((maxWeight - d[this.weightKey])/maxWeight*40)+50)+'%)'
 				}
-			})) // Remapping selon les props reçus du parent
+			}))
 			.spiral(function(size) {
 				var e = size[0] / size[1];
 				return function(t) {
@@ -58,38 +68,48 @@ export default {
 				};
 			})
 			.random(function() {return .5})
-			.padding(5)
+			.padding(3)
 			.rotate(0)
-			.font('"Poppins", sans-serif') //.font('"Nunito", sans-serif')
-			.fontWeight(600)
+			.font('"Poppins", sans-serif')
+			.fontWeight(500)
 			.fontSize(function(d) { return d.size; })
 			.on('end', draw);
 
 		layout.start();
 
 		function draw(words) {
-			this.chart = d3.select(uniqueChart).append('svg');
+			//this.chart = d3.select(uniqueChart).append('svg')
+			let svg = d3.select(selector)
+				.attr("viewBox", "0 0 " + width + " " + height);
 
-			this.chart.attr('width', width)
-				//.attr('height', layout.size()[1])
-				.append('g')
-				.attr('transform', 'translate(' + width / 2 + ',' + width*ratio / 2 + ')')
+			let drawnWords = svg.append('g')
+				.attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')')
 				.selectAll('text')
 				.data(words)
 				.enter().append('text')
-				.style('font-size', d => d.size + 'px')
+				.style('font-size', d => .96*d.size + 'px')
 				.style('font-family', '"Poppins", sans-serif')
-				.style('font-weight', '600')
+				.style('font-weight', '500')
 				.style('fill', d => d.color)
 				.attr('text-anchor', 'middle')
 				.attr('transform', function(d) {
 					return 'translate(' + [d.x, d.y] + ')';
 				})
-				.text( d => d.text );
+				.text( d => d.text )
+				.attr('opacity',0)
+				.style('cursor','default');
 
-			this.chart.attr("viewBox", "0 0 " + width + " " + width*ratio)
-				.attr("perserveAspectRatio", "xMidYMid")
-				.attr('width', '100%')
+			drawnWords.transition()
+				.duration(1200)
+				.delay((d,i) => i*250)
+				// .attr('transform', function(d) {
+				// 	return 'translate(' + [d.x, d.y] + ')';
+				// })
+				.style('font-size', d => d.size + 'px')
+				.attr('opacity',1)
+
+			let tooltips = drawnWords.append('svg:title');
+			tooltips.text(d => d.occurrences+' occurrences');
 		}
 	},
 	watch: {
@@ -98,12 +118,17 @@ export default {
 </script>
 
 <style scoped>
-#wordcloud {
+.wordcloud {
+	box-sizing: border-box;
 	display: inline-block;
 	padding: 0;
 	margin: 0;
-	background-color: white;
+	background-color: transparent;
 	width: 100%;
-	overflow: hidden;
+	height: 100%;
+}
+.wordcloud svg {
+	height: 100%;
+	width: 100%;
 }
 </style>

@@ -1,18 +1,21 @@
 <template>
 	<div id="menu" v-on:click="closeNav" v-bind:class="{ 'show': isNav }" v-bind:style="{ transitionDelay: (routes.length-1)*staggerDelay+.4+'s' }">
 		<div id="backdrop" v-bind:class="{ 'show': isNav }"></div>
-		<nav id="nav">
+		<nav id="nav" v-bind:class="{ 'show': isNav }">
 			<ul>
 				<router-link 
 				v-for="(route, i) in routes" 
 				v-bind:key="route.id" 
 				v-bind:to="{ name: route.name }" 
 				tag="li" 
-				v-bind:class="{ 'show': isNav }"
+				v-bind:class="{ 'show': isNav, 'sub-chapter': route.isSubChapter }"
 				v-bind:style="{ transitionDelay: i*staggerDelay+'s'}"
 				class="noselect"
 				>
-					<div class="highlighter"></div><span class="inner-wrapper" v-bind:style="{ transitionDelay: i*staggerDelay+'s'}"><span>{{ route.title }}</span></span>
+					<div class="highlighter"></div>
+					<span class="inner-wrapper" v-bind:style="{ transitionDelay: i*staggerDelay+'s'}">
+						<span><em>{{ route.chapter+subChapter(route) }}&emsp;&mdash;</em>&emsp;{{ route.title }}</span>
+					</span>
 				</router-link>
 			</ul>
 		</nav>
@@ -25,7 +28,7 @@ import { store, mutations } from '@/store.js'
 export default {
 	data() {
 		return {
-			staggerDelay: .05
+			staggerDelay: .03
 		}
 	},
 	computed: {
@@ -42,6 +45,9 @@ export default {
 	methods: {
 		closeNav() {
 			mutations.closeNav()
+		},
+		subChapter(item) {
+			return item.isSubChapter ? '.'+item.subChapter : ''
 		}
 	},
 	mounted() {
@@ -72,40 +78,12 @@ export default {
 	transition-delay: 0s !important;
 }
 
-/* Diagonal rounded sweep */
- /* #backdrop {
-	opacity: .8;
-	box-sizing: content-box;
-	position: absolute;
-	background-image: url('~@/assets/noise-texture-lighter.png');
-	background-color: rgb(58, 216, 97);
-	background-repeat: repeat;
-	background-position: center;
-	width: 1px;
-	height: 1px;
-	padding: 0vw 0vh;
-	top: 0px;
-	right: 0px;
-	border-radius: 55%;
-	transform: translate(0px,0px) translate(0px,0px) rotate(45deg);
-	transition: all .5s ease-in-out;
-}
-#backdrop.show {
-	opacity: 1;
-	width: 200vw;
-	height: 200vh;
-	padding: 100vw 100vh;
-	border-radius: 0%;
-	transform: translate(100vh,-100vw) translate(100vw,-100vh) rotate(45deg);
-	transition: all .5s ease-in-out;
-} */
-
  #backdrop {
 	opacity: .8;
 	box-sizing: content-box;
 	position: absolute;
 	background-image: url('~@/assets/noise-texture-lighter.png');
-	background-color: rgb(58, 216, 97);
+	background-color: rgb(101, 52, 235);
 	background-repeat: repeat;
 	background-position: top right;
 	width: calc(400 * (1vw + 1vh - 1vmin));
@@ -113,15 +91,15 @@ export default {
 	padding: 0;
 	top: 0px;
 	right: 0px;
-	border-radius: 45%;
+	border-radius: 65%;
 	transform: translate(50%, -50%) rotate(45deg) scale(0);
-	transition: all .5s ease-in-out;
+	transition: opacity .5s ease-in-out, transform .5s ease-in-out, border-radius 0s .5s ease-in-out;
 }
 #backdrop.show {
 	opacity: 1;
 	border-radius: 0%;
 	transform: translate(50%, -50%) rotate(45deg) scale(1);
-	transition: all .6s ease-in-out;
+	transition: all .65s ease-in-out;
 }
 
 nav {
@@ -137,24 +115,44 @@ nav {
 	line-height: 100vh;
 	vertical-align: middle;
 	padding: 0px 90px;
+	overflow-y: auto;
+	opacity: 0;
+	transition: opacity .75s;
+}
+nav.show {
+	opacity: 1;
 }
 nav ul {
 	padding: 0px;
+	margin: 80px 0px;
 	vertical-align: middle;
 	display: inline-block;
-	max-width: 750px;
+	max-width: 950px;
 	min-width: 250px;
 	text-align: left;
-	line-height: 1.15em;
-	font-family: 'Spectral', serif;
-	font-weight: 800;
+	line-height: 1em;
+	font-family: 'DM Serif Text', serif;
+	font-weight: normal;
 	font-size: 32px;
 	background-color: rgba(0,0,0,0);
+}
+nav ul .sub-chapter {
+	line-height: 1em;
+	font-size: 22px;
+	margin-left: 32px;
+}
+nav ul em {
+	opacity: .4;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+	font-size: 13px;
+	letter-spacing: 2px;
+	vertical-align: middle;
 }
 
 /* Outer list-item element */
 nav li {
-	margin: 6px 0px;
+	margin: 8px 0px;
 	position: relative;
 	overflow: hidden;
 	cursor: pointer;
@@ -196,10 +194,10 @@ nav li span {
 }
 
 nav li:not(.vue-active-link):hover span {
-	color: rgb(58, 216, 97);
+	color: rgb(101, 52, 235); /* rgb(58, 216, 97); */
 }
 nav li.vue-active-link span {
-	opacity: .35;
+	opacity: .4;
 }
 
 
