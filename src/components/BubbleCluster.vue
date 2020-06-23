@@ -87,7 +87,7 @@ export default {
 			function fillColor(node) {
 				if (colorKey != (undefined && null) && node[colorKey] != (undefined && null && "")) {
 					return node[colorKey]
-				} else return 'rgb(100,100,100)' //'url(#defaultGradient)'
+				} else return 'rgb(150, 147, 138)' //'url(#defaultGradient)'
 			}
 
 			let svg = d3.select(selector)

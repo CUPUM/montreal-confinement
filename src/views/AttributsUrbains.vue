@@ -74,17 +74,20 @@
 						</transition-group>
 					</div>
 					<div id="bubbles-pane">
-						<BubbleCluster
-							:chartID="'bubbles-caracterisation'"
-							:dataArray="attributSingleCaracterisation"
-							:weightKey="'occurrences'"
-							:wordKey="'mot'"
-							:colorKey="'color'"
-						/>
+						<h4>Occurrences</h4>
+						<div id="bubbles-pane-inner">
+							<BubbleCluster
+								:chartID="'bubbles-caracterisation'"
+								:dataArray="attributSingleCaracterisation"
+								:weightKey="'occurrences'"
+								:wordKey="'mot'"
+								:colorKey="'color'"
+							/>
+						</div>
 					</div>
 				</div>
 				<div id="timeline-pane">
-					<h4>Premières occurrences</h4>
+					<h4>Apparitions média</h4>
 					<div id="timeline-pane-inner">
 						<Timeline
 							:chartID="'timeline-caracterisation'"
@@ -297,9 +300,10 @@ export default {
 }
 
 #semaines-wrap {
-	box-sizing: border-box;
-	width: 100%;
-	padding: 1px 250px 50px 100px;
+	box-sizing: content-box;
+	width: 850px;
+	padding: 1px 150px 50px 0px;
+	margin: 0 auto;
 }
 .attributs-semaines {
 	display: flex;
@@ -504,10 +508,21 @@ export default {
 
 #bubbles-pane {
 	position: relative;
-	display: inline-flex;
+	display: flex;
+	flex-direction: column;
 	flex: 1;
 	overflow: hidden;
 	height: 100%;
+	background: rgb(255, 255, 255);
+	padding: 0px;
+	margin: 0px;
+}
+#bubbles-pane-inner {
+	position: relative;
+	display: flex;
+	flex: 1;
+	overflow: hidden;
+	width: auto;
 	background: rgb(255, 255, 255);
 	padding: 0px;
 	margin: 0px;

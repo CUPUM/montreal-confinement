@@ -82,8 +82,8 @@ export default {
 	opacity: .8;
 	box-sizing: content-box;
 	position: absolute;
-	background-image: url('~@/assets/noise-texture-lighter.png');
-	background-color: rgb(101, 52, 235);
+	/* background-image: url('~@/assets/noise-texture-lighter.png'); */
+	background-color: rgb(150, 147, 138);
 	background-repeat: repeat;
 	background-position: top right;
 	width: calc(400 * (1vw + 1vh - 1vmin));
@@ -131,15 +131,16 @@ nav ul {
 	min-width: 250px;
 	text-align: left;
 	line-height: 1em;
-	font-family: 'DM Serif Text', serif;
-	font-weight: normal;
+	/* font-family: 'DM Serif Text', serif; */
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
 	font-size: 32px;
 	background-color: rgba(0,0,0,0);
 }
 nav ul .sub-chapter {
 	line-height: 1em;
 	font-size: 22px;
-	margin-left: 32px;
+	margin-left: 34px;
 }
 nav ul em {
 	opacity: .4;
@@ -187,14 +188,14 @@ nav li.show .inner-wrapper {
 
 /* Inner text span */
 nav li span {
-	margin: 2px 6px;
+	margin: 6px 6px;
 	display: block;
 	color: rgb(248, 248, 248);
 	transition: all .25s cubic-bezier(.5,0,.5,1);
 }
 
 nav li:not(.vue-active-link):hover span {
-	color: rgb(101, 52, 235); /* rgb(58, 216, 97); */
+	color: rgb(150, 147, 138); /* rgb(58, 216, 97); */
 }
 nav li.vue-active-link span {
 	opacity: .4;

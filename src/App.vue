@@ -33,7 +33,7 @@ export default {
 
 <style>
 /* font-family: 'Poppins', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* font-family: 'Spectral', serif; */
 @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 /* font-family: 'Nunito', sans-serif; */
@@ -127,21 +127,24 @@ body {
 }
 
 h1, h2, h3, h4 {
-	font-family: 'DM Serif Text', serif;
-	font-weight: normal;
-	line-height: 1em;
+	/* font-family: 'DM Serif Text', serif; */
+	font-weight: 800;
+	line-height: 1.2em;
 	margin: 48px 48px 32px 48px;
-	color: rgb(22, 22, 22);
+	color: rgb(65, 65, 65);
 	font-size: 44pt;
 }
 h2 {
-	font-size: 36pt;
+	font-size: 35pt;
+	line-height: 1.2em;
 }
 h3 {
-	font-size: 24pt;
+	font-size: 26pt;
+	line-height: 1.2em;
 }
 h4 {
 	font-size: 18pt;
+	line-height: 1.2em;
 }
 
 p {

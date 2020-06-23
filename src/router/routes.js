@@ -21,33 +21,23 @@ const routes = [
 		id: "02"
 	},
 	{
-		path: '/analyse-de-la-veille-informationnelle',
-		name: 'AnalyseVeilleInformationnelle',
-		component: () => import(/* webpackChunkName: "AnalyseVeilleInformationnelle" */ '../views/AnalyseVeilleInformationnelle.vue'),
+		path: '/enjeux-paysage-urbain-montrealais',
+		name: 'EnjeuxPaysageUrbain',
+		component: () => import(/* webpackChunkName: "EnjeuxPaysageUrbain" */ '../views/EnjeuxPaysageUrbain.vue'),
 		title: 'Les enjeux du paysage urbain montréalais',
 		isSubChapter: false,
 		chapter: 3,
 		id: "03"
 	},
 	{
-		path: '/analyse-de-la-veille-informationnelle',
-		name: 'AnalyseVeilleInformationnelle',
-		component: () => import(/* webpackChunkName: "AnalyseVeilleInformationnelle" */ '../views/AnalyseVeilleInformationnelle.vue'),
-		title: 'Analyse de la veille informationnelle auprès des médias montréalais',
+		path: '/questionnemments',
+		name: 'Questionnements',
+		component: () => import(/* webpackChunkName: "Questionnements" */ '../views/Questionnements.vue'),
+		title: 'Questionnements en quête de réponses',
 		chapter: 3,
 		isSubChapter: true,
 		subChapter: 1,
 		id: "04"
-	},
-	{
-		path: '/questionnemments',
-		name: 'Questionnements',
-		component: () => import(/* webpackChunkName: "Questionnements" */ '../views/Questionnements.vue'),
-		title: 'Les questionnements en quête de réponses',
-		chapter: 3,
-		isSubChapter: true,
-		subChapter: 2,
-		id: "05"
 	},
 	{
 		path: '/attributs-urbains',
@@ -56,18 +46,18 @@ const routes = [
 		title: 'Les attributs urbains ciblés',
 		chapter: 3,
 		isSubChapter: true,
-		subChapter: 3,
-		id: "06"
+		subChapter: 2,
+		id: "05"
 	},
 	{
 		path: '/initiatives',
 		name: 'Initiatives',
 		component: () => import(/* webpackChunkName: "timline" */ '../views/Initiatives.vue'), // Pour lazy-loading
-		title: 'Localisation des initiatives sur le territoire montréalais',
+		title: 'Territoire montréalais en initiatives',
 		chapter: 3,
 		isSubChapter: true,
-		subChapter: 4,
-		id: "07"
+		subChapter: 3,
+		id: "06"
 	},
 	{
 		path: '/humain',
@@ -76,26 +66,36 @@ const routes = [
 		title: "L'humain en qualificatifs",
 		chapter: 3,
 		isSubChapter: true,
-		subChapter: 5,
-		id: "08"
+		subChapter: 4,
+		id: "07"
 	},
 	{
-		path: '/analyse-de-photographies',
-		name: 'AnalysePhoto',
-		component: () => import(/* webpackChunkName: "AnalysePhoto" */ '../views/AnalysePhoto.vue'),
+		path: '/regards-photographiques',
+		name: 'RegardsPhotographiques',
+		component: () => import(/* webpackChunkName: "RegardsPhotographiques" */ '../views/RegardsPhotographiques.vue'),
 		title: 'Regards photographiques sur le paysage urbain',
 		chapter: 4,
 		isSubChapter: false,
-		id: "09"
+		id: "08"
 	},
 	{
-		path: '/analyse-de-photographies',
-		name: 'AnalysePhoto',
-		component: () => import(/* webpackChunkName: "AnalysePhoto" */ '../views/AnalysePhoto.vue'),
+		path: '/cadrage-regards',
+		name: 'CadrageRegards',
+		component: () => import(/* webpackChunkName: "CadrageRegards" */ '../views/CadrageRegards.vue'),
 		title: 'Analyse de photographies',
 		chapter: 4,
 		isSubChapter: true,
 		subChapter: 1,
+		id: "09"
+	},
+	{
+		path: '/identité-conceptuelle',
+		name: 'IdentiteConceptuelle',
+		component: () => import(/* webpackChunkName: "IdentiteConceptuelle" */ '../views/IdentiteConceptuelle.vue'),
+		title: 'Identité conceptuelle du paysage montréalais',
+		chapter: 4,
+		isSubChapter: true,
+		subChapter: 2,
 		id: "10"
 	},
 	{
