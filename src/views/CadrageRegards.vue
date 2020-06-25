@@ -2,7 +2,7 @@
 	<div id="analyse-photo">
 		<h1>Analyse de photographies urbaines de Montréal en temps de COVID-19</h1>
 		<div class="center-col">
-			<p>Donec semper porttitor justo. Praesent convallis bibendum sodales. Aliquam elit lectus, porttitor ut porta id, aliquet eget urna. Quisque commodo ipsum condimentum odio tempus, in posuere erat faucibus. Morbi tincidunt euismod velit eu congue. In vel nisi lobortis, luctus purus a, condimentum sapien. In tincidunt sit amet sem vitae dictum. In hac habitasse platea dictumst. Etiam pulvinar est porta ipsum pharetra, in dapibus nibh rhoncus. Praesent ornare erat et elementum porta. Pellentesque consectetur odio est, eget vehicula est vestibulum quis. Duis ut ipsum eget urna ultrices blandit. Pellentesque eu risus id libero vestibulum dignissim vitae a odio. Aliquam nibh massa, viverra at ligula eu, finibus rutrum ipsum. Donec tincidunt, nulla vitae vestibulum fringilla, libero nisl tempus est, sed mollis mi leo pulvinar enim. Nullam turpis magna, laoreet ut est non, elementum gravida mauris.</p>
+			<p>Contenu à venir</p>
 		</div>
 
 		<div class="center-col">

@@ -1,7 +1,8 @@
 <template>
-	<div class="analyse-veille">
+	<div class="enjeux-paysage">
+		<h1>Page «&nbsp;enjeux du paysage urain&nbsp;» en construction</h1>
 		<div class="center-col">
-			<h1>Analyse de la veille informationnelle</h1>
+			<p>Contenu à venir</p>
 		</div>
 	</div>
 </template>
@@ -10,7 +11,7 @@
 // @ is an alias to /src
 
 export default {
-	name: 'AnalyseVeilleInformationnelle',
+	name: 'EnjeuxPaysageUrbain',
 	components: {
 
 	}

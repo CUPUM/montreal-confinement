@@ -1,8 +1,8 @@
 <template>
 	<div class="identite-conceptuelle">
-		<h1>Vous êtes présentement à l'onglet Identité conceptuelle du paysage urbain montréalais</h1>
+		<h1>Page «&nbsp;identité conceptuelle du paysage urbain&nbsp;» en construction</h1>
 		<div class="center-col">
-			<p>On se revoit enfin.</p>
+			<p>Contenu à venir</p>
 		</div>		
 	</div>
 </template>

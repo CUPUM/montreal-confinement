@@ -1,7 +1,8 @@
 <template>
 	<div class="bibliographie">
+		<h1>Page «&nbsp;bibliographie&nbsp;» en construction</h1>
 		<div class="center-col">
-			<h1>Vous êtes présentement à l'onglet À propos</h1>
+			<p>Contenu à venir</p>
 		</div>		
 	</div>
 </template>

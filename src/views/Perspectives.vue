@@ -1,8 +1,8 @@
 <template>
 	<div class="perspectives">
-		<h1>Vous êtes présentement à l'onglet À propos</h1>
+		<h1>Page «&nbsp;perspectives&nbsp;» en construction</h1>
 		<div class="center-col">
-			<p>Encore vous? Bonjour!</p>
+			<p>Contenu à venir</p>
 		</div>		
 	</div>
 </template>

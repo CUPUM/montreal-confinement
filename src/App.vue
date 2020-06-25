@@ -132,8 +132,8 @@ h1, h2, h3 {
 	line-height: 1.2em;
 	margin: 64px 0px 32px 0px;
 	padding: 32px 48px;
-	color: rgb(51, 51, 51);
-	font-size: 48pt;
+	color: rgb(56, 56, 56);
+	font-size: 52pt;
 }
 h1 {
 	margin: 0px 0px 50px 0px;
@@ -142,12 +142,14 @@ h1 {
 	font-weight: 300;
 }
 h2 {
+	font-weight: 600;
 	box-shadow: 24px 0px 24px -36px rgba(0,0,0,.5), -24px 0px 24px -36px rgba(61, 48, 48, 0.5);
-	font-size: 28pt;
+	font-size: 32pt;
 	line-height: 1.2em;
 }
 h3 {
-	font-size: 22pt;
+	font-weight: 600;
+	font-size: 20pt;
 	line-height: 1.2em;
 }
 h4 {
@@ -161,12 +163,14 @@ p {
 	font-weight: 400;
 	text-indent: 48px;
 	margin: 26px auto;
-	color: rgb(44, 44, 44);
+	color: rgb(49, 49, 49);
 }
 em {
 	font-weight: 600;
 	font-style: normal;
-	color: black;
+	background-color: rgba(197, 255, 89, 0.5);
+	padding: 0px 3px;
+	border-radius: 2px;
 }
 
 </style>

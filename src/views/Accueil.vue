@@ -1,16 +1,21 @@
 <template>
 	<div id="accueil">
 		<div id="splash">
-			<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1200 800">
+			<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1700 1000">
 				<defs>
 					<mask id="splash-text-mask" x="0" y="0">
-						<text x="0" y="200" class="splash-text">Montréal /</text>
-						<text x="0" y="450" class="splash-text">paysage</text>
-						<text x="0" y="700" class="splash-text">en confinement</text>
+						<text x="0" y="250" class="splash-text">Montréal /</text>
+						<text x="0" y="550" class="splash-text">paysage</text>
+						<text x="0" y="850" class="splash-text">en confinement</text>
 					</mask>
 				</defs>
-				<image width="100%" v-bind="{'xlink:href' : BGpic}" mask="url(#splash-text-mask)"/>
+				<image width="1700" v-bind="{'xlink:href' : BGpic}" mask="url(#splash-text-mask)"/>
 			</svg>
+		</div>
+		
+		<div id="scroll-arrow-container">
+			<div id="scroll-arrow"></div>
+			<div id="scroll-arrow-stem"></div>
 		</div>
 
 		<div id="chaire-logo-container">
@@ -72,6 +77,8 @@ export default {
 			}
 			return array
 		}
+	},
+	methods : {
 	}
 }
 </script>
@@ -100,7 +107,7 @@ export default {
 	text-align: center;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 600;
-	font-size: 200px;
+	font-size: 210px;
 	fill: white;
 }
 
@@ -118,6 +125,54 @@ export default {
 	position: relative;
 	z-index: 1;
 }
+
+#scroll-arrow-container {
+	text-align: center;
+	left: 50%;
+	display: inline-block;
+	position: relative;
+	padding: 50px;
+	top: -150px;
+	height: 150px;
+	transform: translateX(-50%);
+	cursor: pointer;
+}
+
+#scroll-arrow {
+	box-sizing: border-box;
+	top: 10px;
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	display: block;
+	width: 20px;
+	height: 20px;
+	border-radius: 0px 1px 3px 1px;
+	border-width: 0px 2px 2px 0px;
+	border-color: rgb(64,64,64);
+	border-style: solid;
+	transform-origin: center;
+	transform: translateX(-50%) rotate(45deg);
+	transition: all .4s cubic-bezier(.7,0,.3,1)
+}
+#scroll-arrow-container:hover #scroll-arrow {
+	top: 50px
+}
+#scroll-arrow-stem {
+	border-radius: 1px;
+	height: 31px;
+	width: 2px;
+	margin-left: -1px;
+	top: 0px;
+	background: rgb(64,64,64);
+	position: absolute;
+	transition: all .4s cubic-bezier(.7,0,.3,1)
+}
+#scroll-arrow-container:hover #scroll-arrow-stem {
+	top: 20px;
+	height: 51px;
+}
+
 .circles {
 	background-image: url('~@/assets/noise-texture-light.png');
 	transform: translate(-50%,-50%);

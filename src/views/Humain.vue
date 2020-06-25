@@ -2,7 +2,7 @@
 	<div id="humain">
 		<h1>L'humain dans la ville en temps de crise de COVID-19</h1>
 		<div class="center-col">
-			<p>Les légumes regardent le jardinier paresseux.</p>
+			<p>Contenu à venir.</p>
 		</div>
 
 		<div id="humain-sommaire">

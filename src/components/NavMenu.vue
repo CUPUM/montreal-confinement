@@ -14,7 +14,7 @@
 				>
 					<div class="highlighter"></div>
 					<span class="inner-wrapper" v-bind:style="{ transitionDelay: i*staggerDelay+'s'}">
-						<span><em>{{ route.chapter+subChapter(route) }}&emsp;&mdash;</em>&emsp;{{ route.title }}</span>
+						<span><span class="chapter-number">{{ route.chapter+subChapter(route) }}&emsp;&mdash;</span>&emsp;{{ route.title }}</span>
 					</span>
 				</router-link>
 			</ul>
@@ -142,7 +142,9 @@ nav ul .sub-chapter {
 	font-size: 22px;
 	margin-left: 34px;
 }
-nav ul em {
+nav ul .chapter-number {
+	color: rgb(56,56,56) !important;
+	display: inline;
 	opacity: .5;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 500;

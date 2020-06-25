@@ -1,8 +1,8 @@
 <template>
 	<div class="regards-photographiques">
-		<h1>Regards photographiques</h1>
+		<h1>Page «&nbsp;regards photographiques&nbsp;» en construction</h1>
 		<div class="center-col">
-			<p>Bonjour, making bacon.</p>
+			<p>Contenu à venir</p>
 		</div>		
 	</div>
 </template>
