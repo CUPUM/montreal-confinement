@@ -1,13 +1,6 @@
 <template>
 	<div :id="this.chartID" class="bubble-cluster">
 		<svg :id="this.chartID+'-chart'" perserveAspectRatio="xMidYMid">
-			<defs>
-				<linearGradient id="defaultGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-					<stop offset="0%" style="stop-color:rgb(95,92,78);stop-opacity:1" />
-					<stop offset="100%" style="stop-color:rgb(78,92,95);stop-opacity:1" />
-				</linearGradient>
-			</defs>
-			<!-- <circle v-for="(node, i) in preparedData" :key="i" :r="node.radius" :cx="node.x" :cy="node.y">test</circle> -->
 		</svg>
 	</div>
 </template>
@@ -72,8 +65,6 @@ export default {
 	methods: {
 		graph() {
 			const selector = '#'+this.chartID+'-chart';
-			// var width = this.svgWidth;
-			// var height = this.svgHeight;
 			const width = this.svgWidth //= document.querySelector('#'+this.chartID).clientWidth;
 			const height = this.svgHeight //= document.querySelector('#'+this.chartID).clientHeight;
 
@@ -84,10 +75,19 @@ export default {
 			const dataNodes = this.preparedData;
 			const colorKey = this.colorKey;
 
-			function fillColor(node) {
+			var randomHue = parseInt(Math.random()*310, 10);
+			randomHue > 30 ? randomHue+50 : randomHue;
+
+			function fillColor(node,i) {
 				if (colorKey != (undefined && null) && node[colorKey] != (undefined && null && "")) {
 					return node[colorKey]
-				} else return 'rgb(150, 147, 138)' //'url(#defaultGradient)'
+				} else {
+					var iterHue = (randomHue-i*4);
+					if (iterHue < 0) {
+						iterHue = iterHue+360
+					}
+					return 'hsl('+iterHue+','+(55-i)+'%,'+(65+i)+'%)'
+				}
 			}
 
 			let svg = d3.select(selector)
@@ -128,7 +128,7 @@ export default {
 			let bubbles = this.plots.append('circle')
 				.attr('class', 'bubble')
 				.attr('r', 0) // début de transition (ici r=0...)
-				.attr('fill', d => fillColor(d))
+				.attr('fill', (d,i) => fillColor(d,i))
 				.attr('opacity', 1)
 			bubbles.transition()
 				.duration(750)
@@ -216,9 +216,10 @@ export default {
 	margin: 0px;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
+	overflow: visible;
 }
 .bubble-cluster svg {
+	overflow: visible;
 	width: 100%;
 	height: 100%;
 }

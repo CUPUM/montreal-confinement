@@ -1,19 +1,16 @@
 <template>
 	<div id="accueil">
 		<div id="splash">
-
-			<div id="splash-svg-container">
-				<svg preserveAspectRatio="xMinYMin" viewBox="0 0 1800 500">
-					<defs>
-						<mask id="splash-text-mask" x="0" y="0">
-							<text x="0" y="200" class="splash-text">Veille sur la crise</text>
-							<text x="0" y="450" class="splash-text">de la COVID-19</text>
-						</mask>
-					</defs>
-					<image width="100%" v-bind="{'xlink:href' : BGpic}" mask="url(#splash-text-mask)"/>  
-				</svg>
-			</div>
-
+			<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1200 800">
+				<defs>
+					<mask id="splash-text-mask" x="0" y="0">
+						<text x="0" y="200" class="splash-text">Montréal /</text>
+						<text x="0" y="450" class="splash-text">paysage</text>
+						<text x="0" y="700" class="splash-text">en confinement</text>
+					</mask>
+				</defs>
+				<image width="100%" v-bind="{'xlink:href' : BGpic}" mask="url(#splash-text-mask)"/>
+			</svg>
 		</div>
 
 		<div id="chaire-logo-container">
@@ -31,9 +28,8 @@
 				}"></div> -->
 			<img class="chaire-logo" :src='CUPUMlogo' alt="~"/>
 		</div>
-
+		<h1>Accueil</h1>
 		<div class="center-col">
-			<h2>Accueil</h2>
 			<p>Lorem ipsum <em>dolor sit amet, consectetur adipiscing elit.</em> Quisque pretium finibus facilisis. Cras magna velit, iaculis sit amet felis quis, sollicitudin pellentesque lorem. Mauris non nulla eu velit consequat consectetur. Curabitur feugiat dui dui, vitae vehicula libero tincidunt non. Mauris rutrum dapibus nibh ut euismod. Cras gravida nisi id sagittis pellentesque. In rutrum est dolor. Maecenas convallis urna fringilla ultrices vestibulum. Sed scelerisque lectus a diam gravida malesuada. Cras vel cursus odio. Duis placerat ut est eget bibendum. Vestibulum dignissim sapien ante, ut ultrices tellus rhoncus luctus.</p>
 			<p>Quisque auctor bibendum leo in aliquam. Proin viverra sollicitudin eros, ac malesuada metus interdum eu. Cras euismod, elit sit amet mollis viverra, ipsum ligula fermentum nulla, ut tristique mauris leo sit amet mauris. Curabitur imperdiet est at urna pulvinar, quis dictum tellus volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce cursus luctus dapibus. Vestibulum volutpat rutrum lectus vel tempor. Vivamus ut mauris mi. Ut et lorem tempus, rhoncus enim ut, condimentum justo. Morbi eleifend, enim sed condimentum tristique, dui mauris euismod mi, a blandit dolor arcu ornare nisl. Suspendisse gravida erat at massa bibendum, vel rutrum odio facilisis. Sed eu est non dolor condimentum luctus.</p>
 		</div>
@@ -89,14 +85,15 @@ export default {
 	padding: 0px;
 	margin: 0px;
 }
-#splash-svg-container {
-	display: inline-block;
+#splash {
 	box-sizing: border-box;
-	padding: 100px 100px 25px 100px;
 	width: 100%;
+	height: 100%;
+	padding: 90px 110px;
 }
 #splash svg {
 	width: 100%;
+	height: 100%;
 }
 .splash-text {
 	width: 100%;

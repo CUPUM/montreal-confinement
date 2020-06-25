@@ -1,7 +1,7 @@
 <template>
 	<div class="analyse-veille">
 		<div class="center-col">
-			<h2>Analyse de la veille informationnelle</h2>
+			<h1>Analyse de la veille informationnelle</h1>
 		</div>
 	</div>
 </template>

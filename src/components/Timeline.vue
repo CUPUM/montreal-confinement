@@ -247,7 +247,7 @@ export default {
 	top: 50px;
 	margin: 0px;
 	font-size: 12px;
-	font-weight: 600;
+	font-weight: 500;
 	padding: 0px;
 	text-indent: 0px;
 	text-align: center;

@@ -1,7 +1,7 @@
 <template>
 	<div class="questionnements">
 		<div class="center-col">
-			<h2>Questionnements</h2>
+			<h1>Questionnements</h1>
 		</div>
 	</div>
 </template>

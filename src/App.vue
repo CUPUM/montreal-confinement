@@ -32,25 +32,26 @@ export default {
 </script>
 
 <style>
+/* font-family: 'Archivo', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+/* font-family: 'Work Sans', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* font-family: 'Proza Libre', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 /* font-family: 'Poppins', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /* font-family: 'Spectral', serif; */
 @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-/* font-family: 'Nunito', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+/* font-family: 'Lato', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 /* font-family: 'DM Serif Text', serif; */
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
-/* font-family: 'Rakkas', cursive; */
-/* @import url('https://fonts.googleapis.com/css2?family=Rakkas&display=swap'); */
-/* font-family: 'Red Hat Text', sans-serif; */
-/* @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap'); */
-/* font-family: 'DM Sans', sans-serif; */
-/* @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap'); */
-/* font-family: 'Quicksand', sans-serif; */
-/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-/* font-family: 'Nunito', sans-serif; */
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,200;1,300;1,400;1,600;1,700;1,800&display=swap'); */ */
 
 * {
 	box-sizing: border-box;
@@ -84,7 +85,7 @@ body {
 	padding: 0px;
 	width: 100%;
 	height: 100%;
-	background-color: rgb(246, 245, 244);
+	background-color: rgb(244, 246, 248);
 	font-family: 'Poppins', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -121,25 +122,32 @@ body {
 
 /* Text styling */
 .center-col {
-	max-width: 700px;
+	max-width: 800px;
 	padding: 0 80px;
 	margin: 0 auto;
 }
 
-h1, h2, h3, h4 {
-	/* font-family: 'DM Serif Text', serif; */
-	font-weight: 800;
+h1, h2, h3 {
+	font-weight: 400;
 	line-height: 1.2em;
-	margin: 48px 48px 32px 48px;
-	color: rgb(65, 65, 65);
-	font-size: 44pt;
+	margin: 64px 0px 32px 0px;
+	padding: 32px 48px;
+	color: rgb(51, 51, 51);
+	font-size: 48pt;
+}
+h1 {
+	margin: 0px 0px 50px 0px;
+	padding: 100px 125px;
+	text-align: center;
+	font-weight: 300;
 }
 h2 {
-	font-size: 35pt;
+	box-shadow: 24px 0px 24px -36px rgba(0,0,0,.5), -24px 0px 24px -36px rgba(61, 48, 48, 0.5);
+	font-size: 28pt;
 	line-height: 1.2em;
 }
 h3 {
-	font-size: 26pt;
+	font-size: 22pt;
 	line-height: 1.2em;
 }
 h4 {

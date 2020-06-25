@@ -1,7 +1,8 @@
 <template>
 	<div class="apropos">
+		<h1>Vous êtes présentement à l'onglet À propos</h1>
 		<div class="center-col">
-			<h2>Vous êtes présentement à l'onglet À propos</h2>
+			<p>Où qui quoi quand comment pourquoi!</p>
 		</div>		
 	</div>
 </template>

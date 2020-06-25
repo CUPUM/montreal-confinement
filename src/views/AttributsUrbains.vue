@@ -1,9 +1,9 @@
 <template>
 	<div id="attributs-urbains">
+		<h1>Attributs urbains dans la presse écrite</h1>
 	<!-- Partie 1 -->
 		<div class="center-col">
-			<h2>Attributs urbains dans la presse écrite</h2>
-			<h3>Quels attributs du paysage urbain ont fait l’objet de préoccupations et de valorisations par les médias montréalais au temps de la COVID-19?</h3>
+			<h2>Quels attributs du paysage urbain ont fait l’objet de préoccupations et de valorisations par les médias montréalais au temps de la COVID-19?</h2>
 		</div>
 		<div id="attributs-sommaire">
 			<BubbleCluster
@@ -19,7 +19,7 @@
 
 	<!-- Partie 2 -->
 		<div class="center-col">
-			<h3>Combien d'articles de presse ont abordés chacun des principaux attributs du paysage urbains pendant les semaines de la période de confinement?</h3>
+			<h2>Combien d'articles de presse ont abordés chacun des principaux attributs du paysage urbains pendant les semaines de la période de confinement?</h2>
 		</div>
 		<div id="semaines-wrap">
 			<div class="attributs-semaines" v-for="(attribut,i) in attrList" :key="attribut+i">
@@ -56,9 +56,13 @@
 			<div id="attributs-pane">
 				<h4>Attributs</h4>
 				<ul>
-					<li v-for="(code, i) in codesList" v-bind:key='i+"_li"'>
+					<!-- <li v-for="(code, i) in codesList" v-bind:key='i+"_li"'>
 						<input v-bind:key='i+"_input"' type="radio" :id='code+"_radio"' :value='code' v-model="choix">
 						<label v-bind:key='i+"_label"' :for='code+"_radio"'>{{ code }}</label>
+					</li> -->
+					<li v-for="(code, i) in filteredCodesList" v-bind:key='i+"_li"'>
+						<input :key='i+"_input"' type="radio" :disabled="!code.hasBubbles" :id='code.code+"_radio"' :value='code.code' v-model="choix">
+						<label :key='i+"_label"' :for='code.code+"_radio"' :class="{'disabled': !code.hasBubbles}">{{ code.code }}</label>
 					</li>
 				</ul>
 			</div>
@@ -66,10 +70,10 @@
 				<div id="visualisation-pane-inner">
 					<div :class="{'noquotes': attributSingleCaracterisationTimeline == (undefined && null && '')}" id="quotes-pane">
 						<h4>Extraits</h4>
-						<transition-group name="quotes" mode="out-in">
+						<transition-group name="quotes" mode="out-in" tag="div">
 							<div class="quote-block" v-for="(quote,i) in attributSingleCaracterisationTimeline" :key="i+quote.date+quote.mot+'-block'" :style="{borderColor: quote.color}">
 								<h5 :key="i+quote.date+quote.mot" :style="{color: quote.color}">{{ quote.id }}&nbsp;: {{ quote.mot }}</h5>
-								<p :key="i+quote.date+quote.mot+'-quote'">«&nbsp;{{ quote.citation }}&nbsp;»</p>
+								<p v-for="(q,index) in quote.citation" :key="index+quote.date+quote.mot+'-quote'">«&nbsp;{{ q }}&nbsp;»</p>
 							</div>
 						</transition-group>
 					</div>
@@ -87,7 +91,7 @@
 					</div>
 				</div>
 				<div id="timeline-pane">
-					<h4>Apparitions média</h4>
+					<h4>Parutions</h4>
 					<div id="timeline-pane-inner">
 						<Timeline
 							:chartID="'timeline-caracterisation'"
@@ -150,10 +154,6 @@ export default {
 				'Groupe': quotation['Groupe']
 			})
 		})
-		// this.expandedQuotations = AttributsDetail.Quotations;
-		// for ( let i = 0; i < this.expandedQuotations.length; i++ ) {
-		// 	this.expandedQuotations[i]['Codes'] = this.expandedQuotations[i]['Codes'].split(/ *; */);
-		// }
 		Object.freeze(this.expandedQuotations);
 	},
 	computed: {
@@ -171,6 +171,8 @@ export default {
 		},
 
 		attributsCaracterisations() {
+			const regExFilter = /(^[,'’\s]+(\s*.[,'’\s]+)*)|(([,'’\s]+.\s*)*[,'’\s]+$)/g // Ancienne version: /(^[,'’\s]+)|([,'’\s]+$)/g
+			//const regExFilter = /(^[,'’\s]+)|([,'’\s]+$)/g
 			var occurrences = {};
 			this.codesList.forEach(code => {
 				var currentCaracterisations = []
@@ -179,11 +181,11 @@ export default {
 				var caracterisation = {};
 				caracterisation[code] = [];
 				correspondingQuotations.forEach(singleQuotation => {
-					caracterisation[code].push( singleQuotation['Quotation Content'].replace(/(^[,'’\s]+)|([,'’\s]+$)/g, '').toLowerCase() )
+					caracterisation[code].push( singleQuotation['Quotation Content'].replace(regExFilter, '').toLowerCase() )
 				})
 				const map =  caracterisation[code].reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map());
 				map.forEach( (value, key) => {
-					const groupesArray = correspondingQuotations.filter(q => q['Quotation Content'].replace(/(^[,'’\s]+)|([,'’\s]+$)/g, '').toLowerCase() == key).map(qFiltered => qFiltered['Groupe'].trim())
+					const groupesArray = correspondingQuotations.filter(q => q['Quotation Content'].replace(regExFilter, '').toLowerCase() == key).map(qFiltered => qFiltered['Groupe'].trim())
 					currentCaracterisations.push({
 						"mot":key,
 						"occurrences":value,
@@ -210,8 +212,8 @@ export default {
 				if (haveCode.length > 0) {
 					haveCode.forEach( codedQuotation => datedCaract[code].push({
 						mot: codedQuotation['Quotation Name'],
-						date: this.toDate(codedQuotation['Date'],'/'),
-						citation: codedQuotation['Citation'],
+						date: this.toDate(codedQuotation['Date'],'/'), // Ici: trouver un moyen de contenir l'info que plusieurs citations même date pour modifier affichage dans timeline
+						citation: [codedQuotation['Citation']], // Ici: gérer lorsque plusieurs citations se rapportent à la même date + même mot (probablement ensuite utiliser if (quotation.citation.length>1...))
 						groupe: codedQuotation['Groupe'],
 						color: this.defineColor([codedQuotation['Groupe']])
 					}))
@@ -242,6 +244,18 @@ export default {
 				})
 			})
 			return Object.freeze(sommaire)
+		},
+
+		filteredCodesList() {
+			var filteredCodes = []
+			this.codesList.forEach(thisCode => {
+				filteredCodes.push({
+					code: thisCode,
+					hasBubbles: this.attributsCaracterisations[thisCode].length>0 ? true : false
+				})
+			})
+			console.log(filteredCodes)
+			return filteredCodes
 		}
 	},	
 	methods: {
@@ -252,32 +266,35 @@ export default {
 		},
 		defineColor(array) {
 			var r,g,b;
-			var problemes = 0;
-			var fonctions = 0;
-			var solutions = 0;
+			var colSum = {r:0 ,g:0 ,b:0}
+			const colKeys = ['r','g','b']
+			var problemes = {n:0, r:250, g:138, b: 102};
+			var solutions = {n:0, r:102, g:234, b: 112};
+			var fonctions = {n:0, r:108, g:150, b: 252};
 			const total = array.length;
-			const totalsquared = Math.pow(total,2);
-			const colMin = 85;
-			const colRange = 145;
-
+			
 			array.forEach(item => {
 				switch(item) {
 					case "Problème":
-						++problemes;
+						++problemes.n;
+						colKeys.forEach(primary => { colSum[primary] += Math.pow(problemes[primary],2) });
 						break;
 					case "Fonction":
-						++fonctions;
+						++fonctions.n;
+						colKeys.forEach(primary => { colSum[primary] += Math.pow(fonctions[primary],2) });
 						break;
 					case "Solution":
-						++solutions;
+						++solutions.n;
+						colKeys.forEach(primary => { colSum[primary] += Math.pow(solutions[primary],2) });
 						break;
 					default:
 						console.log('oops, aucun groupe ne semble être correctement défini pour :'+item);
 				}
 			})
-			r = Math.sqrt((problemes*problemes)/totalsquared) * colRange + colMin;
-			g = Math.sqrt((solutions*solutions)/totalsquared) * colRange + colMin;
-			b = Math.sqrt((fonctions*fonctions)/totalsquared) * colRange + colMin;
+
+			r = Math.sqrt(colSum.r/total);
+			g = Math.sqrt(colSum.g/total);
+			b = Math.sqrt(colSum.b/total);
 
 			return 'rgb('+r+','+g+','+b+')'
 		}
@@ -322,8 +339,6 @@ export default {
 	width: 150px;
 	height: 1em;
 	margin: 0px;
-	/* align-self: flex-end; */
-	/* transform: translateY(45%); */
 }
 .flex-timeline {
 	flex: 1
@@ -398,9 +413,19 @@ export default {
 	transition: all .15s linear;
 	border-radius: 1px;
 }
+#attributs-pane label.disabled {
+	text-decoration: line-through;
+	cursor: default;
+	color: rgb(102, 102, 102);
+	background-color: rgba(0,0,0,.2)
+}
 #attributs-pane label:hover {
 	background-color: rgba(255, 255, 255,.2);
 	color: rgb(223, 223, 223);
+}
+#attributs-pane label.disabled:hover {
+	background-color: rgba(0,0,0,.2);
+	color: rgb(102, 102, 102);
 }
 #attributs-pane input:checked+label {
 	color: rgb(32, 32, 32);
@@ -485,8 +510,9 @@ export default {
 #quotes-pane p {
 	display: block;
 	text-indent: 0;
-	font-size: 15px;
-	font-family: 'DM Serif Text', serif;
+	font-size: 16px;
+	font-family: 'Spectral', serif;
+	/* font-family: 'DM Serif Text', serif; */
 	font-style: italic;
 	font-weight: 500;
 	padding: 0px;
@@ -496,11 +522,16 @@ export default {
 }
 .quotes-enter-active,
 .quotes-leave-active {
+	max-height: 1000px;
 	transform: translateY(0px);
-	transition: all .2s ease-in-out .21s;
+	transition: all .2s ease-in-out .2s;
 }
 .quotes-enter,
 .quotes-leave-to {
+	box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+	max-height: 0px;
+	margin: 0px 10px;
+	padding: 0px 10px;
 	opacity: 0;
 	transform: translateY(-10px);
 	transition: all .2s;

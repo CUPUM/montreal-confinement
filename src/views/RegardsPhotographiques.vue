@@ -1,7 +1,8 @@
 <template>
 	<div class="regards-photographiques">
+		<h1>Regards photographiques</h1>
 		<div class="center-col">
-			<h2>Regards photographiques</h2>
+			<p>Bonjour, making bacon.</p>
 		</div>		
 	</div>
 </template>

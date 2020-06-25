@@ -1,7 +1,7 @@
 <template>
 	<div class="bibliographie">
 		<div class="center-col">
-			<h2>Vous êtes présentement à l'onglet À propos</h2>
+			<h1>Vous êtes présentement à l'onglet À propos</h1>
 		</div>		
 	</div>
 </template>

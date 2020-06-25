@@ -1,7 +1,8 @@
 <template>
 	<div id="humain">
+		<h1>L'humain dans la ville en temps de crise de COVID-19</h1>
 		<div class="center-col">
-			<h2>L'humain dans la ville en temps de crise de COVID-19</h2>
+			<p>Les légumes regardent le jardinier paresseux.</p>
 		</div>
 
 		<div id="humain-sommaire">

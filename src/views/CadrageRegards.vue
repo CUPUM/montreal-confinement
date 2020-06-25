@@ -1,12 +1,12 @@
 <template>
 	<div id="analyse-photo">
+		<h1>Analyse de photographies urbaines de Montréal en temps de COVID-19</h1>
 		<div class="center-col">
-			<h2>Analyse de photographies urbaines de Montréal en temps de COVID-19</h2>
 			<p>Donec semper porttitor justo. Praesent convallis bibendum sodales. Aliquam elit lectus, porttitor ut porta id, aliquet eget urna. Quisque commodo ipsum condimentum odio tempus, in posuere erat faucibus. Morbi tincidunt euismod velit eu congue. In vel nisi lobortis, luctus purus a, condimentum sapien. In tincidunt sit amet sem vitae dictum. In hac habitasse platea dictumst. Etiam pulvinar est porta ipsum pharetra, in dapibus nibh rhoncus. Praesent ornare erat et elementum porta. Pellentesque consectetur odio est, eget vehicula est vestibulum quis. Duis ut ipsum eget urna ultrices blandit. Pellentesque eu risus id libero vestibulum dignissim vitae a odio. Aliquam nibh massa, viverra at ligula eu, finibus rutrum ipsum. Donec tincidunt, nulla vitae vestibulum fringilla, libero nisl tempus est, sed mollis mi leo pulvinar enim. Nullam turpis magna, laoreet ut est non, elementum gravida mauris.</p>
 		</div>
 
 		<div class="center-col">
-			<h3>Caractérisation visuelle<br><small>(Analyse de la composition &amp; du sujet)</small></h3>
+			<h2>Caractérisation visuelle<br><small>(Analyse de la composition &amp; du sujet)</small></h2>
 		</div>
 		<div class="wordcloud-container">
 			<WordCloud
@@ -19,7 +19,7 @@
 		</div>
 
 		<div class="center-col">
-			<h3>Contextes urbains et éléments physiques</h3>
+			<h2>Contextes urbains et éléments physiques</h2>
 		</div>
 		<div class="wordcloud-container">
 			<WordCloud
@@ -32,7 +32,7 @@
 		</div>
 
 		<div class="center-col">
-			<h3>Présence humaine dans la composition</h3>
+			<h2>Présence humaine dans la composition</h2>
 		</div>
 		<div class="wordcloud-container">
 			<WordCloud
@@ -45,7 +45,7 @@
 		</div>
 
 		<div class="center-col">
-			<h3>Ambiance</h3>
+			<h2>Ambiance</h2>
 		</div>
 		<div class="wordcloud-container">
 			<WordCloud
@@ -58,7 +58,7 @@
 		</div>
 
 		<div class="center-col">
-			<h3>Sentiment / sensation / évocation</h3>
+			<h2>Sentiment / sensation / évocation</h2>
 		</div>
 		<div class="wordcloud-container">
 			<WordCloud
@@ -71,7 +71,7 @@
 		</div>
 
 		<div class="center-col">
-			<h3>Schématisation d'une identité conceptuelle du paysage urbain de Montréal en temps de crise sanitaire</h3>
+			<h2>Schématisation d'une identité conceptuelle du paysage urbain de Montréal en temps de crise sanitaire</h2>
 			<p>Lorem ipsum!</p>
 		</div>
 	</div>

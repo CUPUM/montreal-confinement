@@ -79,11 +79,11 @@ export default {
 }
 
  #backdrop {
-	opacity: .8;
+	opacity: 1;
 	box-sizing: content-box;
 	position: absolute;
-	/* background-image: url('~@/assets/noise-texture-lighter.png'); */
-	background-color: rgb(150, 147, 138);
+	background-image: url('~@/assets/noise-texture-lighter.png');
+	background-color: rgb(255, 255, 255);
 	background-repeat: repeat;
 	background-position: top right;
 	width: calc(400 * (1vw + 1vh - 1vmin));
@@ -99,7 +99,7 @@ export default {
 	opacity: 1;
 	border-radius: 0%;
 	transform: translate(50%, -50%) rotate(45deg) scale(1);
-	transition: all .65s ease-in-out;
+	transition: all .8s ease-in-out;
 }
 
 nav {
@@ -135,7 +135,7 @@ nav ul {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	font-size: 32px;
-	background-color: rgba(0,0,0,0);
+	background-color: transparent;
 }
 nav ul .sub-chapter {
 	line-height: 1em;
@@ -143,7 +143,7 @@ nav ul .sub-chapter {
 	margin-left: 34px;
 }
 nav ul em {
-	opacity: .4;
+	opacity: .5;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
 	font-size: 13px;
@@ -153,7 +153,7 @@ nav ul em {
 
 /* Outer list-item element */
 nav li {
-	margin: 8px 0px;
+	margin: 0px 0px;
 	position: relative;
 	overflow: hidden;
 	cursor: pointer;
@@ -188,14 +188,14 @@ nav li.show .inner-wrapper {
 
 /* Inner text span */
 nav li span {
-	margin: 6px 6px;
+	margin: 14px 6px;
 	display: block;
-	color: rgb(248, 248, 248);
+	color: rgb(15, 209, 144);
 	transition: all .25s cubic-bezier(.5,0,.5,1);
 }
 
 nav li:not(.vue-active-link):hover span {
-	color: rgb(150, 147, 138); /* rgb(58, 216, 97); */
+	color: rgb(250, 250, 250); /* rgb(58, 216, 97); */
 }
 nav li.vue-active-link span {
 	opacity: .4;
@@ -203,14 +203,14 @@ nav li.vue-active-link span {
 
 
 .highlighter {
-	opacity: 0;
+	opacity: .8;
 	bottom: 0px;
 	border-radius: 1px;
 	position: absolute;
-	background-color: rgb(248, 248, 248);
+	background-color: rgb(15, 209, 144);
 	width: 0%;
 	height: 100%;
-	transition: all .15s ease-in-out;
+	transition: all .2s ease-in-out;
 	right: 0;
 }
 nav li.show:not(.vue-active-link):hover .highlighter {
