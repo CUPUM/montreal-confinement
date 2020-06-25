@@ -126,6 +126,9 @@ body {
 	padding: 0 80px;
 	margin: 0 auto;
 }
+.bottom-col {
+	padding-bottom: 250px;
+}
 
 h1, h2, h3 {
 	font-weight: 400;
@@ -136,10 +139,12 @@ h1, h2, h3 {
 	font-size: 52pt;
 }
 h1 {
-	margin: 0px 0px 50px 0px;
-	padding: 100px 125px;
+	margin: 0px 0px 100px 0px;
+	padding: 100px 125px 75px 125px;
 	text-align: center;
 	font-weight: 300;
+	display: block;
+	box-shadow: 0px 100px 70px -120px rgba(0,0,0,.2)
 }
 h2 {
 	font-weight: 600;
@@ -165,12 +170,24 @@ p {
 	margin: 26px auto;
 	color: rgb(49, 49, 49);
 }
-em {
+p em {
 	font-weight: 600;
 	font-style: normal;
 	background-color: rgba(197, 255, 89, 0.5);
 	padding: 0px 3px;
 	border-radius: 2px;
 }
-
+p li {
+	text-indent: 0px;
+	margin: 10px 52px;
+	list-style-type: none;
+}
+p li::before {
+	display: inline-block;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+	text-indent: -32px;
+	content: '\01F852';
+	color: rgb(15, 209, 144);
+}
 </style>
