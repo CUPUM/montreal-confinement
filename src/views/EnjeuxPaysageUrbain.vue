@@ -1,6 +1,6 @@
 <template>
-	<div class="enjeux-paysage">
-		<h1>Page «&nbsp;enjeux du paysage urain&nbsp;» en construction</h1>
+	<div id="enjeux-paysage" class="view-scroll">
+		<h1>Page «&nbsp;enjeux du paysage urbain&nbsp;» en construction</h1>
 		<div class="center-col">
 			<p>Contenu à venir</p>
 		</div>

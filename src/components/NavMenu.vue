@@ -4,9 +4,9 @@
 		<nav id="nav" v-bind:class="{ 'show': isNav }">
 			<ul>
 				<router-link 
-				v-for="(route, i) in routes" 
+				v-for="(route, i) in routes"
 				v-bind:key="route.id" 
-				v-bind:to="{ name: route.name }" 
+				v-bind:to="{ name: route.name }"
 				tag="li" 
 				v-bind:class="{ 'show': isNav, 'sub-chapter': route.isSubChapter }"
 				v-bind:style="{ transitionDelay: i*staggerDelay+'s'}"
@@ -192,7 +192,7 @@ nav li.show .inner-wrapper {
 nav li span {
 	margin: 14px 6px;
 	display: block;
-	color: rgb(15, 209, 144);
+	color: rgb(120, 175, 99);
 	transition: all .25s cubic-bezier(.5,0,.5,1);
 }
 
@@ -209,7 +209,7 @@ nav li.vue-active-link span {
 	bottom: 0px;
 	border-radius: 1px;
 	position: absolute;
-	background-color: rgb(15, 209, 144);
+	background-color: rgb(120, 175, 99);
 	width: 0%;
 	height: 100%;
 	transition: all .2s ease-in-out;

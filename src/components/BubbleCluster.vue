@@ -15,7 +15,9 @@ export default {
 		weightKey: String,
 		wordKey: String,
 		dataArray: Array,
-		colorKey: String
+		colorKey: String,
+		textColorKey: String,
+		borderColorKey: String
 	},
 	data() {
 		return {
@@ -34,13 +36,6 @@ export default {
 
 			this.dataArray.forEach(d => {d[sizeKey] = parseFloat(d[sizeKey])}); // parseFloat parceque d3 ne gère pas les strings...
 
-			// var reducedArray = this.dataArray;
-			// if (minSize == 1 && maxSize > 2) {
-			// 	reducedArray = this.dataArray.filter( word => word[this.weightKey] > 1 )
-			// }
-
-			//var reducedArray = this.dataArray.filter(word => word[this.weightKey] > 2)
-
 			const maxSize = d3.max(this.dataArray, function(d) {return d[sizeKey]});
 			//const minSize = d3.min(this.dataArray, function(d) {return d[sizeKey]});
 
@@ -50,7 +45,6 @@ export default {
 
 			const polishedData = this.dataArray.map(d => ({
 				...d,
-				//paragraphs: d[textKey].split(' '),
 				radius: radiusScale(d[sizeKey]),
 				factor: d[sizeKey] / maxSize,
 				//x: ( d[sizeKey] / maxSize + (1-d[sizeKey] / maxSize)*Math.random())/2 * width,
@@ -70,23 +64,35 @@ export default {
 
 			const center = { x: width/2, y: height/2 };
 			const gravity = 0.05;
-			const textColor = "#ffffff"
+			const defaultTextColor = "#fff"
 			const padding = 1;
 			const dataNodes = this.preparedData;
 			const colorKey = this.colorKey;
+			const textColorKey = this.textColorKey;
+			const borderColorKey = this.borderColorKey;
 
 			var randomHue = parseInt(Math.random()*310, 10);
 			randomHue > 30 ? randomHue+50 : randomHue;
 
 			function fillColor(node,i) {
-				if (colorKey != (undefined && null) && node[colorKey] != (undefined && null && "")) {
+				if (colorKey != (undefined && null && '') && node[colorKey] != (undefined && null && '')) {
 					return node[colorKey]
 				} else {
-					var iterHue = (randomHue-i*4);
-					if (iterHue < 0) {
-						iterHue = iterHue+360
-					}
-					return 'hsl('+iterHue+','+(55-i)+'%,'+(65+i)+'%)'
+					return 'hsl(0,0%,'+(40+.25*i)+'%)'
+				}
+			}
+			function textColor(node) {
+				if (textColorKey != (undefined && null && '') && node[textColorKey] != (undefined && null && '')) {
+					return node[textColorKey]
+				} else {
+					return defaultTextColor
+				}
+			}
+			function border(node) {
+				if (borderColorKey != (undefined && null && '') && node[borderColorKey] != (undefined && null && '')) {
+					return {color: node[borderColorKey], width: 2}
+				} else {
+					return {color: null, width: null}
 				}
 			}
 
@@ -129,6 +135,8 @@ export default {
 				.attr('class', 'bubble')
 				.attr('r', 0) // début de transition (ici r=0...)
 				.attr('fill', (d,i) => fillColor(d,i))
+				.attr('stroke', d => border(d).color)
+				.attr('stroke-width', d => border(d).width)
 				.attr('opacity', 1)
 			bubbles.transition()
 				.duration(750)
@@ -142,11 +150,15 @@ export default {
 				.attr('class', 'label')
 				.text(d => d[this.wordKey])
 				.style('text-anchor','middle')
+				.style('text-rendering','optimizeLegibility')
 				.attr('dominant-baseline', 'central')
 				.attr('font-family', '"Poppins",sans-serif')
 				.attr('font-size', d => d.radius * 0.2)
 				.attr('font-weight','normal')
-				.attr('fill', textColor)
+				.attr('fill', d => textColor(d))
+				//.attr('stroke', 'rgba(0,0,0,.2')
+				//.attr('stroke-width','1px')
+				//.attr('paint-order','stroke')
 				.attr('width', d => d.radius * 1.5)
 				.attr('opacity', 0)
 				// Ci dessous: fonction pour retour de ligne automatique (whoa + ouch + oof)

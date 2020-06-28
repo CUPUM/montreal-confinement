@@ -1,5 +1,5 @@
 <template>
-	<div class="identite-conceptuelle">
+	<div id="identite-conceptuelle" class="view-scroll">
 		<h1>Page «&nbsp;identité conceptuelle du paysage urbain&nbsp;» en construction</h1>
 		<div class="center-col">
 			<p>Contenu à venir</p>

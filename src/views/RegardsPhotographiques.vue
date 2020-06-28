@@ -1,5 +1,5 @@
 <template>
-	<div class="regards-photographiques">
+	<div id="regards-photographiques" class="view-scroll">
 		<h1>Page «&nbsp;regards photographiques&nbsp;» en construction</h1>
 		<div class="center-col">
 			<p>Contenu à venir</p>

@@ -1,25 +1,26 @@
 <template>
-	<div id="attributs-urbains">
+	<div id="attributs-urbains" class="view-scroll">
 		<h1>Attributs urbains dans la presse écrite</h1>
 	<!-- Partie 1 -->
 		<div class="center-col">
-			<h2>Quels attributs du paysage urbain ont fait l’objet de préoccupations et de valorisations par les médias montréalais au temps de la COVID-19?</h2>
+			<h3>Quels attributs du paysage urbain ont fait l’objet de préoccupations et de valorisations par les médias montréalais{{'\xa0'}}?</h3>
 		</div>
 		<div id="attributs-sommaire">
 			<BubbleCluster
 				:chartID="'bubbles-sommaire'"
-				:dataArray="this.AttributsSommaire['sommaire'].filter(attr => attr['occurrences']>10)"
+				:dataArray="attributsSommaireColored"
 				:weightKey="'occurrences'"
 				:wordKey="'attributs'"
+				:colorKey="'color'"
 			/>
 		</div>
 		<div class="center-col">
-			<p>La <em>rue</em> est la principale préoccupation de l’espace public montréalais. Ensuite, le <em>parc</em> constitue l’attribut majeur du paysage urbain. L’<em>automobile</em> et le <em>commerce</em> font l’objet d’attention auprès des médias en regard de l’activité économique et de la mobilité. Par leur occurrence, la <em>rue</em> et le <em>parc</em> sont les figures dominantes et valorisées du paysage urbain montréalais en mode confinement. En regard de l’ensemble des attributs répertoriés dans cette analyse, elles confirment leur importance pour la santé et le bien-être de la population urbaine à l’image de la ville hygiéniste du 19e siècle.</p>
+			<p>La <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span> est la principale préoccupation de l’espace public montréalais. Ensuite, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span> constitue l’attribut majeur du paysage urbain. L’<span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Automobile']}">automobile</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Commerce']}">commerce</span> font l’objet d’attention auprès des médias en regard de l’activité économique et de la mobilité. Par leur occurrence, la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span> sont les figures dominantes et valorisées du paysage urbain montréalais en mode confinement. En regard de l’ensemble des attributs répertoriés dans cette analyse, elles confirment leur importance pour la santé et le bien-être de la population urbaine à l’image de la ville hygiéniste du 19e siècle.</p>
 		</div>
 
 	<!-- Partie 2 -->
 		<div class="center-col">
-			<h2>Combien d'articles de presse ont abordés chacun des principaux attributs du paysage urbains pendant les semaines de la période de confinement?</h2>
+			<h3>Combien d'articles de presse ont abordés chacun des principaux attributs du paysage urbains{{'\xa0'}}?</h3>
 		</div>
 		<div id="semaines-wrap">
 			<div class="attributs-semaines" v-for="(attribut,i) in attrList" :key="attribut+i">
@@ -47,19 +48,21 @@
 
 		<!-- Partie 3 -->
 		<div class="center-col">
-			<h3>Quelles sont les préoccupations et valorisations relayées par les médias au sujet des divers attributs urbains recensés</h3>
+			<h3>Quelles sont les préoccupations et valorisations relayées par les médias au sujet des divers attributs urbains recensés{{'\xa0'}}?</h3>
 			<p>Text de remplissage pour simple test de mise en page. Veullez ajouter vos poèmes ici</p>
-			<p>Ut sed leo fringilla, rutrum ligula id, sodales metus. Morbi eu porttitor nibh. Nunc sed ultricies lectus. Nulla libero quam, elementum vitae mollis in, pretium vitae mi. Quisque non efficitur lacus. Nullam sodales egestas erat ut pellentesque. Maecenas sagittis lacus id commodo faucibus. Suspendisse eu fringilla risus. Morbi et condimentum ante. Nulla aliquet molestie mi, non iaculis sem luctus id. Mauris in finibus eros. Duis eu tincidunt urna. Curabitur finibus lacus orci, eu mattis metus scelerisque non. Nullam eu ornare lectus. Vestibulum non dui odio.</p>
+			<p>Dans la figure ci-dessous, les préoccupations et valorisations des attributs sont coloriées selon 3 groupes distinctifs qui caractérisent les contextes dans lesquels elles ont été repérées, à savoir{{'\xa0'}}:
+				<ul>
+					<li><div class="legende" :style="{backgroundColor: groupesColors.problemes.color}"></div> les problèmes{{'\xa0'}};</li>
+					<li><div class="legende" :style="{backgroundColor: groupesColors.solutions.color}"></div> les solutions{{'\xa0'}};</li>
+					<li><div class="legende" :style="{backgroundColor: groupesColors.fonctions.color, border: '1px solid rgb(24,24,24)'}"></div> les fonctions.</li>
+				</ul>
+			</p>
 		</div>
 
 		<div id="cluster-external-container">
 			<div id="attributs-pane">
 				<h4>Attributs</h4>
 				<ul>
-					<!-- <li v-for="(code, i) in codesList" v-bind:key='i+"_li"'>
-						<input v-bind:key='i+"_input"' type="radio" :id='code+"_radio"' :value='code' v-model="choix">
-						<label v-bind:key='i+"_label"' :for='code+"_radio"'>{{ code }}</label>
-					</li> -->
 					<li v-for="(code, i) in filteredCodesList" v-bind:key='i+"_li"'>
 						<input :key='i+"_input"' type="radio" :disabled="!code.hasBubbles" :id='code.code+"_radio"' :value='code.code' v-model="choix">
 						<label :key='i+"_label"' :for='code.code+"_radio"' :class="{'disabled': !code.hasBubbles}">{{ code.code }}</label>
@@ -72,6 +75,7 @@
 						<h4>Extraits</h4>
 						<transition-group name="quotes" mode="out-in" tag="div">
 							<div class="quote-block" v-for="(quote,i) in attributSingleCaracterisationTimeline" :key="i+quote.date+quote.mot+'-block'" :style="{borderColor: quote.color}">
+								<!-- <div class="legende"></div> -->
 								<h5 :key="i+quote.date+quote.mot" :style="{color: quote.color}">{{ quote.id }}&nbsp;: {{ quote.mot }}</h5>
 								<p v-for="(q,index) in quote.citation" :key="index+quote.date+quote.mot+'-quote'">«&nbsp;{{ q }}&nbsp;»</p>
 							</div>
@@ -86,6 +90,8 @@
 								:weightKey="'occurrences'"
 								:wordKey="'mot'"
 								:colorKey="'color'"
+								:textColorKey="'textColor'"
+								:borderColorKey="'borderColor'"
 							/>
 						</div>
 					</div>
@@ -113,6 +119,9 @@
 				</div>
 			</div>
 		</div>
+		<dir class="center-col">
+			<ChapterNav :previous="true" :next="true" />
+		</dir>
 	</div>
 </template>
 
@@ -122,12 +131,14 @@ import AttributsDetail from '@/assets/data/attributs-detail.json'
 import AttributsSommaire from '@/assets/data/attributs-sommaire.json'
 import BubbleCluster from '@/components/BubbleCluster'
 import Timeline from '@/components/Timeline'
+import ChapterNav from '@/components/ChapterNav'
 
 export default {
 	name: 'AttributsUrbains',
 	components: {
 		BubbleCluster,
-		Timeline
+		Timeline,
+		ChapterNav
 	},
 	data() {
 		Object.freeze(AttributsSommaire)
@@ -170,6 +181,26 @@ export default {
 			return codes.sort(Intl.Collator().compare)
 		},
 
+		attrColors() {
+			var colors = {};
+			this.attrList.forEach((attr,i) => {
+				colors[attr] = 'hsl('+i / this.attrList.length * 360+', 60%, 70%)'
+			})
+			return colors
+		},
+
+		groupesColors() {
+			var prob = {r:50, g:50, b: 50};
+			var sol = {r:125, g:125, b: 125};
+			var fonc = {r:255, g:255, b: 255};
+			var groupes = {problemes: prob, solutions: sol, fonctions: fonc};
+			['problemes','solutions','fonctions'].forEach(groupe => {
+				groupes[groupe].color = 'rgb('+groupes[groupe].r+','+groupes[groupe].g+','+groupes[groupe].b+')'
+			})
+			console.log(groupes)
+			return groupes
+		},
+
 		attributsCaracterisations() {
 			const regExFilter = /(^[,'’\s]+(\s*.[,'’\s]+)*)|(([,'’\s]+.\s*)*[,'’\s]+$)/g // Ancienne version: /(^[,'’\s]+)|([,'’\s]+$)/g
 			//const regExFilter = /(^[,'’\s]+)|([,'’\s]+$)/g
@@ -185,12 +216,15 @@ export default {
 				})
 				const map =  caracterisation[code].reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map());
 				map.forEach( (value, key) => {
-					const groupesArray = correspondingQuotations.filter(q => q['Quotation Content'].replace(regExFilter, '').toLowerCase() == key).map(qFiltered => qFiltered['Groupe'].trim())
+					const groupesArray = correspondingQuotations.filter(q => q['Quotation Content'].replace(regExFilter, '').toLowerCase() == key).map(qFiltered => qFiltered['Groupe'].trim());
+					let palette = this.defineColor(groupesArray);
 					currentCaracterisations.push({
-						"mot":key,
-						"occurrences":value,
-						"groupes": groupesArray,
-						"color": this.defineColor(groupesArray)
+						mot: key,
+						occurrences: value,
+						groupe: groupesArray,
+						color: palette.color,
+						textColor: palette.textColor,
+						borderColor: palette.borderColor
 					});
 				})
 				occurrences[code] = currentCaracterisations.filter(caracterisation => caracterisation['occurrences'] > 1).sort((a,b) => b['occurrences'] - a['occurrences']).slice(0,12);
@@ -210,13 +244,18 @@ export default {
 				datedCaract[code] = [];
 				const haveCode = haveCitation.filter( quotation => quotation['Codes'].some( quotationCodes => quotationCodes === code ));
 				if (haveCode.length > 0) {
-					haveCode.forEach( codedQuotation => datedCaract[code].push({
-						mot: codedQuotation['Quotation Name'],
-						date: this.toDate(codedQuotation['Date'],'/'), // Ici: trouver un moyen de contenir l'info que plusieurs citations même date pour modifier affichage dans timeline
-						citation: [codedQuotation['Citation']], // Ici: gérer lorsque plusieurs citations se rapportent à la même date + même mot (probablement ensuite utiliser if (quotation.citation.length>1...))
-						groupe: codedQuotation['Groupe'],
-						color: this.defineColor([codedQuotation['Groupe']])
-					}))
+					haveCode.forEach( codedQuotation => {
+						let palette = this.defineColor([codedQuotation['Groupe']]);
+						datedCaract[code].push({
+							mot: codedQuotation['Quotation Name'],
+							date: this.toDate(codedQuotation['Date'],'/'), // Ici: trouver un moyen de contenir l'info que plusieurs citations même date pour modifier affichage dans timeline
+							citation: [codedQuotation['Citation']], // Ici: gérer lorsque plusieurs citations se rapportent à la même date + même mot (probablement ensuite utiliser if (quotation.citation.length>1...))
+							groupe: codedQuotation['Groupe'],
+							color: palette.color,
+							textColor: palette.textColor,
+							borderColor: palette.borderColor
+						})
+					})
 					datedCaract[code].sort((a,b) => a.date - b.date).forEach((cQ,i) => cQ.id = String.fromCharCode(('A').charCodeAt(0)+i))
 				} else {
 					datedCaract[code] = null;
@@ -231,19 +270,30 @@ export default {
 
 		attributsSommaireSemaine() {
 			var sommaire = {}
-			this.attrList.forEach((attribut,i) => {
-				const attrIndex = i;
+			this.attrList.forEach(attribut => {
 				sommaire[attribut] = []
 				this.AttributsSommaire['semaines'].forEach(semaine => {
 					sommaire[attribut].push({
 						date: this.toDate(semaine['Date milieu'].concat('/12'),'/'),
 						n: semaine[attribut],
 						size: Math.sqrt(semaine[attribut]*200),
-						color: 'hsl('+attrIndex / this.attrList.length * 360+', 70%, 70%)'
+						color: this.attrColors[attribut]
 					})
 				})
 			})
 			return Object.freeze(sommaire)
+		},
+
+		attributsSommaireColored() {
+			var coloredData = []
+			this.AttributsSommaire['sommaire'].filter(attr => attr['occurrences']>10).forEach(attr => {
+				coloredData.push({
+					attributs: attr.attributs.trim(),
+					occurrences: attr.occurrences,
+					color: this.attrColors[attr.attributs.trim()] != (undefined && null && '')? this.attrColors[attr.attributs.trim()] : null
+				})
+			})
+			return coloredData
 		},
 
 		filteredCodesList() {
@@ -254,9 +304,8 @@ export default {
 					hasBubbles: this.attributsCaracterisations[thisCode].length>0 ? true : false
 				})
 			})
-			console.log(filteredCodes)
 			return filteredCodes
-		}
+		}		
 	},	
 	methods: {
 		toDate(dateString, separator) {
@@ -268,9 +317,10 @@ export default {
 			var r,g,b;
 			var colSum = {r:0 ,g:0 ,b:0}
 			const colKeys = ['r','g','b']
-			var problemes = {n:0, r:250, g:138, b: 102};
-			var solutions = {n:0, r:102, g:234, b: 112};
-			var fonctions = {n:0, r:108, g:150, b: 252};
+			const gr = this.groupesColors;
+			var problemes = {n:0, r: gr.problemes.r, g: gr.problemes.g, b: gr.problemes.b};
+			var solutions = {n:0, r: gr.solutions.r, g: gr.solutions.g, b: gr.solutions.b};
+			var fonctions = {n:0, r: gr.fonctions.r, g: gr.fonctions.g, b: gr.fonctions.b};
 			const total = array.length;
 			
 			array.forEach(item => {
@@ -295,9 +345,16 @@ export default {
 			r = Math.sqrt(colSum.r/total);
 			g = Math.sqrt(colSum.g/total);
 			b = Math.sqrt(colSum.b/total);
+			let theColor = 'rgb('+r+','+g+','+b+')';
 
-			return 'rgb('+r+','+g+','+b+')'
-		}
+			var theTextColor = 'rgb(24,24,24)';
+			var theBorderColor = 'rgb(24,24,24)';
+			if ((.2126*r + .7152*g + .0722*b)<165) { // Threshold de pseudo-luminance pour inverser couleur de typo (en réalité il faudrait transposer gamma-RGB(0-255) vers linéaire)
+				theTextColor = 'rgb(255,255,255)'
+				theBorderColor = null
+			}
+			return {color: theColor, textColor: theTextColor, borderColor: theBorderColor}
+		},
 	}
 }
 </script>
@@ -307,20 +364,26 @@ export default {
 	box-sizing: border-box;
 	width: 100%;
 	height: 100%;
-	overflow-y: auto;
 }
-
 #attributs-sommaire {
-	margin: -50px 0px;
+	margin: -100px 0px -50px 0px;
 	width: 100%;
-	height: 70vh;
+	height: 75vh;
+}
+.attribute-highlight {
+	padding: 0px 4px;
+	margin: 0px 2px;
+	border-radius: 3px;
+	font-weight: 500;
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0,0,0,.25)
 }
 
 #semaines-wrap {
 	box-sizing: content-box;
 	width: 850px;
 	padding: 1px 150px 50px 0px;
-	margin: 0 auto;
+	margin: 0px auto 50px auto;
 }
 .attributs-semaines {
 	display: flex;
@@ -342,6 +405,17 @@ export default {
 }
 .flex-timeline {
 	flex: 1
+}
+
+.legende {
+	position: relative;
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	padding: 0px;
+	margin: 0px 10px;
+	bottom: -5px;
 }
 
 #cluster-external-container {
@@ -407,6 +481,7 @@ export default {
 }
 
 #attributs-pane label {
+	user-select: none;
 	display: block;
 	cursor: pointer;
 	padding: 14px 24px;

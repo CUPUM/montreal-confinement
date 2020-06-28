@@ -1,14 +1,21 @@
 <template>
-	<div id="accueil" ref="accueil">
+	<div id="accueil" class="view-scroll" ref="accueil">
+		<transition name="curtain">
+			<div v-if="this.isCurtain" id="load-curtain"></div>
+		</transition>
 
 		<div id="splash">
 			<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1700 900">
+				<img class="chaire-logo" :src='CUPUMlogo' alt="~"/>
 				<defs>
+					<svg:style type="text/css">
+						@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700&display=swap'); <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
+					</svg:style>
 					<mask id="splash-text-mask" x="0" y="0">
 						<text x="0" y="220" class="splash-text">Montréal /</text>
 						<text x="0" y="510" class="splash-text">paysage</text>
 						<text x="0" y="800" class="splash-text">en confinement</text>
-						<text x="1345" y="465" class="splash-text date">13 mars &mdash; 16 mai 2020</text>
+						<text x="1235" y="465" class="splash-text date">13 mars &mdash; 16 mai 2020</text>
 					</mask>
 				</defs>
 				<image width="1700" v-bind="{'xlink:href' : BGpic}" mask="url(#splash-text-mask)"/>
@@ -23,10 +30,10 @@
 		<img class="chaire-logo" :src='CUPUMlogo' alt="~"/>
 
 		<h1 style="marginTop: -50px">Accueil</h1>
-		<div class="center-col bottom-col">
+		<div class="center-col">
 			<p>Au début de l’année 2020, la pandémie COVID-19 a profondément marqué les villes dans plusieurs régions du monde. Et, elle nous amène à poser des questionnements fondamentaux envers les milieux urbains tant sur les aspects sociaux, culturels, économiques, environnementaux et physiques (habitat, rue, parc, etc.). La COVID-19 a bouleversé radicalement et dans un très court laps de temps les comportements et les préoccupations des citoyens dans la ville. Les populations urbaines ont changé leur mode de vie au quotidien et elles ont dû s’adapter à cette nouvelle réalité avec des mesures adaptées pour contraindre cette pandémie.</p>
 			<p>La COVID-19 a révélé l’importance de vivre la ville au quotidien de manière heureuse. Elle nous a amené à questionner le rôle et les fonctions des espaces publics et privés tout comme elle a exposé des problèmes majeurs d’usages et d’accessibilité envers certains attributs urbains (parc, rue, etc.). Elle a également fait émerger des actions et des solutions nouvelles adaptées à ce contexte de crise.</p>
-			<p>Cette recherche sous l’intitulé <em> COVID-19 - paysage urbain montréalais{{'\xa0'}}: constats et perspectives</em> produites par la Chaire UNESCO en paysage urbain (CUPUM) fait état de la situation envers les espaces publics durant la période de confinement. En prenant appui sur une veille informationnelle des médias, de certaines OBNL et des communiqués de presse de la Ville de Montréal, elle a permis de trouver des réponses face à un ensemble des questionnements reliés à la mission de la Chaire UNESCO et à ces programmes affiliés de l’UNESCO.</p>
+			<p>Cette recherche sous l’intitulé <em> COVID-19 &mdash; paysage urbain montréalais{{'\xa0'}}: constats et perspectives</em> produites par la Chaire UNESCO en paysage urbain (CUPUM) fait état de la situation envers les espaces publics durant la période de confinement. En prenant appui sur une veille informationnelle des médias, de certaines OBNL et des communiqués de presse de la Ville de Montréal, elle a permis de trouver des réponses face à un ensemble des questionnements reliés à la mission de la Chaire UNESCO et à ces programmes affiliés de l’UNESCO.</p>
 			<p>Cette recherche a aussi été l’occasion de porter un regard sensible sur l’expérience de l’espace public en analysant les différents cadrages de photographes de presse et professionnels durant cette période de confinement montréalais. L’interprétation de ce corpus a permis d’esquisser les contours de l’identité du paysage urbain qui révèle les attributs clés de l’expérience de la ville en mode «{{'\xa0'}}confinement{{'\xa0'}}».</p>
 			<p>Ce balisage d’informations durant la période montréalaise de confinement présenté dans ce site Internet devrait apporter un éclairage sur la situation montréalaise dans le contexte de la pandémie mondiale et il constitue{{'\xa0'}}:
 				<ul>
@@ -34,6 +41,7 @@
 					<li>une assise pour engager une réflexion pour le futur des espaces publics.</li>
 				</ul>
 			</p>
+			<ChapterNav :previous="false" :next="true" />
 		</div>
 	</div>
 </template>
@@ -42,18 +50,23 @@
 // @ is an alias to /src
 import CUPUMlogo from '@/assets/Logo_CUPUM_noir.svg'
 import BGpic from '@/assets/photos/cupum-covid_053.jpg'
+import ChapterNav from '@/components/ChapterNav'
 
 export default {
 	name: 'Accueil',
 	components: {
-
+		ChapterNav
 	},
 	data() {
 		return {
 			CUPUMlogo,
 			BGpic,
-			windowHeight: 0
+			windowHeight: 0,
+			isCurtain: Boolean
 		}
+	},
+	created() {
+		this.isCurtain = true;
 	},
 	computed: {
 		circles() {
@@ -81,15 +94,17 @@ export default {
 			this.$refs.accueil.scrollTo({top: this.windowHeight, behavior: 'smooth'})
 		},
 		onResize() {
-			this.windowHeight = window.innerHeight
+			this.windowHeight = window.innerHeight;
+			console.log(this.windowHeight)
 		}
 	},
 	mounted() {
+		setTimeout(() => {this.isCurtain = false}, 250)
 		this.onResize();
-		console.log(this.windowHeight)
 		this.$nextTick(() => {
 			window.addEventListener('resize', this.onResize);
 		})
+
 	},
 	beforeDestroy() {
 		window.removeEventListener('resize', this.onResize); 
@@ -99,13 +114,33 @@ export default {
 
 <style scoped>
 #accueil {
-	overflow-y: auto;
-	overflow-x: hidden;
 	width: 100%;
 	height: 100%;
 	padding: 0px;
 	margin: 0px;
 }
+#load-curtain {
+	opacity: 1;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	background-color: rgb(255, 255, 255);
+	z-index: 1;
+}
+
+.curtain-enter-active,
+.curtain-leave-active {
+	transition: all .75s;
+}
+.curtain-enter,
+.curtain-leave-to {
+	height: 0px !important;
+	opacity: 0 !important;
+}
+
 #splash {
 	position: relative;
 	top: 0px;
@@ -129,19 +164,21 @@ export default {
 }
 .splash-text.date {
 	font-family: 'Poppins', sans-serif;
-	font-weight: 500;
-	font-size: 30px;
+	font-weight: 300;
+	font-size: 42px;
 	fill: white;
-	letter-spacing: 1px;
+	letter-spacing: .5px;
 }
 
 .chaire-logo {
-	top: -50px;
+	shape-rendering: geometricPrecision;
+	opacity: .8;
+	top: -10px;
 	left: 50%;
 	transform: translateX(-50%);
 	margin: 0px;
 	padding: 0px;
-	height: 150px;
+	height: 175px;
 	width: auto;
 	position: relative;
 }
@@ -171,7 +208,7 @@ export default {
 #scroll-arrow {
 	left: 50%;
 	box-sizing: border-box;
-	top: 20px;
+	top: 15px;
 	padding: 0px;
 	margin: 0px;
 	position: absolute;
@@ -187,7 +224,7 @@ export default {
 	transition: all .4s cubic-bezier(.7,0,.3,1)
 }
 #scroll-arrow-container:hover #scroll-arrow {
-	top: 50px
+	top: 45px
 }
 #scroll-arrow-stem {
 	left: 50%;
@@ -195,13 +232,13 @@ export default {
 	height: 26px;
 	width: 2px;
 	margin-left: -1px;
-	top: 15px;
+	top: 10px;
 	background: rgb(64,64,64);
 	position: absolute;
 	transition: all .4s cubic-bezier(.7,0,.3,1)
 }
 #scroll-arrow-container:hover #scroll-arrow-stem {
-	top: 30px;
+	top: 25px;
 	height: 41px;
 }
 

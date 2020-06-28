@@ -160,11 +160,12 @@ export default {
 }
 
 .id-label {
+	text-shadow: 1px 1px 2px rgba(0,0,0,.25);
 	user-select: none;
-	letter-spacing: .5px;
+	letter-spacing: 1px;
+	left: 1px;
 	font-style: normal;
 	position: relative;
-	/* top: -16px; */
 	top: 50%;
 	text-align: center;
 	width: 100%;

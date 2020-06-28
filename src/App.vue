@@ -1,6 +1,7 @@
 <template>
 	<div id="app">
 		<div id="view-container">
+			<!-- <div id="spinner"></div> -->
 			<transition name="view-change" mode="out-in">
 				<keep-alive>
 					<router-view/>
@@ -55,6 +56,7 @@ export default {
 
 * {
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 html {
 	width: 100%;
@@ -76,6 +78,19 @@ body {
 	-ms-user-select: none; /* Internet Explorer/Edge */
 	user-select: none; /* Non-prefixed version, currently
 	supported by Chrome, Edge, Opera and Firefox */
+}
+.view-scroll {
+	scroll-behavior: smooth;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#spinner {
+	background-color: rgba(255,255,0,1);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 1000;
 }
 
 #app {
@@ -133,7 +148,6 @@ body {
 h1, h2, h3 {
 	font-weight: 400;
 	line-height: 1.2em;
-	margin: 64px 0px 32px 0px;
 	padding: 32px 48px;
 	color: rgb(56, 56, 56);
 	font-size: 52pt;
@@ -142,22 +156,57 @@ h1 {
 	margin: 0px 0px 100px 0px;
 	padding: 100px 125px 75px 125px;
 	text-align: center;
-	font-weight: 300;
+	font-weight: 500;
 	display: block;
-	box-shadow: 0px 100px 70px -120px rgba(0,0,0,.2)
+	box-shadow: 0px 90px 60px -120px rgba(0,0,0,.3), inset 0px -2px 5px -5px white;
 }
 h2 {
-	font-weight: 600;
-	box-shadow: 24px 0px 24px -36px rgba(0,0,0,.5), -24px 0px 24px -36px rgba(61, 48, 48, 0.5);
-	font-size: 32pt;
+	margin: 64px 0px 32px 0px;
+	position: relative;
+	font-weight: 200;
+	/* box-shadow: 24px 0px 24px -36px rgba(0,0,0,.5), -24px 0px 24px -36px rgba(61, 48, 48, 0.5); */
+	font-size: 36pt;
 	line-height: 1.2em;
+	text-indent: 0px;
+	padding-left: 0px;
+}
+h2::before {
+	box-sizing: border-box;
+	content: '';
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	position: absolute;
+	background: transparent;
+	border-radius: 0px 1px 0px 0px;
+	border-width: 2px 2px 0px 0px;
+	border-color: rgb(56,56,56);
+	border-style: solid;
+	left: -68px;
+	top: 60px;
+	transform: translateY(-50%) rotate(45deg);
+}
+h2::after {
+	box-sizing: border-box;
+	content: '';
+	width: 100px;
+	left: -141px;
+	height: 2px;
+	background-color: rgb(56,56,56);
+	/* background: linear-gradient(to right, rgba(56, 56, 56,0), rgba(56, 56, 56,1)); */
+	display: inline-block;
+	position: absolute;
+	border-radius: 1px;
+	top: 59px;
 }
 h3 {
+	margin: 32px 0px 24px 0px;
 	font-weight: 600;
 	font-size: 20pt;
 	line-height: 1.2em;
 }
 h4 {
+	margin: 24px 0px 16px 0px;
 	font-size: 18pt;
 	line-height: 1.2em;
 }
@@ -166,18 +215,16 @@ p {
 	font-size: 17px;
 	line-height: 26px;
 	font-weight: 400;
-	text-indent: 48px;
+	/* text-indent: 48px; */
 	margin: 26px auto;
 	color: rgb(49, 49, 49);
 }
 p em {
-	font-weight: 600;
+	font-weight: 700;
 	font-style: normal;
-	background-color: rgba(197, 255, 89, 0.5);
-	padding: 0px 3px;
-	border-radius: 2px;
+	color: rgb(120, 175, 99);
 }
-p li {
+p ul li {
 	text-indent: 0px;
 	margin: 10px 52px;
 	list-style-type: none;
@@ -188,6 +235,62 @@ p li::before {
 	padding: 0px;
 	text-indent: -32px;
 	content: '\01F852';
-	color: rgb(15, 209, 144);
+	color: rgb(156,156,156); /* rgb(120, 175, 99); */
+}
+p ol li {
+	text-indent: 20px;
+	margin: 10px 52px;
+}
+
+a.reference-link {
+	padding:0px 2px;
+	margin: 0px;
+	background-color: rgba(120, 175, 99, .1);
+	color:rgb(120, 175, 99);
+	display: inline-block;
+	position: relative;
+	border-radius: 3px;
+	text-decoration: none;
+	text-indent: 0px;
+	font-weight: 500;
+	z-index: 2;
+	transition: all .2s linear;
+}
+a.reference-link:hover {
+	color:rgb(250, 250, 250);
+}
+a.reference-link::after {
+	z-index: 1;
+	position: absolute;
+	display: inline-block;
+	content: '';
+	left: 3px;
+	right: 3px;
+	bottom: 3px;
+	height: 1px;
+	border-radius: 1px;
+	background-color: rgba(120, 175, 99, 1);
+	transition: all .2s ease;
+}
+a.reference-link:hover::after {
+	background-color: rgba(255, 255, 255, 1);
+}
+a.reference-link::before {
+	z-index: -1;
+	box-sizing: content-box;
+	position: absolute;
+	display: inline-block;
+	content: '';
+	right: 0;
+	bottom: 1px;
+	width: 0%;
+	height: 100%;
+	border-radius: 3px;
+	background-color: rgb(110, 167, 93);
+	transition: all .2s ease;
+}
+a.reference-link:hover::before {
+	left: 0;
+	width: 100%;
 }
 </style>

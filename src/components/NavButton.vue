@@ -57,7 +57,7 @@ export default {
 	transition: all .2s ease;	/* cubic-bezier(.8,0,.2,1); .25s cubic-bezier(.2,.15,.25,1) */
 }
 .x .bar {
-	background-color: rgb(15, 209, 144);
+	background-color: rgb(120, 175, 99);
 }
 
 #upper {

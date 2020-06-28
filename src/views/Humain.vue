@@ -1,5 +1,5 @@
 <template>
-	<div id="humain">
+	<div id="humain" class="view-scroll">
 		<h1>L'humain dans la ville en temps de crise de COVID-19</h1>
 		<div class="center-col">
 			<p>Contenu à venir.</p>
@@ -39,8 +39,6 @@ export default {
 #humain {
 	width: 100%;
 	height: 100%;
-	overflow-y: auto;
-	overflow-x: hidden;
 }
 #humain-sommaire {
 	margin: -50px 0px;

@@ -1,5 +1,5 @@
 <template>
-	<div id="analyse-photo">
+	<div id="analyse-photo" class="view-scroll">
 		<h1>Analyse de photographies urbaines de Montréal en temps de COVID-19</h1>
 		<div class="center-col">
 			<p>Contenu à venir</p>
@@ -146,7 +146,6 @@ export default {
 	box-sizing: border-box;
 	width: 100%;
 	height: 100%;
-	overflow-y: auto;
 }
 .wordcloud-container {
 	display: inline-block;
