@@ -162,7 +162,7 @@ export default {
 .id-label {
 	text-shadow: 1px 1px 2px rgba(0,0,0,.25);
 	user-select: none;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
 	left: 1px;
 	font-style: normal;
 	position: relative;

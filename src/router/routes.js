@@ -52,7 +52,7 @@ const routes = [
 	{
 		path: '/initiatives',
 		name: 'Initiatives',
-		component: () => import(/* webpackChunkName: "timline" */ '../views/Initiatives.vue'), // Pour lazy-loading
+		component: () => import(/* webpackChunkName: "Initiatives" */ '../views/Initiatives.vue'), // Pour lazy-loading
 		title: 'Territoire montréalais en initiatives',
 		chapter: 3,
 		isSubChapter: true,

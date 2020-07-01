@@ -133,12 +133,13 @@ export default {
 
 .curtain-enter-active,
 .curtain-leave-active {
-	transition: all .75s;
+	transition: all 1s ease-in;
 }
 .curtain-enter,
 .curtain-leave-to {
 	height: 0px !important;
-	opacity: 0 !important;
+	opacity: .5 !important;
+	background-color: rgb(244, 246, 248) !important;
 }
 
 #splash {

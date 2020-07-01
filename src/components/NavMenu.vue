@@ -53,7 +53,7 @@ export default {
 	mounted() {
 	},
 	watch: {
-		$route () {
+		$route() {
 			mutations.closeNav()
 		}
 	}

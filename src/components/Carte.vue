@@ -5,7 +5,7 @@
 </template>
 
 <script>
-//import { store, mutations } from '@/store.js'
+import { store, mutations } from '@/store.js'
 import * as L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
@@ -25,9 +25,16 @@ export default {
 		}
 	},
 	computed: {
+		runningDate() {
+			return store.runningDate
+		},
+		runningInitiative() {
+			return store.runningInitiative
+		},
+		
 		cityBounds() {
-			const point1 = [45.747402, -73.405458] // haut droit
-			const point2 = [45.368549, -74.048587] // bas gauche
+			const point1 = [45.706179, -73.464581] // haut droit
+			const point2 = [45.400379, -73.986675] // bas gauche
 			return [point1,point2]
 		}
 	},
@@ -39,26 +46,25 @@ export default {
 		this.map.touchZoom.disable();
 		this.map.doubleClickZoom.disable();
 		this.map.scrollWheelZoom.disable();
-		//var map = this.map;
-		//const bounds = this.cityBounds
 
 		window.addEventListener('resize', this.mapResize)
-
-		// this.$nextTick(function() {
-		// 	window.addEventListener('resize', function() {
-		// 		map.fitBounds( this.cityBounds )
-		// 		console.log(map)
-		// 	})
-		// })
 	},
 	methods: {
+		setRunningDate(date) {
+			mutations.setRunningDate(date)
+		},
+		setRunningInitiative(id) {
+			mutations.setRunningInitiative(id)
+		},
+
 		initMap() {
 			this.map = L.map('carte-initiatives', {
 				zoomControl: false,
-				zoomSnap: .25,
+				zoomSnap: 1,
 			}).fitBounds(this.cityBounds);
-			this.tileLayer = new L.TileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-				attribution: '' ,
+			this.tileLayer = new L.TileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+				subdomains: 'abcd',
 			});
 			this.tileLayer.addTo(this.map);
 		},

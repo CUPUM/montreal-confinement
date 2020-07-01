@@ -2,26 +2,31 @@ import Vue from "vue";
 
 export const store = Vue.observable({
 	isNav: false,
-	lang: 'fr'
+	lang: 'fr',
+	runningDate: null,
+	runningInitiative: null
 });
 
 export const mutations = {
 	toggleNav() {
-		/* if ( store.isNav.Outer ) {
-			store.isNav.Inner = false
-		} else {
-			store.isNav.Outer = true
-			store.isNav.Inner = true
-		} */
 		store.isNav = !store.isNav
 	},
 	closeNav() {
 		store.isNav = false
 	},
-	langEn() {
-		if (store.lang != 'en') store.lang = 'en'
+
+	setLang(language) {
+		if (store.lang != 'en' && language.toLowerCase() == ('en' || 'english')) {
+			store.lang = 'en'
+		} else if (store.lang != 'fr' && language.toLowerCase() == ('fr' || 'francais' || 'français')) {
+			store.lang = 'fr'
+		}
 	},
-	langFr() {
-		if (store.lang != 'fr') store.lang = 'fr'
+
+	setRunningDate(date) {
+		store.runningDate = date
+	},
+	setRunningInitiative(id) {
+		store.runningInitiative = id
 	}
 };

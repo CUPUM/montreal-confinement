@@ -59,7 +59,7 @@ export default {
 .chapter-button {
 	position: relative;
 	letter-spacing: 1px;
-	border-radius: 6px;
+	border-radius: 3px;
 	background-color: white;
 	border: 0px solid rgb(120, 175, 99);
 	color: rgb(120, 175, 99);
