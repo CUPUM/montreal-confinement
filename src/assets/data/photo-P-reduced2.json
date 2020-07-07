@@ -328,7 +328,7 @@
         },
         {
             "mot": "piéton",
-            "poids": "34"
+            "poids": "52"
         },
         {
             "mot": "absence",
@@ -345,10 +345,6 @@
         {
             "mot": "homme",
             "poids": "20"
-        },
-        {
-            "mot": "piétons",
-            "poids": "18"
         },
         {
             "mot": "troisième plan",
@@ -426,7 +422,7 @@
         },
         {
             "mot": "froideur",
-            "poids": "38"
+            "poids": "41"
         },
         {
             "mot": "normalité",
@@ -498,10 +494,6 @@
         },
         {
             "mot": "fin de semaine",
-            "poids": "3"
-        },
-        {
-            "mot": "froide",
             "poids": "3"
         },
         {

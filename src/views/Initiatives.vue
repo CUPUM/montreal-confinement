@@ -17,7 +17,9 @@
 						:datesArray="dates.uniques"
 						:events="sortedInitiatives"/>
 				</div>
-				<div class="title-date">{{ this.dateTitle(runningDate) }}</div>
+				<transition name="date-change">
+					<div class="title-date" :key="this.dateTitle(runningDate).replace(' ','')" mode="out-in">{{ this.dateTitle(runningDate) }}</div>
+				</transition>
 			</div>
 		</div>
 		<div class="center-col">
@@ -143,22 +145,39 @@ export default {
 }
 
 .title-date {
+	box-sizing: border-box;
+	overflow: hidden;
+	font-size: 38px;
+	line-height: 38px;
 	user-select: none;
 	position: absolute;
 	text-align: left;
 	z-index: 500;
-	padding: 15px 40px;
-	margin: 0px;
-	font-size: 38px;
-	font-weight: 600;
+	padding: 0px;
+	margin: 25px 35px;
+	font-weight: 400;
 	color: rgb(70, 70, 70);
+}
+.date-change-enter-active,
+.date-change-leave-active {
+	transform: skewY(0deg) translateY(0);
+	opacity: 1;
+	transition: all .4s;
+}
+.date-change-enter {
+	transform: skewY(-3deg) translateY(-20px);
+	opacity: 0;
+}
+.date-change-leave-to {
+	transform: skewY(-3deg) translateY(20px);
+	opacity: 0;
 }
 
 #scroll-line-initiatives-container {
-	background-color: rgb(250,250,254);
+	background-color: rgb(252,252,254);
 	display: block;
 	width: 100%;
-	margin-top: 12px;
+	margin-top: 2px;
 	height: 75px;
 	border-radius: 12px;
 	box-shadow: 2px 12px 25px -10px rgba(0,0,0,.5);

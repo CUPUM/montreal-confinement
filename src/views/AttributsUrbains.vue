@@ -1,9 +1,10 @@
 <template>
 	<div id="attributs-urbains" class="view-scroll">
-		<h1>Attributs urbains dans la presse écrite</h1>
+		<h1>Les attributs urbains ciblés</h1>
 	<!-- Partie 1 -->
 		<div class="center-col">
 			<h3>Quels attributs du paysage urbain ont fait l’objet de préoccupations et de valorisations par les médias montréalais{{'\xa0'}}?</h3>
+			<p>Les attributs urbains qui ont retenu l’attention des médias se résument aux éléments suivants{{'\xa0'}}: le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Commerce']}">commerce</span>, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span>, la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span>  et la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Ville']}">ville</span>. Tandis que l’<span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Automobile']}">automobile</span>, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Corridor sanitaire']}">corridor sanitaire</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Piéton']}">piéton</span> ont occupé des intérêts secondaires dans les articles de presse.</p>
 		</div>
 		<div id="attributs-sommaire">
 			<BubbleCluster
@@ -15,16 +16,18 @@
 			/>
 		</div>
 		<div class="center-col">
-			<p>La <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span> est la principale préoccupation de l’espace public montréalais. Ensuite, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span> constitue l’attribut majeur du paysage urbain. L’<span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Automobile']}">automobile</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Commerce']}">commerce</span> font l’objet d’attention auprès des médias en regard de l’activité économique et de la mobilité. Par leur occurrence, la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span> sont les figures dominantes et valorisées du paysage urbain montréalais en mode confinement. En regard de l’ensemble des attributs répertoriés dans cette analyse, elles confirment leur importance pour la santé et le bien-être de la population urbaine à l’image de la ville hygiéniste du 19e siècle.</p>
+			<p>Il est intéressant de noter que les trois dernières semaines de confinement sont celles où les occurrences pour chacun des attributs urbains sont les plus fortes, en lien avec le déconfinement et le retour du beau temps (printemps).</p>
+
+			<!-- <p>La <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span> est la principale préoccupation de l’espace public montréalais. Ensuite, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span> constitue l’attribut majeur du paysage urbain. L’<span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Automobile']}">automobile</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Commerce']}">commerce</span> font l’objet d’attention auprès des médias en regard de l’activité économique et de la mobilité. Par leur occurrence, la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span> sont les figures dominantes et valorisées du paysage urbain montréalais en mode confinement. En regard de l’ensemble des attributs répertoriés dans cette analyse, elles confirment leur importance pour la santé et le bien-être de la population urbaine à l’image de la ville hygiéniste du 19e siècle.</p> -->
 		</div>
 
 	<!-- Partie 2 -->
-		<div class="center-col">
-			<h3>Combien d'articles de presse ont abordés chacun des principaux attributs du paysage urbains{{'\xa0'}}?</h3>
-		</div>
+		<!-- <div class="center-col">
+			<h3>Combien d'articles de presse ont abordés chacun des principaux attributs du paysage urbain{{'\xa0'}}?</h3>
+		</div> -->
 		<div id="semaines-wrap">
 			<div class="attributs-semaines" v-for="(attribut,i) in attrList" :key="attribut+i">
-				<h4>{{ attribut }}&nbsp;:</h4>
+				<h4><span class="attribute-highlight" :style="{ backgroundColor: attrColors[attribut]}">{{ attribut+'\xa0'+':' }}</span></h4>
 				<div class="flex-timeline">
 					<Timeline
 						:chartID="'timeline-attributs-semaine'"
@@ -49,12 +52,11 @@
 		<!-- Partie 3 -->
 		<div class="center-col">
 			<h3>Quelles sont les préoccupations et valorisations relayées par les médias au sujet des divers attributs urbains recensés{{'\xa0'}}?</h3>
-			<p>Text de remplissage pour simple test de mise en page. Veullez ajouter vos poèmes ici</p>
-			<p>Dans la figure ci-dessous, les préoccupations et valorisations des attributs sont coloriées selon 3 groupes distinctifs qui caractérisent les contextes dans lesquels elles ont été repérées, à savoir{{'\xa0'}}:
+			<p>Les différents attributs urbains montréalais sont décrits dans les médias par des qualificatifs diversifiés qui ont été répertoriés dans cette veille informationnelle sous forme de nuages de mots. Les préoccupations et valorisations des qualificatifs des attributs sont présentées dans la figure ci-contre selon l’occurrence et selon trois groupes distinctifs qui les caractérisent{{'\xa0'}}:
 				<ul>
-					<li><div class="legende" :style="{backgroundColor: groupesColors.problemes.color}"></div> les problèmes{{'\xa0'}};</li>
-					<li><div class="legende" :style="{backgroundColor: groupesColors.solutions.color}"></div> les solutions{{'\xa0'}};</li>
-					<li><div class="legende" :style="{backgroundColor: groupesColors.fonctions.color, border: '1px solid rgb(24,24,24)'}"></div> les fonctions.</li>
+					<li><div class="legende" :style="{backgroundColor: groupesColors.problemes.color}"></div> Problèmes{{'\xa0'}};</li>
+					<li><div class="legende" :style="{backgroundColor: groupesColors.solutions.color}"></div> Solutions <i>(actions)</i>{{'\xa0'}};</li>
+					<li><div class="legende" :style="{backgroundColor: groupesColors.fonctions.color}"></div> Fonctions <i>(usages/sujets/objet)</i>.</li>
 				</ul>
 			</p>
 		</div>
@@ -82,7 +84,7 @@
 						</transition-group>
 					</div>
 					<div id="bubbles-pane">
-						<h4>Occurrences</h4>
+						<h4>Occurrences des qualificatifs</h4>
 						<div id="bubbles-pane-inner">
 							<BubbleCluster
 								:chartID="'bubbles-caracterisation'"
@@ -119,14 +121,13 @@
 				</div>
 			</div>
 		</div>
-		<dir class="center-col">
+		<div class="center-col">
 			<ChapterNav :previous="true" :next="true" />
-		</dir>
+		</div>
 	</div>
 </template>
 
 <script>
-// @ is an alias to /src
 import AttributsDetail from '@/assets/data/attributs-detail.json'
 import AttributsSommaire from '@/assets/data/attributs-sommaire.json'
 import BubbleCluster from '@/components/BubbleCluster'
@@ -190,9 +191,9 @@ export default {
 		},
 
 		groupesColors() {
-			var prob = {r:50, g:50, b: 50};
-			var sol = {r:125, g:125, b: 125};
-			var fonc = {r:255, g:255, b: 255};
+			var prob = {r:80, g:105, b: 75};
+			var sol = {r:120, g:175, b: 99};
+			var fonc = {r:195, g:225, b: 135};
 			var groupes = {problemes: prob, solutions: sol, fonctions: fonc};
 			['problemes','solutions','fonctions'].forEach(groupe => {
 				groupes[groupe].color = 'rgb('+groupes[groupe].r+','+groupes[groupe].g+','+groupes[groupe].b+')'
@@ -348,7 +349,7 @@ export default {
 			let theColor = 'rgb('+r+','+g+','+b+')';
 
 			var theTextColor = 'rgb(24,24,24)';
-			var theBorderColor = 'rgb(24,24,24)';
+			var theBorderColor = null //'rgb(24,24,24)';
 			if ((.2126*r + .7152*g + .0722*b)<165) { // Threshold de pseudo-luminance pour inverser couleur de typo (en réalité il faudrait transposer gamma-RGB(0-255) vers linéaire)
 				theTextColor = 'rgb(255,255,255)'
 				theBorderColor = null
@@ -382,7 +383,7 @@ export default {
 #semaines-wrap {
 	box-sizing: content-box;
 	width: 850px;
-	padding: 1px 150px 50px 0px;
+	padding: 35px 150px 50px 0px;
 	margin: 0px auto 50px auto;
 }
 .attributs-semaines {
@@ -399,7 +400,7 @@ export default {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
 	font-size: 15px;
-	width: 150px;
+	width: 152px;
 	height: 1em;
 	margin: 0px;
 }
@@ -528,13 +529,13 @@ export default {
 	box-sizing: border-box;
 	position: relative;
 	bottom: 0px;
-	height: 185px;
+	height: 165px;
 	width: 100%;
 	background-color: rgb(241, 242, 245);
 	padding: 0px;
 }
 #timeline-pane-inner {
-	margin: 30px 25px
+	margin: 15px 25px
 }
 #visualisation-pane-inner {
 	text-align: left;

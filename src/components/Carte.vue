@@ -60,7 +60,7 @@ export default {
 		initMap() {
 			this.map = L.map('carte-initiatives', {
 				zoomControl: false,
-				zoomSnap: 1,
+				zoomSnap: 0.5,
 			}).fitBounds(this.cityBounds);
 			this.tileLayer = new L.TileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
 				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',

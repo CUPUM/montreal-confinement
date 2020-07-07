@@ -34,10 +34,30 @@ export default {
 	transform: translateY(-50%) rotate(-90deg) translateY(-50%);
 }
 a {
+	display: block;
 	padding: 0px;
 	text-decoration: none;
 	text-align: center;
 	color: rgb(35,35,35);
-	text-align: center;
+	transition: all .3s;
+}
+a:hover {
+	color: rgb(120, 175, 99);
+}
+a::after {
+	content: '';
+	width: 0%;
+	height: 2px;
+	background-color: rgb(120, 175, 99);
+	position: absolute;
+	display: block;
+	bottom: 3px;
+	right: 0px;
+	border-radius: 1px;
+	transition: all .3s;
+}
+a:hover::after {
+	width: 100%;
+	left: 0%;
 }
 </style>

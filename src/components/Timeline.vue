@@ -245,7 +245,7 @@ export default {
 .scale-label {
 	position: absolute;
 	width: 100%;
-	top: 50px;
+	top: 45px;
 	margin: 0px;
 	font-size: 12px;
 	font-weight: 500;
@@ -261,7 +261,7 @@ export default {
 	font-style: italic;
 	white-space: nowrap;
 	left: 0px;
-	bottom: 35px;
+	bottom: 20px;
 	margin: 0px;
 	padding: 0px;
 	font-size: 12px;
@@ -275,9 +275,9 @@ export default {
 	display: inline-block;
 	background: rgba(0,0,0,.2);
 	width: 1px;
-	height: 30px;
+	height: 15px;
 	position: absolute;
 	left: 50%;
-	bottom: -35px;
+	bottom: -20px;
 }
 </style>

@@ -58,7 +58,8 @@ export default {
 					text: d[this.wordKey],
 					occurrences: d[this.weightKey],
 					size: textScale(d[this.weightKey]),
-					color: 'hsl('+(this.baseHue-i*2)+',60%,'+(((maxWeight - d[this.weightKey])/maxWeight*40)+50)+'%)'
+					//color: 'hsl('+(this.baseHue-i*2)+',60%,'+(((maxWeight - d[this.weightKey])/maxWeight*40)+50)+'%)'
+					color: 'hsl('+this.baseHue+','+(34-i*4)+'%,'+(((maxWeight - d[this.weightKey])/maxWeight*30)+55)+'%)'
 				}
 			}))
 			.spiral(function(size) {

@@ -123,12 +123,12 @@
     ],
     "ambiance": [
         {
-            "mot": "sans vie",
-            "poids": "39"
+            "mot": "figée",
+            "poids": "41"
         },
         {
-            "mot": "figée",
-            "poids": "33"
+            "mot": "sans vie",
+            "poids": "39"
         },
         {
             "mot": "monotone",
@@ -153,10 +153,6 @@
         {
             "mot": "fade",
             "poids": "10"
-        },
-        {
-            "mot": "figé",
-            "poids": "8"
         },
         {
             "mot": "désertique",
@@ -435,7 +431,7 @@
             "poids": "7"
         },
         {
-            "mot": "attente",
+            "mot": "en attente",
             "poids": "6"
         },
         {
@@ -453,12 +449,16 @@
     ],
     "evocation-sentiment-sensation": [
         {
-            "mot": "froid",
+            "mot": "froideur",
             "poids": "74"
         },
         {
             "mot": "solitude",
             "poids": "56"
+        },
+        {
+            "mot": "anormalité",
+            "poids": "42"
         },
         {
             "mot": "ennui",
@@ -467,14 +467,6 @@
         {
             "mot": "vide",
             "poids": "27"
-        },
-        {
-            "mot": "anormal",
-            "poids": "25"
-        },
-        {
-            "mot": "anormalité",
-            "poids": "17"
         },
         {
             "mot": "inquiétude",

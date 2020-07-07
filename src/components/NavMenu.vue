@@ -165,7 +165,7 @@ nav li {
 	clear: left;
 	background-color: transparent;
 	text-indent: 0px;
-	border-radius: 0% 100% 0% 0%;
+	border-radius: 0%;
 	transition: all .5s;
 }
 nav li.show {
@@ -179,9 +179,8 @@ nav li.vue-active-link {
 nav li .inner-wrapper {
 	opacity: 0;
 	display: block;
-	transition: all .4s cubic-bezier(0.8, 0, 0.2, 1);
-	transform: translate(100px,-100px);
-	will-change: transform, opacity;
+	transition: all .45s cubic-bezier(0.8, 0, 0.2, 1);
+	transform: translate(100px,-200px);
 }
 nav li.show .inner-wrapper {
 	opacity: 1;

@@ -347,7 +347,7 @@
             "poids": "81"
         },
         {
-            "mot": "piétons",
+            "mot": "piéton",
             "poids": "63"
         },
         {
@@ -387,7 +387,7 @@
             "poids": "19"
         },
         {
-            "mot": "mouvement",
+            "mot": "en mouvement",
             "poids": "15"
         },
         {
@@ -537,7 +537,7 @@
             "poids": "5"
         },
         {
-            "mot": "froid",
+            "mot": "froideur",
             "poids": "5"
         },
         {

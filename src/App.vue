@@ -150,15 +150,17 @@ h1, h2, h3 {
 	line-height: 1.2em;
 	padding: 32px 48px;
 	color: rgb(56, 56, 56);
-	font-size: 52pt;
+	font-size: 58pt;
 }
 h1 {
-	margin: 0px 0px 100px 0px;
-	padding: 100px 125px 75px 125px;
+	color: rgb(65,65,65);
 	text-align: center;
-	font-weight: 500;
+	margin: 0px auto 100px auto;
+	padding: 80px;
+	max-width: 1250px;
+	font-weight: 600;
 	display: block;
-	box-shadow: 0px 90px 60px -120px rgba(0,0,0,.3), inset 0px -2px 5px -5px white;
+	box-shadow: 0px 70px 60px -120px rgba(0,0,0,1), inset 0px -2px 5px -5px white;
 }
 h2 {
 	margin: 64px 0px 32px 0px;
@@ -222,7 +224,7 @@ p {
 p em {
 	font-weight: 700;
 	font-style: normal;
-	color: rgb(120, 175, 99);
+	/* color: rgb(120, 175, 99); */
 }
 p ul li {
 	text-indent: 0px;
@@ -234,7 +236,7 @@ p li::before {
 	margin: 0px 0px 0px 0px;
 	padding: 0px;
 	text-indent: -32px;
-	content: '\01F852';
+	content: '🡒';
 	color: rgb(156,156,156); /* rgb(120, 175, 99); */
 }
 p ol li {

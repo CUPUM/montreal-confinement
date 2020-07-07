@@ -1,63 +1,63 @@
 ﻿{
     "qualificatifs": [
         {
-            "qualificatifs": "marcheur/piéton",
+            "qualificatif": "marcheur/piéton",
             "occurrences": "82"
         },
         {
-            "qualificatifs": "citadin/citoyen",
+            "qualificatif": "citadin/citoyen",
             "occurrences": "80"
         },
         {
-            "qualificatifs": "travailleur ",
+            "qualificatif": "travailleur ",
             "occurrences": "79"
         },
         {
-            "qualificatifs": "enfant",
+            "qualificatif": "enfant",
             "occurrences": "63"
         },
         {
-            "qualificatifs": "cycliste",
+            "qualificatif": "cycliste",
             "occurrences": "51"
         },
         {
-            "qualificatifs": "itinérant",
+            "qualificatif": "itinérant",
             "occurrences": "46"
         },
         {
-            "qualificatifs": "aîné",
+            "qualificatif": "aîné",
             "occurrences": "37"
         },
         {
-            "qualificatifs": "femme",
+            "qualificatif": "femme",
             "occurrences": "21"
         },
         {
-            "qualificatifs": "automobiliste ",
+            "qualificatif": "automobiliste ",
             "occurrences": "20"
         },
         {
-            "qualificatifs": "étudiant",
+            "qualificatif": "étudiant",
             "occurrences": "19"
         },
         {
-            "qualificatifs": "homme",
+            "qualificatif": "homme",
             "occurrences": "15"
         },
         {
-            "qualificatifs": "coureur",
+            "qualificatif": "coureur",
             "occurrences": "10"
         },
         {
-            "qualificatifs": "adolescent ",
+            "qualificatif": "adolescent ",
             "occurrences": "5"
         },
         {
-            "qualificatifs": "personne à mobilité réduite ",
+            "qualificatif": "personne à mobilité réduite ",
             "occurrences": "4"
         },
         {
-            "qualificatifs": "autochtone ",
+            "qualificatif": "autochtone ",
             "occurrences": "3"
         }
     ]

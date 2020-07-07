@@ -1,6 +1,6 @@
 <template>
 	<div id="analyse-photo" class="view-scroll">
-		<h1>Analyse de photographies urbaines de Montréal en temps de COVID-19</h1>
+		<h1>Analyse de photographies urbaines de Montréal</h1>
 		<div class="center-col">
 			<p>Contenu à venir</p>
 		</div>
@@ -14,7 +14,7 @@
 				:dataArray="mergedData['caracterisation-visuelle']"
 				:wordKey="'mot'"
 				:weightKey="'poids'"
-				:baseHue="defineHue(1)"
+				:baseHue="defineHue()"
 				:ratio="1.5"/>
 		</div>
 
@@ -27,7 +27,7 @@
 				:dataArray="mergedData['elements-physiques']"
 				:wordKey="'mot'"
 				:weightKey="'poids'"
-				:baseHue="defineHue(2)"
+				:baseHue="defineHue()"
 				:ratio="1.5"/>
 		</div>
 
@@ -40,7 +40,7 @@
 				:dataArray="mergedData['presence-humaine']"
 				:wordKey="'mot'"
 				:weightKey="'poids'"
-				:baseHue="defineHue(3)"
+				:baseHue="defineHue()"
 				:ratio="1.5"/>
 		</div>
 
@@ -53,7 +53,7 @@
 				:dataArray="mergedData['ambiance']"
 				:wordKey="'mot'"
 				:weightKey="'poids'"
-				:baseHue="defineHue(4)"
+				:baseHue="defineHue()"
 				:ratio="1.5"/>
 		</div>
 
@@ -66,13 +66,8 @@
 				:dataArray="mergedData['evocation-sentiment-sensation']"
 				:wordKey="'mot'"
 				:weightKey="'poids'"
-				:baseHue="defineHue(5)"
+				:baseHue="defineHue()"
 				:ratio="1.5"/>
-		</div>
-
-		<div class="center-col">
-			<h2>Schématisation d'une identité conceptuelle du paysage urbain de Montréal en temps de crise sanitaire</h2>
-			<p>Lorem ipsum!</p>
 		</div>
 	</div>
 </template>
@@ -133,9 +128,10 @@ export default {
 		}
 	},
 	methods: {
-		defineHue(nth) {
-			const ntotal = 5
-			return (360 / ntotal+1) * nth + 10
+		defineHue() {
+			//const ntotal = 5
+			//return (360 / ntotal+1) * nth + 10
+			return 103
 		}
 	}
 }

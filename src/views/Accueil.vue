@@ -27,6 +27,9 @@
 			<div id="scroll-arrow-stem"></div>
 		</div>
 
+		<div class="below-splash">
+			Un projet mené par{{'\xa0'}}:
+		</div>
 		<img class="chaire-logo" :src='CUPUMlogo' alt="~"/>
 
 		<h1 style="marginTop: -50px">Accueil</h1>
@@ -171,15 +174,24 @@ export default {
 	letter-spacing: .5px;
 }
 
+.below-splash {
+	text-align: center;
+	margin: 20px auto 80px auto;
+	font-size: 14px;
+	font-weight: 500;
+	color: rgb(76,76,76);
+}
+
 .chaire-logo {
 	shape-rendering: geometricPrecision;
 	opacity: .8;
-	top: -10px;
+	top: 0px;
 	left: 50%;
 	transform: translateX(-50%);
 	margin: 0px;
 	padding: 0px;
-	height: 175px;
+	margin-bottom: 120px;
+	height: 200px;
 	width: auto;
 	position: relative;
 }
