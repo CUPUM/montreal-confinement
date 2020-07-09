@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["Perspectives"],{"6c67":function(e,t,s){"use strict";s.r(t);var n=function(){var e=this,t=e.$createElement;e._self._c;return e._m(0)},c=[function(){var e=this,t=e.$createElement,s=e._self._c||t;return s("div",{staticClass:"perspectives"},[s("div",{staticClass:"center-col"},[s("h2",[e._v("Vous êtes présentement à l'onglet À propos")])])])}],r={name:"Perspectives",components:{}},i=r,o=s("2877"),a=Object(o["a"])(i,n,c,!1,null,"5593de8f",null);t["default"]=a.exports}}]);
-//# sourceMappingURL=Perspectives.55e75ea8.js.map

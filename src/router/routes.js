@@ -1,5 +1,5 @@
 import Accueil from '../views/Accueil.vue'
-import Apropos from '../views/Apropos.vue'
+import MiseEnContexte from '../views/MiseEnContexte.vue'
 
 const routes = [
 	{
@@ -12,10 +12,10 @@ const routes = [
 		id: "01"
 	},
 	{
-		path: '/a-propos',
-		name: 'Apropos',
-		component: Apropos,
-		title: 'À propos',
+		path: '/mise-en-contexte',
+		name: 'MiseEnContexte',
+		component: MiseEnContexte,
+		title: 'Mise en contexte',
 		isSubChapter: false,
 		chapter: 2,
 		id: "02"
@@ -24,7 +24,7 @@ const routes = [
 		path: '/enjeux-paysage-urbain-montrealais',
 		name: 'EnjeuxPaysageUrbain',
 		component: () => import(/* webpackChunkName: "EnjeuxPaysageUrbain" */ '../views/EnjeuxPaysageUrbain.vue'),
-		title: 'Les enjeux du paysage urbain montréalais',
+		title: 'Enjeux du paysage urbain montréalais',
 		isSubChapter: false,
 		chapter: 3,
 		id: "03"
@@ -70,7 +70,7 @@ const routes = [
 		id: "07"
 	},
 	{
-		path: '/regards-photographiques',
+		path: '/regards-photographiques-paysage-urbain',
 		name: 'RegardsPhotographiques',
 		component: () => import(/* webpackChunkName: "RegardsPhotographiques" */ '../views/RegardsPhotographiques.vue'),
 		title: 'Regards photographiques sur le paysage urbain',
@@ -79,10 +79,10 @@ const routes = [
 		id: "08"
 	},
 	{
-		path: '/cadrage-regards',
-		name: 'CadrageRegards',
-		component: () => import(/* webpackChunkName: "CadrageRegards" */ '../views/CadrageRegards.vue'),
-		title: 'Analyse de photographies',
+		path: '/lecture-regards-photographiques',
+		name: 'LectureRegards',
+		component: () => import(/* webpackChunkName: "LectureRegards" */ '../views/LectureRegards.vue'),
+		title: 'Lecture paysagère des regards photographiques',
 		chapter: 4,
 		isSubChapter: true,
 		subChapter: 1,

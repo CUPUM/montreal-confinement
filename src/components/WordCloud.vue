@@ -42,15 +42,17 @@ export default {
 		this.setSize();
 		const height = this.svgHeight;
 		const width = (this.ratio != (null && undefined)) ? this.ratio*height : this.svgWidth;
-		console.log(width)
-		console.log(height)
+
+		var dataLength = 0;
+		this.dataArray.forEach(el => dataLength += el[this.wordKey].length)
 
 		const maxWeight = parseInt(this.dataArray[0][this.weightKey]);
 		const minWeight = parseInt(this.dataArray[this.dataArray.length-1][this.weightKey]);
 
 		var textScale = d3.scaleLinear()
 				.domain([minWeight, maxWeight])
-				.range([14, height/9]);
+				.range([14, height/(0.03*dataLength)]);
+				//.range([14, height/10]);
 
 		let layout = d3cloud()
 			.size([width,height])
@@ -69,7 +71,7 @@ export default {
 				};
 			})
 			.random(function() {return .5})
-			.padding(3)
+			.padding(2.5)
 			.rotate(0)
 			.font('"Poppins", sans-serif')
 			.fontWeight(500)
@@ -109,6 +111,11 @@ export default {
 				.style('font-size', d => d.size + 'px')
 				.attr('opacity',1)
 
+			// Pour optimiser le filling/fitting de l'espace svg
+			const bbox = svg.node().getBBox();
+			svg.attr("viewBox", 0+" "+bbox.y+" "+width+" "+bbox.height); // Ne prend pas en compte le bbox dans l'axe X afin d'éviter de décentrer la figure. Voir ligne suivante pour autre approche
+			// Alternativement: svg.attr("viewBox", bbox.x+" "+bbox.y+" "+bbox.width+" "+bbox.height);
+
 			let tooltips = drawnWords.append('svg:title');
 			tooltips.text(d => d.occurrences+' occurrences');
 		}
@@ -131,5 +138,7 @@ export default {
 .wordcloud svg {
 	height: 100%;
 	width: 100%;
+	padding: 0px;
+	margin: 0px;
 }
 </style>

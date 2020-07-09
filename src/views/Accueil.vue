@@ -27,23 +27,14 @@
 			<div id="scroll-arrow-stem"></div>
 		</div>
 
-		<div class="below-splash">
-			Un projet mené par{{'\xa0'}}:
-		</div>
 		<img class="chaire-logo" :src='CUPUMlogo' alt="~"/>
 
 		<h1 style="marginTop: -50px">Accueil</h1>
 		<div class="center-col">
-			<p>Au début de l’année 2020, la pandémie COVID-19 a profondément marqué les villes dans plusieurs régions du monde. Et, elle nous amène à poser des questionnements fondamentaux envers les milieux urbains tant sur les aspects sociaux, culturels, économiques, environnementaux et physiques (habitat, rue, parc, etc.). La COVID-19 a bouleversé radicalement et dans un très court laps de temps les comportements et les préoccupations des citoyens dans la ville. Les populations urbaines ont changé leur mode de vie au quotidien et elles ont dû s’adapter à cette nouvelle réalité avec des mesures adaptées pour contraindre cette pandémie.</p>
-			<p>La COVID-19 a révélé l’importance de vivre la ville au quotidien de manière heureuse. Elle nous a amené à questionner le rôle et les fonctions des espaces publics et privés tout comme elle a exposé des problèmes majeurs d’usages et d’accessibilité envers certains attributs urbains (parc, rue, etc.). Elle a également fait émerger des actions et des solutions nouvelles adaptées à ce contexte de crise.</p>
-			<p>Cette recherche sous l’intitulé <em> COVID-19 &mdash; paysage urbain montréalais{{'\xa0'}}: constats et perspectives</em> produites par la Chaire UNESCO en paysage urbain (CUPUM) fait état de la situation envers les espaces publics durant la période de confinement. En prenant appui sur une veille informationnelle des médias, de certaines OBNL et des communiqués de presse de la Ville de Montréal, elle a permis de trouver des réponses face à un ensemble des questionnements reliés à la mission de la Chaire UNESCO et à ces programmes affiliés de l’UNESCO.</p>
+			<p>Au début de l’année 2020, la pandémie COVID-19 a profondément marqué les villes dans plusieurs régions du monde. Ainsi, elle nous amène à poser des questionnements fondamentaux envers les milieux urbains tant sur les aspects sociaux, culturels, économiques, environnementaux et physiques (habitat, rue, parc, etc.). La COVID-19 a bouleversé radicalement et dans un très court laps de temps les comportements et les préoccupations des citoyens dans la ville. Les populations urbaines ont changé leur mode de vie au quotidien et elles ont dû s’adapter à cette nouvelle réalité avec des mesures adaptées pour contraindre cette pandémie.</p>
+			<p>La COVID-19 a révélé l’importance de vivre la ville au quotidien dans la période de confinement. Elle nous a entrainés à nous questionner sur le rôle et les fonctions des espaces publics et privés, tout comme elle a exposé des problèmes majeurs d’usages et d’accessibilité envers certains attributs urbains (parc, rue, etc.). Elle a également fait émerger des actions et des solutions nouvelles adaptées à ce contexte de crise.</p>
+			<p>Cette recherche sous l’intitulé <em><i>COVID-19 &mdash; paysage urbain montréalais{{'\xa0'}}: constats et perspectives</i></em> produites par la Chaire UNESCO en paysage urbain (CUPUM) fait état de la situation envers les espaces publics durant la période de confinement. En prenant appui sur une veille informationnelle des médias, de certaines OBNL et des communiqués de presse de la Ville de Montréal, elle a permis de trouver des réponses face à un ensemble de questionnements reliés à la mission de la Chaire UNESCO et à ces programmes affiliés de l’UNESCO.</p>
 			<p>Cette recherche a aussi été l’occasion de porter un regard sensible sur l’expérience de l’espace public en analysant les différents cadrages de photographes de presse et professionnels durant cette période de confinement montréalais. L’interprétation de ce corpus a permis d’esquisser les contours de l’identité du paysage urbain qui révèle les attributs clés de l’expérience de la ville en mode «{{'\xa0'}}confinement{{'\xa0'}}».</p>
-			<p>Ce balisage d’informations durant la période montréalaise de confinement présenté dans ce site Internet devrait apporter un éclairage sur la situation montréalaise dans le contexte de la pandémie mondiale et il constitue{{'\xa0'}}:
-				<ul>
-					<li>un outil de caractérisation du paysage urbain{{'\xa0'}};</li>
-					<li>une assise pour engager une réflexion pour le futur des espaces publics.</li>
-				</ul>
-			</p>
 			<ChapterNav :previous="false" :next="true" />
 		</div>
 	</div>

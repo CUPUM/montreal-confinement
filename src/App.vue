@@ -33,23 +33,11 @@ export default {
 </script>
 
 <style>
-/* font-family: 'Archivo', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
-
-/* font-family: 'Work Sans', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-/* font-family: 'Proza Libre', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
-
 /* font-family: 'Poppins', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* font-family: 'Spectral', serif; */
 @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-
-/* font-family: 'Lato', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 /* font-family: 'DM Serif Text', serif; */
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
@@ -128,10 +116,14 @@ body {
 
 .view-change-enter-active,
 .view-change-leave-active {
-	transition: opacity 1s;
+	transition: all 1s;
 }
-.view-change-enter,
+.view-change-enter {
+	transform: translateY(-10px);
+	opacity: 0;
+}
 .view-change-leave-to {
+	transform: translateY(10px);
 	opacity: 0;
 }
 
@@ -145,7 +137,7 @@ body {
 	padding-bottom: 250px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
 	font-weight: 400;
 	line-height: 1.2em;
 	padding: 32px 48px;
@@ -203,13 +195,17 @@ h2::after {
 }
 h3 {
 	margin: 32px 0px 24px 0px;
+	padding: 32px 48px 26px 48px;
 	font-weight: 600;
 	font-size: 20pt;
 	line-height: 1.2em;
 }
 h4 {
-	margin: 24px 0px 16px 0px;
-	font-size: 18pt;
+	font-weight: 500;
+	padding: 12px 0px 0px 48px;
+	text-indent: 0px;
+	margin: 24px 0px 8px 0px;
+	font-size: 15pt;
 	line-height: 1.2em;
 }
 
@@ -226,22 +222,47 @@ p em {
 	font-style: normal;
 	/* color: rgb(120, 175, 99); */
 }
-p ul li {
-	text-indent: 0px;
-	margin: 10px 52px;
-	list-style-type: none;
+
+p ul, p ol {
+	padding: 0px 16px;
 }
-p li::before {
+p ul li, p ol li {
+	text-indent: 0px;
+	margin: 10px 32px;
+	list-style-type: none;
+	position: relative;
+}
+p ul li::before, p ol li::before {
+	position: absolute;
 	display: inline-block;
 	margin: 0px 0px 0px 0px;
 	padding: 0px;
 	text-indent: -32px;
 	content: '🡒';
+	height: 100%;
 	color: rgb(156,156,156); /* rgb(120, 175, 99); */
 }
+p ul ul {
+	padding: 4px 16px;
+}
+p ul ul li {
+	margin: 0px 0px 5px 32px;
+}
+p ul ul li::before {
+	content: '\2022'
+}
+
+
+p ol {
+	counter-reset: li
+}
 p ol li {
-	text-indent: 20px;
-	margin: 10px 52px;
+	counter-increment: li;
+}
+p ol li::before {
+	font-size: 14px;
+	font-weight: 500;
+	content: counter(li)' .';
 }
 
 a.reference-link {

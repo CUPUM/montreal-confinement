@@ -15,7 +15,6 @@
 			tag="div"
 			:to="{name: destination(+1).name}">
 				Poursuivre la lecture
-				<!-- <div class="next-arrow"></div> -->
 				<div class="arrow-stem-next"></div>
 		</router-link>
 	</div>

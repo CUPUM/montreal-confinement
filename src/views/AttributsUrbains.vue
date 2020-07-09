@@ -1,6 +1,7 @@
 <template>
 	<div id="attributs-urbains" class="view-scroll">
 		<h1>Les attributs urbains ciblés</h1>
+
 	<!-- Partie 1 -->
 		<div class="center-col">
 			<h3>Quels attributs du paysage urbain ont fait l’objet de préoccupations et de valorisations par les médias montréalais{{'\xa0'}}?</h3>
@@ -17,14 +18,10 @@
 		</div>
 		<div class="center-col">
 			<p>Il est intéressant de noter que les trois dernières semaines de confinement sont celles où les occurrences pour chacun des attributs urbains sont les plus fortes, en lien avec le déconfinement et le retour du beau temps (printemps).</p>
-
 			<!-- <p>La <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span> est la principale préoccupation de l’espace public montréalais. Ensuite, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span> constitue l’attribut majeur du paysage urbain. L’<span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Automobile']}">automobile</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Commerce']}">commerce</span> font l’objet d’attention auprès des médias en regard de l’activité économique et de la mobilité. Par leur occurrence, la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span> sont les figures dominantes et valorisées du paysage urbain montréalais en mode confinement. En regard de l’ensemble des attributs répertoriés dans cette analyse, elles confirment leur importance pour la santé et le bien-être de la population urbaine à l’image de la ville hygiéniste du 19e siècle.</p> -->
 		</div>
 
 	<!-- Partie 2 -->
-		<!-- <div class="center-col">
-			<h3>Combien d'articles de presse ont abordés chacun des principaux attributs du paysage urbain{{'\xa0'}}?</h3>
-		</div> -->
 		<div id="semaines-wrap">
 			<div class="attributs-semaines" v-for="(attribut,i) in attrList" :key="attribut+i">
 				<h4><span class="attribute-highlight" :style="{ backgroundColor: attrColors[attribut]}">{{ attribut+'\xa0'+':' }}</span></h4>
@@ -67,21 +64,30 @@
 				<ul>
 					<li v-for="(code, i) in filteredCodesList" v-bind:key='i+"_li"'>
 						<input :key='i+"_input"' type="radio" :disabled="!code.hasBubbles" :id='code.code+"_radio"' :value='code.code' v-model="choix">
-						<label :key='i+"_label"' :for='code.code+"_radio"' :class="{'disabled': !code.hasBubbles}">{{ code.code }}</label>
+						<label :key='i+"_label"' :for='code.code+"_radio"' :style="[attrList.indexOf(code.code)!=-1 ? {color: attrColors[code.code], fontWeight: '500'} : null]" :class="{'disabled': !code.hasBubbles}">{{ code.code }}</label>
 					</li>
 				</ul>
 			</div>
 			<div id="visualisation-pane-outer">
 				<div id="visualisation-pane-inner">
-					<div :class="{'noquotes': attributSingleCaracterisationTimeline == (undefined && null && '')}" id="quotes-pane">
-						<h4>Extraits</h4>
-						<transition-group name="quotes" mode="out-in" tag="div">
-							<div class="quote-block" v-for="(quote,i) in attributSingleCaracterisationTimeline" :key="i+quote.date+quote.mot+'-block'" :style="{borderColor: quote.color}">
-								<!-- <div class="legende"></div> -->
-								<h5 :key="i+quote.date+quote.mot" :style="{color: quote.color}">{{ quote.id }}&nbsp;: {{ quote.mot }}</h5>
-								<p v-for="(q,index) in quote.citation" :key="index+quote.date+quote.mot+'-quote'">«&nbsp;{{ q }}&nbsp;»</p>
-							</div>
-						</transition-group>
+					<div id="quotes-pane" :class="{'noquotes': ((attributSingleCaracterisationTimeline == (undefined && null && '')) && (this.ConstatsAttributs[choix] == (undefined && null && '')))}">
+						<div id="citations-pane" :class="{'noquotes-inner': attributSingleCaracterisationTimeline == (undefined && null && '')}">
+							<h4>Extraits</h4>
+							<transition-group name="quotes" mode="out-in" tag="ul" class="list">
+								<div class="quote-block" v-for="(quote,i) in attributSingleCaracterisationTimeline" :key="i+quote.date+quote.mot+'-block'" :style="{borderColor: quote.color}">
+									<h5 :key="i+quote.date+quote.mot" :style="{color: quote.color}">
+										<div class="round-label" :style="{backgroundColor: quote.color}">
+											{{ quote.id }}
+										</div>
+										{{'\xa0'}}: {{ quote.mot }}
+									</h5>
+									<template v-for="(q,index) in quote.citation">
+										<p :key="index+quote.date+quote.mot+'-quote'">«{{'\xa0'}}{{ q.text }}{{'\xa0'}}»</p>
+										<a :key="index+quote.date+quote.mot+'-ref'" :href="q.source">Réf{{'\xa0'}}&#x1f855;</a>
+									</template>
+								</div>
+							</transition-group>
+						</div>
 					</div>
 					<div id="bubbles-pane">
 						<h4>Occurrences des qualificatifs</h4>
@@ -119,6 +125,14 @@
 						/>
 					</div>
 				</div>
+				<div v-if="showConstats" id="constats-backdrop"></div>
+				<div v-if="showConstats" id="constats-pane" :class="{'noquotes-inner': this.ConstatsAttributs[choix] == (undefined && null && '')}">
+					<h4>Constats</h4>
+					<transition name="constat" mode="out-in">
+						<p :key="choix" v-html="this.ConstatsAttributs[choix]"></p>
+					</transition>
+				</div>
+				<div id="constats-button" @mouseover="showConstats = true" @mouseleave="showConstats = false">+Constats!</div>
 			</div>
 		</div>
 		<div class="center-col">
@@ -130,6 +144,8 @@
 <script>
 import AttributsDetail from '@/assets/data/attributs-detail.json'
 import AttributsSommaire from '@/assets/data/attributs-sommaire.json'
+import ConstatsAttributs from '@/assets/data/constats-attributs.json'
+
 import BubbleCluster from '@/components/BubbleCluster'
 import Timeline from '@/components/Timeline'
 import ChapterNav from '@/components/ChapterNav'
@@ -144,12 +160,15 @@ export default {
 	data() {
 		Object.freeze(AttributsSommaire)
 		Object.freeze(AttributsDetail)
+		Object.freeze(ConstatsAttributs)
 		return {
 			choix: 'Autobus',
 			AttributsSommaire,
 			AttributsDetail,
+			ConstatsAttributs,
 			expandedQuotations: [],
-			attrList: ["Automobile","Commerce","Corridor sanitaire","Parc","Piéton","Rue","Ville"]
+			attrList: ["Automobile","Commerce","Corridor sanitaire","Parc","Piéton","Rue","Ville"],
+			showConstats: true
 		}
 	},
 	created() {
@@ -163,7 +182,8 @@ export default {
 				'Date': quotation['Date'] == (null && undefined && '') ? null : quotation['Date'],
 				'Codes': quotation['Codes'].split(/ *; */),
 				'Reference': quotation['Reference'],
-				'Groupe': quotation['Groupe']
+				'Groupe': quotation['Groupe'],
+				'Source': quotation['Source']
 			})
 		})
 		Object.freeze(this.expandedQuotations);
@@ -198,7 +218,6 @@ export default {
 			['problemes','solutions','fonctions'].forEach(groupe => {
 				groupes[groupe].color = 'rgb('+groupes[groupe].r+','+groupes[groupe].g+','+groupes[groupe].b+')'
 			})
-			console.log(groupes)
 			return groupes
 		},
 
@@ -250,7 +269,10 @@ export default {
 						datedCaract[code].push({
 							mot: codedQuotation['Quotation Name'],
 							date: this.toDate(codedQuotation['Date'],'/'), // Ici: trouver un moyen de contenir l'info que plusieurs citations même date pour modifier affichage dans timeline
-							citation: [codedQuotation['Citation']], // Ici: gérer lorsque plusieurs citations se rapportent à la même date + même mot (probablement ensuite utiliser if (quotation.citation.length>1...))
+							citation: [{
+								text: codedQuotation['Citation'], // Ici: gérer lorsque plusieurs citations se rapportent à la même date + même mot (probablement ensuite utiliser if (quotation.citation.length>1...))
+								source: codedQuotation['Source']
+							}],
 							groupe: codedQuotation['Groupe'],
 							color: palette.color,
 							textColor: palette.textColor,
@@ -339,7 +361,7 @@ export default {
 						colKeys.forEach(primary => { colSum[primary] += Math.pow(solutions[primary],2) });
 						break;
 					default:
-						console.log('oops, aucun groupe ne semble être correctement défini pour :'+item);
+						console.log('Oops, aucun groupe ne semble être correctement défini pour : '+item);
 				}
 			})
 
@@ -424,7 +446,7 @@ export default {
 	flex: 1;
 	position: relative;
 	height: 90%;
-	margin: 90px;
+	margin: 70px 90px;
 	right: 5px;
 	overflow: hidden;
 	border-radius: 12px;
@@ -455,7 +477,7 @@ export default {
 	height: 100%;
 	width: 250px;
 	/* flex: 0 0 250px; équivalent de width 250px mais en précisant flex-grow 0 et flex-shrink 0 */
-	background: rgb(48, 48, 48);
+	background: rgb(48,48,48);
 	overflow: hidden;
 }
 #attributs-pane ul {
@@ -504,12 +526,48 @@ export default {
 	color: rgb(102, 102, 102);
 }
 #attributs-pane input:checked+label {
-	color: rgb(32, 32, 32);
+	color: rgb(32, 32, 32) !important;
 	background-color: rgb(248, 248, 248);
 	transform: translateX(5px);
 }
 #attributs-pane input:checked+label:hover {
 	cursor: default;
+}
+
+#constats-button {
+	z-index: 2;
+	cursor: pointer;
+	width: 64px;
+	height: 64px;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+	border-radius: 50%;
+	position: absolute;
+	background: red;
+}
+#constats-backdrop {
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(247,247,249,.7);
+}
+#constats-pane {
+	box-sizing: border-box;
+	padding: 0px;
+	z-index: 5;
+	position: absolute;
+	display: block;
+	width: 500px;
+	height: auto;
+	overflow: hidden;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: white;
+	border-radius: 3px;
+	box-shadow: 2px 5px 15px -10px rgba(0,0,0,.5);
 }
 
 #visualisation-pane-outer {
@@ -551,39 +609,105 @@ export default {
 
 }
 #quotes-pane {
-	display: inline-block;
+	display: inline-flex;
+	flex-direction: column;
 	position: relative;
 	top: 0px;
 	left: 0px;
-	width: 275px;
+	width: 300px;
 	background-color: rgb(241, 242, 245);
 	height: 100%;
-	overflow-y: auto;
-	overflow-x: hidden;
+	overflow: hidden;
 	transition: width .2s ease;
 }
 #quotes-pane.noquotes {
 	width: 0px;
 }
+#quotes-pane .noquotes-inner {
+	max-height: 0%;
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
+/* Transition pour version des constats dans quotes pane */
+
+/* #constats-pane {
+	display: flex;
+	flex-direction: column;
+	max-height: 60%;
+	overflow: hidden;
+	background-color: rgba(255,255,255,.7);
+	padding: 0px;
+	transition: all .5s;
+}
+#constats-pane p {
+	overflow-x: hidden;
+	overflow-y: auto;
+	display: block;
+	flex: 1;
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 1.5em;
+	padding: 25px 35px 55px 35px;
+	margin: 0px;
+	color: rgb(65,65,65);
+
+}
+.constat-enter-active,
+.constat-leave-active {
+	transition: all .5s;
+}
+.constat-enter,
+.constat-leave-to {
+	transform: translateY(-10px);
+	opacity: 0;
+	max-height: 20px !important;
+} */
+
+#citations-pane {
+	flex: 1;
+	max-height: 100%;
+	flex-direction: column;
+	display: flex;
+	overflow: hidden;
+}
+#citations-pane ul {
+	display: block;
+	flex: 1;
+	padding: 0px 0px 30px 0px;
+	margin: 0px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
 .quote-block {
+	position: relative;
 	box-sizing: border-box;
-	width: 255px;
-	border-top: 2px solid;
+	display: block;
+	border-top: 3px solid;
 	background: white;
-	border-radius: 2px;
+	border-radius: 3px;
 	margin: 15px 10px;
 	padding: 10px;
-	box-shadow: 0px 2px 2px -2px rgba(0,0,0,.2);
+	box-shadow: 0px 2px 3px -2px rgba(0,0,0,.2);
 }
-#quotes-pane h5 {
+.quote-block .round-label {
+	color: white;
+	display: inline-block;
+	border-radius: 50%;
+	text-align: center;
+	text-shadow: 1px 1px 2px rgba(0,0,0,.2);
+	width: 25px;
+	height: 25px;
+}
+.quote-block h5 {
 	display: block;
-	padding: 0px 5px 5px 5px;
+	padding: 0px 5px 10px 5px;
 	margin: 0px;
 	font-size: 16px;
 	font-weight: 500;
 	border-bottom: 1px solid rgba(0,0,0,.1)
 }
-#quotes-pane p {
+.quote-block p {
 	display: block;
 	text-indent: 0;
 	font-size: 16px;
@@ -596,6 +720,41 @@ export default {
 	line-height: 1.3em;
 	color: rgb(51, 51, 51);
 }
+.quote-block a {
+	z-index: 1;
+	color: rgb(120, 175, 99);
+	text-align: center;
+	font-size: 12px;
+	font-weight: 400;
+	text-decoration: none;
+	letter-spacing: 1px;
+	background-color: rgba(120, 175, 99,.1);
+	border-radius: 2px;
+	padding: 4px 6px;
+	position: relative;
+	display: block;
+	transition: all .2s ease-in-out;
+}
+.quote-block a:hover {
+	color: rgb(5255,255,255);
+}
+.quote-block a::before {
+	border-radius: 2px;
+	z-index: -1;
+	content: '';
+	width: 100%;
+	height: 0%;
+	background-color: rgba(120, 175, 99,.5);
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	transition: all .2s ease-in-out;
+}
+.quote-block a:hover::before {
+	height: 100%;
+	top: 0px;
+}
+
 .quotes-enter-active,
 .quotes-leave-active {
 	max-height: 1000px;
