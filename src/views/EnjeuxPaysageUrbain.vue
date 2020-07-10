@@ -7,9 +7,9 @@
 			</p>
 			<p>
 				<ol>
-					<li>articles de journaux</li>
-					<li>communiqu&eacute;s de presse gouvernementaux</li>
-					<li>plateformes web d&rsquo;organismes &agrave; but non lucratif (OBNL) et</li>
+					<li>articles de journaux{{'\xa0'}};</li>
+					<li>communiqu&eacute;s de presse gouvernementaux{{'\xa0'}};</li>
+					<li>plateformes web d&rsquo;organismes &agrave; but non lucratif (OBNL){{'\xa0'}};</li>
 					<li>magazines en ligne.</li>
 				</ol>
 			</p>
@@ -31,18 +31,18 @@
 					</li>
 					<li>les fils de presse consult&eacute;s individuellement{{'\xa0'}}: 
 						<ul>
-							<li><a class="reference-link" href="http://www.fil-information.gouv.qc.ca/Pages/Articles.aspx">Services Qu&eacute;bec. Fil d&rsquo;information. CNW Telbec</a></li>
+							<li><a class="reference-link" href="http://www.fil-information.gouv.qc.ca/Pages/Articles.aspx" target="_blank">Services Qu&eacute;bec. Fil d&rsquo;information. CNW Telbec</a></li>
 						</ul>
 					</li>
 					<li>les plateformes web d&rsquo;organismes &agrave; but non lucratif (OBNL) et abonnement &agrave; l&rsquo;infolettre{{'\xa0'}}:
 						<ul>
-							<li>Mission Old Brewery{{'\xa0'}};</li>
-							<li><a class="reference-link" href="http://www.maisondupere.org/">La Maison du P&egrave;re</a></li>
-							<li><a class="reference-link" href="https://missionbonaccueil.com/services-fr/?where=google&amp;gclid=Cj0KCQjwhZr1BRCLARIsALjRVQMwEIUcZME_p7dPxM4A90VJmal0w4grl0qQWf4aNssueji6hR3UxAsaAi1VEALw_wcB">Accueil Bonneau</a></li>
-							<li><a class="reference-link" href="https://mmfim.ca/">Mouvement pour mettre fin &agrave; l&rsquo;itin&eacute;rance &agrave; Montr&eacute;al</a> (MMFIM)</li>
-							<li><a class="reference-link" href="https://www.asf-quebec.org/a-propos/historique-2/">Architectes sans fronti&egrave;res Qu&eacute;bec</a> (ASFQ)</li>
-							<li><a class="reference-link" href="https://www.heritagemontreal.org/">H&eacute;ritage Montr&eacute;al</a></li>
-							<li><a class="reference-link" href="https://www.cssspnql.com/">Commission de la sant&eacute; et des services sociaux des premi&egrave;res nations du Qu&eacute;bec et du Labrador</a></li>
+							<li><a class="reference-link" href="https://www.missionoldbrewery.ca/fr/" target="_blank">Mission Old Brewery</a></li>
+							<li><a class="reference-link" href="http://www.maisondupere.org/" target="_blank">La Maison du P&egrave;re</a></li>
+							<li><a class="reference-link" href="https://missionbonaccueil.com/services-fr/?where=google&amp;gclid=Cj0KCQjwhZr1BRCLARIsALjRVQMwEIUcZME_p7dPxM4A90VJmal0w4grl0qQWf4aNssueji6hR3UxAsaAi1VEALw_wcB" target="_blank">Accueil Bonneau</a></li>
+							<li><a class="reference-link" href="https://mmfim.ca/" target="_blank">Mouvement pour mettre fin &agrave; l&rsquo;itin&eacute;rance &agrave; Montr&eacute;al</a> (MMFIM)</li>
+							<li><a class="reference-link" href="https://www.asf-quebec.org/a-propos/historique-2/" target="_blank">Architectes sans fronti&egrave;res Qu&eacute;bec</a> (ASFQ)</li>
+							<li><a class="reference-link" href="https://www.heritagemontreal.org/" target="_blank">H&eacute;ritage Montr&eacute;al</a></li>
+							<li><a class="reference-link" href="https://www.cssspnql.com/" target="_blank">Commission de la sant&eacute; et des services sociaux des premi&egrave;res nations du Qu&eacute;bec et du Labrador</a></li>
 						</ul>
 					</li>
 					<li>les abonnements aux infolettres des magazines et autres sources{{'\xa0'}}:

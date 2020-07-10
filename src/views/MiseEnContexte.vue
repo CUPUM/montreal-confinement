@@ -2,11 +2,11 @@
 	<div id="contexte" class="view-scroll">
 		<h1>Mise en contexte</h1>
 		<div class="center-col">
-			<p>Cette r&eacute;flexion fait suite &agrave; l&rsquo;<a class="reference-link" href="https://fr.unesco.org/themes/promouvoir-droits-inclusion/iccar">appel aux bonnes initiatives</a> des villes du r&eacute;seau ICCAR (SHS-UNESCO) en mars 2020. Le but de cet appel des Sciences humaines et sociales de l&rsquo;UNESCO &eacute;tait{{'\xa0'}}:</p>
+			<p>Cette r&eacute;flexion fait suite &agrave; l&rsquo;appel aux bonnes initiatives des villes du r&eacute;seau ICCAR (SHS-UNESCO) en mars 2020. Le but de cet appel des Sciences humaines et sociales de l&rsquo;UNESCO &eacute;tait{{'\xa0'}}:</p>
 			<p>
 				<ul>
 					<li>de contribuer de mani&egrave;re proactive &agrave; relever les d&eacute;fis sociaux dans le contexte de la pand&eacute;mie de coronavirus{{'\xa0'}};</li>
-					<li>d&rsquo;inspirer la communaut&eacute; d&rsquo;ICCAR des bonnes pratiques entreprises pour promouvoir la solidarit&eacute; et montrer l'importance de la d&eacute;fense de la dignit&eacute; humainedans ce contexte de pand&eacute;mie{{'\xa0'}};</li>
+					<li>d&rsquo;inspirer la communaut&eacute; d&rsquo;ICCAR des bonnes pratiques entreprises pour promouvoir la solidarit&eacute; et montrer l'importance de la d&eacute;fense de la dignit&eacute; humaine dans ce contexte de pand&eacute;mie{{'\xa0'}};</li>
 					<li>de recevoir des informations sur l'impact des mesures prises par les villes et les communaut&eacute;s sur la vie des citoyen.ne.s en milieu urbain{{'\xa0'}};</li>
 					<li>de tirer les le&ccedil;ons d&rsquo;exp&eacute;riences qui pourraient &ecirc;tre inspirantes &agrave; d'autres villes et communaut&eacute;s.</li>
 				</ul>
@@ -35,7 +35,7 @@
 					<li>Chlo&eacute; L&eacute;vesque,<br><i>auxiliaire de recherche &mdash; Chaire UNESCO en paysage urbain (CUPUM)</i></li>
 				</ul>
 			</p>
-			<h4>Chercheur conseiller</h4>
+			<h4>Chercheur aviseur</h4>
 			<p>
 				<ul>
 					<li>Sylvain Paquette,<br><i>professeur titulaire et chercheur associ&eacute; &agrave; la Chaire UNESCO en paysage urbain (CUPUM)</i></li>
@@ -44,20 +44,20 @@
 
 			<h3>Initiative men&eacute;e en partenariat avec{{'\xa0'}}:</h3>
 			<ul class="link-list">
-				<li><a class="reference-link" href="https://fr.unesco.org/themes/apprendre-%C3%A0-vivre-ensemble">Secteur des sciences humaines et sociales de l&rsquo;UNESCO</a></li>
-				<li><a class="reference-link" href="https://fr.unesco.org/themes/promouvoir-droits-inclusion/iccar">Coalition internationale des villes inclusives et durables</a></li>
-				<li><a class="reference-link" href="https://sidleearchitecture.com/fr">Sid Lee Architecture</a></li>
+				<li><a class="reference-link" href="https://fr.unesco.org/themes/apprendre-%C3%A0-vivre-ensemble" target="_blank">Secteur des sciences humaines et sociales de l&rsquo;UNESCO</a></li>
+				<li><a class="reference-link" href="https://fr.unesco.org/themes/promouvoir-droits-inclusion/iccar" target="_blank">Coalition internationale des villes inclusives et durables</a></li>
+				<li><a class="reference-link" href="https://sidleearchitecture.com/fr" target="_blank">Sid Lee Architecture</a></li>
 			</ul>
 			<h4>La <em>Plateforme des villes de l'UNESCO</em>, regroupant huit r&eacute;seaux et programmes{{'\xa0'}}:</h4>
 			<ul class="link-list">
-				<li><a class="reference-link" href="https://fr.unesco.org/creative-cities/">Programme des villes cr&eacute;atives de l&rsquo;UNESCO</a></li>
-				<li><a class="reference-link" href="http://uil.unesco.org/fr/apprendre-au-long-vie/villes-apprenantes">R&eacute;seau mondial UNESCO de villes apprenantes</a></li>
-				<li><a class="reference-link" href="https://fr.unesco.org/node/278891">Alliance des m&eacute;gapoles pour l&rsquo;eau et le climat</a></li>
-				<li><a class="reference-link" href="http://www.unesco.org/new/fr/natural-sciences/special-themes/disaster-risk-reduction/">R&eacute;duction des risques de catastrophe et r&eacute;silience</a></li>
-				<li><a class="reference-link" href="http://www.unesco.org/new/fr/social-and-human-sciences/themes/fight-against-discrimination/coalition-of-cities/">Coalition internationale des villes inclusives et durables</a></li>
-				<li><a class="reference-link" href="https://whc.unesco.org/fr/villes/">Programme des villes du patrimoine mondial</a></li>
-				<li><a class="reference-link" href="https://fr.unesco.org/milcities">Villes d&rsquo;&eacute;ducation aux m&eacute;dias et &agrave; l&rsquo;information</a></li>
-				<li><a class="reference-link" href="https://fr.unesco.org/netexplo">Coop&eacute;ration UNESCO-Observatoire Netexplo sur les villes intelligentes</a></li>
+				<li><a class="reference-link" href="https://fr.unesco.org/creative-cities/" target="_blank">Programme des villes cr&eacute;atives de l&rsquo;UNESCO</a></li>
+				<li><a class="reference-link" href="http://uil.unesco.org/fr/apprendre-au-long-vie/villes-apprenantes" target="_blank">R&eacute;seau mondial UNESCO de villes apprenantes</a></li>
+				<li><a class="reference-link" href="https://fr.unesco.org/node/278891" target="_blank">Alliance des m&eacute;gapoles pour l&rsquo;eau et le climat</a></li>
+				<li><a class="reference-link" href="http://www.unesco.org/new/fr/natural-sciences/special-themes/disaster-risk-reduction/" target="_blank">R&eacute;duction des risques de catastrophe et r&eacute;silience</a></li>
+				<li><a class="reference-link" href="http://www.unesco.org/new/fr/social-and-human-sciences/themes/fight-against-discrimination/coalition-of-cities/" target="_blank">Coalition internationale des villes inclusives et durables</a></li>
+				<li><a class="reference-link" href="https://whc.unesco.org/fr/villes/" target="_blank">Programme des villes du patrimoine mondial</a></li>
+				<li><a class="reference-link" href="https://fr.unesco.org/milcities" target="_blank">Villes d&rsquo;&eacute;ducation aux m&eacute;dias et &agrave; l&rsquo;information</a></li>
+				<li><a class="reference-link" href="https://fr.unesco.org/netexplo" target="_blank">Coop&eacute;ration UNESCO-Observatoire Netexplo sur les villes intelligentes</a></li>
 			</ul>
 			<ChapterNav :previous="true" :next="true" />
 		</div>

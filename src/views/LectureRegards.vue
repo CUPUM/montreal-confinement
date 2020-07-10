@@ -1,6 +1,6 @@
 <template>
 	<div id="analyse-photo" class="view-scroll">
-		<h1>Analyse de photographies urbaines de Montréal</h1>
+		<h1>Lecture paysagère des regards photographiques</h1>
 		<div class="center-col">
 			<p>Les résultats de la lecture paysagère se déclinent successivement en cinq (5) thèmes de caractérisation présentés ci-dessous sous la forme de nuage de mots qui identifient les principaux éléments prédominants dans une analyse descriptive (<i>composition/sujet</i>, <i>contexte urbain</i>, <i>présence humaine</i>) et sensible (<i>ambiance</i>, <i>sentiment/évocation</i>) de la composition visuelle de chaque cliché photographique.</p>
 

@@ -4,7 +4,7 @@
 
 	<!-- Partie 1 -->
 		<div class="center-col">
-			<h3>Quels attributs du paysage urbain ont fait l’objet de préoccupations et de valorisations par les médias montréalais{{'\xa0'}}?</h3>
+			<h3>Quels sont les attributs du paysage urbain qui font l’objet de préoccupations dans les médias montréalais{{'\xa0'}}?</h3>
 			<p>Les attributs urbains qui ont retenu l’attention des médias se résument aux éléments suivants{{'\xa0'}}: le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Commerce']}">commerce</span>, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span>, la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span>  et la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Ville']}">ville</span>. Tandis que l’<span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Automobile']}">automobile</span>, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Corridor sanitaire']}">corridor sanitaire</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Piéton']}">piéton</span> ont occupé des intérêts secondaires dans les articles de presse.</p>
 		</div>
 		<div id="attributs-sommaire">
@@ -17,8 +17,8 @@
 			/>
 		</div>
 		<div class="center-col">
+			<h3>À quelle occurrence les articles de presse ont abordé chacun des principaux attributs du paysage urbain{{'\xa0'}}?</h3>
 			<p>Il est intéressant de noter que les trois dernières semaines de confinement sont celles où les occurrences pour chacun des attributs urbains sont les plus fortes, en lien avec le déconfinement et le retour du beau temps (printemps).</p>
-			<!-- <p>La <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span> est la principale préoccupation de l’espace public montréalais. Ensuite, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span> constitue l’attribut majeur du paysage urbain. L’<span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Automobile']}">automobile</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Commerce']}">commerce</span> font l’objet d’attention auprès des médias en regard de l’activité économique et de la mobilité. Par leur occurrence, la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span> sont les figures dominantes et valorisées du paysage urbain montréalais en mode confinement. En regard de l’ensemble des attributs répertoriés dans cette analyse, elles confirment leur importance pour la santé et le bien-être de la population urbaine à l’image de la ville hygiéniste du 19e siècle.</p> -->
 		</div>
 
 	<!-- Partie 2 -->
@@ -48,7 +48,7 @@
 
 		<!-- Partie 3 -->
 		<div class="center-col">
-			<h3>Quelles sont les préoccupations et valorisations relayées par les médias au sujet des divers attributs urbains recensés{{'\xa0'}}?</h3>
+			<h3>Quelles sont les préoccupations et valorisations relayées par les médias montréalais envers les attributs urbains recensés{{'\xa0'}}?</h3>
 			<p>Les différents attributs urbains montréalais sont décrits dans les médias par des qualificatifs diversifiés qui ont été répertoriés dans cette veille informationnelle sous forme de nuages de mots. Les préoccupations et valorisations des qualificatifs des attributs sont présentées dans la figure ci-contre selon l’occurrence et selon trois groupes distinctifs qui les caractérisent{{'\xa0'}}:
 				<ul>
 					<li><div class="legende" :style="{backgroundColor: groupesColors.problemes.color}"></div> Problèmes{{'\xa0'}};</li>
@@ -64,7 +64,10 @@
 				<ul>
 					<li v-for="(code, i) in filteredCodesList" v-bind:key='i+"_li"'>
 						<input :key='i+"_input"' type="radio" :disabled="!code.hasBubbles" :id='code.code+"_radio"' :value='code.code' v-model="choix">
-						<label :key='i+"_label"' :for='code.code+"_radio"' :style="[attrList.indexOf(code.code)!=-1 ? {color: attrColors[code.code], fontWeight: '500'} : null]" :class="{'disabled': !code.hasBubbles}">{{ code.code }}</label>
+						<label :key='i+"_label"' :for='code.code+"_radio"' :class="{'disabled': !code.hasBubbles}" :style="[attrList.indexOf(code.code)!=-1 ? {color: attrColors[code.code], fontWeight: 600} : null]">
+							<div class="highlighter" :style="[attrList.indexOf(code.code)!=-1 ? {backgroundColor: attrColors[code.code]} : null]"></div>
+							{{ code.code }}
+						</label>
 					</li>
 				</ul>
 			</div>
@@ -83,7 +86,7 @@
 									</h5>
 									<template v-for="(q,index) in quote.citation">
 										<p :key="index+quote.date+quote.mot+'-quote'">«{{'\xa0'}}{{ q.text }}{{'\xa0'}}»</p>
-										<a :key="index+quote.date+quote.mot+'-ref'" :href="q.source">Réf{{'\xa0'}}&#x1f855;</a>
+										<a :key="index+quote.date+quote.mot+'-ref'" :href="q.source" target="_blank">Réf{{'\xa0'}}&#x1f855;</a>
 									</template>
 								</div>
 							</transition-group>
@@ -91,6 +94,7 @@
 					</div>
 					<div id="bubbles-pane">
 						<h4>Occurrences des qualificatifs</h4>
+						<!-- <div class="bubble-bg">{{choix.toLowerCase()}}</div> -->
 						<div id="bubbles-pane-inner">
 							<BubbleCluster
 								:chartID="'bubbles-caracterisation'"
@@ -125,16 +129,21 @@
 						/>
 					</div>
 				</div>
-				<div v-if="showConstats" id="constats-backdrop"></div>
-				<div v-if="showConstats" id="constats-pane" :class="{'noquotes-inner': this.ConstatsAttributs[choix] == (undefined && null && '')}">
-					<h4>Constats</h4>
-					<transition name="constat" mode="out-in">
-						<p :key="choix" v-html="this.ConstatsAttributs[choix]"></p>
-					</transition>
-				</div>
-				<div id="constats-button" @mouseover="showConstats = true" @mouseleave="showConstats = false">+Constats!</div>
 			</div>
 		</div>
+		<div class="center-col">
+			<h4>Note</h4>
+			<p>Dans la bande déroulante, les attributs urbains suivants ont été rayés{{'\xa0'}}: balcon, centre-ville, cour arrière, marché public, métro, parc canin, place publique, ruelle, terrasse, terrain de jeux pour enfants et toit. Toutefois, ils ont été pris en compte dans l’analyse quantitative de la veille informationnelle. Il s’est avéré que les attributs urbains et leurs qualificatifs nommés moins que deux fois dans l’ensemble de la revue de presse n’étaient pas d’un intérêt significatif pour cette recherche.</p>
+			<h3>Constats sur les préoccupations et valorisations</h3>
+		</div>
+		<!-- <div id="constats-container">
+			<h4>Test</h4>
+			<DropDownBubbles />
+			<transition name="constat" mode="out-in">
+				<p :key="choix" v-html="this.ConstatsAttributs[choix]"></p>
+			</transition>
+		</div> -->
+
 		<div class="center-col">
 			<ChapterNav :previous="true" :next="true" />
 		</div>
@@ -148,6 +157,8 @@ import ConstatsAttributs from '@/assets/data/constats-attributs.json'
 
 import BubbleCluster from '@/components/BubbleCluster'
 import Timeline from '@/components/Timeline'
+// import DropDownBubbles from '@/components/DropDownBubbles'
+
 import ChapterNav from '@/components/ChapterNav'
 
 export default {
@@ -155,6 +166,7 @@ export default {
 	components: {
 		BubbleCluster,
 		Timeline,
+		// DropDownBubbles,
 		ChapterNav
 	},
 	data() {
@@ -180,7 +192,7 @@ export default {
 				'Quotation Content': quotation['Quotation Content'],
 				'Citation': quotation['Citation'] == (null && undefined && '') ? null : quotation['Citation'],
 				'Date': quotation['Date'] == (null && undefined && '') ? null : quotation['Date'],
-				'Codes': quotation['Codes'].split(/ *; */),
+				'Codes': quotation['Codes'].split(/ *; */).filter(e => (e.trim() != (null || undefined || ""))),
 				'Reference': quotation['Reference'],
 				'Groupe': quotation['Groupe'],
 				'Source': quotation['Source']
@@ -324,7 +336,7 @@ export default {
 			this.codesList.forEach(thisCode => {
 				filteredCodes.push({
 					code: thisCode,
-					hasBubbles: this.attributsCaracterisations[thisCode].length>0 ? true : false
+					hasBubbles: this.attributsCaracterisations[thisCode].length>2 ? true : false
 				})
 			})
 			return filteredCodes
@@ -404,19 +416,19 @@ export default {
 
 #semaines-wrap {
 	box-sizing: content-box;
-	width: 850px;
+	max-width: 850px;
 	padding: 35px 150px 50px 0px;
 	margin: 0px auto 50px auto;
 }
 .attributs-semaines {
 	display: flex;
 	height: auto;
-	max-width: 1200px;
 	width: 100%;
 	margin: 0px auto;
 	align-items: center;
 }
 .attributs-semaines h4 {
+	padding: 0px;
 	text-align: right;
 	user-select: none;
 	font-family: 'Poppins', sans-serif;
@@ -446,7 +458,7 @@ export default {
 	flex: 1;
 	position: relative;
 	height: 90%;
-	margin: 70px 90px;
+	margin: 45px 90px;
 	right: 5px;
 	overflow: hidden;
 	border-radius: 12px;
@@ -477,14 +489,18 @@ export default {
 	height: 100%;
 	width: 250px;
 	/* flex: 0 0 250px; équivalent de width 250px mais en précisant flex-grow 0 et flex-shrink 0 */
-	background: rgb(48,48,48);
+	background: rgb(252,253,255);
 	overflow: hidden;
+}
+#attributs-pane h4 {
+	color: rgb(125,125,125);
+	border-bottom: 1px solid rgba(125,125,125, 0.3);
 }
 #attributs-pane ul {
 	flex: 1;
 	overflow-y: auto;
 	overflow-x: hidden;
-	padding: 0px 0px 20px 0px;
+	padding: 0px 0px 30px 0px;
 	text-indent: 0px;
 	margin: 0px;
 }
@@ -493,81 +509,68 @@ export default {
 	list-style-type: none;
 	text-indent: 0;
 	margin: 0px;
-	line-height: 1.5em;
-	font-size: 13px;
-	font-weight: 400;
-	color: rgb(161, 161, 161);
-	transition: all .3s ease-in-out;
+	transition: all .2s linear;
 }
 #attributs-pane input {
 	display: none;
 }
 
 #attributs-pane label {
+	font-size: 13px;
+	line-height: 1.5em;
+	font-weight: 400;
+	color: rgb(136, 136, 136);
+	position: relative;
+	z-index: 1;
 	user-select: none;
 	display: block;
 	cursor: pointer;
 	padding: 14px 24px;
-	transition: all .15s linear;
+	transition: all .2s linear;
 	border-radius: 1px;
 }
-#attributs-pane label.disabled {
-	text-decoration: line-through;
-	cursor: default;
-	color: rgb(102, 102, 102);
-	background-color: rgba(0,0,0,.2)
+#attributs-pane label .highlighter {
+	border-radius: 1px;
+	z-index: -1;
+	top: 0px;
+	right: 0px;
+	position: absolute;
+	padding: 0px;
+	margin: 0px;
+	width: 0%;
+	height: 100%;
+	opacity: .25;
+	background-color: rgb(206, 206, 206);
+	transition: all .2s ease-in-out;
 }
 #attributs-pane label:hover {
-	background-color: rgba(255, 255, 255,.2);
-	color: rgb(223, 223, 223);
+	color: rgb(56, 56, 56) !important;
 }
-#attributs-pane label.disabled:hover {
-	background-color: rgba(0,0,0,.2);
-	color: rgb(102, 102, 102);
+#attributs-pane label:hover .highlighter {
+	width: 100%;
+	left: 0px;
+	opacity: 1;
 }
 #attributs-pane input:checked+label {
-	color: rgb(32, 32, 32) !important;
-	background-color: rgb(248, 248, 248);
+	pointer-events:none;
+	text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+	color: rgb(233, 233, 233);
 	transform: translateX(5px);
+}
+#attributs-pane input:checked+label .highlighter {
+	background-color: rgb(70, 70, 70) !important;
+	opacity: 1;
+	width: 100%;
+	height: 100%;
 }
 #attributs-pane input:checked+label:hover {
 	cursor: default;
 }
-
-#constats-button {
-	z-index: 2;
-	cursor: pointer;
-	width: 64px;
-	height: 64px;
-	top: 50%;
-	right: 10px;
-	transform: translateY(-50%);
-	border-radius: 50%;
-	position: absolute;
-	background: red;
-}
-#constats-backdrop {
-	z-index: 1;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(247,247,249,.7);
-}
-#constats-pane {
-	box-sizing: border-box;
-	padding: 0px;
-	z-index: 5;
-	position: absolute;
-	display: block;
-	width: 500px;
-	height: auto;
-	overflow: hidden;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	background-color: white;
-	border-radius: 3px;
-	box-shadow: 2px 5px 15px -10px rgba(0,0,0,.5);
+#attributs-pane label.disabled {
+	text-decoration: line-through;
+	cursor: default;
+	opacity: .3;
+	pointer-events:none;
 }
 
 #visualisation-pane-outer {
@@ -628,41 +631,6 @@ export default {
 	padding-bottom: 0px;
 	padding-top: 0px;
 }
-
-/* Transition pour version des constats dans quotes pane */
-
-/* #constats-pane {
-	display: flex;
-	flex-direction: column;
-	max-height: 60%;
-	overflow: hidden;
-	background-color: rgba(255,255,255,.7);
-	padding: 0px;
-	transition: all .5s;
-}
-#constats-pane p {
-	overflow-x: hidden;
-	overflow-y: auto;
-	display: block;
-	flex: 1;
-	font-size: 15px;
-	font-weight: 500;
-	line-height: 1.5em;
-	padding: 25px 35px 55px 35px;
-	margin: 0px;
-	color: rgb(65,65,65);
-
-}
-.constat-enter-active,
-.constat-leave-active {
-	transition: all .5s;
-}
-.constat-enter,
-.constat-leave-to {
-	transform: translateY(-10px);
-	opacity: 0;
-	max-height: 20px !important;
-} */
 
 #citations-pane {
 	flex: 1;
@@ -789,8 +757,35 @@ export default {
 	flex: 1;
 	overflow: hidden;
 	width: auto;
-	background: rgb(255, 255, 255);
 	padding: 0px;
 	margin: 0px;
+}
+
+.bubble-bg {
+	opacity: .02;
+	box-sizing: border-box;
+	word-wrap: none;
+	padding: 45px 25px;
+	line-height: .9em;
+	position: absolute;
+	width: 100%;
+	height: auto;
+	top: 50%;
+	font-size: 35vh;
+	font-weight: 700;
+	overflow: hidden;
+	transform: translateY(-50%);
+}
+
+#constats-container {
+	box-sizing: border-box;
+	margin: 25px 100px;
+	padding: 0px;
+	position: relative;
+	display: block;
+	height: auto;
+	overflow: hidden;
+	border-radius: 3px;
+	box-shadow: 2px 5px 15px -10px rgba(0,0,0,.5);
 }
 </style>

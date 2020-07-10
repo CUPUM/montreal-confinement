@@ -119,11 +119,11 @@ body {
 	transition: all 1s;
 }
 .view-change-enter {
-	transform: translateY(-10px);
+	transform: translateY(-15px);
 	opacity: 0;
 }
 .view-change-leave-to {
-	transform: translateY(10px);
+	transform: translateY(15px);
 	opacity: 0;
 }
 

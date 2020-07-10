@@ -15,18 +15,23 @@
 				:colorKey="'color'"
 			/>
 		</div>
+		<div class="center-col">
+			<ChapterNav :previous="true" :next="true" />
+		</div>
 	</div>
 </template>
 
 <script>
-// @ is an alias to /src
+import ChapterNav from '@/components/ChapterNav'
+
 import QualificatifsHumain from '@/assets/data/qualificatifs-humains.json'
 import BubbleCluster from '@/components/BubbleCluster'
 
 export default {
 	name: 'Humain',
 	components: {
-		BubbleCluster
+		BubbleCluster,
+		ChapterNav
 	},
 	data() {
 		Object.freeze(QualificatifsHumain)

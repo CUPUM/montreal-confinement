@@ -1,12 +1,11 @@
 <template>
 	<div id="accueil" class="view-scroll" ref="accueil">
-		<transition name="curtain">
+		<!-- <transition name="curtain">
 			<div v-if="this.isCurtain" id="load-curtain"></div>
-		</transition>
+		</transition> -->
 
 		<div id="splash">
 			<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1700 900">
-				<img class="chaire-logo" :src='CUPUMlogo' alt="~"/>
 				<defs>
 					<svg:style type="text/css">
 						@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700&display=swap'); <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
@@ -18,7 +17,9 @@
 						<text x="1235" y="465" class="splash-text date">13 mars &mdash; 16 mai 2020</text>
 					</mask>
 				</defs>
-				<image width="1700" v-bind="{'xlink:href' : BGpic}" mask="url(#splash-text-mask)"/>
+				<transition name="splash-image">
+					<image v-if="!this.isCurtain" width="1700" v-bind="{'xlink:href' : BGpic}" mask="url(#splash-text-mask)"/>
+				</transition>
 			</svg>
 		</div>
 		
@@ -163,6 +164,15 @@ export default {
 	font-size: 42px;
 	fill: white;
 	letter-spacing: .5px;
+}
+
+.splash-image-enter-active,
+.splash-image-leave-active {
+	transition: all 2s ease-in;
+}
+.splash-image-enter,
+.splash-image-leave-to {
+	opacity: 0 !important;
 }
 
 .below-splash {
