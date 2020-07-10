@@ -1,6 +1,6 @@
 <template>
 	<div id="bibliographie" class="view-scroll">
-		<h1>Page «&nbsp;bibliographie&nbsp;» en construction</h1>
+		<h1>Médiagraphie</h1>
 		<div class="center-col">
 			<p>Contenu à venir</p>
 		</div>		
@@ -11,7 +11,7 @@
 // @ is an alias to /src
 
 export default {
-	name: 'Bibliographie',
+	name: 'Mediagraphie',
 	components: {
 
 	}

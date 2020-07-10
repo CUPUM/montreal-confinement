@@ -18,7 +18,7 @@
 					</mask>
 				</defs>
 				<transition name="splash-image">
-					<image v-if="!this.isCurtain" width="1700" v-bind="{'xlink:href' : BGpic}" mask="url(#splash-text-mask)"/>
+					<image @load="isCurtain = false" v-show="!this.isCurtain" width="1700" v-bind="{'xlink:href' : BGpic}" mask="url(#splash-text-mask)"/>
 				</transition>
 			</svg>
 		</div>
@@ -94,7 +94,7 @@ export default {
 		}
 	},
 	mounted() {
-		setTimeout(() => {this.isCurtain = false}, 250)
+		//setTimeout(() => {this.isCurtain = false}, 250)
 		this.onResize();
 		this.$nextTick(() => {
 			window.addEventListener('resize', this.onResize);
