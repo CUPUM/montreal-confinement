@@ -39,9 +39,6 @@ export default {
 /* font-family: 'Spectral', serif; */
 @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-/* font-family: 'DM Serif Text', serif; */
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
-
 * {
 	box-sizing: border-box;
 	scroll-behavior: smooth;
@@ -145,14 +142,13 @@ h1, h2, h3, h4 {
 	font-size: 58pt;
 }
 h1 {
-	color: rgb(65,65,65);
 	text-align: center;
-	margin: 0px auto 100px auto;
-	padding: 80px;
-	max-width: 1250px;
+	color: rgb(52,52,52);
+	margin: 0px 0px 80px 0px;
+	padding: 80px 250px;
 	font-weight: 600;
 	display: block;
-	box-shadow: 0px 70px 60px -120px rgba(0,0,0,1), inset 0px -2px 5px -5px white;
+	box-shadow: 0px 70px 60px -120px rgba(0,0,0,1), 0px -70px 60px -120px rgba(0,0,0,1);
 }
 h2 {
 	margin: 64px 0px 32px 0px;

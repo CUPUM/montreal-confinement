@@ -133,16 +133,14 @@
 		</div>
 		<div class="center-col">
 			<h4>Note</h4>
-			<p>Dans la bande déroulante, les attributs urbains suivants ont été rayés{{'\xa0'}}: balcon, centre-ville, cour arrière, marché public, métro, parc canin, place publique, ruelle, terrasse, terrain de jeux pour enfants et toit. Toutefois, ils ont été pris en compte dans l’analyse quantitative de la veille informationnelle. Il s’est avéré que les attributs urbains et leurs qualificatifs nommés moins que deux fois dans l’ensemble de la revue de presse n’étaient pas d’un intérêt significatif pour cette recherche.</p>
+			<p style="fontSize: 15px; lineHeight: 1.5em"><i>Dans la bande déroulante, les attributs urbains suivants ont été rayés{{'\xa0'}}: balcon, centre-ville, cour arrière, marché public, métro, piscine, place publique, ruelle, terrasse, terrain de jeux pour enfants et toit. Toutefois, ils ont été pris en compte dans l’analyse quantitative de la veille informationnelle. Il s’est avéré que les attributs urbains et leurs qualificatifs nommés moins que deux fois dans l’ensemble de la revue de presse n’étaient pas d’un intérêt significatif pour cette recherche.</i></p>
 			<h3>Constats sur les préoccupations et valorisations</h3>
 		</div>
-		<!-- <div id="constats-container">
-			<h4>Test</h4>
-			<DropDownBubbles />
-			<transition name="constat" mode="out-in">
-				<p :key="choix" v-html="this.ConstatsAttributs[choix]"></p>
-			</transition>
-		</div> -->
+		<div id="constats-container">
+			<DropDownBubbles :chartID="'chart-constats'"
+				:data="ConstatsAttributs"
+				:colors="attrColors"/>
+		</div>
 
 		<div class="center-col">
 			<ChapterNav :previous="true" :next="true" />
@@ -157,7 +155,7 @@ import ConstatsAttributs from '@/assets/data/constats-attributs.json'
 
 import BubbleCluster from '@/components/BubbleCluster'
 import Timeline from '@/components/Timeline'
-// import DropDownBubbles from '@/components/DropDownBubbles'
+import DropDownBubbles from '@/components/DropDownBubbles'
 
 import ChapterNav from '@/components/ChapterNav'
 
@@ -166,7 +164,7 @@ export default {
 	components: {
 		BubbleCluster,
 		Timeline,
-		// DropDownBubbles,
+		DropDownBubbles,
 		ChapterNav
 	},
 	data() {
@@ -680,7 +678,6 @@ export default {
 	text-indent: 0;
 	font-size: 16px;
 	font-family: 'Spectral', serif;
-	/* font-family: 'DM Serif Text', serif; */
 	font-style: italic;
 	font-weight: 500;
 	padding: 0px;
@@ -778,14 +775,10 @@ export default {
 }
 
 #constats-container {
-	box-sizing: border-box;
-	margin: 25px 100px;
+	box-sizing: content-box;
+	margin: 0px 100px;
 	padding: 0px;
 	position: relative;
 	display: block;
-	height: auto;
-	overflow: hidden;
-	border-radius: 3px;
-	box-shadow: 2px 5px 15px -10px rgba(0,0,0,.5);
 }
 </style>

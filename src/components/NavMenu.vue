@@ -131,7 +131,6 @@ nav ul {
 	min-width: 250px;
 	text-align: left;
 	line-height: 1em;
-	/* font-family: 'DM Serif Text', serif; */
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	font-size: 32px;
