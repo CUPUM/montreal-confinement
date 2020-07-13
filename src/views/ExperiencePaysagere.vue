@@ -10,23 +10,38 @@
 			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
 				<defs>
 					<filter id="glue">
-						<feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
-						<feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 30 -15" result="goo" />
+						<feGaussianBlur in="SourceGraphic" stdDeviation="35" result="blur" />
+						<feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 48 -22" result="goo" />
 						<feComposite in="SourceGraphic" in2="goo" operator="atop"/>
 					</filter>
 				</defs>
 			</svg>
 
-			<div class="temps">
-				<div class="head">
-					<h4>Temps</h4>
-				</div>
-				<p>Pandémie de la COVID-19/confinement/fin d’hiver 2020</p>
-				
-				<div class="concept" id="formes">
-					<div class="head">
-						<h4>Formes</h4>
+			<div class="figures">
+				<div class="figure" id="globales">
+					<div class="inner" id="globales-inner">
+						<h4>Figures d'impressions globales</h4>
+						<br>
+						<p>Discours traversé par le thème de la solitude en ville</p>
 					</div>
+				</div>
+				<div class="figure" id="locales">
+					<div class="inner" id="locales-inner">
+						<h4>Figures d'expressions locales</h4>
+						<br>
+						<p>Dominance de regards fragmentaires avec ambiances froides, arides/désertiques, sans vie;<br> Climat hivernal prégnant</p>
+					</div>
+				</div>
+				<div class="linker"></div>
+			</div>
+
+			<div class="temps">
+				<h4>Temps</h4>
+				<p>Pandémie de la COVID-19/confinement/fin d’hiver 2020</p>
+				<br>
+
+				<div class="concept" id="formes">
+					<h4>Formes</h4>
 					<div class="inner" id="formes-inner">
 						<h5>Perte de vue sur la ville</h5>
 						<p>Fermeture rapprochée et totale</p>
@@ -41,9 +56,7 @@
 				</div>
 
 				<div class="concept" id="themes">
-					<div class="head">
-						<h4>Thèmes</h4>
-					</div>
+					<h4>Thèmes</h4>
 					<div class="inner" id="themes-inner">
 						<h5>Hygiénisme</h5>
 						<p>Recherche quasi-obsessive du soleil,<br>
@@ -58,31 +71,12 @@
 				</div>
 
 				<div class="concept" id="intentions">
-					<div class="head">
-						<h4>Intentions</h4>
-					</div>
+					<h4>Intentions</h4>
 					<div class="inner" id="intentions-inner">
 						<h5>Révélation</h5>
 						<p>Sensibilisation aux qualités esthétiques;<br>
 						Commentaire sur un décalage entre usage et fonction du cadre morphologique</p>
 					</div>
-				</div>
-			</div>
-
-			<div class="figure" id="locales">
-				<div class="head fig">
-					<h4>Figures d'impressions globales</h4>
-				</div>
-				<div class="inner" id="locales-inner">
-				</div>
-			</div>
-
-			<div class="figure" id="globales">
-				<div class="head fig">
-					<h4>Figures d'expressions locales</h4>
-				</div>
-				<div class="inner" id="globales-inner">
-					<p>Dominance de regards fragmentaires avec ambiances froides, arides/désertiques, sans vie;<br> Climat hivernal prégnant</p>
 				</div>
 			</div>
 		</div>
@@ -94,7 +88,6 @@
 </template>
 
 <script>
-//import * as d3 from 'd3'
 import ChapterNav from '@/components/ChapterNav'
 
 export default {
@@ -120,69 +113,66 @@ export default {
 }
 
 #schema-container {
-	filter:url('#glue');
+	/* filter:url('#glue'); */
 	position: relative;
 	text-align: center;
 	box-sizing: border-box;
 	width: 100%;
-	padding: 20px 125px;
+	padding: 40px 125px;
 }
 #schema-container svg {
 	display: none;
 }
 
-#schema-container .head {
-	position: absolute;
-	left: 0%;
-	top: 0px;
-	transform: translate(-50%,-50%);
-	display: flex;
-	align-items: center;
-	text-align: center;
-	background-color: rgb(120, 175, 99);
-	width: 120px;
-	height: 120px;
-	border-radius: 50%;
-}
-#schema-container .head.fig {
-	width: 150px;
-	height: 150px;
-}
 #schema-container h4 {
+	color: rgb(120, 175, 99);
 	line-height: 1.5em;
 	position: relative;
 	display: inline-block;
 	margin: 0px auto;
-	padding: 0px;
+	padding: 5px 0px;
 	text-indent: 0px;
 	font-weight: 500;
-	color: white;
 	font-size: 14px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
+	transition: all .3s;
+}
+.concept h4::after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	width: 30%;
+	left: 35%;
+	height: 1px;
+	background-color: rgb(120, 175, 99);
+	bottom: 5px;
+	transition: all .75s ease;
+}
+.concept:hover h4::after {
+	left: 0%;
+	width: 100%;
+}
+#schema-container .concept:hover h4 {
+	color: rgb(39, 39, 39);
 }
 #schema-container h5 {
-	color: rgb(245,245,245);
+	color: rgb(65, 65, 65);
 	position: relative;
-	z-index: 1;
 	text-indent: 0px;
 	font-weight: 600;
 	font-size: 14px;
 	padding: 5px;
 	margin: 0px;
 	line-height: 1.25em;
-	transition: all .5s;
+	transition: all .3s;
 }
 #schema-container .concept:hover h5 {
-	color: rgb(56, 56, 56);
+	color: rgb(120, 175, 99);
 }
 #schema-container p {
-	opacity: 0;
 	color: rgb(68, 68, 68);
 	position: relative;
-	z-index: 1;
-	display: block;
-	max-height: 0px;
 	overflow: hidden;
 	line-height: 1.25em;
 	font-family: 'Spectral', serif;
@@ -190,11 +180,16 @@ export default {
 	text-indent: 0px;
 	font-size: 15px;
 	font-weight: 500;
-	margin: 0px auto 12px auto;
+	margin: 0px auto;
 	padding: 0px;
-	transition: all .5s ease;
+	transition: all .7s ease;
+}
+#schema-container .concept p {
+	opacity: 0;
+	max-height: 0px;
 }
 #schema-container .concept:hover p {
+	margin: 0px auto 12px auto;
 	opacity: 1;
 	max-height: 60px;
 }
@@ -202,41 +197,108 @@ export default {
 .temps {
 	position: relative;
 	display: inline-block;
-	width: 500px;
+	width: 550px;
 }
-
 .concept {
 	cursor: pointer;
-	display: flex;
-	align-items: center;
 	position: relative;
-	background-color: rgb(120, 175, 99);
-	margin: 100px auto;
+	margin: 10px auto 30px auto;
 	padding: 0px;
-	border-radius: 10px;
-	transition: all .5s ease;
 }
-.concept:hover {
-	background-color: rgb(255, 255, 255);
-}
+
 .inner {
-	padding: 25px 35px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	overflow: hidden;
+	padding: 10px;
 	position: relative;
 	margin: 0px auto;
+	background-color: rgb(120, 175, 99);
+	box-shadow: 2px 12px 15px -12px rgba(0,0,0,.2);
+	transition: all .25s ease;
+}
+.concept:hover .inner {
+	background-color: rgb(255,255,255);
+	border-radius: 12px !important;
 }
 
-#formes {
-}
 #formes-inner {
+	width: 260px;
+	height: 260px;
+}
+.concept:hover #formes-inner {
+	width: 100%;
+	height: 320px;
 }
 
-#themes {
-}
 #themes-inner {
+	width: 210px;
+	height: 210px;
+}
+.concept:hover #themes-inner {
+	width: 100%;
+	height: 320px;
 }
 
-#intentions {
-}
 #intentions-inner {
+	width: 130px;
+	height: 130px;
 }
+.concept:hover #intentions-inner {
+	width: 100%;
+	height: 160px;
+}
+
+.figures {
+	filter:url('#glue');
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+.figure {
+	position: absolute;
+	display: inline-block;
+}
+#globales {
+	right: 50%;
+	transform: translateX(-200px);
+}
+#locales {
+	left: 50%;
+	transform: translateX(200px);
+}
+.figure .inner {
+	padding: 50px;
+	box-shadow: none;
+	position: relative;
+	background-color: rgb(232, 235, 220);
+}
+#globales-inner {
+	height: 300px;
+	width: 300px;
+}
+#locales-inner {
+	height: 450px;
+	width: 450px;
+}
+
+.linker {
+	z-index: -1;
+	left: 50%;
+	width: 500px;
+	height: 500px;
+	position: absolute;
+	background: rgb(221, 221, 218);
+	transform: translate(-50%, 20px) rotate(45deg);
+	border-radius: 20% 0px 20% 0px;
+}
+
 </style>
