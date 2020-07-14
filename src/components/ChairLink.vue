@@ -1,6 +1,6 @@
 <template>
 	<div id="chair-link" class="noselect">
-		<a href="http://www.unesco-paysage.umontreal.ca/">CUPUM</a>
+		<a href="http://www.unesco-paysage.umontreal.ca/" target="_blank">CUPUM</a>
 	</div>
 </template>
 

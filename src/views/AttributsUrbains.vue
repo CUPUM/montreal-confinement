@@ -399,7 +399,7 @@ export default {
 	height: 100%;
 }
 #attributs-sommaire {
-	margin: -100px 0px -50px 0px;
+	margin: -70px 0px -50px 0px;
 	width: 100%;
 	height: 75vh;
 }

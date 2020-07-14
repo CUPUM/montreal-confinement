@@ -4,8 +4,11 @@
 			<defs>
 				<filter id="glue">
 					<feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
-					<feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -12" result="goo" />
-					<feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+					<!-- <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -12" result="goo" /> -->
+					<feComponentTransfer>
+						<feFuncA type="discrete" tableValues="0 1" />
+					</feComponentTransfer>
+					<feComposite in="SourceGraphic" in2="goo"/>
 				</filter>
 			</defs>
 		</svg>
@@ -102,14 +105,16 @@ export default {
 
 <style scoped>
 svg {
-	display: none;
+	display: absolute;
+	width: 0px;
+	height: 0px;
 }
 
 .dropdown-bubble {
 	position: relative;
 	display: block;
 	width: 100%;
-	height: 700px;
+	height: 730px;
 	padding: 0px;
 	margin: 0px;
 	text-align: center;
@@ -136,11 +141,12 @@ svg {
 	position: absolute;
 	width: 50px;
 	background-color: rgba(0,0,0,.025);
-	transition: all .35s ease-in-out;
+	border-radius: 5px;
 	right: 0px;
 	height: 100%;
 	transform: translateX(100%);
-	border-radius: 5px;
+	transform-origin: right bottom;
+	transition: all .35s ease-in-out;
 }
 .dropdown-select:hover .drop-arrow {
 	background-color: rgba(255, 255, 255, .5);
@@ -183,8 +189,7 @@ svg {
 }
 /* Flèche pour fermer */
 .drop-arrow.close {
-	transform: rotate(-180deg);
-	transform-origin: right bottom;
+	transform: rotate(-90deg) rotate(-90deg); /* 2x(-90deg) sinon firefox ne prend pas en compte la direction de rotation (-)... */
 }
 
 .dropdown-select h4 {
@@ -314,7 +319,8 @@ input:checked+label:hover .highlighter {
 
 
 .glue-container {
-	filter:url('#glue');
+	position: relative;
+	/* filter: url('#glue'); */
 }
 .constat-select {
 	position: absolute;
