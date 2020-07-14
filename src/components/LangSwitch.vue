@@ -1,6 +1,6 @@
 <template>
 	<div id="lang-switch" class="noselect">
-		<input type="radio" id="en" name="lang" value="en" checked><label for="en">EN</label>
+		<input type="radio" id="en" name="lang" value="en" disabled><label for="en">EN</label>
 		<div id="separator"></div>
 		<input type="radio" id="fr" name="lang" value="fr" checked><label for="fr">FR</label>
 	</div>
