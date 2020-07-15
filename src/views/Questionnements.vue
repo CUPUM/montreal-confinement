@@ -1,4 +1,6 @@
 <template>
+	<div class="meta" >
+	<div class="meta" v-bar ref="vbar">
 	<div id="questionnements" class="view-scroll">
 		<h1>Questionnements en quête de réponses</h1>
 		<div class="center-col">
@@ -134,6 +136,8 @@
 			<ChapterNav :previous="true" :next="true" />
 		</div>
 	</div>
+	</div>
+	</div>
 </template>
 
 <script>
@@ -144,6 +148,9 @@ export default {
 	name: 'Questionnements',
 	components: {
 		ChapterNav
+	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

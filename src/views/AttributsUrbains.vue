@@ -1,4 +1,6 @@
 <template>
+	<div class="meta" >
+	<div class="meta" v-bar ref="vbar">
 	<div id="attributs-urbains" class="view-scroll">
 		<h1>Les attributs urbains ciblés</h1>
 
@@ -61,35 +63,39 @@
 		<div id="cluster-external-container">
 			<div id="attributs-pane">
 				<h4>Attributs</h4>
-				<ul>
-					<li v-for="(code, i) in filteredCodesList" v-bind:key='i+"_li"'>
-						<input :key='i+"_input"' type="radio" :disabled="!code.hasBubbles" :id='code.code+"_radio"' :value='code.code' v-model="choix">
-						<label :key='i+"_label"' :for='code.code+"_radio"' :class="{'disabled': !code.hasBubbles}" :style="[attrList.indexOf(code.code)!=-1 ? {color: attrColors[code.code], fontWeight: 600} : null]">
-							<div class="highlighter" :style="[attrList.indexOf(code.code)!=-1 ? {backgroundColor: attrColors[code.code]} : null]"></div>
-							{{ code.code }}
-						</label>
-					</li>
-				</ul>
+				<div class="meta" v-bar>
+					<ul>
+						<li v-for="(code, i) in filteredCodesList" v-bind:key='i+"_li"'>
+							<input :key='i+"_input"' type="radio" :disabled="!code.hasBubbles" :id='code.code+"_radio"' :value='code.code' v-model="choix">
+							<label :key='i+"_label"' :for='code.code+"_radio"' :class="{'disabled': !code.hasBubbles}" :style="[attrList.indexOf(code.code)!=-1 ? {color: attrColors[code.code], fontWeight: 600} : null]">
+								<div class="highlighter" :style="[attrList.indexOf(code.code)!=-1 ? {backgroundColor: attrColors[code.code]} : null]"></div>
+								{{ code.code }}
+							</label>
+						</li>
+					</ul>
+				</div>
 			</div>
 			<div id="visualisation-pane-outer">
 				<div id="visualisation-pane-inner">
 					<div id="quotes-pane" :class="{'noquotes': ((attributSingleCaracterisationTimeline == (undefined && null && '')) && (this.ConstatsAttributs[choix] == (undefined && null && '')))}">
 						<div id="citations-pane" :class="{'noquotes-inner': attributSingleCaracterisationTimeline == (undefined && null && '')}">
 							<h4>Extraits</h4>
-							<transition-group name="quotes" mode="out-in" tag="ul" class="list">
-								<div class="quote-block" v-for="(quote,i) in attributSingleCaracterisationTimeline" :key="i+quote.date+quote.mot+'-block'" :style="{borderColor: quote.color}">
-									<h5 :key="i+quote.date+quote.mot" :style="{color: quote.color}">
-										<div class="round-label" :style="{backgroundColor: quote.color}">
-											{{ quote.id }}
-										</div>
-										{{'\xa0'}}: {{ quote.mot }}
-									</h5>
-									<template v-for="(q,index) in quote.citation">
-										<p :key="index+quote.date+quote.mot+'-quote'">«{{'\xa0'}}{{ q.text }}{{'\xa0'}}»</p>
-										<a :key="index+quote.date+quote.mot+'-ref'" :href="q.source" target="_blank">Réf{{'\xa0'}}&#x1f855;</a>
-									</template>
-								</div>
-							</transition-group>
+							<div class="meta" v-bar>
+								<transition-group name="quotes" mode="out-in" tag="ul" class="list">
+									<div class="quote-block" v-for="(quote,i) in attributSingleCaracterisationTimeline" :key="i+quote.date+quote.mot+'-block'" :style="{borderColor: quote.color}">
+										<h5 :key="i+quote.date+quote.mot" :style="{color: quote.color}">
+											<div class="round-label" :style="{backgroundColor: quote.color}">
+												{{ quote.id }}
+											</div>
+											{{'\xa0'}}: {{ quote.mot }}
+										</h5>
+										<template v-for="(q,index) in quote.citation">
+											<p :key="index+quote.date+quote.mot+'-quote'">«{{'\xa0'}}{{ q.text }}{{'\xa0'}}»</p>
+											<a :key="index+quote.date+quote.mot+'-ref'" :href="q.source" target="_blank">Réf{{'\xa0'}}&#x1f855;</a>
+										</template>
+									</div>
+								</transition-group>
+							</div>
 						</div>
 					</div>
 					<div id="bubbles-pane">
@@ -145,6 +151,8 @@
 		<div class="center-col">
 			<ChapterNav :previous="true" :next="true" />
 		</div>
+	</div>
+	</div>
 	</div>
 </template>
 
@@ -388,6 +396,9 @@ export default {
 			}
 			return {color: theColor, textColor: theTextColor, borderColor: theBorderColor}
 		},
+	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>
@@ -431,7 +442,7 @@ export default {
 	user-select: none;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
-	font-size: 15px;
+	font-size: 14px;
 	width: 152px;
 	height: 1em;
 	margin: 0px;
@@ -457,7 +468,7 @@ export default {
 	position: relative;
 	height: 90%;
 	margin: 45px 90px;
-	right: 5px;
+	left: 0px;
 	overflow: hidden;
 	border-radius: 12px;
 	box-shadow: 2px 12px 25px -10px rgba(0,0,0,.5);
@@ -652,7 +663,7 @@ export default {
 	border-top: 3px solid;
 	background: white;
 	border-radius: 3px;
-	margin: 15px 10px;
+	margin: 15px 16px;
 	padding: 10px;
 	box-shadow: 0px 2px 3px -2px rgba(0,0,0,.2);
 }

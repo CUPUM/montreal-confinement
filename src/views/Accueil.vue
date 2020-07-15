@@ -1,5 +1,7 @@
 <template>
-	<div id="accueil" class="view-scroll" ref="accueil">
+	<div class="meta" >
+	<div class="meta" v-bar ref="vbar">
+	<div id="accueil" ref="accueil" class="view-scroll">
 		<!-- <transition name="curtain">
 			<div v-if="this.isCurtain" id="load-curtain"></div>
 		</transition> -->
@@ -36,8 +38,11 @@
 			<p>La COVID-19 a révélé l’importance de vivre la ville au quotidien dans la période de confinement. Elle nous a entrainés à nous questionner sur le rôle et les fonctions des espaces publics et privés, tout comme elle a exposé des problèmes majeurs d’usages et d’accessibilité envers certains attributs urbains (parc, rue, etc.). Elle a également fait émerger des actions et des solutions nouvelles adaptées à ce contexte de crise.</p>
 			<p>Cette recherche sous l’intitulé <em><i>COVID-19 &mdash; paysage urbain montréalais{{'\xa0'}}: constats et perspectives</i></em> produites par la Chaire UNESCO en paysage urbain (CUPUM) fait état de la situation envers les espaces publics durant la période de confinement. En prenant appui sur une veille informationnelle des médias, de certaines OBNL et des communiqués de presse de la Ville de Montréal, elle a permis de trouver des réponses face à un ensemble de questionnements reliés à la mission de la Chaire UNESCO et à ces programmes affiliés de l’UNESCO.</p>
 			<p>Cette recherche a aussi été l’occasion de porter un regard sensible sur l’expérience de l’espace public en analysant les différents cadrages de photographes de presse et professionnels durant cette période de confinement montréalais. L’interprétation de ce corpus a permis d’esquisser les contours de l’identité du paysage urbain qui révèle les attributs clés de l’expérience de la ville en mode «{{'\xa0'}}confinement{{'\xa0'}}».</p>
+
 			<ChapterNav :previous="false" :next="true" />
 		</div>
+	</div>
+	</div>
 	</div>
 </template>
 
@@ -56,7 +61,7 @@ export default {
 		return {
 			CUPUMlogo,
 			BGpic,
-			windowHeight: 0,
+			viewHeight: Number,
 			isCurtain: Boolean
 		}
 	},
@@ -64,33 +69,13 @@ export default {
 		this.isCurtain = true;
 	},
 	computed: {
-		circles() {
-			const count = 10;
-			const minSize = 500;
-			const maxSize = 1500;
-			const padding = -20;
-			const width = 100;
-			const height = 100;
-			var array = []
-			for (let i = 0; i < count; i++) {
-				const diameter = Math.random()*(maxSize-minSize)+minSize
-				array.push({
-					x: Math.random()*(width - 2*padding)+padding+'%',
-					y: Math.random()*(height - 2*padding)+padding+'%',
-					d: diameter+'px',
-					color: 'hsla('+(Math.random()*150+0)+', 55%, 80%, .95)'
-				})
-			}
-			return array
-		}
 	},
 	methods : {
 		arrowClick() {
-			this.$refs.accueil.scrollTo({top: this.windowHeight, behavior: 'smooth'})
+			this.$refs.accueil.scrollTo({top: this.viewHeight, behavior: 'smooth'})
 		},
 		onResize() {
-			this.windowHeight = window.innerHeight;
-			console.log(this.windowHeight)
+			this.viewHeight = window.innerHeight;
 		}
 	},
 	mounted() {
@@ -99,10 +84,12 @@ export default {
 		this.$nextTick(() => {
 			window.addEventListener('resize', this.onResize);
 		})
-
 	},
 	beforeDestroy() {
 		window.removeEventListener('resize', this.onResize); 
+	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

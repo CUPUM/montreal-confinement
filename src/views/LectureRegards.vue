@@ -1,4 +1,6 @@
 <template>
+	<div class="meta" >
+	<div class="meta" v-bar ref="vbar">
 	<div id="analyse-photo" class="view-scroll">
 		<h1>Lecture paysagère des regards photographiques</h1>
 		<div class="center-col">
@@ -73,6 +75,8 @@
 			<ChapterNav :previous="true" :next="true" />
 		</div>
 	</div>
+	</div>
+	</div>
 </template>
 
 <script>
@@ -137,6 +141,9 @@ export default {
 			//return (360 / ntotal+1) * nth + 10
 			return 103
 		}
+	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

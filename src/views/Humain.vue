@@ -1,4 +1,6 @@
 <template>
+	<div class="meta" >
+	<div class="meta" v-bar ref="vbar">
 	<div id="humain" class="view-scroll">
 		<h1>L'humain dans la ville</h1>
 		<div class="center-col">
@@ -18,6 +20,8 @@
 		<div class="center-col">
 			<ChapterNav :previous="true" :next="true" />
 		</div>
+	</div>
+	</div>
 	</div>
 </template>
 
@@ -59,6 +63,9 @@ export default {
 			})
 			return colors
 		},
+	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

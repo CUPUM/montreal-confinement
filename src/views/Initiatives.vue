@@ -1,4 +1,6 @@
 <template>
+	<div class="meta" >
+	<div class="meta" v-bar ref="vbar">
 	<div id="carte-temporelle-initiatives" class="view-scroll">
 		<div id="initiatives-meta-container">
 			<div id="initiatives-inner-container">
@@ -17,19 +19,22 @@
 						:datesArray="dates.uniques"
 						:events="sortedInitiatives"/>
 				</div>
-				<transition name="date-change">
-					<div class="title-date" :key="this.dateTitle(runningDate).replace(' ','')" mode="out-in">{{ this.dateTitle(runningDate) }}</div>
-				</transition>
+				<div class="title-date-container">
+					<transition name="date-change" mode="out-in">
+						<div class="title-date" :key="this.dateTitle(runningDate).replace(' ','')">{{ this.dateTitle(runningDate) }}</div>
+					</transition>
+				</div>
 			</div>
 		</div>
 		<div class="center-col">
 			<ChapterNav :previous="true" :next="true" />
 		</div>
 	</div>
+	</div>
+	</div>
 </template>
 
 <script>
-// @ is an alias to /src
 import ChapterNav from '@/components/ChapterNav'
 import TimeList from '@/components/TimeList'
 import Carte from '@/components/Carte'
@@ -111,22 +116,24 @@ export default {
 		}
 	},
 	mounted() {
+		this.$vuebar.initScrollbar(this.$refs.vbar)
 		this.setRunningInitiative(this.sortedInitiatives[0].id)
 		this.setRunningDate(this.sortedInitiatives[0].date)
 	},
 	watch: {
+	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>
 
 <style scoped>
 #carte-temporelle-initiatives {
-	box-sizing: border-box;
+	box-sizing: content-box;
+	position: relative;
 	width: 100%;
 	height: 100%;
-	margin: 0px;
-	padding: 0px;
-	top: 0px;
 }
 
 #initiatives-meta-container {
@@ -144,32 +151,43 @@ export default {
 	flex-direction: column;
 }
 
-.title-date {
-	box-sizing: border-box;
-	overflow: hidden;
-	font-size: 38px;
-	line-height: 38px;
-	user-select: none;
+.title-date-container {
+	display: inline-block;
+	box-sizing: content-box;
 	position: absolute;
-	text-align: left;
+	text-transform: uppercase;
+	letter-spacing: 2px;
 	z-index: 500;
+	overflow: hidden;
+	font-size: 32px;
+	line-height: 1em;
+	height: 1em;
+	padding: 2px;
+	margin: 30px 35px;
+}
+.title-date {
+	display: inline-block;
+	white-space: nowrap;
+	user-select: none;
+	position: relative;
+	text-align: left;
 	padding: 0px;
-	margin: 25px 35px;
+	margin: 0px;
 	font-weight: 400;
-	color: rgb(70, 70, 70);
+	color: rgb(65, 65, 65);
 }
 .date-change-enter-active,
 .date-change-leave-active {
 	transform: skewY(0deg) translateY(0);
 	opacity: 1;
-	transition: all .4s;
+	transition: all .25s ease;
 }
 .date-change-enter {
-	transform: skewY(-3deg) translateY(-20px);
+	transform: skewY(-3.5deg) translateY(-15px);
 	opacity: 0;
 }
 .date-change-leave-to {
-	transform: skewY(-3deg) translateY(20px);
+	transform: skewY(-3.5deg) translateY(15px);
 	opacity: 0;
 }
 

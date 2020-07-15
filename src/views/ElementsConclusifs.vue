@@ -1,4 +1,6 @@
 <template>
+	<div class="meta" >
+	<div class="meta" v-bar ref="vbar">
 	<div id="elements-conclusifs" class="view-scroll">
 		<h1>Éléments conclusifs</h1>
 		<div class="center-col">
@@ -18,6 +20,8 @@
 			<ChapterNav :previous="true" :next="true" />
 		</div>
 	</div>
+	</div>
+	</div>
 </template>
 
 <script>
@@ -27,6 +31,9 @@ export default {
 	name: 'ElementsConclusifs',
 	components: {
 		ChapterNav
+	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

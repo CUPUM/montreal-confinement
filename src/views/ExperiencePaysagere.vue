@@ -1,4 +1,6 @@
 <template>
+	<div class="meta" >
+	<div class="meta" v-bar ref="vbar">
 	<div id="experience-paysage" class="view-scroll" @click="detailOpen=null">
 		<h1>Interprétation de l’expérience paysagère</h1>
 		<div class="center-col">
@@ -9,23 +11,23 @@
 		<div class="schema-container">
 			<transition name="detail">
 				<div class="detail" v-if="detailOpen=='formes'" :key="'formes'">
-					<h4>Formes paysagères</h4>
+					<h5>Formes paysagères</h5>
 					<p>Dans l’échantillonnage photographique retenu, les <i>formes paysagères</i> ciblent le <em>métro</em>, la <em>rue</em>, les <em>trottoirs</em>, ou encore les <em>intersections</em> de rue, soit les <em>espaces de mobilité urbaine</em>. Elles ciblent principalement deux <em>lieux identitaires</em> montréalais, soit le centre-ville (quartier des affaires) et le Vieux-Montréal (quartier historique). Ces formes paysagères sont cadrées de manière axiale et relèvent l’<em>intériorité</em> de la ville.</p>
 				</div>
 				<div class="detail" v-if="detailOpen=='themes'" :key="'themes'">
-					<h4>Thèmes soutenus</h4>
+					<h5>Thèmes soutenus</h5>
 					<p>L’interprétation des cadrages photographiques met en valeur le <i>thème</i> de l’<em>expérience esthétique</em> du paysage urbain. Celle-ci s’exprime par l’importance des effets de lumière et de contrejour tout comme les ambiances crues (en noir/blanc et couleur saturée) d’une période d’entre-saison d’une ville nordique (hiver/printemps). L’aspect <em>dramatique</em> de l’expérience est accentué par l’<em>incongruité</em> de certaines situations urbaines (réf.{{'\xa0'}}: centres commerciaux et parcs publics sans présence humaine).</p>
 				</div>
 				<div class="detail" v-if="detailOpen=='intentions'" :key="'intentions'">
-					<h4>Intentions évoquées</h4>
+					<h5>Intentions évoquées</h5>
 					<p>L’ensemble des contenus photographiques semble révéler une <i>intention</i> claire de la part des photographes, soit celle de <em>révéler et de communiquer les singularités</em> d’un confinement urbain. Les photographies font apparaître les <em>aspects anormaux</em> d’un cadre de vie urbain au quotidien (espaces publics désertés) sur le plan des comportements sociaux (solitude humaine et apparition fugace des usagers). Elles révèlent également une quiétude monotone qui crée une <em>perception méconnue</em> des paysages urbains.</p>
 				</div>
 				<div class="detail" v-if="detailOpen=='locales'" :key="'locales'">
-					<h4>Expressions paysagères</h4>
+					<h5>Expressions paysagères</h5>
 					<p>Les sujets photographiques cadrent principalement les espaces urbains de <em>proximité</em> soient celles des rues de desserte locale, des façades architecturales et des quartiers. Les regards envers ses paysages de proximité sont généralement <em>fragmentaires</em> (1er et 2e plan visuel de coin de rue, de façades d’habitation, d’enfilade de façades architecturales). Ces cadrages fragmentaires communiquent des ambiances esthétiques froides, arides, désertiques et sans vie. Toutefois, ces figures d’expressions paysagères révèlent les aspects «{{'\xa0'}}<em>sublimants</em>{{'\xa0'}}» de la ville.</p>
 				</div>
 				<div class="detail" v-if="detailOpen=='globales'" :key="'globales'">
-					<h4>Impressions paysagères</h4>
+					<h5>Impressions paysagères</h5>
 					<p>L’un des traits caractéristiques de cette interprétation photographique est sans nul doute l’impression de <em>solitude urbaine</em> qui constitue la figure prédominante de l’impression paysagère montréalaise. Le regard des photographes ne s’intéresse pas aux perspectives globales du paysage urbain. Les cadrages photographiques ne sont pas englobants. Le paysage à voir n’est pas panoramique ni dominant. Par ce fait, ils démontrent l’importance de l’intériorité urbaine durant le confinement. L’impression de <em>replis</em> en est la figure clé du paysage urbain.</p>
 				</div>
 			</transition>
@@ -55,38 +57,37 @@
 					<div class="figure nobg" id="globales-content" @click.stop="detailOpen='globales'">
 						<div class="inner" id="globales-inner">
 							<div class="highlighter"></div>
-							<h4>Figures<br>d'impressions<br>globales</h4>
+							<h5>Impressions<br>paysagères</h5>
 						</div>
 					</div>
 					<div class="figure nobg" id="locales-content" @click.stop="detailOpen='locales'">
 						<div class="inner" id="locales-inner">
 							<div class="highlighter"></div>
-							<h4>Figures<br>d'expressions<br>locales</h4>
+							<h5>Expressions<br>paysagères</h5>
 						</div>
 					</div>
 				</div>
 
-				<h4>Temps</h4>
-				<p class="temps">Pandémie de la COVID-19/confinement/fin d’hiver 2020</p>
+				<h4>Identité conceptuelle des paysages urbains montréalais</h4>
 
 				<div class="concept" id="formes" @click.stop="detailOpen='formes'">
 					<div class="inner" id="formes-inner">
 						<div class="highlighter"></div>
-						<h4>Formes</h4>
+						<h5>Formes</h5>
 					</div>
 				</div>
 
 				<div class="concept" id="themes" @click.stop="detailOpen='themes'">
 					<div class="inner" id="themes-inner">
 						<div class="highlighter"></div>
-						<h4>Thèmes</h4>
+						<h5>Thèmes</h5>
 					</div>
 				</div>
 
 				<div class="concept" id="intentions" @click.stop="detailOpen='intentions'">
 					<div class="inner" id="intentions-inner">
 						<div class="highlighter"></div>
-						<h4>Intentions</h4>
+						<h5>Intentions</h5>
 					</div>
 				</div>
 			</div>
@@ -96,6 +97,8 @@
 		<div class="center-col">
 			<ChapterNav :previous="true" :next="true" />
 		</div>
+	</div>
+	</div>
 	</div>
 </template>
 
@@ -116,6 +119,9 @@ export default {
 	},
 	methods: {
 	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+	}
 }
 </script>
 
@@ -136,7 +142,7 @@ export default {
 .schema-inner {
 	text-align: center;
 	box-sizing: border-box;
-	padding: 55px 0px;
+	padding: 0px;
 	display: inline-block;
 	flex: 1;
 	box-shadow: 2px 12px 25px -10px rgba(0,0,0,.5);
@@ -153,6 +159,19 @@ export default {
 }
 
 .schema-container h4 {
+	user-select: none;
+	font-weight: 600;
+	font-size: 12px;
+	letter-spacing: 3px;
+	line-height: 1em;
+	margin: 10px;
+	padding: 10px;
+	color: rgb(175, 175, 175);
+	text-align: center;
+	text-transform: uppercase;
+	border-bottom: 1px solid rgba(175, 175, 175, 0.3);
+}
+.schema-container h5 {
 	color: rgb(85, 85, 85);
 	line-height: 1.25em;
 	position: relative;
@@ -186,24 +205,24 @@ export default {
 	border-radius: 12px;
 	box-shadow: 2px 12px 25px -10px rgba(0,0,0,.5);
 }
-.detail h4 {
+.detail h5 {
 	text-transform: initial;
 	font-weight: 600;
 	font-size: 22px;
 	position: relative;
-	width: 450px;
+	width: 425px;
 	letter-spacing: 0px;
 	color: rgb(56,56,56);
 }
 .detail p {
 	color: rgb(72,72,72);
 	position: relative;
-	width: 450px;
+	width: 420px;
 	font-size: 16px;
 }
 .detail-enter-active,
 .detail-leave-active {
-	transition: all .35s cubic-bezier(.6,0,.4,1);
+	transition: all .3s cubic-bezier(.65,0,.35,1);
 }
 .detail-enter,
 .detail-leave-to {

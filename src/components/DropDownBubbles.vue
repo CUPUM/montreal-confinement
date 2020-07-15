@@ -76,7 +76,6 @@ export default {
 			var newData = {}
 			this.keys.forEach(attribute => {
 					newData[attribute] = this.data[attribute].replace('[attributecolor]', ('background-color: '+this.colors[attribute]+';padding: 0px 2px; margin: 0px 2px; font-style: normal; font-weight: 500; color: rgb(255,255,255); text-shadow: 1px 1px 3px rgba(0,0,0,.3)'))
-					console.log('backgroundColor:'+this.colors[attribute])
 			})
 			return newData
 		}

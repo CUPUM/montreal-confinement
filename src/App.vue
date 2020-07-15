@@ -41,7 +41,7 @@ export default {
 
 * {
 	box-sizing: border-box;
-	scroll-behavior: smooth;
+	/* scroll-behavior: smooth; */
 }
 html {
 	width: 100%;
@@ -65,7 +65,7 @@ body {
 	supported by Chrome, Edge, Opera and Firefox */
 }
 .view-scroll {
-	scroll-behavior: smooth;
+	/* scroll-behavior: smooth; */
 	overflow-y: auto;
 	overflow-x: hidden;
 }
@@ -211,7 +211,7 @@ p {
 	font-weight: 400;
 	/* text-indent: 48px; */
 	margin: 26px auto;
-	color: rgb(49, 49, 49);
+	color: rgb(56, 56, 56);
 }
 p em {
 	font-weight: 700;
@@ -311,5 +311,47 @@ a.reference-link::before {
 a.reference-link:hover::before {
 	left: 0;
 	width: 100%;
+}
+
+
+/* VUE BAR CUSTOM STYLE */
+
+.meta {
+	width: 100%;
+	height: 100%;
+}
+
+.vb > .vb-dragger {
+	box-sizing: content-box;
+	cursor: pointer;
+	z-index: 100;
+	width: 6px;
+	right: 4px;
+}
+.vb > .vb-dragger > .vb-dragger-styler {
+	box-sizing: content-box;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: rotate3d(0,0,0,0);
+	transform: rotate3d(0,0,0,0);
+	-webkit-transition: background-color 250ms ease-out;
+	transition: background-color 250ms ease-out;
+	background-color: rgba(158, 158, 158, 0.5);
+	margin: 4px 0px;
+	border-radius: 3px;
+	height: calc(100% - 8px);
+	display: block;
+}
+.vb.vb-scrolling-phantom > .vb-dragger > .vb-dragger-styler {
+	background-color: rgba(56, 56, 56, 0.75);
+}
+.vb > .vb-dragger:hover > .vb-dragger-styler {
+	background-color: rgba(120, 175, 99,.75);
+}
+.vb.vb-dragging > .vb-dragger > .vb-dragger-styler {
+	background-color: rgba(120, 175, 99,.75);
+}
+.vb.vb-dragging-phantom > .vb-dragger > .vb-dragger-styler {
+	background-color: rgba(34, 34, 34, 0.75);
 }
 </style>

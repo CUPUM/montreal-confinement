@@ -1,4 +1,6 @@
 <template>
+	<div class="meta" >
+	<div class="meta" v-bar ref="vbar">
 	<div id="enjeux-paysage" class="view-scroll">
 		<h1>Enjeux du paysage urbain montréalais</h1>
 		<div class="center-col">
@@ -64,6 +66,8 @@
 			<ChapterNav :previous="true" :next="true" />
 		</div>
 	</div>
+	</div>
+	</div>
 </template>
 
 <script>
@@ -90,6 +94,9 @@ export default {
 			var title = routeEl.title;
 			return num+' - '+title
 		}
+	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

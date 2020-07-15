@@ -203,7 +203,7 @@ nav li.vue-active-link span {
 
 
 .highlighter {
-	opacity: .8;
+	opacity: .5;
 	bottom: 0px;
 	border-radius: 1px;
 	position: absolute;

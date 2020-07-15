@@ -1,21 +1,23 @@
 <template>
 	<div id="timelist-container">
-		<ul id="timelist">
-			<li class="timecard-container" v-for="(initiative, i) in dataArray" :key="initiative.id+'_'+i" :data-index="i">
-				<input type="radio"
-						:key="i+'_input'"
-						:id="initiative.id+'_radio'"
-						v-model="timelistInitiative"
-						:value="{id: initiative.id, date: initiative.date}">
-				<label :key="i+'_label'"
-					:for="initiative.id+'_radio'"
-					:class="{'isEnabled': i < currentIndex }">
-					<h5>{{ initiative.titre }}</h5>
-					<p>	{{ initiative.date.toLocaleDateString('fr-CA', {month: 'long', year: 'numeric', day: 'numeric'}) }}</p>
-					<p>{{ initiative.description }}</p>
-				</label>
-			</li>
-		</ul>
+		<div class="meta" v-bar ref="vbar">
+			<ul id="timelist">
+				<li class="timecard-container" v-for="(initiative, i) in dataArray" :key="initiative.id+'_'+i" :data-index="i">
+					<input type="radio"
+							:key="i+'_input'"
+							:id="initiative.id+'_radio'"
+							v-model="timelistInitiative"
+							:value="{id: initiative.id, date: initiative.date}">
+					<label :key="i+'_label'"
+						:for="initiative.id+'_radio'"
+						:class="{'isEnabled': i < currentIndex }">
+						<h5>{{ initiative.titre }}</h5>
+						<p>	{{ initiative.date.toLocaleDateString('fr-CA', {month: 'long', year: 'numeric', day: 'numeric'}) }}</p>
+						<p>{{ initiative.description }}</p>
+					</label>
+				</li>
+			</ul>
+		</div>
 	</div>
 </template>
 
@@ -97,6 +99,7 @@ export default {
 	width: 100%;
 	height: 100%;
 	position: relative;
+	scroll-behavior : smooth;
 }
 
 li {

@@ -1,4 +1,6 @@
 <template>
+	<div class="meta" >
+	<div class="meta" v-bar ref="vbar">
 	<div id="contexte" class="view-scroll">
 		<h1>Mise en contexte</h1>
 		<div class="center-col">
@@ -62,6 +64,8 @@
 			<ChapterNav :previous="true" :next="true" />
 		</div>
 	</div>
+	</div>
+	</div>
 </template>
 
 <script>
@@ -71,6 +75,9 @@ export default {
 	name: 'MiseEnContexte',
 	components: {
 		ChapterNav
+	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>
