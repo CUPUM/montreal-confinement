@@ -32,41 +32,47 @@ export default {
 		chartData() {
 			const conceptSize = 165;
 			const conceptPadding = 30;
-			const conceptColor = 'blue';
 			const conceptLinkWidth = 2*conceptSize/3;
 
 			const toFigure = 10;
-			const toFigureColor = 'gold'
 			const toFigureWidth = 2*conceptSize/3;
 			const extFactor = 2;
 
 			const figureSize = 220;
 			const figurePadding = 200;
-			const figureColor = 'orange';
 			const figureLinkWidth = figureSize;
+
+			const graphColors = {
+				"Formes":"hsl(155, 50%, 75%)",
+				"Thèmes":"hsl(140, 50%, 75%)",
+				"Intentions":"hsl(120, 50%, 75%)",
+				"Impressions paysagères":"hsl(50, 55%, 75%)",
+				"Expressions paysagères":"hsl(245, 55%, 75%)"
+			}
 
 			const data = {
 				nodes: [
-					{name:"Formes", groupe:"concepts", color:'pink', size:conceptSize/2, x:this.initPos('x',.5), y:this.initPos('y',.2)},
-					{name:"Thèmes", groupe:"concepts", color:conceptColor, size:conceptSize/2, x:this.initPos('x',.5), y:this.initPos('y',.5)},
-					{name:"Intentions", groupe:"concepts", color:'red', size:conceptSize/2, x:this.initPos('x',.5), y:this.initPos('y',.8)},
-					{name:"Impressions paysagères", groupe:"figures", color:figureColor, size:figureSize/2, x:this.initPos('x',.1), y:this.initPos('y',.25)},
-					{name:"Expressions paysagères", groupe:"figures", color:figureColor, size:figureSize/2, x:this.initPos('x',.9), y:this.initPos('y',.25)}
+					{name:"Formes", groupe:"concepts", size:conceptSize/2, x:this.initPos('x',.5), y:this.initPos('y',.2)},
+					{name:"Thèmes", groupe:"concepts", size:conceptSize/2, x:this.initPos('x',.5), y:this.initPos('y',.5)},
+					{name:"Intentions", groupe:"concepts", size:conceptSize/2, x:this.initPos('x',.5), y:this.initPos('y',.8)},
+					{name:"Impressions paysagères", groupe:"figures", size:figureSize/2, x:this.initPos('x',.1), y:this.initPos('y',.25)},
+					{name:"Expressions paysagères", groupe:"figures", size:figureSize/2, x:this.initPos('x',.9), y:this.initPos('y',.25)}
 				],
 				links: [
-					{source:"Impressions paysagères", target:"Expressions paysagères", type:"figure-figure", l: figureSize+conceptSize+figurePadding, width: figureLinkWidth, color: figureColor}, // Lien pour écarter les deux "figures"
+					{name:"link01", source:"Impressions paysagères", target:"Expressions paysagères", type:"figure-figure", l: figureSize+conceptSize+figurePadding, width: figureLinkWidth}, // Lien pour écarter les deux "figures"
 
-					{source:"Formes", target:"Impressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth, color: toFigureColor},
-					{source:"Thèmes", target:"Impressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth, color: toFigureColor},
-					{source:"Intentions", target:"Impressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth, color: toFigureColor},
-					{source:"Formes", target:"Expressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth, color: toFigureColor},
-					{source:"Thèmes", target:"Expressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth, color: toFigureColor},
-					{source:"Intentions", target:"Expressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth, color: toFigureColor},
+					{name:"link02", source:"Formes", target:"Impressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
+					{name:"link03", source:"Thèmes", target:"Impressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
+					{name:"link04", source:"Intentions", target:"Impressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
+					{name:"link05", source:"Formes", target:"Expressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
+					{name:"link06", source:"Thèmes", target:"Expressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
+					{name:"link07", source:"Intentions", target:"Expressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
 
-					{source:"Formes", target:"Thèmes", type:"concept-concept", l: conceptSize+conceptPadding, width: conceptLinkWidth, color: conceptColor},
-					{source:"Thèmes", target:"Intentions", type:"concept-concept", l: conceptSize+conceptPadding, width: conceptLinkWidth, color: conceptColor},
-					{source:"Formes", target:"Intentions", type:"concept-concept", l: 2*(conceptSize+conceptPadding), width: conceptLinkWidth, color: conceptColor},
-				]
+					{name:"link08", source:"Formes", target:"Thèmes", type:"concept-concept", l: conceptSize+conceptPadding, width: conceptLinkWidth},
+					{name:"link09", source:"Thèmes", target:"Intentions", type:"concept-concept", l: conceptSize+conceptPadding, width: conceptLinkWidth},
+					{name:"link10", source:"Formes", target:"Intentions", type:"concept-concept", l: 2*(conceptSize+conceptPadding), width: conceptLinkWidth},
+				],
+				colors : graphColors
 			}
 			return data
 		}
@@ -120,7 +126,25 @@ export default {
 				.data(data.links)
 				.enter()
 				.append('line')
-				.attr('stroke', d => d.color)
+				// .each(d => {
+				// 	var gradient = svg.append('defs')
+				// 		.append('linearGradient')
+				// 		.attr('class', 'link-gradients')
+				// 		.attr('spreadMethod', 'pad')
+				// 		.attr('id', d.name)
+				// 		.attr('x1', d.source.x/this.svgWidth)
+				// 		.attr('y1', d.source.y)
+				// 		.attr('x2', d.target.x)
+				// 		.attr('y1', d.target.y)
+				// 	gradient.append('stop')
+				// 		.attr('stop-color', data.colors[d.source])
+				// 		.attr('offset', 0)
+				// 	gradient.append('stop')
+				// 		.attr('stop-color', data.colors[d.target])
+				// 		.attr('offset', 1)
+				// })
+				// .attr('stroke', d => 'url(#'+d.name+')')
+				.attr('stroke', d => data.colors[d.target])
 				.attr('stroke-width', 0)
 			allLinks.transition()
 				.duration(750)
@@ -132,7 +156,7 @@ export default {
 				.data(data.nodes)
 				.enter()
 				.append('circle')
-				.attr('fill', d => d.color)
+				.attr('fill', d => data.colors[d.name])
 				.attr('cx', d => d.x)
 				.attr('cy', d => d.y)
 				.call(draggable)
@@ -146,13 +170,14 @@ export default {
 
 			var goo2 = svg.append('g')
 			goo2.attr('filter', 'url(#glue1)')
-				.attr('opacity','.5')
+				.attr('opacity','.3')
 
 			var conceptsLinks = goo2.append('g')
 				.selectAll('line')
 				.data(data.links.filter(d => d.type == 'concept-concept'))
 				.enter()
 				.append('line')
+				//.attr('stroke', d => data.colors[d.source])
 				.attr('stroke', 'white')
 				.attr('stroke-width', 0)
 			conceptsLinks.transition()
@@ -165,14 +190,15 @@ export default {
 				.data(data.nodes.filter(d => d.groupe == 'concepts'))
 				.enter()
 				.append('circle')
-				.attr('fill', d => d.color)
+				//.attr('fill', d => data.colors[d.name])
+				.attr('fill', 'white')
 				.attr('cx', d => d.x)
 				.attr('cy', d => d.y)
 				.call(draggable)
 			conceptsBlobs.transition()
 				.duration(750)
 				.delay((d,i) => i*150)
-				.attr('r', d => d.size+20)
+				.attr('r', d => d.size)
 
 
 		/* Top layer: texte + bg sans filtre */
@@ -186,7 +212,9 @@ export default {
 				.on('click', d => this.tab(d.name))
 				.call(draggable)
 			var conceptsBG = concepts.append('circle')
+				.attr('class', 'concepts-bg')
 				.attr('fill', 'white')
+				.attr('opacity',.5)
 				.attr('r', d => d.size-15)
 				.attr('cx', d => d.x)
 				.attr('cy', d => d.y)
@@ -198,8 +226,8 @@ export default {
 				.attr('dominant-baseline', 'central')
 				.attr('font-family', '"Poppins",sans-serif')
 				.attr('font-size', 16)
-				.attr('font-weight','400')
-				.attr('fill', 'black')
+				.attr('font-weight','500')
+				.attr('fill', 'rgb(72,72,72)')
 				.text(d => d.name)
 
 			var figures = svg.selectAll('.figure')
@@ -211,7 +239,9 @@ export default {
 				.on('click', d => this.tab(d.name))
 				.call(draggable)
 			var figuresBG = figures.append('circle')
-				.attr('fill','rgba(255,255,255,.5)')
+				.attr('class', 'figure-bg')
+				.attr('fill','white')
+				.attr('opacity',0)
 				.attr('r', d => d.size)
 				.attr('cx', d => d.x)
 				.attr('cy', d => d.y)
@@ -223,9 +253,8 @@ export default {
 				.attr('dominant-baseline', 'central')
 				.attr('font-family', '"Poppins",sans-serif')
 				.attr('font-size', 16)
-				.attr('font-weight','400')
-				.attr('fill', 'black')
-				.attr('background-color','grey')
+				.attr('font-weight','500')
+				.attr('fill', 'white')
 				.each(function(d) {
 					var lineNumber = -1;
 					var lineHeight = 1.5;
@@ -256,6 +285,7 @@ export default {
 				.attr('markerWidth', 10)
 				.attr('markerHeight', 8)
 				.append('path')
+				.attr('fill', 'white')
 				.attr('d', 'M0,-5L10,0L0,5');
 			var arrows = svg.selectAll('.arrow')
 				.data(data.links.filter(d => d.type == 'concept-figure'))
@@ -264,7 +294,7 @@ export default {
 				.attr('class', 'arrow')
 				.attr('marker-end', 'url(#arrowhead)')
 				.attr('stroke-width', 1)
-				.attr('stroke', 'black')
+				.attr('stroke', 'white')
 
 
 		/* Forces & simulation */

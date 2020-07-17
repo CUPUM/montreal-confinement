@@ -27,15 +27,22 @@
 			<p>test</p>
 			<p>test</p>
 		</div>
+
+		<div class="center-col">
+			<ChapterNav :previous="true" :next="true" />
+		</div>
 	</div>
 	</div>
 	</div>
 </template>
 
 <script>
+import ChapterNav from '@/components/ChapterNav'
+
 export default {
 	name: 'BalisagePhoto',
 	components: {
+		ChapterNav
 	},
 	computed: {
 	},
