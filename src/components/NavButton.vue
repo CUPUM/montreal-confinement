@@ -32,11 +32,17 @@ export default {
 	box-sizing: content-box;
 	cursor: pointer;
 	position: fixed;
-	top: 30px;
-	right: 30px;
-	width: 40px;
-	height: 40px;
-	padding: 5px;
+	top: 15px;
+	right: 15px;
+	width: 32px;
+	height: 32px;
+	padding: 20px;
+	border-radius: 50%;
+	background-color: rgba(255,255,255,0);
+	transition: background-color .3s ease;
+}
+#nav-button:hover {
+	background-color: rgba(255,255,255,.8);
 }
 
 #nav-button-inner-wrapper {
@@ -50,7 +56,7 @@ export default {
 /* Normal icon */
 .bar {
 	width: 100%;
-	height: 5%;
+	height: 6.25%;
 	background-color: rgb(46, 46, 46);
 	position: absolute;
 	border-radius: 1px;

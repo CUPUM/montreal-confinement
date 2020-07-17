@@ -160,7 +160,7 @@ export default {
 				//.attr('paint-order','stroke')
 				.attr('width', d => d.radius * 1.5)
 				.attr('opacity', 0)
-				// Ci dessous: fonction pour retour de ligne automatique (whoa + ouch + oof)
+				// Ci dessous: fonction pour retour de ligne automatique (whoa... ouch... oof)
 				.each(function(d) {
 					const text = d3.select(this);
 					const width = (d.radius - 10) * 2;

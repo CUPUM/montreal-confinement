@@ -27,6 +27,7 @@ export default {
 	width: auto;
 	height: auto;
 	font-size: 16px;
+	font-weight: 500;
 	line-height: 2em;
 	left: 32px;
 	top: 50%;
@@ -38,7 +39,7 @@ a {
 	padding: 0px;
 	text-decoration: none;
 	text-align: center;
-	color: rgb(35,35,35);
+	color: rgb(72,72,72);
 	transition: all .3s;
 }
 a:hover {

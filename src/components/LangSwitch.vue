@@ -41,6 +41,7 @@ export default {
 	margin-top: -50px;
 } */
 #lang-switch {
+	color: rgb(72,72,72);
 	z-index: 9999;
 	margin: 0px;
 	padding: 0px;
@@ -62,14 +63,20 @@ label {
 	display: inline-block;
 	cursor: pointer;
 }
+input:disabled+label {
+	cursor: default;
+	opacity: .3;
+	text-decoration: line-through;
+}
 input:checked+label {
-	font-weight: bold;
+	font-weight: 500;
+	opacity: 1;
 }
 #separator {
 	display: inline-block;
 	margin: 0px 12px;
 	width: 1px;
-	height: .9em;
-	background: rgba(0,0,0,.5);
+	height: .75em;
+	background: rgb(72,72,72);
 }
 </style>

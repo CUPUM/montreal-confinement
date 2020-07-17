@@ -125,7 +125,7 @@ svg {
 	top: 0px;
 	position: relative;
 	display: inline-block;
-	width: 350px;
+	width: 365px;
 	text-align: center;
 }
 .selected-container {
@@ -250,7 +250,7 @@ svg {
 	position: relative;
 	z-index: 1;
 	background-color: rgb(255, 255, 255);
-	max-height: 500px;
+	max-height: 546px;
 	list-style-type: none;
 	text-indent: 0px;
 	margin: 0px;

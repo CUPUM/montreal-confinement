@@ -185,8 +185,7 @@ export default {
 			AttributsDetail,
 			ConstatsAttributs,
 			expandedQuotations: [],
-			attrList: ["Automobile","Commerce","Corridor sanitaire","Parc","Piéton","Rue","Ville"],
-			showConstats: true
+			attrList: ["Automobile","Commerce","Corridor sanitaire","Parc","Piéton","Rue","Ville","Voies actives sécuritaires"]
 		}
 	},
 	created() {
@@ -200,7 +199,7 @@ export default {
 				'Date': quotation['Date'] == (null && undefined && '') ? null : quotation['Date'],
 				'Codes': quotation['Codes'].split(/ *; */).filter(e => (e.trim() != (null || undefined || ""))),
 				'Reference': quotation['Reference'],
-				'Groupe': quotation['Groupe'],
+				'Groupe': quotation['Groupe'].trim().charAt(0).toUpperCase() + quotation['Groupe'].trim().slice(1),
 				'Source': quotation['Source']
 			})
 		})
@@ -410,7 +409,7 @@ export default {
 	height: 100%;
 }
 #attributs-sommaire {
-	margin: -70px 0px -50px 0px;
+	margin: -60px 0px -50px 0px;
 	width: 100%;
 	height: 75vh;
 }
@@ -424,9 +423,12 @@ export default {
 }
 
 #semaines-wrap {
+	position: relative;
+	left: -100px;
 	box-sizing: content-box;
-	max-width: 850px;
-	padding: 35px 150px 50px 0px;
+	max-width: 925px;
+	min-width: 600px;
+	padding: 35px 0px 50px 0px;
 	margin: 0px auto 50px auto;
 }
 .attributs-semaines {
@@ -443,7 +445,7 @@ export default {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
 	font-size: 14px;
-	width: 152px;
+	width: 200px;
 	height: 1em;
 	margin: 0px;
 }
