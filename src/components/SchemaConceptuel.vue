@@ -46,8 +46,8 @@ export default {
 				"Formes":"hsl(155, 50%, 75%)",
 				"Thèmes":"hsl(140, 50%, 75%)",
 				"Intentions":"hsl(120, 50%, 75%)",
-				"Impressions paysagères":"hsl(50, 55%, 75%)",
-				"Expressions paysagères":"hsl(245, 55%, 75%)"
+				"Impressions générales":"hsl(50, 55%, 75%)",
+				"Expressions locales":"hsl(245, 55%, 75%)"
 			}
 
 			const data = {
@@ -55,18 +55,18 @@ export default {
 					{name:"Formes", groupe:"concepts", size:conceptSize/2, x:this.initPos('x',.5), y:this.initPos('y',.2)},
 					{name:"Thèmes", groupe:"concepts", size:conceptSize/2, x:this.initPos('x',.5), y:this.initPos('y',.5)},
 					{name:"Intentions", groupe:"concepts", size:conceptSize/2, x:this.initPos('x',.5), y:this.initPos('y',.8)},
-					{name:"Impressions paysagères", groupe:"figures", size:figureSize/2, x:this.initPos('x',.1), y:this.initPos('y',.25)},
-					{name:"Expressions paysagères", groupe:"figures", size:figureSize/2, x:this.initPos('x',.9), y:this.initPos('y',.25)}
+					{name:"Impressions générales", groupe:"figures", size:figureSize/2, x:this.initPos('x',.1), y:this.initPos('y',.25)},
+					{name:"Expressions locales", groupe:"figures", size:figureSize/2, x:this.initPos('x',.9), y:this.initPos('y',.25)}
 				],
 				links: [
-					{name:"link01", source:"Impressions paysagères", target:"Expressions paysagères", type:"figure-figure", l: figureSize+conceptSize+figurePadding, width: figureLinkWidth}, // Lien pour écarter les deux "figures"
+					{name:"link01", source:"Impressions générales", target:"Expressions locales", type:"figure-figure", l: figureSize+conceptSize+figurePadding, width: figureLinkWidth}, // Lien pour écarter les deux "figures"
 
-					{name:"link02", source:"Formes", target:"Impressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
-					{name:"link03", source:"Thèmes", target:"Impressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
-					{name:"link04", source:"Intentions", target:"Impressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
-					{name:"link05", source:"Formes", target:"Expressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
-					{name:"link06", source:"Thèmes", target:"Expressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
-					{name:"link07", source:"Intentions", target:"Expressions paysagères", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
+					{name:"link02", source:"Formes", target:"Impressions générales", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
+					{name:"link03", source:"Thèmes", target:"Impressions générales", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
+					{name:"link04", source:"Intentions", target:"Impressions générales", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
+					{name:"link05", source:"Formes", target:"Expressions locales", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
+					{name:"link06", source:"Thèmes", target:"Expressions locales", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
+					{name:"link07", source:"Intentions", target:"Expressions locales", type:"concept-figure", l: figureSize/2+conceptSize/2+toFigure*extFactor, width: toFigureWidth},
 
 					{name:"link08", source:"Formes", target:"Thèmes", type:"concept-concept", l: conceptSize+conceptPadding, width: conceptLinkWidth},
 					{name:"link09", source:"Thèmes", target:"Intentions", type:"concept-concept", l: conceptSize+conceptPadding, width: conceptLinkWidth},
@@ -170,7 +170,7 @@ export default {
 
 			var goo2 = svg.append('g')
 			goo2.attr('filter', 'url(#glue1)')
-				.attr('opacity','.3')
+				.attr('opacity','1')
 
 			var conceptsLinks = goo2.append('g')
 				.selectAll('line')
@@ -178,7 +178,7 @@ export default {
 				.enter()
 				.append('line')
 				//.attr('stroke', d => data.colors[d.source])
-				.attr('stroke', 'white')
+				.attr('stroke', 'rgb(72,72,72)')
 				.attr('stroke-width', 0)
 			conceptsLinks.transition()
 				.duration(750)
@@ -191,7 +191,7 @@ export default {
 				.enter()
 				.append('circle')
 				//.attr('fill', d => data.colors[d.name])
-				.attr('fill', 'white')
+				.attr('fill', 'rgb(72,72,72)')
 				.attr('cx', d => d.x)
 				.attr('cy', d => d.y)
 				.call(draggable)
@@ -212,12 +212,24 @@ export default {
 				.on('click', d => this.tab(d.name))
 				.call(draggable)
 			var conceptsBG = concepts.append('circle')
-				.attr('class', 'concepts-bg')
+				.attr('class', 'concept-bg')
 				.attr('fill', 'white')
 				.attr('opacity',.5)
 				.attr('r', d => d.size-15)
 				.attr('cx', d => d.x)
 				.attr('cy', d => d.y)
+			concepts.on('mouseover', function() {
+					d3.select(this).select('.concept-bg').transition()
+						.duration(150)
+						.attr('r', d => d.size)
+						.attr('opacity', .75)
+				})
+				.on('mouseout', function() {
+					d3.select(this).select('.concept-bg').transition()
+						.duration(150)
+						.attr('r', d => d.size-10)
+						.attr('opacity', .5)
+				})
 			var conceptsLabels = concepts.append('text')
 				.attr('class', 'label')
 				.attr('user-select','none')
@@ -242,9 +254,21 @@ export default {
 				.attr('class', 'figure-bg')
 				.attr('fill','white')
 				.attr('opacity',0)
-				.attr('r', d => d.size)
+				.attr('r', d => d.size-10)
 				.attr('cx', d => d.x)
 				.attr('cy', d => d.y)
+			figures.on('mouseover', function() {
+					d3.select(this).select('.figure-bg').transition()
+						.duration(150)
+						.attr('r', d => d.size)
+						.attr('opacity', .35)
+				})
+				.on('mouseout', function() {
+					d3.select(this).select('.figure-bg').transition()
+						.duration(150)
+						.attr('r', d => d.size-10)
+						.attr('opacity', 0)
+				})
 			var figuresLabels = figures.append('text')
 				.attr('class', 'label')
 				.attr('user-select','none')
@@ -350,10 +374,12 @@ export default {
 
 
 		/* Wobble */
-
+			data.nodes.forEach(node => {
+				node['initRandom'] = Math.random()
+			})
 			d3.timer(function(time) {
-				figures.attr('dx', d => { d.x += 5*Math.sin(time/1000) })
-					.attr('dy', d => { d.y += 7*Math.sin(time/800) })
+				figures.attr('dx', d => { d.x += 2.5*Math.sin(time/(500+d.initRandom*600) - d.initRandom*100) - 2*Math.sin(time/(1500+d.initRandom*500) + d.initRandom*55) })
+					.attr('dy', d => { d.y += 1.5*Math.sin(time/(300+d.initRandom*500) + d.initRandom*2) + 1*Math.sin(time/(600+d.initRandom*100) + d.initRandom*555)})
 			})
 
 			simulation.nodes(data.nodes)

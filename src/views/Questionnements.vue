@@ -2,7 +2,7 @@
 	<div class="meta" >
 	<div class="meta" v-bar ref="vbar">
 	<div id="questionnements" class="view-scroll">
-		<h1>Questionnements en quête de réponses</h1>
+		<PageTitle/>
 		<div class="center-col">
 			<p>Les questionnements portés par la Chaire UNESCO en paysage urbain en temps de confinement en raison de la COVID-19 à Montréal se divisent en cinq thèmes, soient l’<em>aménagement</em>, l’<em>économie</em>, le <em>mode de vie</em>, l’<em>inclusion</em> et la <em>résilience</em>. Au sein de ces cinq thèmes, les <em>dimensions sociales</em>, <em>culturelles</em> et <em>environnementales</em> sont abordées de manière transversale.</p>
 
@@ -141,12 +141,13 @@
 </template>
 
 <script>
-// @ is an alias to /src
+import PageTitle from '@/components/PageTitle'
 import ChapterNav from '@/components/ChapterNav'
 
 export default {
 	name: 'Questionnements',
 	components: {
+		PageTitle,
 		ChapterNav
 	},
 	activated() {

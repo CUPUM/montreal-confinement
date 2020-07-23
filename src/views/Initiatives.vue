@@ -20,7 +20,7 @@
 						:events="sortedInitiatives"/>
 				</div>
 				<div class="title-date-container">
-					<transition name="date-change" mode="out-in">
+					<transition :name="'date-'+changeDirection" mode="out-in">
 						<div class="title-date" :key="this.dateTitle(runningDate).replace(' ','')">{{ this.dateTitle(runningDate) }}</div>
 					</transition>
 				</div>
@@ -64,7 +64,9 @@ export default {
 		runningInitiative() {
 			return store.runningInitiative
 		},
-
+		changeDirection() {
+			return store.dateChangeDirection
+		},
 		sortedInitiatives() {
 			var sorted = [];
 			this.RevuePresse['Recension'].forEach(initiative => {
@@ -156,13 +158,13 @@ export default {
 	box-sizing: content-box;
 	position: absolute;
 	text-transform: uppercase;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	z-index: 500;
 	overflow: hidden;
-	font-size: 32px;
+	font-size: 34px;
 	line-height: 1em;
 	height: 1em;
-	padding: 2px;
+	padding: 3px;
 	margin: 30px 35px;
 }
 .title-date {
@@ -176,18 +178,22 @@ export default {
 	font-weight: 400;
 	color: rgb(65, 65, 65);
 }
-.date-change-enter-active,
-.date-change-leave-active {
+.date-forward-enter-active,
+.date-forward-leave-active,
+.date-backward-enter-active,
+.date-backward-leave-active {
 	transform: skewY(0deg) translateY(0);
 	opacity: 1;
 	transition: all .25s ease;
 }
-.date-change-enter {
-	transform: skewY(-3.5deg) translateY(-15px);
+.date-forward-enter,
+.date-backward-leave-to {
+	transform: skewY(-3.5deg) translateY(15px);
 	opacity: 0;
 }
-.date-change-leave-to {
-	transform: skewY(-3.5deg) translateY(15px);
+.date-forward-leave-to,
+.date-backward-enter {
+	transform: skewY(-3.5deg) translateY(-15px);
 	opacity: 0;
 }
 

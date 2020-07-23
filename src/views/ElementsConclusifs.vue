@@ -2,7 +2,7 @@
 	<div class="meta" >
 	<div class="meta" v-bar ref="vbar">
 	<div id="elements-conclusifs" class="view-scroll">
-		<h1>Éléments conclusifs</h1>
+		<PageTitle/>
 		<div class="center-col">
 			<h3>Vivre le paysage urbain en confinement</h3>
 			<p>Durant la p&eacute;riode de confinement &agrave; Montr&eacute;al, la veille informationnelle a r&eacute;v&eacute;l&eacute; l&rsquo;importance et la valorisation de l&rsquo;<em>&eacute;chelle de proximit&eacute;</em> urbaine dans la quotidiennet&eacute; des citoyens (r&eacute;f.{{'\xa0'}}: la rue, le quartier, l&rsquo;&eacute;picerie, etc.) et les enjeux qui lui sont associ&eacute;s. Ainsi, la Ville de Montr&eacute;al propose de nouvelles appropriations de l&rsquo;espace public. Les rues sont cibl&eacute;es pour permettre l&rsquo;installation de terrasses distanc&eacute;es, la d&eacute;ambulation des pi&eacute;tons et le d&eacute;placement s&eacute;curitaire des cyclistes <a class="reference-link" href="https://montreal.ca/articles/les-voies-actives-securitaires-un-plan-de-deplacements-estival" target="_blank">Réf{{'\xa0'}}&#x1f855;</a>. Ces mesures soulignent l&rsquo;&eacute;mergence d&rsquo;une valeur, soit celle de la <em>lenteur</em>. La mobilit&eacute; lente prend corps au sein de la ville, tout comme celle de la <em>solidarit&eacute; sociale et &eacute;conomique</em> puisque les mesures de pi&eacute;tonnisation visent les rues commer&ccedil;antes <a class="reference-link" href="http://ville.montreal.qc.ca/portal/page?_pageid=5798,42657625&amp;_dad=portal&amp;_schema=PORTAL&amp;id=32651&amp;ret=http://ville.montreal.qc.ca/pls/portal/url/page/prt_vdm_fr/rep_annonces_ville/rep_communiques/communiques" target="_blank">Réf{{'\xa0'}}&#x1f855;</a> et promeuvent le march&eacute; local <a class="reference-link" href="https://ici.radio-canada.ca/nouvelle/1694988/trottoir-elargi-corridors-sanitaires-commerces-services?fromApp=appInfoIos&amp;partageApp=appInfoiOS&amp;accesVia=partage" target="_blank">Réf{{'\xa0'}}&#x1f855;</a>.</p>
@@ -25,11 +25,13 @@
 </template>
 
 <script>
+import PageTitle from '@/components/PageTitle'
 import ChapterNav from '@/components/ChapterNav'
 
 export default {
 	name: 'ElementsConclusifs',
 	components: {
+		PageTitle,
 		ChapterNav
 	},
 	activated() {

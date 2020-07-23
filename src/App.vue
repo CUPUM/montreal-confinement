@@ -53,7 +53,7 @@ body {
 	padding: 0px;
 	width: 100%;
 	height: 100%;
-	overflow: auto;
+	overflow: hidden;
 }
 .noselect {
 	-webkit-touch-callout: none; /* iOS Safari */
@@ -109,6 +109,7 @@ body {
 	height: 100%;
 	padding: 0px;
 	overflow: hidden;
+	backface-visibility: hidden;
 }
 
 .view-change-enter-active,
@@ -139,16 +140,7 @@ h1, h2, h3, h4 {
 	line-height: 1.2em;
 	padding: 32px 48px;
 	color: rgb(56, 56, 56);
-	font-size: 58pt;
-}
-h1 {
-	text-align: center;
-	color: rgb(52,52,52);
-	margin: 0px 0px 80px 0px;
-	padding: 80px 250px;
-	font-weight: 600;
-	display: block;
-	box-shadow: 0px 70px 60px -120px rgba(0,0,0,1), 0px -70px 60px -120px rgba(0,0,0,1);
+	font-size: 44pt;
 }
 h2 {
 	margin: 64px 0px 32px 0px;
@@ -158,31 +150,31 @@ h2 {
 	font-size: 36pt;
 	line-height: 1.2em;
 	text-indent: 0px;
-	padding-left: 0px;
+	padding: 32px 48px 0px 0px;
 }
 h2::before {
 	box-sizing: border-box;
 	content: '';
-	width: 24px;
-	height: 24px;
+	width: 20px;
+	height: 20px;
 	display: inline-block;
 	position: absolute;
 	background: transparent;
 	border-radius: 0px 1px 0px 0px;
 	border-width: 2px 2px 0px 0px;
-	border-color: rgb(56,56,56);
+	border-color: rgb(120, 175, 99);
 	border-style: solid;
-	left: -68px;
+	left: -42px;
 	top: 60px;
 	transform: translateY(-50%) rotate(45deg);
 }
 h2::after {
 	box-sizing: border-box;
 	content: '';
-	width: 100px;
-	left: -141px;
+	width: 26px;
+	left: -46px;
 	height: 2px;
-	background-color: rgb(56,56,56);
+	background-color: rgb(120, 175, 99);
 	/* background: linear-gradient(to right, rgba(56, 56, 56,0), rgba(56, 56, 56,1)); */
 	display: inline-block;
 	position: absolute;

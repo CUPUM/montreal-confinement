@@ -2,7 +2,7 @@
 	<div class="meta" >
 	<div class="meta" v-bar ref="vbar">
 	<div id="enjeux-paysage" class="view-scroll">
-		<h1>Enjeux du paysage urbain montréalais</h1>
+		<PageTitle/>
 		<div class="center-col">
 			<p>Les enjeux du paysage urbain montr&eacute;alais de la phase de confinement ont &eacute;t&eacute; document&eacute;s afin d&rsquo;apporter des r&eacute;ponses face &agrave; un ensemble de pr&eacute;occupations envers l&rsquo;espace public. Pour y arriver, il a &eacute;t&eacute; convenu de documenter ces enjeux en analysant les contenus des m&eacute;dias montr&eacute;alais du 13 mars au 16 mai 2020.</p>
 			<p>Cette section pr&eacute;sente les r&eacute;sultats de cette analyse de veille informationnelle. L&rsquo;&eacute;chantillonnage des articles pour cette veille a &eacute;t&eacute; effectu&eacute; &agrave; partir de douze (12) sources d&rsquo;informations qu&eacute;b&eacute;coises et montr&eacute;alaises (de langues fran&ccedil;aise et anglaise) regroup&eacute;es en quatre (4) groupes{{'\xa0'}}:
@@ -71,22 +71,22 @@
 </template>
 
 <script>
-import routes from '@/router/routes.js'
+import PageTitle from '@/components/PageTitle'
 import ChapterNav from '@/components/ChapterNav'
 
 export default {
 	name: 'EnjeuxPaysageUrbain',
 	components: {
+		PageTitle,
 		ChapterNav
 	},
 	data() {
 		return {
-			routes
 		}
 	},
 	methods: {
 		routerDestination(chapter,subChapter) {
-			return routes.find(route => parseInt(route.chapter,10) == parseInt(chapter,10) && (subChapter? route.subChapter==subChapter : !route.isSubChapter))
+			return this.$router.options.routes.find(route => parseInt(route.chapter,10) == parseInt(chapter,10) && (subChapter? route.subChapter==subChapter : !route.isSubChapter))
 		},
 		routeLabel(chapter,subChapter) {
 			var routeEl = this.routerDestination(chapter, subChapter);

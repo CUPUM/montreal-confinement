@@ -2,7 +2,7 @@
 	<div class="meta" >
 	<div class="meta" v-bar ref="vbar">
 	<div id="experience-paysage" class="view-scroll" @click="detailOpen=null">
-		<h1>Interprétation de l’expérience paysagère</h1>
+		<PageTitle/>
 		<div class="center-col">
 			<p>Suite à l’interprétation des cadrages photographiques de photographes montréalais lors du confinement, il a été convenu de transposer cette interprétation en schéma pour qualifier la notion de paysage urbain et de saisir sa particularité en période de confinement. Quel est le sens accordé à cette notion qui exprime l’expérience que nous avons de la ville et de ces espaces publics{{'\xa0'}}? Quels sont les éléments (ou attributs) qui prédominent dans l’expérience paysagère des photographes{{'\xa0'}}? En prenant appui sur la schématisation du concept de paysage urbain (Poullaouec-Gonidec & Paquette, 2005, pp. 275-318), quelles sont les <em>formes</em> paysagères, les <em>thèmes</em> soutenus et les <em>intentions</em> évoqués dans l’interprétation des cadrages des photographes{{'\xa0'}}? Plus encore, quelles sont les <em>expressions</em> et <em>impressions</em> paysagères qui se dégagent de ces regards sur la ville en mode confinement{{'\xa0'}}? Et plus largement de quelle manière le confinement a-t-il contribué à l’invention d’un regard sur la ville{{'\xa0'}}?</p>
 			<p>Les réponses à ces questionnements s’expriment sous la forme d’un schéma interactif présenté ci-dessous.</p>
@@ -22,12 +22,12 @@
 					<h5>Intentions évoquées</h5>
 					<p>L’ensemble des contenus photographiques semble révéler une <i>intention</i> claire de la part des photographes, soit celle de <em>révéler et de communiquer les singularités</em> d’un confinement urbain. Les photographies font apparaître les <em>aspects anormaux</em> d’un cadre de vie urbain au quotidien (espaces publics désertés) sur le plan des comportements sociaux (solitude humaine et apparition fugace des usagers). Elles révèlent également une quiétude monotone qui crée une <em>perception méconnue</em> des paysages urbains.</p>
 				</div>
-				<div class="detail" v-if="detailOpen=='Expressions paysagères'" :key="'Expressions paysagères'">
-					<h5>Expressions paysagères</h5>
-					<p>Les sujets photographiques cadrent principalement les espaces urbains de <em>proximité</em> soient celles des rues de desserte locale, des façades architecturales et des quartiers. Les regards envers ses paysages de proximité sont généralement <em>fragmentaires</em> (1er et 2e plan visuel de coin de rue, de façades d’habitation, d’enfilade de façades architecturales). Ces cadrages fragmentaires communiquent des ambiances esthétiques froides, arides, désertiques et sans vie. Toutefois, ces figures d’expressions paysagères révèlent les aspects «{{'\xa0'}}<em>sublimants</em>{{'\xa0'}}» de la ville.</p>
+				<div class="detail" v-if="detailOpen=='Expressions locales'" :key="'Expressions locales'">
+					<h5>Expressions locales</h5>
+					<p>Les sujets photographiques cadrent principalement les espaces urbains de <em>proximité</em> soient celles des rues de desserte locale, des façades architecturales et des quartiers. Les regards envers ses paysages de proximité sont généralement <em>fragmentaires</em> (1er et 2e plan visuel de coin de rue, de façades d’habitation, d’enfilade de façades architecturales). Ces cadrages fragmentaires communiquent des ambiances esthétiques froides, arides, désertiques et sans vie. Toutefois, ces figures d’Expressions locales révèlent les aspects «{{'\xa0'}}<em>sublimants</em>{{'\xa0'}}» de la ville.</p>
 				</div>
-				<div class="detail" v-if="detailOpen=='Impressions paysagères'" :key="'Impressions paysagères'">
-					<h5>Impressions paysagères</h5>
+				<div class="detail" v-if="detailOpen=='Impressions générales'" :key="'Impressions générales'">
+					<h5>Impressions générales</h5>
 					<p>L’un des traits caractéristiques de cette interprétation photographique est sans nul doute l’impression de <em>solitude urbaine</em> qui constitue la figure prédominante de l’impression paysagère montréalaise. Le regard des photographes ne s’intéresse pas aux perspectives globales du paysage urbain. Les cadrages photographiques ne sont pas englobants. Le paysage à voir n’est pas panoramique ni dominant. Par ce fait, ils démontrent l’importance de l’intériorité urbaine durant le confinement. L’impression de <em>replis</em> en est la figure clé du paysage urbain.</p>
 				</div>
 			</transition>
@@ -49,12 +49,14 @@
 </template>
 
 <script>
+import PageTitle from '@/components/PageTitle'
 import ChapterNav from '@/components/ChapterNav'
 import SchemaConceptuel from "@/components/SchemaConceptuel"
 
 export default {
 	name: 'ExperiencePaysagere',
 	components: {
+		PageTitle,
 		ChapterNav,
 		SchemaConceptuel
 	},

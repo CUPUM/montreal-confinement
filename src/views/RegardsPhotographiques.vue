@@ -2,7 +2,7 @@
 	<div class="meta" >
 	<div class="meta" v-bar ref="vbar">
 	<div id="regards-photographiques" class="view-scroll">
-		<h1>Regards photographiques sur le paysage urbain</h1>
+		<PageTitle/>
 		<div class="center-col">
 			<p>Suite &agrave; la caract&eacute;risation des enjeux associ&eacute;s &agrave; la phase de confinement de la crise de la COVID-19 envers l&rsquo;espace public, il a sembl&eacute; pertinent d&rsquo;analyser la perception de regards photographiques envers l&rsquo;espace public montr&eacute;alais pour interpr&eacute;ter leur cadrage visuel, les sujets, les ambiances capt&eacute;es et leurs &eacute;vocations.</p>
 			<p>L&rsquo;objectif de cette caract&eacute;risation photographique est de r&eacute;v&eacute;ler la figure paysag&egrave;re montr&eacute;alaise de l&rsquo;espace public en temps de pand&eacute;mie. Quelles sont les expressions et les impressions de ce paysage urbain{{'\xa0'}}? Ces regards photographiques ont-ils r&eacute;v&eacute;l&eacute; un sens particulier et/ou une identit&eacute; paysag&egrave;re singuli&egrave;re lors de cette phase de confinement{{'\xa0'}}?</p>
@@ -22,22 +22,22 @@
 </template>
 
 <script>
-import routes from '@/router/routes.js'
+import PageTitle from '@/components/PageTitle'
 import ChapterNav from '@/components/ChapterNav'
 
 export default {
 	name: 'RegardsPhotographiques',
 	components: {
+		PageTitle,
 		ChapterNav
 	},
 	data() {
 		return {
-			routes
 		}
 	},
 	methods: {
 		routerDestination(chapter,subChapter) {
-			return routes.find(route => parseInt(route.chapter,10) == parseInt(chapter,10) && (subChapter? route.subChapter==subChapter : !route.isSubChapter))
+			return this.$router.options.routes.find(route => parseInt(route.chapter,10) == parseInt(chapter,10) && (subChapter? route.subChapter==subChapter : !route.isSubChapter))
 		},
 		routeLabel(chapter,subChapter) {
 			var routeEl = this.routerDestination(chapter, subChapter);

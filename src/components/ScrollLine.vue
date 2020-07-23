@@ -159,7 +159,7 @@ ul .date-label {
 }
 ul .progress-line {
 	position: absolute;
-	height: 4px;
+	height: 2px;
 	background-color: rgb(120, 175, 99);
 	margin: 0px;
 	padding: 0px;

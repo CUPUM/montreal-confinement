@@ -2,7 +2,7 @@
 	<div class="meta" >
 	<div class="meta" v-bar ref="vbar">
 	<div id="attributs-urbains" class="view-scroll">
-		<h1>Les attributs urbains ciblés</h1>
+		<PageTitle/>
 
 	<!-- Partie 1 -->
 		<div class="center-col">
@@ -165,6 +165,7 @@ import BubbleCluster from '@/components/BubbleCluster'
 import Timeline from '@/components/Timeline'
 import DropDownBubbles from '@/components/DropDownBubbles'
 
+import PageTitle from '@/components/PageTitle'
 import ChapterNav from '@/components/ChapterNav'
 
 export default {
@@ -173,6 +174,7 @@ export default {
 		BubbleCluster,
 		Timeline,
 		DropDownBubbles,
+		PageTitle,
 		ChapterNav
 	},
 	data() {

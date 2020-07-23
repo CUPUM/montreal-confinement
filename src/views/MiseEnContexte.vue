@@ -2,7 +2,7 @@
 	<div class="meta" >
 	<div class="meta" v-bar ref="vbar">
 	<div id="contexte" class="view-scroll">
-		<h1>Mise en contexte</h1>
+		<PageTitle/>
 		<div class="center-col">
 			<p>Cette r&eacute;flexion fait suite &agrave; l&rsquo;appel aux bonnes initiatives des villes du r&eacute;seau ICCAR (SHS-UNESCO) en mars 2020. Le but de cet appel des Sciences humaines et sociales de l&rsquo;UNESCO &eacute;tait{{'\xa0'}}:</p>
 			<p>
@@ -69,11 +69,13 @@
 </template>
 
 <script>
+import PageTitle from '@/components/PageTitle'
 import ChapterNav from '@/components/ChapterNav'
 
 export default {
 	name: 'MiseEnContexte',
 	components: {
+		PageTitle,
 		ChapterNav
 	},
 	activated() {

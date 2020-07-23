@@ -21,8 +21,6 @@
 </template>
 
 <script>
-import routes from '@/router/routes.js'
-
 export default {
 	props: {
 		next: Boolean,
@@ -30,17 +28,16 @@ export default {
 	},
 	data() {
 		return {
-			routes
 		}
 	},
 	computed: {
 		currentPage() {
-			return parseInt(routes.find(route => route.name == this.$route.name).id, 10)
+			return parseInt(this.$router.options.routes.find(route => route.name == this.$parent.$options.name).id, 10)
 		}
 	},
 	methods: {
 		destination(step) {
-			return routes.find(route => parseInt(route.id, 10) == (this.currentPage+step))
+			return this.$router.options.routes.find(route => parseInt(route.id, 10) == (this.currentPage+step))
 		}
 	},
 	mounted() {

@@ -4,7 +4,8 @@ export const store = Vue.observable({
 	isNav: false,
 	lang: 'fr',
 	runningDate: null,
-	runningInitiative: null
+	runningInitiative: null,
+	dateChangeDirection: 'forward'
 });
 
 export const mutations = {
@@ -24,6 +25,9 @@ export const mutations = {
 	},
 
 	setRunningDate(date) {
+		if (store.runningDate != null) {
+			date.getTime()>store.runningDate.getTime() ? store.dateChangeDirection='forward' : store.dateChangeDirection='backward';
+		}
 		store.runningDate = date
 	},
 	setRunningInitiative(id) {

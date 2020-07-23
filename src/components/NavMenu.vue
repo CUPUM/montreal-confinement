@@ -82,7 +82,7 @@ export default {
 	opacity: 1;
 	box-sizing: content-box;
 	position: absolute;
-	background-image: url('~@/assets/noise-texture-lighter.png');
+	/* background-image: url('~@/assets/noise-texture-lighter.png'); */
 	background-color: rgb(255, 255, 255);
 	background-repeat: repeat;
 	background-position: top right;
@@ -133,12 +133,12 @@ nav ul {
 	line-height: 1em;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
-	font-size: 32px;
+	font-size: 28px;
 	background-color: transparent;
 }
 nav ul .sub-chapter {
 	line-height: 1em;
-	font-size: 22px;
+	font-size: 20px;
 	margin-left: 34px;
 }
 nav ul .chapter-number {
@@ -147,7 +147,7 @@ nav ul .chapter-number {
 	opacity: .5;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
-	font-size: 13px;
+	font-size: 12px;
 	letter-spacing: 2px;
 	vertical-align: middle;
 }
@@ -164,11 +164,9 @@ nav li {
 	clear: left;
 	background-color: transparent;
 	text-indent: 0px;
-	border-radius: 0%;
 	transition: all .5s;
 }
 nav li.show {
-	border-radius: 0px;
 }
 nav li.vue-active-link {
 	cursor: default;
@@ -179,7 +177,7 @@ nav li .inner-wrapper {
 	opacity: 0;
 	display: block;
 	transition: all .45s cubic-bezier(0.8, 0, 0.2, 1);
-	transform: translate(100px,-200px);
+	transform: translate(50px,-50px);
 }
 nav li.show .inner-wrapper {
 	opacity: 1;

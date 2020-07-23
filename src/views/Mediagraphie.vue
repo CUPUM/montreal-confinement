@@ -2,7 +2,7 @@
 	<div class="meta" >
 	<div class="meta" v-bar ref="vbar">
 	<div id="mediagraphie" class="view-scroll">
-		<h1>Médiagraphie</h1>
+		<PageTitle/>
 		<div class="center-col">
 			<h2>Références de presse</h2>
 				<h3>Articles de presse</h3>
@@ -161,6 +161,8 @@
 				<p>Stréliski, L. (2020, 29 avril). La promesse timide du printemps. <i>L’actualité</i>. <a class="reference-link" target="_blank" href="https://lactualite.com/societe/la-promesse-timide-du-printemps/?utm_campaign=daily&amp;utm_source=newsletter&amp;utm_medium=email&amp;utm_content=article2_button&amp;utm_term=La%2Bpromesse%2Btimide%2Bdu%2Bprintemps">Réf{{'\xa0'}}&#x1f855;</a></p>
 			<h2>Index des photographies</h2>
 			<h2>Références scientifiques</h2>
+				<p>Domon, G., Paquette, S. et Poullaouec-Gonidec, P. (2005). <i>Paysages en perspectives</i> (1ere éd.). Les Presses de l’Université de Montréal.</p>
+				<p>Paquette, S. et Poullaouec-Gonidec P. (2011). <i>Montréal en paysages</i> (1ere éd.). Les Presses de l’Université de Montréal.</p>
 		</div>
 		<div class="center-col">
 			<ChapterNav :previous="true" :next="false" />
@@ -171,11 +173,13 @@
 </template>
 
 <script>
+import PageTitle from '@/components/PageTitle'
 import ChapterNav from '@/components/ChapterNav'
 
 export default {
 	name: 'Mediagraphie',
 	components: {
+		PageTitle,
 		ChapterNav
 	},
 	activated() {

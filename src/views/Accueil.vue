@@ -1,29 +1,37 @@
 <template>
-	<div class="meta" >
+	<div class="meta">
 	<div class="meta" v-bar ref="vbar">
 	<div id="accueil" ref="accueil" class="view-scroll">
-		<!-- <transition name="curtain">
-			<div v-if="this.isCurtain" id="load-curtain"></div>
-		</transition> -->
 
-		<div id="splash">
-			<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1700 900">
-				<defs>
-					<svg:style type="text/css">
-						@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700&display=swap'); <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
-					</svg:style>
-					<mask id="splash-text-mask" x="0" y="0">
-						<text x="0" y="220" class="splash-text">Montréal /</text>
-						<text x="0" y="510" class="splash-text">paysage</text>
-						<text x="0" y="800" class="splash-text">en confinement</text>
-						<text x="1235" y="465" class="splash-text date">13 mars &mdash; 16 mai 2020</text>
-					</mask>
-				</defs>
-				<transition name="splash-image">
-					<image @load="isCurtain = false" v-show="!this.isCurtain" width="1700" v-bind="{'xlink:href' : BGpic}" mask="url(#splash-text-mask)"/>
-				</transition>
-			</svg>
-		</div>
+		<transition appear name="splash-image">
+			<div id="splash">
+				<div id="splash-inner" :style="{backgroundImage: `url('${BGpic}')`}">
+					<!-- <div class="img-wrapper">
+						<div class="img-wrapper-inner">
+							<img :src="BGpic" alt="">
+						</div>
+					</div> -->
+					<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1700 860">
+						<defs>
+							<svg:style type="text/css">
+								@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700&display=swap'); <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
+							</svg:style>
+							<mask id="splash-text-mask" x="0" y="0">
+								<rect x="-10000" y="-10000" width="20000" height="20000" fill="white"/>
+								<text x="0" y="210" class="splash-text">Montréal /</text>
+								<text x="0" y="500" class="splash-text">paysage</text>
+								<text x="0" y="790" class="splash-text">en confinement</text>
+								<text x="1225" y="455" class="splash-text date">13 mars &mdash; 16 mai 2020</text>
+							</mask>
+						</defs>
+						<rect x="-10000" y="-10000" width="20000" height="20000" mask="url(#splash-text-mask)" fill="rgb(244, 246, 248)"/>
+						<!-- <transition name="splash-image">
+							<image @load="isCurtain = false" v-show="!this.isCurtain" width="1700" v-bind="{'xlink:href' : BGpic}" mask="url(#splash-text-mask)"/>
+						</transition> -->
+					</svg>
+				</div>
+			</div>
+		</transition>
 		
 		<div id="scroll-arrow-container" v-on:click="arrowClick">
 			<div id="scroll-arrow"></div>
@@ -32,7 +40,7 @@
 
 		<img class="chaire-logo" :src='CUPUMlogo' alt="~"/>
 
-		<h1 style="marginTop: -50px">Accueil</h1>
+		<!-- <h1 style="marginTop: -50px">Accueil</h1> -->
 		<div class="center-col">
 			<p>Au début de l’année 2020, la pandémie COVID-19 a profondément marqué les villes dans plusieurs régions du monde. Ainsi, elle nous amène à poser des questionnements fondamentaux envers les milieux urbains tant sur les aspects sociaux, culturels, économiques, environnementaux et physiques (habitat, rue, parc, etc.). La COVID-19 a bouleversé radicalement et dans un très court laps de temps les comportements et les préoccupations des citoyens dans la ville. Les populations urbaines ont changé leur mode de vie au quotidien et elles ont dû s’adapter à cette nouvelle réalité avec des mesures adaptées pour contraindre cette pandémie.</p>
 			<p>La COVID-19 a révélé l’importance de vivre la ville au quotidien dans la période de confinement. Elle nous a entrainés à nous questionner sur le rôle et les fonctions des espaces publics et privés, tout comme elle a exposé des problèmes majeurs d’usages et d’accessibilité envers certains attributs urbains (parc, rue, etc.). Elle a également fait émerger des actions et des solutions nouvelles adaptées à ce contexte de crise.</p>
@@ -48,7 +56,7 @@
 
 <script>
 // @ is an alias to /src
-import CUPUMlogo from '@/assets/Logo_CUPUM_noir.svg'
+import CUPUMlogo from '@/assets/Logo_CUPUM_couleur.svg'
 import BGpic from '@/assets/photos/cupum-covid_053.jpg'
 import ChapterNav from '@/components/ChapterNav'
 
@@ -79,7 +87,6 @@ export default {
 		}
 	},
 	mounted() {
-		//setTimeout(() => {this.isCurtain = false}, 250)
 		this.onResize();
 		this.$nextTick(() => {
 			window.addEventListener('resize', this.onResize);
@@ -100,56 +107,76 @@ export default {
 	height: 100%;
 	padding: 0px;
 	margin: 0px;
-}
-#load-curtain {
-	opacity: 1;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
-	background-color: rgb(255, 255, 255);
-	z-index: 1;
-}
-
-.curtain-enter-active,
-.curtain-leave-active {
-	transition: all 1s ease-in;
-}
-.curtain-enter,
-.curtain-leave-to {
-	height: 0px !important;
-	opacity: .5 !important;
-	background-color: rgb(244, 246, 248) !important;
+	backface-visibility: hidden;
 }
 
 #splash {
+	display: block;
 	position: relative;
 	top: 0px;
 	box-sizing: border-box;
 	width: 100%;
-	height: 100%;
-	padding: 90px 110px 90px 125px;
-	margin: 0px;
+	height: calc(100% - 160px);
+	padding: 0px 110px;
+	margin: 75px 0px 0px 0px;
 	overflow: hidden;
 }
+#splash-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
+.img-wrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	clip: rect(0, auto, auto, 0);
+	backface-visibility: hidden;
+}
+.img-wrapper-inner {
+	position: fixed;
+	backface-visibility: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+#splash img {
+	position: relative;
+	width: 100%;
+	height: auto;
+}
 #splash svg {
+	position: absolute;
+	top: 0px;
 	overflow: hidden;
 	width: 100%;
 	height: 100%;
+	/* background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed; */
+	transition: all 5s;
 }
 .splash-text {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 600;
 	font-size: 210px;
-	fill: white;
+	fill: black;
 }
 .splash-text.date {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 300;
 	font-size: 42px;
-	fill: white;
+	fill: black;
 	letter-spacing: .5px;
 }
 
@@ -162,39 +189,14 @@ export default {
 	opacity: 0 !important;
 }
 
-.below-splash {
-	text-align: center;
-	margin: 20px auto 80px auto;
-	font-size: 14px;
-	font-weight: 500;
-	color: rgb(76,76,76);
-}
-
-.chaire-logo {
-	shape-rendering: geometricPrecision;
-	opacity: .8;
-	top: 0px;
-	left: 50%;
-	transform: translateX(-50%);
-	margin: 0px;
-	padding: 0px;
-	margin-bottom: 120px;
-	height: 200px;
-	width: auto;
-	position: relative;
-}
-
 #scroll-arrow-container {
 	text-align: center;
-	left: 50%;
 	display: block;
 	position: relative;
 	padding: 0px;
-	margin: 0px;
+	margin: -30px auto 0px auto;
 	width: 90px;
 	height: 90px;
-	top: -115px;
-	transform: translateX(-50%);
 	cursor: pointer;
 	opacity: .5;
 	background-color: rgba(255,255,255,0);
@@ -205,7 +207,6 @@ export default {
 	background-color: rgba(255,255,255,.5);
 	opacity: 1
 }
-
 #scroll-arrow {
 	left: 50%;
 	box-sizing: border-box;
@@ -213,7 +214,7 @@ export default {
 	padding: 0px;
 	margin: 0px;
 	position: absolute;
-	display: block;
+	display: inline-block;
 	width: 20px;
 	height: 20px;
 	border-radius: 0px 1px 3px 1px;
@@ -243,9 +244,14 @@ export default {
 	height: 41px;
 }
 
-.circles {
-	background-image: url('~@/assets/noise-texture-light.png');
-	transform: translate(-50%,-50%);
+.chaire-logo {
+	display: block;
+	shape-rendering: geometricPrecision;
+	opacity: .75;
+	margin: 100px auto;
+	padding: 0px;
+	height: 220px;
+	width: auto;
+	position: relative;
 }
-
 </style>
