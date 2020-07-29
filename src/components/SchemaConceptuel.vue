@@ -32,7 +32,7 @@ export default {
 		chartData() {
 			const conceptSize = 165;
 			const conceptPadding = 30;
-			const conceptLinkWidth = 2*conceptSize/3;
+			const conceptLinkWidth = 3*conceptSize/4;
 
 			const toFigure = 10;
 			const toFigureWidth = 2*conceptSize/3;
@@ -43,11 +43,11 @@ export default {
 			const figureLinkWidth = figureSize;
 
 			const graphColors = {
-				"Formes":"hsl(155, 50%, 75%)",
-				"Thèmes":"hsl(140, 50%, 75%)",
-				"Intentions":"hsl(120, 50%, 75%)",
-				"Impressions générales":"hsl(50, 55%, 75%)",
-				"Expressions locales":"hsl(245, 55%, 75%)"
+				"Formes":"hsl(232, 79%, 70%)",
+				"Thèmes":"hsl(232, 79%, 70%)",
+				"Intentions":"hsl(232, 79%, 70%)",
+				"Impressions générales":"hsl(26, 92%, 75%)",
+				"Expressions locales":"hsl(99, 67%, 72%)"
 			}
 
 			const data = {
@@ -87,7 +87,6 @@ export default {
 			if (axis == 'x') { basis = this.svgWidth } else if (axis == 'y') { basis = this.svgHeight }
 			return (basis * ratio + (Math.random()-.5) * 50)
 		},
-		
 		graph() {
 			var selector = '#'+this.chartID+'-chart';
 			const data = this.chartData;
@@ -121,30 +120,33 @@ export default {
 			var goo1 = svg.append('g')
 			goo1.attr('filter', 'url(#glue1)')
 
+			var linkGradients = svg.append('defs')
+				.selectAll('linearGradient')
+				.data(data.links)
+				.enter()
+				.append('linearGradient')
+				.attr('class', 'link-gradients')
+				.attr('spreadMethod', 'pad')
+				.attr('gradientUnits', 'userSpaceOnUse')
+				.attr('id', d => d.name)
+			linkGradients.append('stop')
+				.attr('stop-color', d => data.colors[d.source])
+				.attr('offset', .1)
+			linkGradients.append('stop')
+				.attr('stop-color', d => data.colors[d.target])
+				.attr('offset', .9)
+			linkGradients.attr('x1', d => d.source.x)
+				.attr('y1', d => d.source.y)
+				.attr('x2', d => d.target.x)
+				.attr('y2', d => d.target.y)
+
 			var allLinks = goo1.append('g')
 				.selectAll('line')
 				.data(data.links)
 				.enter()
 				.append('line')
-				// .each(d => {
-				// 	var gradient = svg.append('defs')
-				// 		.append('linearGradient')
-				// 		.attr('class', 'link-gradients')
-				// 		.attr('spreadMethod', 'pad')
-				// 		.attr('id', d.name)
-				// 		.attr('x1', d.source.x/this.svgWidth)
-				// 		.attr('y1', d.source.y)
-				// 		.attr('x2', d.target.x)
-				// 		.attr('y1', d.target.y)
-				// 	gradient.append('stop')
-				// 		.attr('stop-color', data.colors[d.source])
-				// 		.attr('offset', 0)
-				// 	gradient.append('stop')
-				// 		.attr('stop-color', data.colors[d.target])
-				// 		.attr('offset', 1)
-				// })
-				// .attr('stroke', d => 'url(#'+d.name+')')
-				.attr('stroke', d => data.colors[d.target])
+				.attr('stroke', d => 'url(#'+d.name+')')
+				//.attr('stroke', d => data.colors[d.source])
 				.attr('stroke-width', 0)
 			allLinks.transition()
 				.duration(750)
@@ -170,7 +172,7 @@ export default {
 
 			var goo2 = svg.append('g')
 			goo2.attr('filter', 'url(#glue1)')
-				.attr('opacity','1')
+				.attr('opacity','.5')
 
 			var conceptsLinks = goo2.append('g')
 				.selectAll('line')
@@ -178,7 +180,7 @@ export default {
 				.enter()
 				.append('line')
 				//.attr('stroke', d => data.colors[d.source])
-				.attr('stroke', 'rgb(72,72,72)')
+				.attr('stroke', 'rgb(255,255,255)')
 				.attr('stroke-width', 0)
 			conceptsLinks.transition()
 				.duration(750)
@@ -191,14 +193,14 @@ export default {
 				.enter()
 				.append('circle')
 				//.attr('fill', d => data.colors[d.name])
-				.attr('fill', 'rgb(72,72,72)')
+				.attr('fill', 'rgb(255,255,255)')
 				.attr('cx', d => d.x)
 				.attr('cy', d => d.y)
 				.call(draggable)
 			conceptsBlobs.transition()
 				.duration(750)
 				.delay((d,i) => i*150)
-				.attr('r', d => d.size)
+				.attr('r', d => d.size-2)
 
 
 		/* Top layer: texte + bg sans filtre */
@@ -211,24 +213,37 @@ export default {
 				.attr('cursor', 'pointer')
 				.on('click', d => this.tab(d.name))
 				.call(draggable)
+			var conceptsOutline = concepts.append('circle')
+				.attr('class', 'concept-outline')
+				//.attr('stroke', 'white')
+				//.attr('stroke-width', 1.5)
+				.attr('fill', 'white')
+				.attr('opacity', 0)
+				.attr('r', d => d.size-20)
+				.attr('cx', d => d.x)
+				.attr('cy', d => d.y)
+			conceptsOutline.transition()
+				.duration(750)
+				.delay((d,i) => i*150)
+				.attr('opacity', .8)
 			var conceptsBG = concepts.append('circle')
 				.attr('class', 'concept-bg')
 				.attr('fill', 'white')
-				.attr('opacity',.5)
-				.attr('r', d => d.size-15)
+				.attr('opacity',0)
+				.attr('r', d => d.size-20)
 				.attr('cx', d => d.x)
 				.attr('cy', d => d.y)
 			concepts.on('mouseover', function() {
 					d3.select(this).select('.concept-bg').transition()
-						.duration(150)
-						.attr('r', d => d.size)
+						.duration(100)
+						//.attr('r', d => d.size-20)
 						.attr('opacity', .75)
 				})
 				.on('mouseout', function() {
 					d3.select(this).select('.concept-bg').transition()
-						.duration(150)
-						.attr('r', d => d.size-10)
-						.attr('opacity', .5)
+						.duration(250)
+						//.attr('r', d => d.size-40)
+						.attr('opacity', 0)
 				})
 			var conceptsLabels = concepts.append('text')
 				.attr('class', 'label')
@@ -254,19 +269,19 @@ export default {
 				.attr('class', 'figure-bg')
 				.attr('fill','white')
 				.attr('opacity',0)
-				.attr('r', d => d.size-10)
+				.attr('r', d => d.size-20)
 				.attr('cx', d => d.x)
 				.attr('cy', d => d.y)
 			figures.on('mouseover', function() {
 					d3.select(this).select('.figure-bg').transition()
-						.duration(150)
-						.attr('r', d => d.size)
-						.attr('opacity', .35)
+						.duration(100)
+						.attr('r', d => d.size-10)
+						.attr('opacity', .5)
 				})
 				.on('mouseout', function() {
 					d3.select(this).select('.figure-bg').transition()
-						.duration(150)
-						.attr('r', d => d.size-10)
+						.duration(250)
+						.attr('r', d => d.size-20)
 						.attr('opacity', 0)
 				})
 			var figuresLabels = figures.append('text')
@@ -277,8 +292,8 @@ export default {
 				.attr('dominant-baseline', 'central')
 				.attr('font-family', '"Poppins",sans-serif')
 				.attr('font-size', 16)
-				.attr('font-weight','500')
-				.attr('fill', 'white')
+				.attr('font-weight','400')
+				.attr('fill', 'rgb(72,72,72)')
 				.each(function(d) {
 					var lineNumber = -1;
 					var lineHeight = 1.5;
@@ -304,10 +319,10 @@ export default {
 				.attr('orient', 'auto')
 				.attr('preserveAspectRatio', 'none')
 				.attr('viewBox', '0 -5 10 10')
-				.attr('refX', 9)
+				.attr('refX', 7)
 				.attr('refY', 0)
-				.attr('markerWidth', 10)
-				.attr('markerHeight', 8)
+				.attr('markerWidth', 7)
+				.attr('markerHeight', 6)
 				.append('path')
 				.attr('fill', 'white')
 				.attr('d', 'M0,-5L10,0L0,5');
@@ -317,14 +332,14 @@ export default {
 				.append('line')
 				.attr('class', 'arrow')
 				.attr('marker-end', 'url(#arrowhead)')
-				.attr('stroke-width', 1)
+				.attr('stroke-width', 1.5)
 				.attr('stroke', 'white')
 
 
 		/* Forces & simulation */
 
 			const forces = {
-				'concepts': {x: .5, y: .02},
+				'concepts': {x: 1, y: .02},
 				'figures': {x: .02, y: .5}
 			}
 			const simulation = d3.forceSimulation()
@@ -341,6 +356,10 @@ export default {
 					.attr('y1', d => d.source.y)
 					.attr('x2', d => d.target.x)
 					.attr('y2', d => d.target.y);
+				linkGradients.attr('x1', d => d.source.x)
+					.attr('y1', d => d.source.y)
+					.attr('x2', d => d.target.x)
+					.attr('y2', d => d.target.y)
 				allBlobs.attr('cx', d => d.x).attr('cy', d => d.y);
 			/* Goo layer 2 */
 				conceptsLinks.attr('x1', d => d.source.x)
@@ -350,20 +369,21 @@ export default {
 				conceptsBlobs.attr('cx', d => d.x).attr('cy', d => d.y);
 			/* Top layer (content) */
 				conceptsBG.attr('cx', d => d.x).attr('cy', d => d.y);
+				conceptsOutline.attr('cx', d => d.x).attr('cy', d => d.y);
 				conceptsLabels.attr('x', d => d.x).attr('y', d => d.y);
 				figuresBG.attr('cx', d => d.x).attr('cy', d => d.y);
 				figuresLabels.selectAll('tspan').attr('x', d => d.x).attr('y', d => d.y);
 				arrows.each(function(d) {
-					const margin = -15
+					const margin = {source: -20, target: -30}
 					const x1 = d.source.x
 					const y1 = d.source.y
 					const x2 = d.target.x
 					const y2 = d.target.y
 					const angle = Math.atan2(y2-y1, x2-x1)
-					const dx1 = (d.source.size+margin) * Math.cos(angle)
-					const dy1 = (d.source.size+margin) * Math.sin(angle)
-					const dx2 = (d.source.size+margin) * Math.cos(angle)
-					const dy2 = (d.source.size+margin) * Math.sin(angle)
+					const dx1 = (d.source.size+margin.source) * Math.cos(angle)
+					const dy1 = (d.source.size+margin.source) * Math.sin(angle)
+					const dx2 = (d.target.size+margin.target) * Math.cos(angle)
+					const dy2 = (d.target.size+margin.target) * Math.sin(angle)
 					d3.select(this)
 						.attr('x1', x1+dx1)
 						.attr('y1', y1+dy1)
@@ -378,8 +398,8 @@ export default {
 				node['initRandom'] = Math.random()
 			})
 			d3.timer(function(time) {
-				figures.attr('dx', d => { d.x += 2.5*Math.sin(time/(500+d.initRandom*600) - d.initRandom*100) - 2*Math.sin(time/(1500+d.initRandom*500) + d.initRandom*55) })
-					.attr('dy', d => { d.y += 1.5*Math.sin(time/(300+d.initRandom*500) + d.initRandom*2) + 1*Math.sin(time/(600+d.initRandom*100) + d.initRandom*555)})
+				figures.attr('dx', d => { d.x += 1.2*Math.sin(time/(600+d.initRandom*200) - d.initRandom*100) - 1*Math.sin(time/(700+d.initRandom*300) + d.initRandom*55) })
+					.attr('dy', d => { d.y += 1.5*Math.sin(time/(600+d.initRandom*400) + d.initRandom*2) + .5*Math.sin(time/(500+d.initRandom*100) + d.initRandom*555)})
 			})
 
 			simulation.nodes(data.nodes)
@@ -387,7 +407,7 @@ export default {
 				.restart();
 			simulation.force('link').links(data.links)
 				.distance(d => d.l)
-				.strength(1)
+				.strength(.9)
 		}
 	},
 	mounted() {

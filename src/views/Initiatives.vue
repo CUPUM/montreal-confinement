@@ -6,7 +6,8 @@
 			<div id="initiatives-inner-container">
 				<div id="initiatives-top-container">
 					<div id="carte-initiatives-container">
-						<Carte />
+						<Carte :orderReference="entriesOrder"
+							:colorReference="colors"/>
 					</div>
 					<div id="timelist-initiatives-container">
 						<TimeList :dataArray="sortedInitiatives" />
@@ -17,7 +18,8 @@
 						:startDate="dates.start"
 						:endDate="dates.end"
 						:datesArray="dates.uniques"
-						:events="sortedInitiatives"/>
+						:events="sortedInitiatives"
+						:colorReference="colors"/>
 				</div>
 				<div class="title-date-container">
 					<transition :name="'date-'+changeDirection" mode="out-in">
@@ -68,7 +70,7 @@ export default {
 			return store.dateChangeDirection
 		},
 		sortedInitiatives() {
-			var sorted = [];
+			var sorted = []
 			this.RevuePresse['Recension'].forEach(initiative => {
 				sorted.push({
 					id: initiative['ID'],
@@ -85,15 +87,46 @@ export default {
 				})
 			});
 			sorted.sort((a, b) => a.date - b.date);
+			var itemIndex = 0
+			sorted.forEach(item => {
+				item['index'] = itemIndex++
+			})
 			return Object.freeze(sorted)
+		},
+		entriesOrder() {
+			// var bareEntries = {};
+			// var index = 0;
+			// this.sortedInitiatives.forEach(entry => {
+			// 	bareEntries[entry.id] = index++
+			// })
+			// return bareEntries
+			return {place: 'holder'}
 		},
 		dates() {
 			const arrLength = this.sortedInitiatives.length;
 			const startDate = new Date(this.sortedInitiatives[0].date)
 			const endDate = new Date(this.sortedInitiatives[arrLength-1].date)
 			var eventDates = Array.from(new Set(this.sortedInitiatives.map( initiative => Date.parse(initiative.date)))).map(parsedDate => new Date(parsedDate));
-			return {start: startDate, end: endDate, uniques: eventDates}
+			var allDates = []
+			for (var now=startDate.getTime(); now<=endDate.getTime(); now+=(24*60*60*1000)) {
+				allDates.push(new Date(now))
+			}
+			return {start:startDate, end:endDate, uniques:eventDates, all:allDates}
 		},
+		colors() {
+			const colMin = 80
+			const colMax = 355
+			const colRange = colMax - colMin
+			const datesMin = this.dates.start.getTime()
+			const datesMax = this.dates.end.getTime()
+			const datesRange = datesMax - datesMin
+			var dateColors = {}
+			this.dates.all.forEach(date => {
+				const dateHue = ((date.getTime() - datesMin) / datesRange) * colRange + colMin
+				dateColors[date.getTime()] = 'hsl('+dateHue+',60%,65%)'
+			})
+			return dateColors
+		}
 	},
 	methods: {
 		toDate(dateString, separator) {
@@ -175,8 +208,10 @@ export default {
 	text-align: left;
 	padding: 0px;
 	margin: 0px;
-	font-weight: 400;
+	font-weight: 300;
 	color: rgb(65, 65, 65);
+	background-color: rgba(255,255,255,.5);
+	border-radius: 4px;
 }
 .date-forward-enter-active,
 .date-forward-leave-active,
@@ -201,7 +236,7 @@ export default {
 	background-color: rgb(252,252,254);
 	display: block;
 	width: 100%;
-	margin-top: 2px;
+	margin-top: 12px;
 	height: 75px;
 	border-radius: 12px;
 	box-shadow: 2px 12px 25px -10px rgba(0,0,0,.5);
@@ -212,17 +247,18 @@ export default {
 	flex-direction: row;
 	flex: 1;
 	overflow: hidden;
-	border-radius: 12px;
-	box-shadow: 2px 12px 25px -10px rgba(0,0,0,.5);
 }
 #timelist-initiatives-container {
 	display: inline-block;
 	height: 100%;
-	width: 35%;
+	width: 40%;
 	min-width: 400px;
 	overflow: hidden;
+	border-radius: 12px;
 }
 #carte-initiatives-container {
+	border-radius: 12px;
+	margin-right: 10px;
 	height: 100%;
 	display: inline-block;
 	flex: 1;

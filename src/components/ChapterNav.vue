@@ -1,5 +1,5 @@
 <template>
-	<div class="chapter-navigator">
+	<div class="chapter-navigator noselect">
 		<router-link v-if="this.previous" 
 			id="previous-chapter" 
 			class="chapter-button"

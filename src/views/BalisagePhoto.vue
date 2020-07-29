@@ -116,16 +116,17 @@ export default {
 	margin: 0px;
 	padding: 0px;
 	overflow: hidden;
-	border-radius: 1px;
-	transition: all .3s ease-in-out;
+	border-radius: 2px;
+	transition: all .25s ease-in-out;
 	/* box-shadow: 1px 3px 5px -3px rgba(0,0,0,.5); */
 }
 .gallery-container:hover .image-container {
-	opacity: .65;
+	opacity: .75;
 }
 .gallery-container:hover .image-container:hover {
-	transition: all .25s;
+	transition: all .2s;
 	opacity: 1;
+	transform: translateY(-5px);
 }
 .image-container .image {
 	border: 0;
@@ -161,11 +162,12 @@ export default {
 	border-radius: 0px;
 } */
 .image[lazy=loading] {
-	transform: scale(.8);
 	opacity: 0;
+	transition: all 1s;
 }
 .image[lazy=loaded] {
-	transform: scale(1);
+	opacity: 1;
+	transition: all 1s;
 }
 /* .image-container img {
 	border: 0;

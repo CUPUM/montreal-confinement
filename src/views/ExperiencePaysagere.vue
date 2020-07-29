@@ -70,7 +70,6 @@ export default {
 	methods: {
 		respondTab(e) {
 			this.detailOpen = e
-			console.log(this.detailOpen)
 		}
 	},
 	activated() {

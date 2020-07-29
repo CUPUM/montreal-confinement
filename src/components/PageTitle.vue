@@ -46,13 +46,13 @@ export default {
 .title {
 	margin-top: 40px;
 	position: relative;
-	box-shadow: 0px 50px 60px -92px rgba(0,0,0,.5), 0px -50px 60px -92px rgba(0,0,0,.5);
+	box-shadow: 0px 50px 60px -92px rgba(0,0,0,.5), 0px -30px 40px -60px rgba(0,0,0,.5);
 }
 .number {
 	letter-spacing: 2px;
 	color: rgb(120, 175, 99);
-	font-weight: 300;
-	font-size: 18pt;
+	font-weight: 400;
+	font-size: 17pt;
 	position: absolute;
 	top: 40px;
 	left: 65px;
@@ -84,6 +84,6 @@ h1 {
 	margin: 0px;
 	line-height: 1.2em;
 	font-size: 52pt;
-	left: -4px;
+	left: -2px;
 }
 </style>

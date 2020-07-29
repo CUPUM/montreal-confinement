@@ -1,7 +1,10 @@
 <template>
 	<div class="scroll-line" :id="this.chartID">
 		<ul @mouseleave="dateLeave()">
-			<div class="progress-line" :style="{width: datePos(this.dateForLabel)}"></div>
+			<div class="progress-line" :style="{
+				width: datePos(this.dateForLabel),
+				backgroundColor: this.dateForLabel!=undefined? colorReference[this.dateForLabel.getTime()] : colorReference[this.startDate.getTime()]
+			}"></div>
 			<div v-for="(day,i) in daysAxis" :key="i+'_mark'" class="mark" :style="{left: datePos(day)}"></div>
 			<div class="date-label" :style="{left: datePos(this.dateForLabel)}">{{ labelDateString }}</div>
 			<li v-for="(date,i) in dates" :key="i" :style="{width: dateLabelStyle(date, i ,dates).width}">
@@ -11,7 +14,7 @@
 						paddingRight: dateLabelStyle(date, i ,dates).padding.right
 					}"
 					@mouseover="dateHover(date)">
-					<div class="dot"></div>
+					<div class="dot" :style="{ backgroundColor: colorReference[date.getTime()] }"></div>
 				</label>
 			</li>
 		</ul>
@@ -27,7 +30,8 @@ export default {
 		startDate: Date,
 		endDate: Date,
 		datesArray: Array,
-		events: Array
+		events: Array,
+		colorReference: Object
 	},
 	data() {
 		return {
@@ -160,7 +164,7 @@ ul .date-label {
 ul .progress-line {
 	position: absolute;
 	height: 2px;
-	background-color: rgb(120, 175, 99);
+	/* background-color: rgb(120, 175, 99); */
 	margin: 0px;
 	padding: 0px;
 	top: 50%;
@@ -171,12 +175,12 @@ ul .progress-line {
 ul .mark {
 	display: block;
 	position: absolute;
-	width: 3px;
-	height: 3px;
+	width: 4px;
+	height: 4px;
 	background-color: rgba(0,0,0,.15);
 	top: 50%;
 	border-radius: 50%;
-	transform: translateY(-50%)
+	transform: translate(-50%,-50%)
 }
 
 li {
@@ -189,6 +193,7 @@ input {
 	display: none;
 }
 label {
+	position: relative;
 	box-sizing: border-box;
 	cursor: pointer;
 	height: 100%;
@@ -196,26 +201,28 @@ label {
 	display: block;
 }
 label .dot {
+	/* background-color: rgb(120, 175, 99); */
 	display: block;
-	position: relative;
+	position: absolute;
 	width: 8px;
 	height: 8px;
 	top: 50%;
 	border-radius: 50%;
 	transform-origin: center;
-	transform: translate(-50%,-50%) rotate(45deg);
-	background-color: rgb(120, 175, 99);
-	transition: all .2s ease;
+	transform: translate(-50%,-50%);
+	transition: all .15s ease;
+	box-shadow: inset 0px -10px 10px rgba(255,255,255,.25), inset 0px 1px 2px rgba(0,0,0,.15);
 }
 label:hover .dot {
+	/* background-color: rgb(129, 219, 93); */
 	width: 14px;
 	height: 14px;
-	background-color: rgb(129, 219, 93);
 }
 input:checked+label .dot {
-	background-color: rgb(86,86,86);
+	/* background-color: rgb(86,86,86); */
 	cursor: default;
 	width: 20px;
 	height: 20px;
+	box-shadow: 0px 2px 3px -2px rgba(0,0,0,.25), inset 0px 1px rgba(255,255,255,.25);
 }
 </style>
