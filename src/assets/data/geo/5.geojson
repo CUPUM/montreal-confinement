@@ -1,0 +1,29 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"initiativeDate": "4/14/20",
+				"initiativeID": 5
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						-73.57023596763611,
+						45.537482368373915
+					],
+					[
+						-73.58106136322021,
+						45.52604347726228
+					],
+					[
+						-73.58811020851135,
+						45.51817319160941
+					]
+				]
+			}
+		}
+	]
+}

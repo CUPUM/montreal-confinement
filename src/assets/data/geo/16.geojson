@@ -4,14 +4,14 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"initiativeID": 1,
-				"initiativeDate": "3/23/20"
+				"initiativeDate": "4/8/20",
+				"initiativeID": 16
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [
-					-73.56756448745728,
-					45.507572499877256
+					-73.5641098022461,
+					45.50974542845975
 				]
 			}
 		}

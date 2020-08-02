@@ -266,38 +266,20 @@
 				"initiativeID": 23
 			},
 			"geometry": {
-				"type": "Point",
+				"type": "MultiPoint",
 				"coordinates": [
-					-73.59406471252441,
-					45.502684983760446
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "4/5/20",
-				"initiativeID": 23
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-73.59982073307037,
-					45.49953795075031
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "4/5/20",
-				"initiativeID": 23
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					-73.60104382038116,
-					45.49860546274366
+					[
+						-73.59406471252441,
+						45.502684983760446
+					],
+					[
+						-73.59982073307037,
+						45.49953795075031
+					],
+					[
+						-73.60104382038116,
+						45.49860546274366
+					]
 				]
 			}
 		}

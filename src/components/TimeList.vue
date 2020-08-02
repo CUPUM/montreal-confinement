@@ -15,6 +15,7 @@
 						<p>{{ initiative.id }}</p>
 						<p>	{{ initiative.date.toLocaleDateString('fr-CA', {month: 'long', year: 'numeric', day: 'numeric'}) }}</p>
 						<p>{{ initiative.description }}</p>
+						<p>{{ initiative.place }}</p>
 						<a v-if="initiative.ref!=(undefined && null && '')" class="reference-link" target="_blank" :href="initiative.ref">Réf{{'\xa0'}}&#x1f855;</a>
 					</label>
 				</li>

@@ -4,19 +4,19 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"initiativeDate": "3/22/20",
-				"initiativeID": 46
+				"initiativeDate": "4/15/20",
+				"initiativeID": 62
 			},
 			"geometry": {
 				"type": "MultiPoint",
 				"coordinates": [
 					[
-						-73.57487618923187,
-						45.49936875044433
+						-73.56199085712431,
+						45.51545178608818
 					],
 					[
-						-73.56233417987823,
-						45.50724542550895
+						-73.55147123336792,
+						45.54167554456839
 					]
 				]
 			}

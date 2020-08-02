@@ -8,139 +8,22 @@
 				"initiativeID": 44
 			},
 			"geometry": {
-				"type": "Point",
-				"coordinates": [ -73.96897315979004, 45.43553271295188 ]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "3/16/20",
-				"initiativeID": 44
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [ -73.53381156921387, 45.50724918499527 ]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "3/16/20",
-				"initiativeID": 44
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [ -73.57251048088074, 45.49497688463352 ]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "3/16/20",
-				"initiativeID": 44
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [ -73.55011940002441, 45.498105372088084 ]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "3/16/20",
-				"initiativeID": 44
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [ -73.55945348739624, 45.49801888979495 ]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "3/16/20",
-				"initiativeID": 44
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [ -73.57013672590256, 45.503074120782976 ]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "3/16/20",
-				"initiativeID": 44
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [ -73.57735186815262, 45.50071857873323 ]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "3/16/20",
-				"initiativeID": 44
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [ -73.5818874835968, 45.50820784580483 ] }
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "3/16/20",
-				"initiativeID": 44
-			},
-			"geometry": {
-				"type": "Polygon",
-				"coordinates": [ [ [ -73.56261849403381, 45.509290548968586 ], [ -73.56296449899673, 45.509452200779066 ], [ -73.56331318616867, 45.50960821313268 ], [ -73.56345802545547, 45.509439043090936 ], [ -73.56276333332062, 45.509125137333065 ], [ -73.56261849403381, 45.509290548968586 ] ] ]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "3/16/20",
-				"initiativeID": 44
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [ -73.57882976531981, 45.51425643101396 ]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "3/16/20",
-				"initiativeID": 44
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [ -73.55539798736572, 45.514902978420565 ]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "3/16/20",
-				"initiativeID": 44
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [ -73.54288816452026, 45.54163045831549 ]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"initiativeDate": "3/16/20",
-				"initiativeID": 44
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [ -73.53744864463806, 45.54946740881081 ]
+				"type": "MultiPoint",
+				"coordinates": [
+					[ -73.96897315979004, 45.43553271295188 ],
+					[ -73.53381156921387, 45.50724918499527 ],
+					[ -73.57251048088074, 45.49497688463352 ],
+					[ -73.55011940002441, 45.498105372088084 ],
+					[ -73.55945348739624, 45.49801888979495 ],
+					[ -73.57013672590256, 45.503074120782976 ],
+					[ -73.57735186815262, 45.50071857873323 ],
+					[ -73.5818874835968, 45.50820784580483 ],
+					[ -73.5630315542221, 45.50937513427616 ],
+					[ -73.57882976531981, 45.51425643101396 ],
+					[ -73.55539798736572, 45.514902978420565 ],
+					[ -73.54288816452026, 45.54163045831549 ],
+					[ -73.53744864463806, 45.54946740881081 ]
+				]
 			}
 		}
 	]
