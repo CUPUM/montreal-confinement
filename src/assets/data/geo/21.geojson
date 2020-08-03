@@ -4134,7 +4134,8 @@
 			},
 			"properties": {
 				"initiativeDate": "3/19/20",
-				"initiativeID": 21
+				"initiativeID": 21,
+				"style": "overlay"
 			}
 		}
 	]

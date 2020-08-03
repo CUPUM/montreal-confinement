@@ -9,8 +9,6 @@ import { store } from '@/store.js'
 import * as L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import * as geojsonMerge from '@mapbox/geojson-merge'
-//import '@/assets/libs/leaflet-corridor.js'
-//import corridor from 'exports-loader?exports=default|corridor!@/assets/libs/leaflet-corridor.js';
 
 export default {
 	props: {
@@ -19,11 +17,6 @@ export default {
 	},
 	data() {
 		return {
-			//map: null, // Voir: created()
-			//tileLayer: null,
-			//geoLayer: null,
-			//geoFiles: [],
-			//geoTraces: null
 		}
 	},
 	computed: {
@@ -76,6 +69,24 @@ export default {
 			const date = new Date(20+strArray[2].trim(), parseInt(strArray[0].trim(), 10)-1, strArray[1].trim());
 			return date
 		},
+		strokeWeight(feature) {
+			if (feature.geometry.type.includes('LineString')) {
+				return 2.5
+			} else if (feature.properties.style=='overlay') {
+				return 1
+			} else {
+				return .1
+			}
+		},
+		strokeColor(feature, color) {
+			if (feature.geometry.type.includes('LineString')) {
+				return color
+			} else if (feature.properties.style=='overlay') {
+				return color
+			} else {
+				return 'white'
+			}
+		},
 		initMap() {
 			this.map = L.map('carte-initiatives', {
 				zoomControl: false,
@@ -88,28 +99,13 @@ export default {
 			});
 			this.tileLayer.addTo(this.map);
 
-			// function addCorridor(coordinates) {
-			// 	return L.corridor(coordinates, 20)
-			// }
-
 			this.geoLayer = L.geoJSON(this.geoTraces, {
-				// onEachFeature: (feature) => {
-				// 	if (feature.geometry.type=='LineString') {
-				// 		addCorridor(feature.geometry.coordinates)
-				// 	} else if (feature.geometry.type=='MultiLineString') {
-				// 		feature.geometry.coordinates.forEach(subCoordinates => {
-				// 			addCorridor(subCoordinates)
-				// 		})
-				// 	}
-				// },
 				style: (feature) => {
 					return {
 						stroke: true,
-						//color: feature.geometry.type.includes('LineString')? this.colorReference[feature.properties.dateTime] : 'white',
-						weight: feature.geometry.type.includes('LineString')? 2.5 : .1,
+						weight: this.strokeWeight(feature),
 						opacity: feature.geometry.type.includes('LineString')? 1 : .5,
 						fill: !feature.geometry.type.includes('LineString')? true : false,
-						//fillColor: this.colorReference[feature.properties.dateTime],
 						fillOpacity: 1,
 					}
 				},
@@ -120,7 +116,6 @@ export default {
 		},
 		updateFeatures() {
 			var visibleLayersArray = []
-
 			this.geoLayer.eachLayer(layer => {
 				if (layer.feature.properties.dateTime.includes(this.runningDate.getTime())) {
 					const theID = layer.feature.properties.initiativeID
@@ -128,29 +123,26 @@ export default {
 					if ( (!Array.isArray(theID) && theID==this.runningInitiative) || (Array.isArray(theID) && theID.includes(parseInt(this.runningInitiative,10))) ) {
 						visibleLayersArray.push(layer)
 						layer.setStyle({
-							color: layer.feature.geometry.type.includes('LineString')? theColor : 'white',
-							fillColor: theColor,
+							// stroke
+							color: this.strokeColor(layer.feature, theColor),
 							opacity: 1,
+							// fill
+							fillColor: theColor,
 							fillOpacity: (layer.feature.properties.style!=undefined && layer.feature.properties.style=="overlay")? .5 : 1,
+							// markers
 							radius: 3.5,
 						})
 						layer.bringToFront()
 					} else {
 						layer.setStyle({
-							color: theColor,
-							fillColor: theColor,
 							opacity: 0,
 							fillOpacity: 0,
-							radius: 2,
 						})
 					}
 				} else {
 					layer.setStyle({
-						color: 'rgb(56,56,56)',
-						fillColor: 'rgb(56,56,56)',
 						opacity: 0,
 						fillOpacity: 0,
-						radius: 1.5,
 					})
 					layer.bringToBack()
 				}
@@ -159,7 +151,7 @@ export default {
 			if (visibleLayersArray.length>0) {
 				var visibleLayers = new L.featureGroup(visibleLayersArray)
 				this.map.flyToBounds(visibleLayers.getBounds(), {
-					duration: 1,
+					duration: .8,
 					padding: [100,100],
 					maxZoom: 14
 				})

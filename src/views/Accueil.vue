@@ -126,7 +126,7 @@ export default {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	background-size: 100% auto;
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;

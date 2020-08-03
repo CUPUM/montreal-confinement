@@ -2,7 +2,7 @@
 	<div id="timelist-container">
 		<div class="meta" v-bar ref="vbar">
 			<ul id="timelist">
-				<li class="timecard-container" v-for="(initiative, i) in dataArray" :key="initiative.id+'_'+i" :data-index="initiative.index">
+				<li v-for="(initiative, i) in dataArray" class="timecard-container" :key="initiative.id+'_'+i" :data-index="initiative.index">
 					<input type="radio"
 							:key="i+'_input'"
 							:id="initiative.id+'_radio'"
@@ -10,12 +10,13 @@
 							:value="{id: initiative.id, date: initiative.date}">
 					<label :key="i+'_label'"
 						:for="initiative.id+'_radio'"
-						:class="{'isEnabled': initiative.index < currentIndex }">
+						:class="{'isEnabled': initiative.index < currentIndex }"
+						:style="{borderColor: colorReference[initiative.date.getTime()]}">
 						<h5>{{ initiative.titre }}</h5>
-						<p>{{ initiative.id }}</p>
-						<p>	{{ initiative.date.toLocaleDateString('fr-CA', {month: 'long', year: 'numeric', day: 'numeric'}) }}</p>
 						<p>{{ initiative.description }}</p>
-						<p>{{ initiative.place }}</p>
+						<!-- <p>{{ initiative.id }}</p>
+						<p>	{{ initiative.date.toLocaleDateString('fr-CA', {month: 'long', year: 'numeric', day: 'numeric'}) }}</p>
+						<p>{{ initiative.place }}</p> -->
 						<a v-if="initiative.ref!=(undefined && null && '')" class="reference-link" target="_blank" :href="initiative.ref">Réf{{'\xa0'}}&#x1f855;</a>
 					</label>
 				</li>
@@ -42,6 +43,7 @@ import { store, mutations } from '@/store.js'
 export default {
 	props: {
 		dataArray: Array,
+		colorReference: Object
 	},
 	data() {
 		return {
@@ -120,7 +122,7 @@ export default {
 	cursor: pointer;
 	display: inline-block;
 	position: absolute;
-	height: 70px;
+	height: 80px;
 	width: 100%;
 	transition: all .35s;
 	text-align: center;
@@ -132,11 +134,11 @@ export default {
 }
 .previous {
 	top: 0px;
-	background-image: linear-gradient(to bottom, rgba(244, 246, 248,1), rgba(255,255,255,0));
+	background-image: linear-gradient(180deg, rgba(244, 246, 248,1) 33%, rgba(255,255,255,0));
 }
 .next {
 	bottom: 0px;
-	background-image: linear-gradient(to top, rgba(244, 246, 248,1), rgba(255,255,255,0));
+	background-image: linear-gradient(0deg, rgba(244, 246, 248,1) 33%, rgba(255,255,255,0));
 }
 
 .previous .arrow, .next .arrow {
@@ -146,31 +148,31 @@ export default {
 	box-sizing: border-box;
 	padding: 0px;
 	top: 10px;
-	width: 50px;
-	height: 50px;
+	width: 60px;
+	height: 60px;
 	background-color: rgb(255,255,255);
-	box-shadow: 0px 3px 5px -3px rgba(0,0,0,.25);
+	/* box-shadow: 0px 3px 5px -3px rgba(0,0,0,.25); */
 	border-radius: 50%;
 	transition: all .25s;
 }
 .previous:hover .arrow, .next:hover .arrow {
-	box-shadow: 0px 8px 12px -5px rgba(0,0,0,.5);
+	box-shadow: 0px 8px 12px -5px rgba(0,0,0,.35);
 }
 .arrow-stem {
 	position: absolute;
 	left: 50%;
-	bottom: 16px;
+	bottom: 19px;
 	transform: translateX(-50%);
 	background-color: rgb(110, 110, 110);
 	width: 2px;
-	height: 20px;
+	height: 22px;
 	border-radius: 1px;
 	transition: all .25s;
 }
 .arrow-head {
 	position: absolute;
 	left: 50%;
-	bottom: 17px;
+	bottom: 20px;
 	border-color: rgb(110, 110, 110);
 	width: 18px;
 	height: 18px;
@@ -181,28 +183,28 @@ export default {
 	transition: all .25s;
 }
 .next:hover .arrow-stem {
-	bottom: 10px;
-	height: 26px;
+	bottom: 13px;
+	height: 28px;
 	background-color: rgb(64, 64, 64);
 }
 .next:hover .arrow-head {
-	bottom: 11px;
+	bottom: 14px;
 	border-color: rgb(64, 64, 64);
 }
 .previous .arrow-stem {
-	top: 16px;
+	top: 19px;
 }
 .previous .arrow-head {
-	top: 17px;
+	top: 20px;
 	border-width: 2px 0px 0px 2px;
 }
 .previous:hover .arrow-stem {
-	top: 10px;
-	height: 26px;
+	top: 13px;
+	height: 28px;
 	background-color: rgb(64, 64, 64);
 }
 .previous:hover .arrow-head {
-	top: 11px;
+	top: 14px;
 	border-color: rgb(64, 64, 64);
 }
 
@@ -217,47 +219,50 @@ export default {
 	position: relative;
 	scroll-behavior : smooth;
 }
-
 li {
-	padding: 3px 0px;
+	padding: 0px;
 	position: relative;
 	display: block;
 	width: 100%;
 	color: rgb(56,56,56);
 }
-
 input {
 	display: none;
 	position: relative;
 }
-
 label {
 	background-color: rgb(255,255,255);
-	opacity: .25;
+	opacity: .2;
 	cursor: pointer;
 	margin: 0px;
-	padding: 30px 45px;
+	padding: 35px 40px;
 	display: block;
-	border-radius: 3px;
-	box-shadow: 0px 3px 8px -5px rgba(0,0,0,.5);
 	position: relative;
 	transition: all .25s ease;
 	transform: scale(.96);
+	border-radius: 3px;
+	border-left: 3px solid black;
 }
 label:hover {
-	opacity: .5;
+	opacity: .8;
 }
 input:checked+label {
 	cursor: default;
 	transform: scale(1);
 	opacity: 1;
+	box-shadow: 0px 3px 8px -5px rgba(0,0,0,.5);
 }
 label.isEnabled {
-	opacity: .65;
+	opacity: .7;
 }
-
+h5 {
+	font-size: 20px;
+	font-weight: 500;
+	margin: 0px;
+	padding: 0px;
+}
 p {
-	font-size: 14px;
-	line-height: 1.4em;
+	font-size: 15px;
+	line-height: 1.5em;
 }
 </style>

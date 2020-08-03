@@ -10,7 +10,8 @@
 							:colorReference="colors"/>
 					</div>
 					<div id="timelist-initiatives-container">
-						<TimeList :dataArray="sortedInitiatives" />
+						<TimeList :dataArray="sortedInitiatives"
+						:colorReference="colors"/>
 					</div>
 				</div>
 				<div id="scroll-line-initiatives-container">
@@ -191,10 +192,10 @@ export default {
 	box-sizing: content-box;
 	position: absolute;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
 	z-index: 500;
 	overflow: hidden;
-	font-size: 34px;
+	font-size: 42px;
 	line-height: 1em;
 	height: 1em;
 	padding: 3px;
@@ -206,12 +207,12 @@ export default {
 	user-select: none;
 	position: relative;
 	text-align: left;
-	padding: 0px;
+	padding: 2px 5px 0px 5px;
 	margin: 0px;
-	font-weight: 300;
-	color: rgb(65, 65, 65);
-	background-color: rgba(255,255,255,.5);
-	border-radius: 4px;
+	font-weight: 400;
+	color: rgb(64, 64, 64);
+	background-color: rgba(255,255,255,.65);
+	border-radius: 3px;
 }
 .date-forward-enter-active,
 .date-forward-leave-active,
@@ -247,6 +248,8 @@ export default {
 	flex-direction: row;
 	flex: 1;
 	overflow: hidden;
+	box-shadow: 2px 10px 22px -12px rgba(0,0,0,.5);
+	border-radius: 12px;
 }
 #timelist-initiatives-container {
 	display: inline-block;
@@ -254,7 +257,6 @@ export default {
 	width: 40%;
 	min-width: 400px;
 	overflow: hidden;
-	border-radius: 12px;
 }
 #carte-initiatives-container {
 	border-radius: 12px;
