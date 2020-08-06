@@ -12,7 +12,6 @@ import * as geojsonMerge from '@mapbox/geojson-merge'
 
 export default {
 	props: {
-		//orderReference: Object,
 		colorReference: Object
 	},
 	data() {
@@ -75,16 +74,16 @@ export default {
 			} else if (feature.properties.style=='overlay') {
 				return 1
 			} else {
-				return .1
+				return .05
 			}
 		},
 		strokeColor(feature, color) {
 			if (feature.geometry.type.includes('LineString')) {
 				return color
-			} else if (feature.properties.style=='overlay') {
+			} else if (feature.properties.style=='overlay'||feature.properties.style=='largeDot') {
 				return color
 			} else {
-				return 'white'
+				return 'black'
 			}
 		},
 		initMap() {
@@ -104,13 +103,15 @@ export default {
 					return {
 						stroke: true,
 						weight: this.strokeWeight(feature),
-						opacity: feature.geometry.type.includes('LineString')? 1 : .5,
 						fill: !feature.geometry.type.includes('LineString')? true : false,
-						fillOpacity: 1,
+						interactive: false,
+						// initial: transparent
+						opacity: 0,
+						fillOpacity: 0,
 					}
 				},
 				pointToLayer: (feature, latlng) => {
-					return L.circle(latlng, { radius:100, fillOpacity:1 })
+					return L.circle(latlng, { radius: feature.properties.style=='largeDot'? 30000:100, fillOpacity:1 })
 				}
 			}).addTo(this.map)
 		},
@@ -128,9 +129,9 @@ export default {
 							opacity: 1,
 							// fill
 							fillColor: theColor,
-							fillOpacity: (layer.feature.properties.style!=undefined && layer.feature.properties.style=="overlay")? .5 : 1,
+							fillOpacity: (layer.feature.properties.style!=undefined && (layer.feature.properties.style=='overlay' || layer.feature.properties.style=='largeDot'))? .5 : 1,
 							// markers
-							radius: 3.5,
+							//radius: 3.5,
 						})
 						layer.bringToFront()
 					} else {
@@ -186,6 +187,7 @@ export default {
 	overflow: hidden;
 	width: 100%;
 	height: 100%;
+	background-color: rgb(212,218,220);
 }
 #carte-initiatives path {
 	transition: all 2s;

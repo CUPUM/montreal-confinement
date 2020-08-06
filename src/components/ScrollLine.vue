@@ -70,7 +70,7 @@ export default {
 			return allDates
 		},
 		labelDateString() {
-			if (this.dateForLabel == (undefined || null)) {
+			if (this.dateForLabel==undefined || this.dateForLabel==null) {
 				return null
 			} else {
 				return this.dateForLabel.toLocaleDateString('fr-CA', {month: 'long', day: 'numeric'})
@@ -105,7 +105,7 @@ export default {
 			return {padding: {left: relleft+'%', right: relright+'%'}, width: relwidth+'%'}
 		},
 		datePos(date) {
-			if (date == (undefined || null)) {
+			if (date==undefined || date==null) {
 				return null
 			} else { 
 				return ((date.getTime() - this.startDate.getTime()) * (100/this.timeSpan))+'%'

@@ -4,8 +4,8 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"initiativeDate": "4/15/20",
-				"initiativeID": 7,
+				"initiativeDate": ["4/15/20", "4/26/20"],
+				"initiativeID": [7, 50],
 				"style": "small"
 			},
 			"geometry": {
@@ -2490,10 +2490,6 @@
 					[
 						-73.70748996734619,
 						45.552535045101045
-					],
-					[
-						0,
-						0
 					]
 				]
 			}

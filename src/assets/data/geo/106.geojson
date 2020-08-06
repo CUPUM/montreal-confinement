@@ -1,0 +1,34 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"initiativeDate": "4/6/20",
+				"initiativeID": 106,
+				"style": "largeDot"
+			},
+			"geometry": {
+				"type": "MultiPoint",
+				"coordinates": [
+					[
+						-123.0413818359375,
+						49.25346477497736
+					],
+					[
+						-75.69030761718749,
+						45.41773242370463
+					],
+					[
+						-114.06005859375,
+						51.05520733858494
+					],
+					[
+						-81.24938964843749,
+						42.984558134256076
+					]
+				]
+			}
+		}
+	]
+}

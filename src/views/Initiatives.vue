@@ -6,8 +6,7 @@
 			<div id="initiatives-inner-container">
 				<div id="initiatives-top-container">
 					<div id="carte-initiatives-container">
-						<Carte :orderReference="entriesOrder"
-							:colorReference="colors"/>
+						<Carte :colorReference="colors"/>
 					</div>
 					<div id="timelist-initiatives-container">
 						<TimeList :dataArray="sortedInitiatives"
@@ -24,8 +23,19 @@
 				</div>
 				<div class="title-date-container">
 					<transition :name="'date-'+changeDirection" mode="out-in">
-						<div class="title-date" :key="this.dateTitle(runningDate).replace(' ','')">{{ this.dateTitle(runningDate) }}</div>
+						<div class="title-date" :key="this.dateTitle(runningDate).replace(' ','')">
+							{{ this.dateTitle(runningDate) }}
+						</div>
 					</transition>
+					<!-- <template v-for="(char,i) in this.dateTitle(runningDate).split('')">
+						<transition :key="char+'-transition-'+i" :name="'date-'+changeDirection" mode="out-in">
+							<div class="title-date"
+								:key="char+'-'+i"
+								:style="{'transition-delay': 'all '+i*.05+'s'}">
+								{{ char==' '?'.':char }}
+							</div>
+						</transition>
+					</template> -->
 				</div>
 			</div>
 		</div>
@@ -94,15 +104,6 @@ export default {
 			})
 			return Object.freeze(sorted)
 		},
-		entriesOrder() {
-			// var bareEntries = {};
-			// var index = 0;
-			// this.sortedInitiatives.forEach(entry => {
-			// 	bareEntries[entry.id] = index++
-			// })
-			// return bareEntries
-			return {place: 'holder'}
-		},
 		dates() {
 			const arrLength = this.sortedInitiatives.length;
 			const startDate = new Date(this.sortedInitiatives[0].date)
@@ -153,8 +154,8 @@ export default {
 	},
 	mounted() {
 		this.$vuebar.initScrollbar(this.$refs.vbar)
-		this.setRunningInitiative(this.sortedInitiatives[0].id)
-		this.setRunningDate(this.sortedInitiatives[0].date)
+		//this.setRunningInitiative(this.sortedInitiatives[0].id)
+		//this.setRunningDate(this.sortedInitiatives[0].date)
 	},
 	watch: {
 	},
@@ -195,23 +196,25 @@ export default {
 	letter-spacing: 2px;
 	z-index: 500;
 	overflow: hidden;
-	font-size: 42px;
+	font-size: 32px;
 	line-height: 1em;
-	height: 1em;
+	height: 1.2em;
 	padding: 3px;
 	margin: 30px 35px;
+	text-align: left;
 }
 .title-date {
 	display: inline-block;
 	white-space: nowrap;
 	user-select: none;
 	position: relative;
-	text-align: left;
-	padding: 2px 5px 0px 5px;
-	margin: 0px;
-	font-weight: 400;
-	color: rgb(64, 64, 64);
-	background-color: rgba(255,255,255,.65);
+	padding: .1em 5px .1em 8px;
+	text-align: center;
+	/* width: 1em; */
+	margin: 0px 1px 0px 0px;
+	font-weight: 300;
+	color: rgb(53, 53, 53);
+	background-color: rgba(252, 252, 252, 0.932);
 	border-radius: 3px;
 }
 .date-forward-enter-active,

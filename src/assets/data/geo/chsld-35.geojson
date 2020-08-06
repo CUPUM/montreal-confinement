@@ -4,8 +4,8 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"initiativeID": 35,
-				"initiativeDate": "4/21/20"
+				"initiativeID": [35, 99],
+				"initiativeDate": ["4/21/20", "5/6/20"]
 			},
 			"geometry": {
 				"type": "MultiPoint",

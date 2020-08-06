@@ -22,7 +22,7 @@
 				</li>
 			</ul>
 		</div>
-		<div @click="previous" class="previous" :class="{'disabled': currentIndex==0}">
+		<div @click="previous" class="previous" :class="{'disabled': currentIndex<=0}">
 			<div class="arrow">
 				<div class="arrow-stem"></div>
 				<div class="arrow-head"></div>
@@ -34,6 +34,13 @@
 				<div class="arrow-head"></div>
 			</div>
 		</div>
+		<transition name="opening">
+			<div class="opener" @click="begin" v-if="runningDate==null">
+				<p>
+					<b>Cliquez ici</b> pour débuter la navigation à travers les items rencensés lors de la revue de presse.
+				</p>
+			</div>
+		</transition>
 	</div>
 </template>
 
@@ -48,7 +55,7 @@ export default {
 	data() {
 		return {
 			listHeight: Number,
-			currentIndex: Number
+			currentIndex: Number,
 		}
 	},
 	computed: {
@@ -71,6 +78,10 @@ export default {
 	methods: {
 		onResize() {
 			this.listHeight = document.getElementById('timelist').clientHeight;
+		},
+		begin() {
+			mutations.setRunningInitiative(this.dataArray[0].id)
+			mutations.setRunningDate(this.dataArray[0].date)
 		},
 		next() {
 			if (parseInt(this.currentIndex,10) < (this.dataArray.length-1)) {
@@ -117,6 +128,41 @@ export default {
 	height: 100%;
 	position: relative;
 }
+.opener {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-color: rgb(244, 246, 248);
+	cursor: pointer;
+	top: 0px;
+	display: flex;
+	align-items: center;
+}
+.opener p {
+	color: rgb(82,82,82);
+	display: block;
+	position: relative;
+	font-size: 20px;
+	font-weight: 400;
+	padding: 20px 25px;
+	transition: all .25s;
+	border-radius: 12px;
+	background-color: transparent;
+	margin: 70px;
+	line-height: 1.5em;
+}
+.opener:hover p {
+	transform: translateY(-8px);
+	background-color: white;
+}
+.opening-enter-active,
+.opening-leave-active {
+	transition: all .3s ease-in-out;
+}
+.opening-enter,
+.opening-leave-to {
+	height: 0px;
+}
 
 .next, .previous {
 	cursor: pointer;
@@ -129,7 +175,7 @@ export default {
 }
 .disabled {
 	pointer-events: none;
-	opacity: .25;
+	opacity: .15;
 	cursor: default;
 }
 .previous {
@@ -235,7 +281,7 @@ label {
 	opacity: .2;
 	cursor: pointer;
 	margin: 0px;
-	padding: 35px 40px;
+	padding: 35px 45px;
 	display: block;
 	position: relative;
 	transition: all .25s ease;
@@ -243,9 +289,9 @@ label {
 	border-radius: 3px;
 	border-left: 3px solid black;
 }
-label:hover {
+/* label:hover {
 	opacity: .8;
-}
+} */
 input:checked+label {
 	cursor: default;
 	transform: scale(1);
@@ -256,10 +302,11 @@ label.isEnabled {
 	opacity: .7;
 }
 h5 {
-	font-size: 20px;
-	font-weight: 500;
+	font-size: 18px;
+	font-weight: 600;
 	margin: 0px;
 	padding: 0px;
+	line-height: 1.35em;
 }
 p {
 	font-size: 15px;
