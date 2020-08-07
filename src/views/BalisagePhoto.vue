@@ -5,6 +5,7 @@
 		<div class="gallery-container">
 			<div v-for="pic in pics" :key="pic.index" class="image-container" @click.stop="ouverte=pic">
 				<div class="image" v-lazy:background-image="pic.path"></div>
+				<div v-if="Desc[pic.filename]!=''" class="desc">{{ Desc[pic.filename] }}</div>
 			</div>
 			<!-- <div v-for="pic in pics" :key="pic.index" class="image-container" @click.stop="ouverte=pic">
 				<img v-lazy="pic.path">
@@ -20,6 +21,9 @@
 				<div class="lightbox-inner">
 					<transition appear :name="slideDirection" mode="out-in">
 						<img v-lazy="ouverte.path" alt="" :key="ouverte.index+'img'">
+					</transition>
+					<transition appear :name="slideDirection" mode="out-in">
+						<div v-if="Desc[ouverte.filename]!=''" class="desc" :key="ouverte.index+'desc'">{{ Desc[ouverte.filename] }}</div>
 					</transition>
 				</div>
 				<div class="next" @click.stop="nextPic()">
@@ -39,6 +43,7 @@
 
 <script>
 import ChapterNav from '@/components/ChapterNav'
+import Descriptions from '@/assets/photos/descriptions.json'
 
 export default {
 	name: 'BalisagePhoto',
@@ -49,16 +54,21 @@ export default {
 		return {
 			pics: [],
 			ouverte: null,
-			slideDirection: 'slide-next'
+			slideDirection: 'slide-next',
 		}
 	},
 	computed: {
+		Desc() {
+			return Descriptions
+		}
 	},
 	methods: {
 		importAll(r) {
 			var index = 0
 			r.keys().forEach(subpath => {
+				console.log(subpath)
 				this.pics.push({
+					filename: subpath.replace('./',''),
 					path: r(subpath),
 					index: index++
 				})
@@ -83,6 +93,7 @@ export default {
 	},
 	mounted() {
 		this.importAll(require.context('../assets/photos/', true, /\.(?:jpg|jpeg|gif|png)$/))
+		console.log(Descriptions)
 	},
 	activated() {
 		this.$vuebar.refreshScrollbar(this.$refs.vbar)
@@ -114,19 +125,18 @@ export default {
 	max-width: 750px;
 	height: 400px;
 	margin: 0px;
-	padding: 0px;
+	padding: 2px;
 	overflow: hidden;
-	border-radius: 2px;
 	transition: all .25s ease-in-out;
 	/* box-shadow: 1px 3px 5px -3px rgba(0,0,0,.5); */
 }
 .gallery-container:hover .image-container {
-	opacity: .75;
+	opacity: .25;
 }
 .gallery-container:hover .image-container:hover {
-	transition: all .2s;
+	transition: all .25s;
 	opacity: 1;
-	transform: translateY(-5px);
+	/* transform: translateY(-5px); */
 }
 .image-container .image {
 	border: 0;
@@ -140,6 +150,7 @@ export default {
 	width: 100%;
 	height: 100%;
 	transition: all .5s ease-in-out;
+	border-radius: 2px;
 }
 /* .image-container .image:after {
 	position: absolute;
@@ -189,6 +200,28 @@ img[lazy=loading] {
 img[lazy=loaded] {
 	height: 100%;
 } */
+
+.image-container .desc {
+	opacity: 0;
+	text-align: left;
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	bottom: 0px;
+	background-color: rgba(255, 255, 255, 0.98);
+	color: rgb(54, 54, 54);
+	font-weight: 400;
+	font-size: 15px;
+	padding: 8px 15px;
+	transform: translateY(100%);
+	transition: all .25s ease-in-out;
+	line-height: 1.35em;
+	border-radius: 1px;
+}
+.image-container:hover .desc {
+	opacity: 1;
+	transform: translateY(0%);
+}
 
 .lightbox {
 	display: flex;
@@ -297,6 +330,20 @@ img[lazy=loaded] {
 	border-radius: 2px;
 	box-shadow: 2px 12px 25px -10px rgba(0,0,0,.5);
 }
+.lightbox-inner .desc {
+	position: absolute;
+	color: rgb(54, 54, 54);
+	font-weight: 400;
+	font-size: 15px;
+	padding: 8px 15px;
+	border-radius: 2px;
+	background-color: rgba(247, 248, 249, 0.95);
+	bottom: 0px;
+	transition: all .5s;
+}
+/* .lightbox-inner img:hover + .desc {
+	opacity: .2;
+} */
 .slide-next-enter-active,
 .slide-next-leave-active,
 .slide-prev-enter-active,

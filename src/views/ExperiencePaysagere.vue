@@ -35,7 +35,8 @@
 			<div class="schema-inner">
 				<h4>Identité conceptuelle des paysages urbains montréalais</h4>
 				<div class="svg-outer">
-					<SchemaConceptuel :chartID="'testDiagram'" v-on:opentab="respondTab"/>
+					<!-- <SchemaConceptuel :chartID="'testDiagram'" v-on:opentab="respondTab"/> -->
+					<SchemaPaysage v-on:opentab="respondTab" :active="this.detailOpen"/>
 				</div>
 			</div>
 		</div>
@@ -51,14 +52,16 @@
 <script>
 import PageTitle from '@/components/PageTitle'
 import ChapterNav from '@/components/ChapterNav'
-import SchemaConceptuel from "@/components/SchemaConceptuel"
+//import SchemaConceptuel from "@/components/SchemaConceptuel"
+import SchemaPaysage from "@/components/SchemaPaysage"
 
 export default {
 	name: 'ExperiencePaysagere',
 	components: {
 		PageTitle,
 		ChapterNav,
-		SchemaConceptuel
+		//SchemaConceptuel
+		SchemaPaysage
 	},
 	data() {
 		return {
@@ -90,7 +93,8 @@ export default {
 	display: flex;
 	flex-direction: row;
 	margin: 55px 90px;
-	height: 800px;
+	/* height: 800px; */
+	height: 600px;
 }
 .schema-inner {
 	box-sizing: border-box;
@@ -99,7 +103,8 @@ export default {
 	flex-direction: column;
 	flex: 1;
 	box-shadow: 2px 12px 25px -10px rgba(0,0,0,.5);
-	background: white;
+	/* background: white; */
+	background-color: rgb(245, 246, 249);
 	border-radius: 12px;
 	overflow: hidden;
 	position: relative;
