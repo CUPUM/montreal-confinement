@@ -3,7 +3,7 @@
 		<ul @mouseleave="dateLeave()">
 			<div class="progress-line" :style="{
 				width: datePos(this.dateForLabel),
-				backgroundColor: this.dateForLabel!=undefined? colorReference[this.dateForLabel.getTime()] : colorReference[this.startDate.getTime()]
+				background: this.dateForLabel!=undefined? 'linear-gradient(90deg, '+colorReference[this.startDate.getTime()]+' 0%, '+colorReference[this.dateForLabel.getTime()]+' 100%)' : colorReference[this.startDate.getTime()]
 			}"></div>
 			<div v-for="(day,i) in daysAxis" :key="i+'_mark'" class="mark" :style="{left: datePos(day)}"></div>
 			<div class="date-label" :style="{left: datePos(this.dateForLabel)}">{{ labelDateString }}</div>

@@ -5,7 +5,14 @@
 		<div class="gallery-container">
 			<div v-for="pic in pics" :key="pic.index" class="image-container" @click.stop="ouverte=pic">
 				<div class="image" v-lazy:background-image="pic.path"></div>
-				<div v-if="Desc[pic.filename]!=''" class="desc">{{ Desc[pic.filename] }}</div>
+				<div v-if="Desc[pic.filename]!=''" class="desc">
+					<div class="date">
+						{{ Desc[pic.filename].split(' // ')[0] }}
+					</div>
+					<div class="text">
+						{{ Desc[pic.filename].split(' // ')[1] }}
+					</div>
+				</div>
 			</div>
 			<!-- <div v-for="pic in pics" :key="pic.index" class="image-container" @click.stop="ouverte=pic">
 				<img v-lazy="pic.path">
@@ -23,7 +30,15 @@
 						<img v-lazy="ouverte.path" alt="" :key="ouverte.index+'img'">
 					</transition>
 					<transition appear :name="slideDirection" mode="out-in">
-						<div v-if="Desc[ouverte.filename]!=''" class="desc" :key="ouverte.index+'desc'">{{ Desc[ouverte.filename] }}</div>
+						<div v-if="Desc[ouverte.filename]!=''" class="desc" :key="ouverte.index+'desc'">
+							<span class="date">
+								{{ Desc[ouverte.filename].split(' // ')[0] }}
+							</span>
+							<span class="text">
+								&emsp;&ndash;&emsp;
+								{{ Desc[ouverte.filename].split(' // ')[1] }}
+							</span>
+						</div>
 					</transition>
 				</div>
 				<div class="next" @click.stop="nextPic()">
@@ -209,14 +224,24 @@ img[lazy=loaded] {
 	left: 0px;
 	bottom: 0px;
 	background-color: rgba(255, 255, 255, 0.98);
-	color: rgb(54, 54, 54);
+	color: rgb(80, 80, 80);
 	font-weight: 400;
-	font-size: 15px;
-	padding: 8px 15px;
+	font-size: 13px;
+	padding: 8px 18px 12px 18px;
 	transform: translateY(100%);
 	transition: all .25s ease-in-out;
 	line-height: 1.35em;
 	border-radius: 1px;
+}
+.desc .date {
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: 600;
+	position: relative;
+	color: rgb(27, 27, 27);
+}
+.desc .text {
+	position: relative;
 }
 .image-container:hover .desc {
 	opacity: 1;
@@ -235,6 +260,7 @@ img[lazy=loaded] {
 	top: 0px;
 	background-color: rgba(244, 246, 248,.94);
 	overflow: hidden;
+	z-index: 100;
 }
 .lightbox-enter-active,
 .lightbox-leave-active {
@@ -334,11 +360,12 @@ img[lazy=loaded] {
 	position: absolute;
 	color: rgb(54, 54, 54);
 	font-weight: 400;
-	font-size: 15px;
-	padding: 8px 15px;
-	border-radius: 2px;
-	background-color: rgba(247, 248, 249, 0.95);
-	bottom: 0px;
+	font-size: 14px;
+	padding: 8px 18px;
+	border-radius: 3px;
+	background-color: rgb(245, 245, 247);
+	box-shadow: 0px 5px 15px -8px rgba(0,0,0,.5);
+	bottom: -20px;
 	transition: all .5s;
 }
 /* .lightbox-inner img:hover + .desc {

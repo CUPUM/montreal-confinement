@@ -4,7 +4,7 @@
 	<div id="humain" class="view-scroll">
 		<PageTitle/>
 		<div class="center-col">
-			<h3>L'humain en qualificatifs</h3>
+			<!-- <h3>L'humain en qualificatifs</h3> -->
 			<p>Le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Piéton']}">piéton</span>, le <em>citadin</em> et le <em>travailleur</em> constituent les deux figures dominantes qui ressortent de cette analyse. L’<em>enfant</em> et l’<em>itinérant</em> restent une préoccupation importante tout comme le <em>cycliste</em> vis-à-vis de l’espace public. Il est également intéressant de remarquer l’absence de certains groupes sociaux, comme les autochtones et les personnes racisées (et/ou immigrantes) dans les contenus médias. Le genre (homme et femme), l’aîné et l’automobiliste constituent des termes secondaires vis-à-vis de l’espace public montréalais.</p>
 		</div>
 

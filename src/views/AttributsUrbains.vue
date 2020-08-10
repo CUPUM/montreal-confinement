@@ -90,7 +90,7 @@
 											{{'\xa0'}}: {{ quote.mot }}
 										</h5>
 										<template v-for="(q,index) in quote.citation">
-											<p :key="index+quote.date+quote.mot+'-quote'">«{{'\xa0'}}{{ q.text }}{{'\xa0'}}»</p>
+											<p :key="index+quote.date+quote.mot+'-quote'">«{{'\xa0'}}{{ q.text.replace(/^\"|\"$/g, '').replace(/«/g, '‘‘').replace(/»/g, '’’') }}{{'\xa0'}}»</p>
 											<a :key="index+quote.date+quote.mot+'-ref'" :href="q.source" target="_blank">Réf{{'\xa0'}}&#x1f855;</a>
 										</template>
 									</div>

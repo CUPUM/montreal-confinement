@@ -116,8 +116,8 @@ export default {
 			return {start:startDate, end:endDate, uniques:eventDates, all:allDates}
 		},
 		colors() {
-			const colMin = 80
-			const colMax = 355
+			const colMin = 355
+			const colMax = 80
 			const colRange = colMax - colMin
 			const datesMin = this.dates.start.getTime()
 			const datesMax = this.dates.end.getTime()
