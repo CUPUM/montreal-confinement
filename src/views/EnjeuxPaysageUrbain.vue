@@ -5,7 +5,7 @@
 		<PageTitle/>
 		<div class="center-col">
 			<p>Les enjeux du paysage urbain montr&eacute;alais de la phase de confinement ont &eacute;t&eacute; document&eacute;s afin d&rsquo;apporter des r&eacute;ponses face &agrave; un ensemble de pr&eacute;occupations envers l&rsquo;espace public. Pour y arriver, il a &eacute;t&eacute; convenu de documenter ces enjeux en analysant les contenus des m&eacute;dias montr&eacute;alais du 13 mars au 16 mai 2020.</p>
-			<p>Cette section pr&eacute;sente les r&eacute;sultats de cette analyse de veille informationnelle. L&rsquo;&eacute;chantillonnage des articles pour cette veille a &eacute;t&eacute; effectu&eacute; &agrave; partir de douze (12) sources d&rsquo;informations qu&eacute;b&eacute;coises et montr&eacute;alaises (de langues fran&ccedil;aise et anglaise) regroup&eacute;es en quatre (4) groupes{{'\xa0'}}:
+			<p>Cette section pr&eacute;sente les r&eacute;sultats de cette analyse de veille informationnelle. L&rsquo;&eacute;chantillonnage des articles pour cette veille a &eacute;t&eacute; effectu&eacute; &agrave; partir de douze (12) sources d&rsquo;informations québécoises et montréalaises (de langues fran&ccedil;aise et anglaise) regroup&eacute;es en quatre (4) groupes{{'\xa0'}}:
 			</p>
 			<p>
 				<ol>
@@ -15,7 +15,7 @@
 					<li>magazines en ligne.</li>
 				</ol>
 			</p>
-			<p>&Agrave; partir des diverses sources, cet &eacute;chantillonnage a permis de s&eacute;lectionner 163 articles qui traitaient des enjeux de la CUPUM et de l&rsquo;UNESCO (SHS) pour mener &agrave; terme sa veille informationnelle. L&rsquo;ensemble de ces articles a &eacute;t&eacute; analys&eacute; &agrave; partir du logiciel de tableur <i>Excel</i> pour en ressortir des donn&eacute;es qualitatives alors que le logiciel de traitement de donn&eacute;es <i>Atlas.ti</i> a permis de d&eacute;nombrer des donn&eacute;es quantitatives.</p>
+			<p>À partir des diverses sources et d’un flux RSS, un échantillonnage de 163 articles a été sélectionné en fonction des mots-clés tirés des questionnements et enjeux sur lesquels la CUPUM et l’UNESCO (SHS) se penchent pour mener à terme sa veille informationnelle. Une fois les articles repérés, une analyse qualitative soulevant les informations de base (titre, date, auteur, type d’article, résumé) et les enjeux abordés (questionnements et mots-clés) de chaque article a été comptabilisée dans un chiffrier. En amont, le logiciel de traitement de données <i>Atlas.ti</i> a permis de dénombrer des données quantitatives sur la veille informationnelle pour tirer des constats sur les attributs urbains (automobile, commerce, parc, rue, ville). </p>
 			<p>Cette analyse repose sur les sources de donn&eacute;es suivantes, soient{{'\xa0'}}:</p>
 			<p>
 				<ul>
@@ -58,10 +58,10 @@
 				</ul>
 			</p>
 			<p>Les recherches de la veille informationnelle se s&eacute;parent en 4 sous-sections pr&eacute;sentant les analyses et r&eacute;sultats de mani&egrave;re qualitatives, quantitatives et graphiques.</p>
-			<p>La sous-section <router-link tag="a" class="reference-link" :to="{name: routerDestination(4,1).name}">{{ routeLabel(4,1) }}</router-link> introduit une analyse qualitative &eacute;crite sur les principaux questionnements pos&eacute;s par la CUPUM au cours du confinement de la COVID-19.</p>
-			<p>Quant &agrave; la section suivante (<router-link tag="a" class="reference-link" :to="{name: routerDestination(4,2).name}">{{ routeLabel(4,2) }}</router-link>), elle propose &agrave; l&rsquo;aide d&rsquo;outils graphiques une analyse quantitative des occurrences des attributs urbains rep&eacute;r&eacute;s dans l&rsquo;&eacute;chantillonnage.</p>
-			<p>Puis, la section <router-link tag="a" class="reference-link" :to="{name: routerDestination(4,3).name}">{{ routeLabel(4,3) }}</router-link> offre une vision globale et territoriale de Montr&eacute;al au temps du confinement de la COVID-19 en identifiant g&eacute;ographiquement et chronologiquement les initiatives mises en place.</p>
-			<p>En d&eacute;finitive, la derni&egrave;re section (<router-link tag="a" class="reference-link" :to="{name: routerDestination(4,4).name}">{{ routeLabel(4,4) }}</router-link>) s&rsquo;ouvre sur une analyse graphique quantitative des occurrences des qualificatifs de l&rsquo;humain mettant en lumi&egrave;re sa place dans Montr&eacute;al lors du confinement.</p>
+			<p>La sous-section <router-link tag="a" class="reference-link" :to="{name: routerDestination(4,1).name}" v-html="routeLabel(4,1)"></router-link> introduit une analyse qualitative &eacute;crite sur les principaux questionnements pos&eacute;s par la CUPUM au cours du confinement de la COVID-19.</p>
+			<p>Quant &agrave; la section suivante (<router-link tag="a" class="reference-link" :to="{name: routerDestination(4,2).name}" v-html="routeLabel(4,2)"></router-link>), elle propose &agrave; l&rsquo;aide d&rsquo;outils graphiques une analyse quantitative des occurrences des attributs urbains rep&eacute;r&eacute;s dans l&rsquo;&eacute;chantillonnage.</p>
+			<p>Puis, la section <router-link tag="a" class="reference-link" :to="{name: routerDestination(4,3).name}" v-html="routeLabel(4,3)"></router-link> offre une vision globale et territoriale de Montr&eacute;al au temps du confinement de la COVID-19 en identifiant g&eacute;ographiquement et chronologiquement les initiatives mises en place.</p>
+			<p>En d&eacute;finitive, la derni&egrave;re section (<router-link tag="a" class="reference-link" :to="{name: routerDestination(4,4).name}" v-html="routeLabel(4,4)"></router-link>) s&rsquo;ouvre sur une analyse graphique quantitative des occurrences des qualificatifs de l&rsquo;humain mettant en lumi&egrave;re sa place dans Montr&eacute;al lors du confinement.</p>
 
 			<ChapterNav :previous="true" :next="true" />
 		</div>
@@ -92,7 +92,7 @@ export default {
 			var routeEl = this.routerDestination(chapter, subChapter);
 			var num = chapter + (subChapter? '.'+subChapter : '')
 			var title = routeEl.title;
-			return num+' - '+title
+			return num+' - <i>'+title+'</i>'
 		}
 	},
 	activated() {

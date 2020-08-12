@@ -27,7 +27,7 @@
 				</div>
 				<div class="lightbox-inner">
 					<transition appear :name="slideDirection" mode="out-in">
-						<img v-lazy="ouverte.path" alt="" :key="ouverte.index+'img'">
+						<img :src="ouverte.path" alt="" :key="ouverte.index+'img'">
 					</transition>
 					<transition appear :name="slideDirection" mode="out-in">
 						<div v-if="Desc[ouverte.filename]!=''" class="desc" :key="ouverte.index+'desc'">

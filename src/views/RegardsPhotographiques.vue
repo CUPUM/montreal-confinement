@@ -9,8 +9,8 @@
 			<p>Pour se faire, il a &eacute;t&eacute; convenu de r&eacute;pertorier &agrave; travers diverses plateformes num&eacute;riques (<i>Radio-Canada</i>, <i>La Presse</i>, <i>Le Devoir</i>, et <i>Flickr</i>) un ensemble de photographies prises entre le 13 mars et le 24 avril 2020 par des photographes de presse et professionnels. Cet &eacute;chantillonnage de 117 clich&eacute;s photographiques issus de 11 photographes a ensuite &eacute;t&eacute; soumis &agrave; une analyse interpr&eacute;tative. Celle-ci a pris appui sur les travaux de recherche r&eacute;alis&eacute;s sur le paysage montr&eacute;alais (Poullaouec-Gonidec & Paquette, 2011). Sur la base de cette assise conceptuelle, la d&eacute;marche a consist&eacute;{{'\xa0'}}:</p>
 			<p>
 				<ul>
-					<li>&agrave; r&eacute;aliser une grille de lecture paysag&egrave;re d&rsquo;experts qui a permis de qualifier &agrave; travers le regard crois&eacute; de trois chercheurs, le contenu des cadrages photographiques (composition et interpr&eacute;tation) par une analyse descriptive et sensible{{'\xa0'}}: <router-link tag="a" class="reference-link" :to="{name: routerDestination(4,1).name}">{{ routeLabel(4,1) }}</router-link></li>
-					<li>&agrave; d&eacute;finir un concept de paysage urbain porteur d&rsquo;attributs repr&eacute;sentatifs (formes, th&egrave;mes et intentions) qui permet d&rsquo;en qualifier les expressions et impressions{{'\xa0'}}: <router-link tag="a" class="reference-link" :to="{name: routerDestination(4,2).name}">{{ routeLabel(4,2) }}</router-link></li>
+					<li>à analyser les images (composition visuelle, contexte et attributs urbains, présence humaine, ambiance et sentiment, sensation, évocation) à travers les points de vue indépendants de trois experts chercheurs suivi d’une mise en commun des résultats pour présenter qu’un seul regard interprétatif des cadrages photographiques. Cette grille de lecture paysagère présente le contenu des cadrages photographiques (composition et interprétation) par une analyse descriptive et sensible{{'\xa0'}}: <router-link tag="a" class="reference-link" :to="{name: routerDestination(5,1).name}" v-html="routeLabel(5,1)"></router-link></li>
+					<li>à tirer profit d’un modèle conceptuel du paysage urbain pour interpréter l’expérience paysagère issue des cadrages photographiques du confinement{{'\xa0'}}: <router-link tag="a" class="reference-link" :to="{name: routerDestination(5,2).name}" v-html="routeLabel(5,2)"></router-link></li>
 				</ul>
 			</p>
 
@@ -43,7 +43,7 @@ export default {
 			var routeEl = this.routerDestination(chapter, subChapter);
 			var num = chapter + (subChapter? '.'+subChapter : '')
 			var title = routeEl.title;
-			return num+' - '+title
+			return num+' - <i>'+title+'</i>'
 		}
 	},
 	activated() {
