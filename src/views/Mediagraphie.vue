@@ -160,6 +160,9 @@
 				<p>Paulhiac Scherrer, F. (2020, 4 mai). Circuler à Montréal tout en étant "distancié"?. <i>L’actualité</i>. <a class="reference-link" target="_blank" href="https://lactualite.com/societe/circuler-a-montreal-tout-en-etant-distancie/?utm_source=L%E2%80%99actualit%C3%A9&amp;utm_campaign=c5f20acca3-EMAIL_CAMPAIGN_2020_05_05_01_09&amp;utm_medium=email&amp;utm_term=0_f566f03091-c5f20acca3-397197122">Réf{{'\xa0'}}&#x1f855;</a></p>
 				<p>Stréliski, L. (2020, 29 avril). La promesse timide du printemps. <i>L’actualité</i>. <a class="reference-link" target="_blank" href="https://lactualite.com/societe/la-promesse-timide-du-printemps/?utm_campaign=daily&amp;utm_source=newsletter&amp;utm_medium=email&amp;utm_content=article2_button&amp;utm_term=La%2Bpromesse%2Btimide%2Bdu%2Bprintemps">Réf{{'\xa0'}}&#x1f855;</a></p>
 			<h2>Index des photographies</h2>
+				<p v-for="(photo, i) in photos" :key="i">
+					{{ photo['Nom']+', '+abbrev(photo['Prénom'])+' ('+photo['Date']+'). ' }}<i v-if="photo['Titre']!=undefined">{{ photo['Titre'] }} </i><span v-if="photo['Description']!=undefined">[{{ photo['Description'] }}] </span>[image en ligne]. <a class="reference-link" target="_blank" :href="photo['Source générale']">{{ photo['Nom source'] }}{{'\xa0'}}&#x1f855;</a>
+				</p>
 			<h2>Références scientifiques</h2>
 				<p>Domon, G., Paquette, S. et Poullaouec-Gonidec, P. (2005). <i>Paysages en perspectives</i> (1ere éd.). Les Presses de l’Université de Montréal.</p>
 				<p>Paquette, S. et Poullaouec-Gonidec P. (2011). <i>Montréal en paysages</i> (1ere éd.). Les Presses de l’Université de Montréal.</p>
@@ -175,6 +178,7 @@
 <script>
 import PageTitle from '@/components/PageTitle'
 import ChapterNav from '@/components/ChapterNav'
+import PhotoIndex from '@/assets/texts/index-photos.json'
 
 export default {
 	name: 'Mediagraphie',
@@ -184,6 +188,30 @@ export default {
 	},
 	activated() {
 		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+	},
+	data() {
+		return {
+			photos: PhotoIndex.Refs,
+		}
+	},
+	methods: {
+		abbrev(prenom) {
+			var dotted = [];
+			prenom.trim().split(' ').forEach(word => {
+				if ( word.indexOf('-')>0 ) {
+					var hyphend = []
+					word.split('-').forEach(subword => {
+						hyphend.push(subword.slice(0,1)+'.')
+					})
+					dotted.push(hyphend.join(' '))
+				} else {
+					dotted.push(word.slice(0,1)+'.')
+				}
+			})
+			return dotted.join(' ')
+		}
+	},
+	computed: {
 	}
 }
 </script>

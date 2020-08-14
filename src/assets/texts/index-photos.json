@@ -1,0 +1,363 @@
+﻿{
+    "Refs": [
+        {
+            "Prénom": "David",
+            "Nom": "Boily",
+            "Date": "mars 2020",
+            "Description": "Rue de Montréal faiblement achalandée",
+            "Nom source": "La Presse",
+            "Source générale": "https://www.lapresse.ca/covid-19/2020-03-20/les-mesures-d-isolement-sont-benefiques-pour-l-environnement",
+            "Source directe": "https://mobile-img.lpcdn.ca/lpca/924x/r3996/bb9d3c0a-6aae-11ea-b33c-02fe89184577.jpg"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Boily",
+            "Date": "mars 2020",
+            "Description": "Place publique vide au Vieux-Montréal",
+            "Nom source": "La Presse",
+            "Source générale": "https://www.lapresse.ca/covid-19/2020-03-22/la-crise-vue-par-nos-photographes",
+            "Source directe": "https://mobile-img.lpcdn.ca/lpca/924x/r6db3/1e41d672-6be5-11ea-b33c-02fe89184577.jpg"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 11",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49695126573/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 9",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49687887113/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 26",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49758449857/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 28",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49762928322/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 33",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49790562716/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 39",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49813901047/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 38",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49816806433/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 31",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49811893682/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 30",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49782713922/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 4",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49667161008/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 29",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49778595156/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 2",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49670494683/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 8",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49692481332/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 3",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49678148552/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 20",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49732980237/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 36",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49800106902/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 21",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49739671908/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 40",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49818930978/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "Montréal, 2020",
+            "Description": "Entrée de cour enneigée avec porte à barreaux",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49653582687/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 13",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49705597828/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 10",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49699677892/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "Montréal, 2020",
+            "Description": "Piéton de dos dans une ruelle montréalaise",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49656511957/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 25",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49747982811/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 15",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49709256178/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 14",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49714290926/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 35",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49803471466/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 5",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49673826763/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "Montréal, 2020",
+            "Description": "Piéton sous la pluie traversant une intersection",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49660373187/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 12",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49702381003/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 17",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49722461167/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 19",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49725971442/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 22",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49728958552/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 24",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49744534417/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "mars 2020",
+            "Titre": "cité interdite no. 18",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49750441338/"
+        },
+        {
+            "Prénom": "David",
+            "Nom": "Ouellette",
+            "Date": "avril 2020",
+            "Titre": "cité interdite no. 27",
+            "Nom source": "Flickr",
+            "Source générale": "https://www.flickr.com/photos/douellette/49755020127/"
+        },
+        {
+            "Prénom": "Denis",
+            "Nom": "Wong",
+            "Date": "mars 2020",
+            "Description": "Piéton seul sur le trottoir du boulevard René-Lévesque",
+            "Nom source": "Radio-Canada",
+            "Source générale": "https://ici.radio-canada.ca/reportage-photo/782/covid-19-coronavirus-montreal-centre-ville-abandonne-photos",
+            "Source directe": "https://images.radio-canada.ca/q_auto,w_1250/v1/ici-info/4x3/montreal---abandonne---centre-ville---coronavirus---covid-19---2---sun-life.jpg"
+        },
+        {
+            "Prénom": "Denis",
+            "Nom": "Wong",
+            "Date": "mars 2020",
+            "Description": "Un livreur traverse le boulevard René-Lévesque en poussant un chariot",
+            "Nom source": "Radio-Canada",
+            "Source générale": "https://ici.radio-canada.ca/reportage-photo/782/covid-19-coronavirus-montreal-centre-ville-abandonne-photos",
+            "Source directe": "https://images.radio-canada.ca/q_auto,w_1250/v1/ici-info/4x3/montreal---abandonne---centre-ville---coronavirus---covid-19---4---livreur.jpg"
+        },
+        {
+            "Prénom": "Denis",
+            "Nom": "Wong",
+            "Date": "mars 2020",
+            "Description": "Une personne en fauteuil roulant prend une pause sur un trottoir du quartier chinois",
+            "Nom source": "Radio-Canada",
+            "Source générale": "https://ici.radio-canada.ca/reportage-photo/782/covid-19-coronavirus-montreal-centre-ville-abandonne-photos",
+            "Source directe": "https://images.radio-canada.ca/q_auto,w_1250/v1/ici-info/4x3/montreal---abandonne---centre-ville---coronavirus---covid-19---5---quartier-chinois.jpg"
+        },
+        {
+            "Prénom": "Denis",
+            "Nom": "Wong",
+            "Date": "mars 2020",
+            "Description": "Piéton seul sur une rue déserte du Vieux-Montréal",
+            "Nom source": "Radio-Canada",
+            "Source générale": "https://ici.radio-canada.ca/reportage-photo/782/covid-19-coronavirus-montreal-centre-ville-abandonne-photos",
+            "Source directe": "https://images.radio-canada.ca/q_auto,w_1250/v1/ici-info/4x3/montreal---abandonne---centre-ville---coronavirus---covid-19---7---saint-paul.jpg"
+        },
+        {
+            "Prénom": "Denis",
+            "Nom": "Wong",
+            "Date": "mars 2020",
+            "Description": "Une usagère du transport en commun attend le métro",
+            "Nom source": "Radio-Canada",
+            "Source générale": "https://ici.radio-canada.ca/reportage-photo/782/covid-19-coronavirus-montreal-centre-ville-abandonne-photos",
+            "Source directe": "https://images.radio-canada.ca/q_auto,w_1250/v1/ici-info/4x3/montreal---abandonne---centre-ville---coronavirus---covid-19---8---metro.jpg"
+        },
+        {
+            "Prénom": "Denis",
+            "Nom": "Wong",
+            "Date": "mars 2020",
+            "Description": "Autoroute Ville-Marie",
+            "Nom source": "Radio-Canada",
+            "Source générale": "https://ici.radio-canada.ca/reportage-photo/782/covid-19-coronavirus-montreal-centre-ville-abandonne-photos",
+            "Source directe": "https://images.radio-canada.ca/q_auto,w_1250/v1/ici-info/4x3/montreal---abandonne---centre-ville---coronavirus---covid-19---9---autoroute.jpg"
+        },
+        {
+            "Prénom": "Dominic",
+            "Nom": "Hains"
+        }
+    ]
+}

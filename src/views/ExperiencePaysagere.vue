@@ -94,7 +94,7 @@ export default {
 	flex-direction: row;
 	margin: 55px 90px;
 	/* height: 800px; */
-	height: 600px;
+	height: 750px;
 }
 .schema-inner {
 	box-sizing: border-box;
@@ -104,7 +104,7 @@ export default {
 	flex: 1;
 	box-shadow: 2px 12px 25px -10px rgba(0,0,0,.5);
 	/* background: white; */
-	background-color: rgb(245, 246, 249);
+	background-color: rgb(247, 248, 250);
 	border-radius: 12px;
 	overflow: hidden;
 	position: relative;

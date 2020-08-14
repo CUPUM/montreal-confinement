@@ -1,5 +1,6 @@
 <template>
 	<div id="schema-paysage">
+		<div id="title">Regards photographiques</div>
 		<div class="outline">
 			<div id="gauche-container">
 				<div class="figure" @click="tab('Impressions générales')" :class="{ 'active':active=='Impressions générales' }">
@@ -8,6 +9,7 @@
 				</div>
 			</div>
 			<div id="centre-container">
+				<div id="spine"></div>
 				<div class="attribut-container noselect" @click="tab('Formes')" :class="{ 'active':active=='Formes' }">
 					<div class="arrow"></div>
 					<div class="attribut">
@@ -34,6 +36,7 @@
 				</div>
 			</div>
 		</div>
+		<div id="date">13 mars &mdash; 24 avril</div>
 	</div>
 </template>
 
@@ -63,11 +66,42 @@ export default {
 	width: 100%;
 	height: 100%;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	padding: 20px 50px 50px 50px;
 	box-sizing: border-box;
+}
+#title {
+	display: inline-block;
+	position: relative;
+	font-size: 22px;
+	font-weight: 600;
+	padding-bottom: 30px;
+	color: rgb(56,56,56);
+}
+/* #title::after {
+	content: '';
+	position: absolute;
+	left: 0px;
+	bottom: 28px;
+	width: 100%;
+	height: 3px;
+	background-color: rgb(64,64,64);
+	border-radius: 1px;
+} */
+#date {
+	padding-top: 30px;
+	font-size: 18px;
+	font-weight: 500;
+	color: rgb(64,64,64);
+}
+#spine {
+	position: absolute;
+	width: 2px;
+	top: 50px;
+	bottom: 50px;
+	background-color: rgb(105, 105, 105);
 }
 .outline {
 	display: flex;
@@ -93,11 +127,22 @@ export default {
 }
 .figure {
 	cursor: pointer;
-	font-size: 21px;
-	font-weight: 600;
+	font-size: 20px;
+	font-weight: 500;
 	position: relative;
 	padding: 20px 30px;
 	transition: all .2s;
+}
+.figure::before {
+	content: '';
+	background-color: rgba(0,0,0,.1);
+	width: 165px;
+	height: 165px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
 }
 .figure span {
 	color: rgb(56,56,56);
@@ -208,12 +253,12 @@ export default {
 	transform: translate(0%, -50%) rotate(45deg);
 	border-style: solid;
 	border-color: rgb(105, 105, 105);
-	border-width: 0px 0px 3px 3px;
+	border-width: 0px 0px 2px 2px;
 	border-radius: 1px 2px;
 }
 .arrow::after {
 	transform: translate(-100%, -50%) rotate(45deg);
-	border-width: 3px 3px 0px 0px;
+	border-width: 2px 2px 0px 0px;
 	left: 100%;
 }
 </style>

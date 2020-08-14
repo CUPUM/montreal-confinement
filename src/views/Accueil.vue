@@ -5,7 +5,8 @@
 
 		<transition appear name="splash-image">
 			<div id="splash">
-				<div id="splash-inner" :style="{backgroundImage: `url('${BGpic}')`}">
+				<!-- <div id="splash-inner" :style="{backgroundImage: `url('${BGpic}')`}"> -->
+				<div id="splash-inner" v-lazy:background-image="BGpic">
 					<!-- <div class="img-wrapper">
 						<div class="img-wrapper-inner">
 							<img :src="BGpic" alt="">
@@ -130,6 +131,13 @@ export default {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
+	transition: opacity 1.5s;
+}
+#splash-inner[lazy=loading] {
+	opacity: 0
+}
+#splash-inner[lazy=loaded] {
+	opacity: 1
 }
 .img-wrapper {
 	position: absolute;
