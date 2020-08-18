@@ -2,6 +2,11 @@
 	<div class="meta" >
 	<div class="meta" v-bar ref="vbar">
 	<div id="carte-temporelle-initiatives" class="view-scroll">
+		<PageTitle/>
+		<div class="center-col">
+			<p>Cette section répertorie chronologiquement les initiatives qui ont pris corps sur le territoire montréalais durant la période de confinement de la COVID-19. Sur la base des informations recueillies à travers les articles de presse, les communiqués de presse, les éditoriaux et les chroniques, elle permet de localiser les enjeux sociaux (réf.{{'\xa0'}}: inclusion, dignité humaine, etc.) et de cibler les mesures engagées (réf.{{'\xa0'}}: aménagement public, etc.) par les gouvernements et les acteurs locaux dans le contexte de la COVID-19 et de visualiser leur impact sur le territoire montréalais.</p>
+		</div>
+
 		<div id="initiatives-meta-container">
 			<div id="initiatives-inner-container">
 				<div id="initiatives-top-container">
@@ -49,6 +54,7 @@
 
 <script>
 import ChapterNav from '@/components/ChapterNav'
+import PageTitle from '@/components/PageTitle'
 import TimeList from '@/components/TimeList'
 import Carte from '@/components/Carte'
 import ScrollLine from '@/components/ScrollLine'
@@ -62,7 +68,8 @@ export default {
 		ChapterNav,
 		TimeList,
 		Carte,
-		ScrollLine
+		ScrollLine,
+		PageTitle
 	},
 	data() {
 		Object.freeze(RevuePresse)

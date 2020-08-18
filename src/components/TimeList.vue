@@ -36,6 +36,7 @@
 		</div>
 		<transition name="opening">
 			<div class="opener" @click="begin" v-if="runningDate==null">
+					<!-- <p>Cette section répertorie chronologiquement les initiatives qui ont pris corps sur le territoire montréalais durant la période de confinement de la COVID-19. Sur la base des informations recueillies à travers les articles de presse, les communiqués de presse, les éditoriaux et les chroniques, elle permet de localiser les enjeux sociaux (réf.{{'\xa0'}}: inclusion, dignité humaine, etc.) et de cibler les mesures engagées (réf.{{'\xa0'}}: aménagement public, etc.) par les gouvernements et les acteurs locaux dans le contexte de la COVID-19 et de visualiser leur impact sur le territoire montréalais.</p> -->
 				<p>
 					<b>Cliquez ici</b> pour débuter la navigation à travers les items rencensés lors de la revue de presse.
 				</p>
@@ -136,6 +137,7 @@ export default {
 	cursor: pointer;
 	top: 0px;
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 }
 .opener p {
@@ -148,7 +150,7 @@ export default {
 	transition: all .25s;
 	border-radius: 12px;
 	background-color: transparent;
-	margin: 70px;
+	margin: 75px;
 	line-height: 1.5em;
 }
 .opener:hover p {

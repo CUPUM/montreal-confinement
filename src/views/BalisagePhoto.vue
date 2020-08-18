@@ -2,6 +2,8 @@
 	<div class="meta">
 	<div class="meta" v-bar ref="vbar">
 	<div id="balisage-photo" class="view-scroll" @click="ouverte=null">
+		<PageTitle/>
+
 		<div class="gallery-container">
 			<div v-for="pic in pics" :key="pic.index" class="image-container" @click.stop="ouverte=pic">
 				<div class="image" v-lazy:background-image="pic.path"></div>
@@ -58,12 +60,14 @@
 
 <script>
 import ChapterNav from '@/components/ChapterNav'
+import PageTitle from '@/components/PageTitle'
 import Descriptions from '@/assets/photos/descriptions.json'
 
 export default {
 	name: 'BalisagePhoto',
 	components: {
-		ChapterNav
+		ChapterNav,
+		PageTitle
 	},
 	data() {
 		return {
