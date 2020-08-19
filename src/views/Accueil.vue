@@ -12,6 +12,7 @@
 							<img :src="BGpic" alt="">
 						</div>
 					</div> -->
+					<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 					<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1700 860">
 						<defs>
 							<svg:style type="text/css">
