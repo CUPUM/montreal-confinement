@@ -17,16 +17,13 @@
 						<defs>
 							<svg:style type="text/css">
 								@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@300;600&display=swap'); <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
-								text {
-									font-family: 'Poppins';
-								}
 							</svg:style>
 							<mask id="splash-text-mask" x="0" y="0">
 								<rect x="-10000" y="-10000" width="20000" height="20000" fill="white"/>
-								<text x="0" y="210" class="splash-text">Montréal /</text>
-								<text x="0" y="500" class="splash-text">paysage</text>
-								<text x="0" y="790" class="splash-text">en confinement</text>
-								<text x="1225" y="455" class="splash-text date">13 mars &mdash; 16 mai 2020</text>
+								<text font-family="Poppins" font-size="210" font-weight="600" x="0" y="210" class="splash-text">Montréal /</text>
+								<text font-family="Poppins" font-size="210" font-weight="600" x="0" y="500" class="splash-text">paysage</text>
+								<text font-family="Poppins" font-size="210" font-weight="600" x="0" y="790" class="splash-text">en confinement</text>
+								<text font-family="Poppins" font-size="42" font-weight="300" letter-spacing=".5" x="1225" y="455" class="splash-text date">13 mars &mdash; 16 mai 2020</text>
 							</mask>
 						</defs>
 						<rect x="-10000" y="-10000" width="20000" height="20000" mask="url(#splash-text-mask)" fill="rgb(244, 246, 248)"/>
