@@ -74,7 +74,7 @@ export default {
 .chapter-button:hover {
 	color: white;
 	background-color: rgb(120, 175, 99);
-	box-shadow: 0px 15px 25px -15px rgba(0,0,0,.3);
+	box-shadow: 0px 3px 5px -2px rgba(0,0,0,.3);
 }
 
 /* .next-arrow {

@@ -15,7 +15,7 @@
 					<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1700 860">
 						<defs>
 							<svg:style type="text/css">
-								@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700&display=swap'); <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
+								{{ "@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700&display=swap');" }} <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
 							</svg:style>
 							<mask id="splash-text-mask" x="0" y="0">
 								<rect x="-10000" y="-10000" width="20000" height="20000" fill="white"/>
