@@ -3,7 +3,7 @@ import MiseEnContexte from '../views/MiseEnContexte.vue'
 
 const routes = [
 	{
-		path: '/',
+		path: '/:lang(en|fr)?',
 		name: 'Accueil',
 		component: Accueil,
 		title: 'Accueil',
@@ -117,13 +117,22 @@ const routes = [
 		id: "12"
 	},
 	{
+		path: '/post-confinement',
+		name: 'PostConfinement',
+		component: () => import(/* webpackChunkName: "PostConfinement" */ '../views/PostConfinement.vue'),
+		title: 'Post-confinement\xa0: aperçus internationaux',
+		chapter: 7,
+		isSubChapter: false,
+		id: "13"
+	},
+	{
 		path: '/mediagraphie',
 		name: 'Mediagraphie',
 		component: () => import(/* webpackChunkName: "Mediagraphie" */ '../views/Mediagraphie.vue'),
 		title: 'Médiagraphie',
-		chapter: 7,
+		chapter: 8,
 		isSubChapter: false,
-		id: "13"
+		id: "14"
 	},
 ]
 

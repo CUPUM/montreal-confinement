@@ -1,6 +1,6 @@
 <template>
 	<div id="lang-switch" class="noselect">
-		<input type="radio" id="en" name="lang" value="en" v-model="currentLang" disabled>
+		<input type="radio" id="en" name="lang" value="en" v-model="currentLang">
 		<label for="en" ref="enlabel">EN</label>
 
 		<div id="separator"></div>
@@ -28,6 +28,9 @@ export default {
 			},
 			set(value) {
 				mutations.setLang(value)
+				if (this.$route.name == "Accueil") {
+					this.$router.push({path: '/'+value})
+				}
 			}
 		},
 		style() {

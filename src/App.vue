@@ -12,7 +12,10 @@
 		<NavButton/>
 		<LangSwitch/>
 		<ChairLink/>
-		<div id="copyright" class="noselect">&copy; Chaire UNESCO en paysage urbain</div>
+		<transition name="langswitch" mode="out-in">
+			<div id="copyright" class="noselect" v-if="lang=='fr'" key="fr">&copy; Chaire UNESCO en paysage urbain</div>
+			<div id="copyright" class="noselect" v-if="lang=='en'" key="en">&copy; UNESCO Chair in Urban Landscape</div>
+		</transition>
 	</div>
 </template>
 
@@ -21,6 +24,7 @@ import NavMenu from '@/components/NavMenu'
 import NavButton from '@/components/NavButton'
 import LangSwitch from '@/components/LangSwitch'
 import ChairLink from '@/components/ChairLink'
+import { store } from '@/store.js'
 
 export default {
 	components: {
@@ -28,7 +32,12 @@ export default {
 		NavButton,
 		LangSwitch,
 		ChairLink
-	}
+	},
+	computed: {
+		lang() {
+			return store.lang
+		}
+	},
 }
 </script>
 
@@ -123,6 +132,15 @@ body {
 .view-change-leave-to {
 	transform: translateY(15px);
 	opacity: 0;
+}
+
+.langswitch-enter-active,
+.langswitch-leave-active {
+	transition: all 1s ease-in;
+}
+.langswitch-enter,
+.langswitch-leave-to {
+	opacity: 0 !important;
 }
 
 /* Text styling */

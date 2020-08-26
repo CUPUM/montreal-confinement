@@ -5,7 +5,7 @@ export const store = Vue.observable({
 	lang: 'fr',
 	runningDate: null,
 	runningInitiative: null,
-	dateChangeDirection: 'forward'
+	dateChangeDirection: 'forward',
 });
 
 export const mutations = {

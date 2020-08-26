@@ -40,7 +40,13 @@ export default {
 		},
 		chaptersRoutes() {
 			return this.$router.options.routes.filter(route => route.isChatper)
-		}
+		},
+		// lang() {
+		// 	return store.lang
+		// },
+		// langAvailable(name) {
+		// 	return ( this.lang=='fr' || ( this.lang=='en' && name=='Accueil') )? true : false
+		// }
 	},
 	methods: {
 		closeNav() {
