@@ -5,7 +5,7 @@
 		<PageTitle/>
 		<div class="center-col">
 			<!-- <h3>L'humain en qualificatifs</h3> -->
-			<p>Le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Piéton']}">piéton</span>, le <em>citadin</em> et le <em>travailleur</em> constituent les trois figures dominantes qui ressortent de cette analyse. L’<em>enfant</em> et l’<em>itinérant</em> restent une préoccupation importante tout comme le <em>cycliste</em> vis-à-vis de l’espace public. Il est également intéressant de remarquer l’absence de certains groupes sociaux, comme les autochtones et les personnes racisées (et/ou immigrantes) dans les contenus médias. Le genre (homme et femme), l’aîné et l’automobiliste constituent des termes secondaires vis-à-vis de l’espace public montréalais.</p>
+			<p>Le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Piéton']}">piéton</span>, le <em>citadin</em> et le <em>travailleur</em> constituent les trois figures dominantes qui résultent d'une analyse sur les mots les plus fréquemment utilisés pour qualifier la population montréalaise durant le confinement. L’<em>enfant</em> et l’<em>itinérant</em> restent une préoccupation importante tout comme le <em>cycliste</em> vis-à-vis de l’espace public. Il est également intéressant de remarquer l’absence de certains groupes sociaux, comme les autochtones et les personnes racisées (et/ou immigrantes) dans les contenus médias. Le genre (homme et femme), l’aîné et l’automobiliste constituent des termes secondaires vis-à-vis de l’espace public montréalais.</p>
 		</div>
 
 		<div id="humain-sommaire">
@@ -39,6 +39,9 @@ export default {
 		BubbleCluster,
 		ChapterNav
 	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+	},
 	data() {
 		Object.freeze(QualificatifsHumain)
 		return {
@@ -65,9 +68,6 @@ export default {
 			})
 			return colors
 		},
-	},
-	activated() {
-		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

@@ -22,7 +22,10 @@ export default {
 	components: {
 		PageTitle,
 		ChapterNav
-	}
+	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+	},
 }
 </script>
 

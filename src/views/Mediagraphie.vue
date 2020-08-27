@@ -159,9 +159,9 @@
 				<p>Kollectif. (2020, 17 avril). COVID-19 | Construction résidentielle : réouverture de certains chantiers à compter du 20 avril. <a class="reference-link" target="_blank" href="http://kollectif.net/covid-19/">Réf{{'\xa0'}}&#x1f855;</a></p>
 				<p>Paulhiac Scherrer, F. (2020, 4 mai). Circuler à Montréal tout en étant "distancié"?. <i>L’actualité</i>. <a class="reference-link" target="_blank" href="https://lactualite.com/societe/circuler-a-montreal-tout-en-etant-distancie/?utm_source=L%E2%80%99actualit%C3%A9&amp;utm_campaign=c5f20acca3-EMAIL_CAMPAIGN_2020_05_05_01_09&amp;utm_medium=email&amp;utm_term=0_f566f03091-c5f20acca3-397197122">Réf{{'\xa0'}}&#x1f855;</a></p>
 				<p>Stréliski, L. (2020, 29 avril). La promesse timide du printemps. <i>L’actualité</i>. <a class="reference-link" target="_blank" href="https://lactualite.com/societe/la-promesse-timide-du-printemps/?utm_campaign=daily&amp;utm_source=newsletter&amp;utm_medium=email&amp;utm_content=article2_button&amp;utm_term=La%2Bpromesse%2Btimide%2Bdu%2Bprintemps">Réf{{'\xa0'}}&#x1f855;</a></p>
-			<h2>Index des photographies</h2>
+			<h2 id="photo-index">Index des photographies</h2>
 				<p v-for="(photo, i) in photos" :key="i">
-					{{ photo['Nom']+', '+abbrev(photo['Prénom'])+' ('+photo['Date']+'). ' }}<i v-if="photo['Titre']!=undefined">{{ photo['Titre'] }} </i><span v-if="photo['Description']!=undefined">[{{ photo['Description'] }}] </span>[image en ligne]. <a class="reference-link" target="_blank" :href="photo['Source générale']">{{ photo['Nom source'] }}{{'\xa0'}}&#x1f855;</a>
+					{{ photo['Nom']+', '+abbrev(photo['Prénom'])+' ('+toDateText(photo['Date'],'/')+'). ' }}<i v-if="photo['Titre']!=undefined">{{ photo['Titre'] }} </i><span v-if="photo['Description']!=undefined">[{{ photo['Description'] }}] </span>[image en ligne]. <a class="reference-link" target="_blank" :href="photo['Source générale']">{{ photo['Nom source'] }}{{'\xa0'}}&#x1f855;</a>
 				</p>
 			<h2>Références scientifiques</h2>
 				<p>Domon, G., Paquette, S. et Poullaouec-Gonidec, P. (2005). <i>Paysages en perspectives</i> (1ere éd.). Les Presses de l’Université de Montréal.</p>
@@ -178,7 +178,8 @@
 <script>
 import PageTitle from '@/components/PageTitle'
 import ChapterNav from '@/components/ChapterNav'
-import PhotoIndex from '@/assets/texts/index-photos.json'
+import PhotoIndex from '@/assets/texts/index-photos-2.json'
+import { store } from '@/store.js'
 
 export default {
 	name: 'Mediagraphie',
@@ -188,6 +189,10 @@ export default {
 	},
 	activated() {
 		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+		if (store.scrollHash!=null) {
+			const anchor = document.querySelector(store.scrollHash)
+			this.$refs.vbar.firstChild.scrollTo({top: anchor.offsetTop, behavior: 'smooth'})
+		}
 	},
 	data() {
 		return {
@@ -209,10 +214,15 @@ export default {
 				}
 			})
 			return dotted.join(' ')
-		}
+		},
+		toDateText(dateString, separator) {
+			const dateStringArray = dateString.split(separator);
+			const date = new Date(20+dateStringArray[2].trim(), parseInt(dateStringArray[1].trim(), 10)-1, dateStringArray[0].trim(), dateStringArray.length>3 ? dateStringArray[3].trim():"" );
+			return '2020, '+date.toLocaleDateString('fr-CA', {month: 'long', day: 'numeric'})
+		},
 	},
 	computed: {
-	}
+	},
 }
 </script>
 
@@ -220,5 +230,10 @@ export default {
 #mediagraphie {
 	width: 100%;
 	height: 100%;
+}
+p {
+	font-size: 16px;
+	line-height: 1.25em;
+	margin: 1em 0px;
 }
 </style>

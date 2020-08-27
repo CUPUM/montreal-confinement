@@ -98,6 +98,9 @@ export default {
 	components: {
 		ChapterNav
 	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+	},
 	data() {
 		return {
 			CUPUMlogo,
@@ -116,7 +119,7 @@ export default {
 	},
 	methods : {
 		arrowClick() {
-			this.$refs.accueil.scrollTo({top: this.viewHeight, behavior: 'smooth'})
+			this.$refs.vbar.firstChild.scrollTo({top: this.viewHeight, behavior: 'smooth'})
 		},
 		onResize() {
 			this.viewHeight = window.innerHeight;
@@ -130,9 +133,6 @@ export default {
 	},
 	beforeDestroy() {
 		window.removeEventListener('resize', this.onResize); 
-	},
-	activated() {
-		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

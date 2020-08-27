@@ -71,6 +71,9 @@ export default {
 		ScrollLine,
 		PageTitle
 	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+	},
 	data() {
 		Object.freeze(RevuePresse)
 		return {
@@ -165,9 +168,6 @@ export default {
 		//this.setRunningDate(this.sortedInitiatives[0].date)
 	},
 	watch: {
-	},
-	activated() {
-		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

@@ -80,6 +80,9 @@ export default {
 		PageTitle,
 		ChapterNav
 	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+	},
 	data() {
 		return {
 		}
@@ -94,9 +97,6 @@ export default {
 			var title = routeEl.title;
 			return num+' - <i>'+title+'</i>'
 		}
-	},
-	activated() {
-		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

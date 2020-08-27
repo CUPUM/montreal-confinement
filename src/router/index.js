@@ -24,6 +24,11 @@ router.beforeEach((to, from, next) => {
 				break;
 		}
 	}
+	if (to.hash!='' && to.hash!=null && to.hash!=undefined) {
+		store.scrollHash=to.hash
+	} else {
+		store.scrollHash=null
+	}
 	next()
 });
 

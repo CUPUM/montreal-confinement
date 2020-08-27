@@ -6,6 +6,7 @@ export const store = Vue.observable({
 	runningDate: null,
 	runningInitiative: null,
 	dateChangeDirection: 'forward',
+	scrollHash: null
 });
 
 export const mutations = {

@@ -4,7 +4,7 @@
 	<div id="analyse-photo" class="view-scroll">
 		<PageTitle/>
 		<div class="center-col">
-			<p>Les résultats de la lecture paysagère se déclinent successivement en cinq (5) thèmes de caractérisation présentés ci-dessous sous la forme de nuage de mots qui identifient les principaux éléments prédominants dans une analyse descriptive (<i>composition/sujet</i>, <i>contexte urbain</i>, <i>présence humaine</i>) et sensible (<i>ambiance</i>, <i>sentiment/évocation</i>) de la composition visuelle de chaque cliché photographique.</p>
+			<p>Les résultats de la lecture paysagère se déclinent successivement en cinq (5) thèmes de caractérisation présentés ci-dessous sous la forme de nuage de mots qui identifient les principaux éléments prédominants dans une analyse descriptive (<i>composition/sujet</i>, <i>contexte urbain</i>, <i>présence humaine</i>) et sensible (<i>ambiance</i>, <i>sentiment/évocation</i>) de la composition visuelle de chaque <router-link tag="a" class="reference-link" :to="{name: 'Mediagraphie', hash: '#photo-index'}">cliché photographique</router-link>.</p>
 
 			<h3>Composition visuelle</h3>
 			<p>L’analyse visuelle révèle l’importance de l’éclairage naturel. La lumière du <em><i>soleil</i></em> ressort comme un élément notable dans les compositions photographiques. Notons toutefois que cette prédominance du soleil n’est pas forcément toujours synonyme de scènes lumineuses ou extérieures. La luminosité est aussi caractérisée comme <em><i>lumière diffuse</i></em> et à quelques reprises comme <em><i>lumière directe</i></em>, voire <em><i>lumière artificielle</i></em>. Elle se traduit également par la <em><i>clarté</i></em>. La <em><i>fermeture rapprochée</i></em> du champ visuel constitue le deuxième élément dominant des cadrages analysés. Elle s’oppose à la profondeur de champs visuel, soit le <em><i>troisième plan</i></em>. Par ailleurs, les <em><i>vues axiales</i></em> sont associées aux voies de transport.</p>
@@ -94,6 +94,9 @@ export default {
 		ChapterNav,
 		WordCloud
 	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+	},
 	computed: {
 		themes() {
 			const keys = Object.keys(data1);
@@ -143,9 +146,6 @@ export default {
 			//return (360 / ntotal+1) * nth + 10
 			return 103
 		}
-	},
-	activated() {
-		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

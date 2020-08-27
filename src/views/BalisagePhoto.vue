@@ -69,6 +69,9 @@ export default {
 		ChapterNav,
 		PageTitle
 	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+	},
 	data() {
 		return {
 			pics: [],
@@ -85,7 +88,6 @@ export default {
 		importAll(r) {
 			var index = 0
 			r.keys().forEach(subpath => {
-				console.log(subpath)
 				this.pics.push({
 					filename: subpath.replace('./',''),
 					path: r(subpath),
@@ -112,10 +114,6 @@ export default {
 	},
 	mounted() {
 		this.importAll(require.context('../assets/photos/', true, /\.(?:jpg|jpeg|gif|png)$/))
-		console.log(Descriptions)
-	},
-	activated() {
-		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

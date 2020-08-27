@@ -1,5 +1,5 @@
 <template>
-	<div id="nav-button" class="noselect" v-on:click='toggleNav' v-bind:class="{ x: isNav }">
+	<div id="nav-button" class="noselect" v-on:click='toggleNav' v-bind:class="{ x: isNav }" key="nav-button">
 		<div id="nav-button-inner-wrapper">
 			<div id="upper" class="bar"></div>
 			<div id="mid" class="bar"></div>
@@ -16,7 +16,7 @@ export default {
 	computed: {
 		isNav() {
 			return store.isNav
-		}
+		},
 	},
 	methods: {
 		toggleNav() {
@@ -39,7 +39,7 @@ export default {
 	padding: 20px;
 	border-radius: 50%;
 	background-color: rgba(255,255,255,0);
-	transition: background-color .3s ease;
+	transition: all .3s ease;
 }
 #nav-button:hover {
 	background-color: rgba(255,255,255,.8);

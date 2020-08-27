@@ -4,12 +4,14 @@
 			<!-- <div id="spinner"></div> -->
 			<transition name="view-change" mode="out-in">
 				<keep-alive>
-					<router-view/>
+					<router-view ref="view" />
 				</keep-alive>
 			</transition>
 		</div>
 		<NavMenu/>
-		<NavButton/>
+		<transition name="langswitch">
+			<NavButton v-if="isLangNav" />
+		</transition>
 		<LangSwitch/>
 		<ChairLink/>
 		<transition name="langswitch" mode="out-in">
@@ -36,17 +38,20 @@ export default {
 	computed: {
 		lang() {
 			return store.lang
+		},
+		isLangNav() {
+			return (store.lang =='fr' || (store.lang =='en' && this.$route.name!='Accueil')) ? true : false
 		}
-	},
+	}
 }
 </script>
 
 <style>
 /* font-family: 'Poppins', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 /* font-family: 'Spectral', serif; */
-@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
 
 * {
 	box-sizing: border-box;
@@ -136,7 +141,7 @@ body {
 
 .langswitch-enter-active,
 .langswitch-leave-active {
-	transition: all 1s ease-in;
+	transition: all .75s ease-in;
 }
 .langswitch-enter,
 .langswitch-leave-to {
@@ -244,7 +249,9 @@ p ul li::before, p ol li::before {
 	margin: 0px 0px 0px 0px;
 	padding: 0px;
 	text-indent: -32px;
-	content: '🡒';
+	content: '\2192';
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
 	height: 100%;
 	color: rgb(156,156,156); /* rgb(120, 175, 99); */
 }

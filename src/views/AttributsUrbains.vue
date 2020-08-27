@@ -177,6 +177,9 @@ export default {
 		PageTitle,
 		ChapterNav
 	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+	},
 	data() {
 		Object.freeze(AttributsSommaire)
 		Object.freeze(AttributsDetail)
@@ -397,9 +400,6 @@ export default {
 			}
 			return {color: theColor, textColor: theTextColor, borderColor: theBorderColor}
 		},
-	},
-	activated() {
-		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>

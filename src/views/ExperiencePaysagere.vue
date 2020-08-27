@@ -63,6 +63,9 @@ export default {
 		//SchemaConceptuel
 		SchemaPaysage
 	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+	},
 	data() {
 		return {
 			detailOpen: null
@@ -74,9 +77,6 @@ export default {
 		respondTab(e) {
 			this.detailOpen = e
 		}
-	},
-	activated() {
-		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	}
 }
 </script>
