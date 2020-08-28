@@ -178,7 +178,7 @@
 <script>
 import PageTitle from '@/components/PageTitle'
 import ChapterNav from '@/components/ChapterNav'
-import PhotoIndex from '@/assets/texts/index-photos-2.json'
+import PhotoIndex from '@/assets/texts/index-photos.json'
 import { store } from '@/store.js'
 
 export default {
@@ -208,7 +208,7 @@ export default {
 					word.split('-').forEach(subword => {
 						hyphend.push(subword.slice(0,1)+'.')
 					})
-					dotted.push(hyphend.join(' '))
+					dotted.push(hyphend.join('-'))
 				} else {
 					dotted.push(word.slice(0,1)+'.')
 				}
