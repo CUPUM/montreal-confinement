@@ -7,7 +7,7 @@
 	<!-- Partie 1 -->
 		<div class="center-col">
 			<h3>Quels sont les attributs du paysage urbain qui font l’objet de préoccupations dans les médias montréalais{{'\xa0'}}?</h3>
-			<p>Les attributs urbains qui ont retenu l’attention des médias se résument aux éléments suivants{{'\xa0'}}: le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Commerce']}">commerce</span>, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span>, la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span>  et la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Ville']}">ville</span>. Tandis que l’<span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Automobile']}">automobile</span>, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Corridor sanitaire']}">corridor sanitaire</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Piéton']}">piéton</span> ont occupé des intérêts secondaires dans les articles de presse.</p>
+			<p>Les attributs urbains qui ont retenu l’attention des médias se résument aux éléments suivants{{'\xa0'}}: le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Commerce']}">commerce</span>, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Parc']}">parc</span>, la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Rue']}">rue</span>  et la <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Ville']}">ville</span>. Tandis que l’<span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Automobile']}">automobile</span>, le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Corridor sanitaire']}">corridor sanitaire</span> et le <span class="attribute-highlight" :style="{ backgroundColor: this.attrColors['Piéton']}">piéton</span> occupaient des intérêts secondaires dans les articles de presse.</p>
 		</div>
 		<div id="attributs-sommaire">
 			<BubbleCluster
@@ -19,8 +19,8 @@
 			/>
 		</div>
 		<div class="center-col">
-			<h3>À quelle occurrence les articles de presse ont abordé chacun des principaux attributs du paysage urbain{{'\xa0'}}?</h3>
-			<p>Il est intéressant de noter que les trois dernières semaines de confinement sont celles où les occurrences pour chacun des attributs urbains sont les plus fortes, en lien avec le déconfinement et le retour du beau temps (printemps).</p>
+			<h3>À quelle occurrence les articles de presse ont-ils abordé chacun des principaux attributs du paysage urbain{{'\xa0'}}?</h3>
+			<p>Il est intéressant de noter que les trois dernières semaines de confinement sont celles où les occurrences pour chacun des attributs urbains étaient les plus fortes, en lien avec le déconfinement et le retour du beau temps (printemps).</p>
 		</div>
 
 	<!-- Partie 2 -->
@@ -51,7 +51,7 @@
 		<!-- Partie 3 -->
 		<div class="center-col">
 			<h3>Quelles sont les préoccupations et valorisations relayées par les médias montréalais envers les attributs urbains recensés{{'\xa0'}}?</h3>
-			<p>Les différents attributs urbains montréalais sont décrits dans les médias par des qualificatifs diversifiés qui ont été répertoriés dans cette veille informationnelle sous forme de nuages de mots. Les préoccupations et valorisations des qualificatifs des attributs sont présentées dans la figure ci-contre selon l’occurrence et selon trois groupes distinctifs qui les caractérisent{{'\xa0'}}:
+			<p>Les différents attributs urbains montréalais étaient décrits dans les médias par des qualificatifs diversifiés qui ont été répertoriés dans cette veille informationnelle sous forme de nuages de mots. Les préoccupations et valorisations des qualificatifs des attributs sont présentées dans la figure ci-contre selon l’occurrence et selon trois groupes distinctifs qui les caractérisent{{'\xa0'}}:
 				<ul>
 					<li><div class="legende" :style="{backgroundColor: groupesColors.problemes.color}"></div> Problèmes{{'\xa0'}};</li>
 					<li><div class="legende" :style="{backgroundColor: groupesColors.solutions.color}"></div> Solutions <i>(actions)</i>{{'\xa0'}};</li>

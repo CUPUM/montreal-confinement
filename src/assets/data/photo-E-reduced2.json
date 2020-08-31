@@ -241,6 +241,10 @@
             "poids": "13"
         },
         {
+            "mot": "voiture de métro",
+            "poids": "13"
+        },
+        {
             "mot": "intersection",
             "poids": "10"
         },
@@ -261,10 +265,6 @@
             "poids": "7"
         },
         {
-            "mot": "wagon de métro",
-            "poids": "7"
-        },
-        {
             "mot": "graffiti",
             "poids": "7"
         },
@@ -282,10 +282,6 @@
         },
         {
             "mot": "entrée",
-            "poids": "6"
-        },
-        {
-            "mot": "train de métro",
             "poids": "6"
         },
         {

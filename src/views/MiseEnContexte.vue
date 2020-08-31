@@ -8,17 +8,17 @@
 			<p>
 				<ul>
 					<li>de contribuer de mani&egrave;re proactive &agrave; relever les d&eacute;fis sociaux dans le contexte de la pand&eacute;mie de coronavirus{{'\xa0'}};</li>
-					<li>d&rsquo;inspirer la communaut&eacute; d&rsquo;ICCAR des bonnes pratiques entreprises pour promouvoir la solidarit&eacute; et montrer l'importance de la d&eacute;fense de la dignit&eacute; humaine dans ce contexte de pand&eacute;mie{{'\xa0'}};</li>
-					<li>de recevoir des informations sur l'impact des mesures prises par les villes et les communaut&eacute;s sur la vie des citoyen.ne.s en milieu urbain{{'\xa0'}};</li>
+					<li>d&rsquo;inspirer la communaut&eacute; d&rsquo;ICCAR des bonnes pratiques entreprises pour promouvoir la solidarit&eacute; et montrer l'importance de la d&eacute;fense de la dignit&eacute; humaine dans ce contexte de pandémie{{'\xa0'}};</li>
+					<li>de recevoir des informations sur l'impact des mesures prises par les villes et les communaut&eacute;s sur la vie des citoyen&middot;ne&middot;s en milieu urbain{{'\xa0'}};</li>
 					<li>de tirer les le&ccedil;ons d&rsquo;exp&eacute;riences qui pourraient &ecirc;tre inspirantes &agrave; d'autres villes et communaut&eacute;s.</li>
 				</ul>
 			</p>
-			<p>La recherche men&eacute;e par la Chaire UNESCO en paysage urbain de l&rsquo;Universit&eacute; de Montr&eacute;al apporte des &eacute;l&eacute;ments de r&eacute;ponse face &agrave; ces attentes, notamment sur les questions reli&eacute;es &agrave; l&rsquo;espace public montr&eacute;alais.</p>
-			<p>Le balisage d&rsquo;informations et son analyse engag&eacute;s dans cette recherche, qui couvrent uniquement la p&eacute;riode de confinement du 13 mars 2020 au 16 mai 2020, devraient apporter un nouvel &eacute;clairage sur le paysage urbain montr&eacute;alais dans le contexte de la pand&eacute;mie mondiale et il constitue{{'\xa0'}}une assise pour engager une r&eacute;flexion pour le futur des espaces publics. {{'\xa0'}}Ainsi, cette r&eacute;flexion a &eacute;t&eacute; l&rsquo;occasion{{'\xa0'}}:</p>
+			<p>La recherche men&eacute;e par la Chaire UNESCO en paysage urbain de l&rsquo;Universit&eacute; de Montr&eacute;al livre des &eacute;l&eacute;ments de r&eacute;ponse face &agrave; ces attentes, notamment sur les questions reli&eacute;es &agrave; l&rsquo;espace public montr&eacute;alais.</p>
+			<p>Le balisage d&rsquo;informations et son analyse engag&eacute;s dans cette recherche, qui couvrent uniquement la p&eacute;riode de confinement du 13 mars 2020 au 16 mai 2020, devraient apporter un nouvel &eacute;clairage sur le paysage urbain montr&eacute;alais dans le contexte de la pand&eacute;mie mondiale et il constitue{{'\xa0'}}une assise pour entreprendre une réflexion pour le futur des espaces publics. {{'\xa0'}}Ainsi, cette r&eacute;flexion a &eacute;t&eacute; l&rsquo;occasion{{'\xa0'}}:</p>
 			<p>
 				<ul>
-					<li>de tirer des constats sur les espaces publics du paysage urbain montréalais (réf.{{'\xa0'}}: rue, parc, artère commerciale, trottoir, piste cyclable, métro, etc.) où se cristallisent les enjeux du confinement de la COVID-19 à partir des préoccupations journalistiques, celles de certains OBNL pertinents envers le sujet et celles émises par le milieu municipal dans cette phase de confinement{{'\xa0'}};</li>
-					<li>d&rsquo;interpr&eacute;ter le regard de photographes de presse envers l&rsquo;espace public montr&eacute;alais.</li>
+					<li>de tirer des constats sur les espaces publics du paysage urbain montréalais (réf.{{'\xa0'}}: rue, parc, artère commerciale, trottoir, piste cyclable, métro, etc.) où se cristallisent les enjeux du confinement de la COVID-19 à partir des préoccupations journalistiques, celles de certains organismes à but non lucratif (OBNL) pertinents envers le sujet et celles émises par le milieu municipal dans cette phase de confinement{{'\xa0'}};</li>
+					<li>d&rsquo;interpr&eacute;ter le regard de photographes de presse en regard de l&rsquo;espace public montr&eacute;alais.</li>
 				</ul>
 			</p>
 			<p>Les r&eacute;sultats issus de ces deux objectifs sont pr&eacute;sent&eacute;s successivement dans les pages suivantes. De plus, ceux-ci int&eacute;greront <a class="reference-link" target="_blank" href="https://en.unesco.org/covid19/initiatives">la carte interactive de l&rsquo;UNESCO</a> qui r&eacute;pertorie les exp&eacute;riences des villes &agrave; travers les r&eacute;seaux de l&rsquo;UNESCO (r&eacute;f.{{'\xa0'}}: <a class="reference-link" href="https://fr.unesco.org/system/files/unesco_cities_leaflet_fr_print_v2.pdf">Plateforme des villes de l&rsquo;UNESCO</a>) pour susciter et promouvoir la collaboration et la solidarit&eacute; &agrave; l&rsquo;&eacute;chelle internationale.</p>

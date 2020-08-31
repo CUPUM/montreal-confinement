@@ -4,7 +4,7 @@
 	<div id="enjeux-paysage" class="view-scroll">
 		<PageTitle/>
 		<div class="center-col">
-			<p>Les enjeux du paysage urbain montr&eacute;alais de la phase de confinement ont &eacute;t&eacute; document&eacute;s afin d&rsquo;apporter des r&eacute;ponses face &agrave; un ensemble de pr&eacute;occupations envers l&rsquo;espace public. Pour y arriver, il a &eacute;t&eacute; convenu de documenter ces enjeux en analysant les contenus des m&eacute;dias montr&eacute;alais du 13 mars au 16 mai 2020.</p>
+			<p>Les enjeux du paysage urbain montr&eacute;alais de la phase de confinement ont &eacute;t&eacute; document&eacute;s afin d&rsquo;apporter des r&eacute;ponses face &agrave; un ensemble de pr&eacute;occupations envers l&rsquo;espace public. Pour y arriver, il a &eacute;t&eacute; convenu de documenter ces enjeux en scrutant les contenus des m&eacute;dias montr&eacute;alais du 13 mars au 16 mai 2020.</p>
 			<p>Cette section pr&eacute;sente les r&eacute;sultats de cette analyse de veille informationnelle. L&rsquo;&eacute;chantillonnage des articles pour cette veille a &eacute;t&eacute; effectu&eacute; &agrave; partir de douze (12) sources d&rsquo;informations québécoises et montréalaises (de langues fran&ccedil;aise et anglaise) regroup&eacute;es en quatre (4) groupes{{'\xa0'}}:
 			</p>
 			<p>
@@ -15,8 +15,8 @@
 					<li>magazines en ligne.</li>
 				</ol>
 			</p>
-			<p>À partir des diverses sources et d’un flux RSS, un échantillonnage de 163 articles a été sélectionné en fonction des mots-clés tirés des questionnements et enjeux sur lesquels la CUPUM et l’UNESCO (SHS) se penchent pour mener à terme sa veille informationnelle. Une fois les articles repérés, une analyse qualitative soulevant les informations de base (titre, date, auteur, type d’article, résumé) et les enjeux abordés (questionnements et mots-clés) de chaque article a été comptabilisée dans un chiffrier. En amont, le logiciel de traitement de données <i>Atlas.ti</i> a permis de dénombrer des données quantitatives sur la veille informationnelle pour tirer des constats sur les attributs urbains (automobile, commerce, parc, rue, ville). </p>
-			<p>Cette analyse repose sur les sources de donn&eacute;es suivantes, soient{{'\xa0'}}:</p>
+			<p>À partir des diverses sources et d’un flux RSS, un échantillonnage de 163 articles a été sélectionné en fonction des mots-clés tirés des questionnements et enjeux sur lesquels la CUPUM et l’UNESCO (SHS) se penchent pour mener à terme sa veille informationnelle. Une fois les articles repérés, une analyse qualitative soulevant les informations de base (titre, date, auteur, type d’article, résumé) et les enjeux abordés (questionnements et mots-clés) de chaque article a été comptabilisée dans un chiffrier. En amont, le logiciel de traitement de données <i>Atlas.ti</i> a permis de dénombrer des données quantitatives sur la veille informationnelle pour émettre des constats sur les attributs urbains (automobile, commerce, parc, rue, ville). </p>
+			<p>Cette analyse repose sur les sources de donn&eacute;es suivantes, soit{{'\xa0'}}:</p>
 			<p>
 				<ul>
 					<li>le flux RSS des principales sources m&eacute;diatiques qu&eacute;b&eacute;coises &agrave; partir de Feedly
@@ -44,7 +44,7 @@
 							<li><a class="reference-link" href="https://mmfim.ca/" target="_blank">Mouvement pour mettre fin &agrave; l&rsquo;itin&eacute;rance &agrave; Montr&eacute;al</a> (MMFIM)</li>
 							<li><a class="reference-link" href="https://www.asf-quebec.org/a-propos/historique-2/" target="_blank">Architectes sans fronti&egrave;res Qu&eacute;bec</a> (ASFQ)</li>
 							<li><a class="reference-link" href="https://www.heritagemontreal.org/" target="_blank">H&eacute;ritage Montr&eacute;al</a></li>
-							<li><a class="reference-link" href="https://www.cssspnql.com/" target="_blank">Commission de la sant&eacute; et des services sociaux des premi&egrave;res nations du Qu&eacute;bec et du Labrador</a></li>
+							<li><a class="reference-link" href="https://www.cssspnql.com/" target="_blank">Commission de la sant&eacute; et des services sociaux des Premi&egrave;res Nations du Qu&eacute;bec et du Labrador</a></li>
 						</ul>
 					</li>
 					<li>les abonnements aux infolettres des magazines et autres sources{{'\xa0'}}:
