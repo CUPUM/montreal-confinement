@@ -12,8 +12,8 @@
 						:for="initiative.id+'_radio'"
 						:class="{'isEnabled': initiative.index < currentIndex }"
 						:style="{borderColor: colorReference[initiative.date.getTime()]}">
-						<h5>{{ initiative.titre }}</h5>
-						<p>{{ initiative.description }}</p>
+						<h5 v-html="initiative.titre"></h5>
+						<p v-html="initiative.description"></p>
 						<!-- <p>{{ initiative.id }}</p>
 						<p>	{{ initiative.date.toLocaleDateString('fr-CA', {month: 'long', year: 'numeric', day: 'numeric'}) }}</p>
 						<p>{{ initiative.place }}</p> -->
