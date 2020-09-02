@@ -4,7 +4,7 @@
 	<div id="contexte" class="view-scroll">
 		<PageTitle/>
 		<div class="center-col">
-			<p>Cette r&eacute;flexion fait suite &agrave; l&rsquo;appel aux bonnes initiatives des villes du r&eacute;seau <i>Coalition internationale des villes inclusives et durables</i> (<a class="reference-link" target="_blank" href="https://fr.unesco.org/themes/promouvoir-droits-inclusion/iccar">ICCAR{{'\xa0'}}; SHS-UNESCO</a>) en mars 2020. Le but de cet appel des Sciences humaines et sociales de l&rsquo;UNESCO &eacute;tait{{'\xa0'}}:</p>
+			<p>Cette r&eacute;flexion fait suite &agrave; l&rsquo;appel aux bonnes initiatives des villes du r&eacute;seau <i>Coalition internationale des villes inclusives et durables</i> <span style="white-space:nowrap;">(<a class="reference-link" target="_blank" href="https://fr.unesco.org/themes/promouvoir-droits-inclusion/iccar">ICCAR{{'\xa0'}}; SHS-UNESCO</a>)</span> en mars 2020. Le but de cet appel des Sciences humaines et sociales de l&rsquo;UNESCO &eacute;tait{{'\xa0'}}:</p>
 			<p>
 				<ul>
 					<li>de contribuer de mani&egrave;re proactive &agrave; relever les d&eacute;fis sociaux dans le contexte de la pand&eacute;mie de coronavirus{{'\xa0'}};</li>

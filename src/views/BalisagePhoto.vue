@@ -29,7 +29,7 @@
 				</div>
 				<div class="lightbox-inner">
 					<transition appear :name="slideDirection" mode="out-in">
-						<img :src="ouverte.path" alt="" :key="ouverte.index+'img'">
+						<img :src="ouverte.path" :alt="ouverte.filename" :key="ouverte.index+'img'">
 					</transition>
 					<transition appear :name="slideDirection" mode="out-in">
 						<div v-if="Desc[ouverte.filename]!=''" class="desc" :key="ouverte.index+'desc'">
@@ -225,22 +225,25 @@ img[lazy=loaded] {
 	width: 100%;
 	left: 0px;
 	bottom: 0px;
-	background-color: rgba(255, 255, 255, 0.98);
-	color: rgb(80, 80, 80);
+	/* background-color: rgba(255, 255, 255, 0.98); */
+	background: linear-gradient(0deg, rgba(25,25,25,1) 0%, rgba(25,25,25,.5) 33%, rgba(25,25,25,0) 100%);
+	/* color: rgb(80, 80, 80); */
+	color: rgb(245,245,245);
 	font-weight: 400;
-	font-size: 13px;
+	font-size: 12px;
 	padding: 8px 18px 12px 18px;
 	transform: translateY(100%);
 	transition: all .25s ease-in-out;
 	line-height: 1.35em;
-	border-radius: 1px;
+	border-radius: 2px;
+	text-shadow: 1px 1px 4px rgba(25,25,25,.5);
 }
 .desc .date {
+	letter-spacing: .25px;
 	text-transform: uppercase;
 	font-size: 11px;
 	font-weight: 600;
 	position: relative;
-	color: rgb(27, 27, 27);
 }
 .desc .text {
 	position: relative;
