@@ -4,8 +4,8 @@
       {
         "type": "Feature",
         "properties": {
-            "initiativeID": 112,
-            "initiativeDate": "5/8/20",
+            "initiativeID": [112, 152],
+            "initiativeDate": ["5/8/20", "5/15/20"],
             "style": "overlay"
         },
         "geometry": {
