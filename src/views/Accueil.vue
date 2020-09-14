@@ -12,12 +12,11 @@
 							<img :src="BGpic" alt="">
 						</div>
 					</div> -->
-					<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 					<transition name="splashswitch" mode="in-out">
 						<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1700 860" v-if="lang=='fr'" key="fr">
 							<defs>
 								<svg:style type="text/css">
-									@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@300;600&display=swap'); <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
+									@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap'); <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
 								</svg:style>
 								<mask id="splash-text-mask" x="0" y="0">
 									<rect x="-10000" y="-10000" width="20000" height="20000" fill="white"/>
@@ -32,7 +31,7 @@
 						<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1700 860" v-if="lang=='en'" key="en">
 							<defs>
 								<svg:style type="text/css">
-									@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@300;600&display=swap'); <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
+									@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap'); <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
 								</svg:style>
 								<mask id="splash-text-mask-en" x="0" y="0">
 									<rect x="-10000" y="-10000" width="20000" height="20000" fill="white"/>
@@ -56,39 +55,53 @@
 
 		<img class="chaire-logo" :src='CUPUMlogo' alt="~"/>
 
-		<!-- <h1 style="marginTop: -50px">Accueil</h1> -->
-		<div class="center-col">
-			<transition name="langswitch" mode="out-in">
-				<div v-if="lang=='fr'" key="fr">
+		<transition name="langswitch" mode="out-in">
+			<section v-if="lang=='fr'" key="fr">
+				<div class="center-col">
 					<p>Au début de l’année 2020, la pandémie de la COVID-19 a profondément marqué les villes dans plusieurs régions du monde. Ainsi, elle nous amène à poser des questionnements fondamentaux envers les milieux urbains tant sur les aspects sociaux, culturels, économiques, environnementaux et physiques (habitat, rue, parc, etc.). La COVID-19 a bouleversé radicalement et dans un très court laps de temps les comportements et les préoccupations des citoyens dans la ville. Les populations urbaines ont changé leur mode de vie au quotidien et elles ont dû s’adapter à cette nouvelle réalité avec des mesures adaptées pour contraindre cette pandémie.</p>
 					<p>La COVID-19 a révélé l’importance de vivre la ville au quotidien dans la période de confinement. Elle nous a entrainés à nous questionner sur le rôle et les fonctions des espaces publics et privés, tout comme elle a exposé des problèmes majeurs d’usages et d’accessibilité envers certains attributs urbains (parc, rue, etc.). Elle a également fait émerger des actions et des solutions nouvelles adaptées à ce contexte de crise.</p>
 					<p>Cette recherche, sous l’intitulé <em><i>Montréal/paysage en confinement</i></em>, produite par la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM) rapporte la situation envers les espaces publics durant la période de confinement. En prenant appui sur une veille informationnelle des médias, de certains organismes à but non lucratif (OBNL) et des communiqués de presse de la Ville de Montréal, cette analyse offre des pistes de réponse à un ensemble de questionnements reliés à la mission de la Chaire UNESCO et à ses programmes affiliés de l’UNESCO.</p>
 					<p>Cette recherche a aussi été l’occasion de porter un regard sensible sur l’expérience de l’espace public en étudiant les différents cadrages de photographes de presse et professionnels durant cette période de confinement montréalais. L’interprétation de ce corpus a permis d’esquisser les contours de l’identité du paysage urbain et de révéler les attributs clés de l’expérience de la ville en mode «{{'\xa0'}}confinement{{'\xa0'}}».</p>
 				</div>
-				<div v-if="lang=='en'" key="en">
+				<div class="logo-banner">
+					<img :src='ICCARfr' alt="~"/>
+					<img :src='CCUNESCOfr' alt="~"/>
+				</div>
+				<div class="center-col">
+					<ChapterNav v-if="lang=='fr'" key="fr" :previous="false" :next="true" />
+				</div>
+			</section>
+			<section v-if="lang=='en'" key="en">
+				<div class="center-col">
 					<p>At the start of 2020, the COVID-19 pandemic had a profound impact on cities in several regions of the world. Thus, it leads us to ask fundamental questions about the social, cultural, economic, environmental, and physical (habitat, street, park, etc.) aspects of urban environments. COVID-19 has radically changed, in a very short period, the behavior and concerns of citizens in the city. Urban populations have changed their daily way of life and have adapted to this new reality with appropriate measures to curb this pandemic.</p>
 					<p>COVID-19 revealed the importance of experiencing the city on a day-to-day basis during the lock-down period. It led us to question the role and functions of public and private spaces, just as it exposed major problems of use and accessibility to certain urban attributes (park, street, etc.). It also led to the emergence of new actions and solutions adapted to this context of crisis.</p>
 					<p>This research, entitled <em><i>Montreal/landscape under lockdown</i></em> produced by the UNESCO Chair in Urban Landscape at University of Montreal (CUPUM), reports on the situation with respect to public spaces during the lockdown period. Based on an informational watch of the media, certain NPOs and press releases from the City of Montreal, it was possible to find answers to a series of questions related to the mission of the UNESCO Chair and its affiliated UNESCO programs.</p>
 					<p>This research also provided an opportunity to take a sensitive look at the experience of the public space by analyzing the various frames taken by press and professional photographers during this period of lockdown in Montreal. The interpretation of this collection of photographs has made it possible to outline the identity of the urban landscape, revealing the key attributes of the experience of the city in "lockdown" mode.</p>
 				</div>
-			</transition>
-
-			<transition name="langswitch" mode="out-in">
-				<ChapterNav v-if="lang=='fr'" key="fr" :previous="false" :next="true" />
-				<div v-if="lang=='en'" key="en">
-					<p class="en-notice"><i>Interactive website available only in french</i></p>
-					<div class="download">Download the research report as a <i>pdf</i></div>
+				<div class="logo-banner">
+					<img :src='ICCARen' alt="~"/>
+					<img :src='CCUNESCOen' alt="~"/>
 				</div>
-			</transition>
-		</div>
+				<div class="center-col">
+					<div v-if="lang=='en'" key="en">
+						<p class="en-notice"><i>Interactive website available only in french</i></p>
+						<div class="download">Download the research report as a <i>pdf</i></div>
+					</div>
+				</div>
+			</section>
+		</transition>
 	</div>
 	</div>
 	</div>
 </template>
 
 <script>
-// @ is an alias to /src
 import CUPUMlogo from '@/assets/Logo_CUPUM_couleur.svg'
+import ICCARfr from '@/assets/sector_shs_iccar_fr.svg'
+import ICCARen from '@/assets/sector_shs_iccar_en.svg'
+import CCUNESCOfr from '@/assets/CCUNESCO logo-colour-fr.png'
+import CCUNESCOen from '@/assets/CCUNESCO logo-colour-eng.png'
+
 import BGpic from '@/assets/photos/cupum-covid_053.jpg'
 import ChapterNav from '@/components/ChapterNav'
 import { store } from '@/store.js'
@@ -104,6 +117,10 @@ export default {
 	data() {
 		return {
 			CUPUMlogo,
+			ICCARfr,
+			ICCARen,
+			CCUNESCOfr,
+			CCUNESCOen,
 			BGpic,
 			viewHeight: Number,
 			isCurtain: Boolean
@@ -303,6 +320,22 @@ export default {
 	height: 220px;
 	width: auto;
 	position: relative;
+}
+
+.logo-banner {
+	text-align: center;
+	margin: 75px auto 0px auto;
+	max-width: 1150px;
+	min-width: 600px;
+	padding: 0px 120px;
+}
+.logo-banner img {
+	opacity: .75;
+	display: inline-block;
+	width: 40%;
+	min-width: 250px;
+	height: auto;
+	margin: 15px 5% 0px 5%;
 }
 
 .en-notice {

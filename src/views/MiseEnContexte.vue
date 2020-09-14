@@ -59,6 +59,7 @@
 			<ul class="link-list">
 				<li><a class="reference-link" href="https://fr.unesco.org/themes/apprendre-%C3%A0-vivre-ensemble" target="_blank">Secteur des sciences humaines et sociales de l&rsquo;UNESCO</a></li>
 				<li><a class="reference-link" href="https://fr.unesco.org/themes/promouvoir-droits-inclusion/iccar" target="_blank">Coalition internationale des villes inclusives et durables</a></li>
+				<li><a class="reference-link" href="https://fr.ccunesco.ca/" target="_blank">Commission canadienne pour l’UNESCO</a></li>
 				<li><a class="reference-link" href="https://sidleearchitecture.com/fr" target="_blank">Sid Lee Architecture</a></li>
 			</ul>
 			<h4>La <em>Plateforme des villes de l'UNESCO</em>, regroupant huit r&eacute;seaux et programmes{{'\xa0'}}:</h4>
