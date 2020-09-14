@@ -325,17 +325,18 @@ export default {
 .logo-banner {
 	text-align: center;
 	margin: 75px auto 0px auto;
-	max-width: 1150px;
+	max-width: 1100px;
 	min-width: 600px;
 	padding: 0px 120px;
 }
 .logo-banner img {
+	vertical-align: top;
 	opacity: .75;
 	display: inline-block;
-	width: 40%;
-	min-width: 250px;
+	width: 45%;
+	min-width: 350px;
 	height: auto;
-	margin: 15px 5% 0px 5%;
+	margin: 15px 2.5% 0px 2.5%;
 }
 
 .en-notice {
