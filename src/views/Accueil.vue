@@ -53,7 +53,10 @@
 			<div id="scroll-arrow-stem"></div>
 		</div>
 
-		<img class="chaire-logo" :src='CUPUMlogo' alt="~"/>
+		<transition name="langswitch" mode="out-in">
+			<img v-if="lang=='fr'" key="fr" class="chaire-logo" :src='CUPUMfr' alt="~"/>
+			<img v-if="lang=='en'" key="en" class="chaire-logo" :src='CUPUMen' alt="~"/>
+		</transition>
 
 		<transition name="langswitch" mode="out-in">
 			<section v-if="lang=='fr'" key="fr">
@@ -85,7 +88,7 @@
 				<div class="center-col">
 					<div v-if="lang=='en'" key="en">
 						<p class="en-notice"><i>Interactive website available only in french</i></p>
-						<div class="download">Download the research report as a <i>pdf</i></div>
+						<a href="/Montreal_Landscape_in_Lockdown_CUPUM_2020.pdf" target="_blank" class="download">Download the research report as a <i>pdf</i></a>
 					</div>
 				</div>
 			</section>
@@ -96,7 +99,8 @@
 </template>
 
 <script>
-import CUPUMlogo from '@/assets/Logo_CUPUM_couleur.svg'
+import CUPUMfr from '@/assets/Logo_CUPUM_couleur-fr.svg'
+import CUPUMen from '@/assets/Logo_CUPUM_couleur-en.svg'
 import ICCARfr from '@/assets/sector_shs_iccar_fr.svg'
 import ICCARen from '@/assets/sector_shs_iccar_en.svg'
 import CCUNESCOfr from '@/assets/CCUNESCO logo-colour-fr.png'
@@ -116,7 +120,8 @@ export default {
 	},
 	data() {
 		return {
-			CUPUMlogo,
+			CUPUMfr,
+			CUPUMen,
 			ICCARfr,
 			ICCARen,
 			CCUNESCOfr,
@@ -348,6 +353,7 @@ export default {
 	letter-spacing: .5px;
 }
 .download {
+	text-decoration: none;
 	cursor: pointer;
 	display: block;
 	position: relative;
