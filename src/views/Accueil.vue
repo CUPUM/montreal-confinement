@@ -54,8 +54,8 @@
 		</div>
 
 		<transition name="langswitch" mode="out-in">
-			<img v-if="lang=='fr'" key="fr" class="chaire-logo" :src='CUPUMfr' alt="~"/>
-			<img v-if="lang=='en'" key="en" class="chaire-logo" :src='CUPUMen' alt="~"/>
+			<img v-if="lang=='fr'" key="fr" class="chaire-logo" :src='CUPUMfr' alt="~" @click="openPage('http://www.unesco-paysage.umontreal.ca/fr/')"/>
+			<img v-if="lang=='en'" key="en" class="chaire-logo" :src='CUPUMen' alt="~" @click="openPage('http://www.unesco-paysage.umontreal.ca/en/')"/>
 		</transition>
 
 		<transition name="langswitch" mode="out-in">
@@ -67,8 +67,9 @@
 					<p>Cette recherche a aussi été l’occasion de porter un regard sensible sur l’expérience de l’espace public en étudiant les différents cadrages de photographes de presse et professionnels durant cette période de confinement montréalais. L’interprétation de ce corpus a permis d’esquisser les contours de l’identité du paysage urbain et de révéler les attributs clés de l’expérience de la ville en mode «{{'\xa0'}}confinement{{'\xa0'}}».</p>
 				</div>
 				<div class="logo-banner">
-					<img :src='ICCARfr' alt="~"/>
-					<img :src='CCUNESCOfr' alt="~"/>
+					<a href="https://fr.unesco.org/themes/promouvoir-droits-inclusion/iccar" target="_blank"><img :src='ICCARfr' alt="~"/></a>
+					<a href="https://fr.ccunesco.ca/" target="_blank"><img :src='CCUNESCOfr' alt="~"/></a>
+					<a href="https://designmontreal.com/a-propos-montreal-ville-unesco-de-design" target="_blank"><img :src='MTLUNESCOfr' alt="~"/></a>
 				</div>
 				<div class="center-col">
 					<ChapterNav v-if="lang=='fr'" key="fr" :previous="false" :next="true" />
@@ -82,8 +83,9 @@
 					<p>This research also provided an opportunity to take a sensitive look at the experience of the public space by analyzing the various frames taken by press and professional photographers during this period of lockdown in Montreal. The interpretation of this collection of photographs has made it possible to outline the identity of the urban landscape, revealing the key attributes of the experience of the city in "lockdown" mode.</p>
 				</div>
 				<div class="logo-banner">
-					<img :src='ICCARen' alt="~"/>
-					<img :src='CCUNESCOen' alt="~"/>
+					<a href="https://en.unesco.org/themes/fostering-rights-inclusion/iccar" target="_blank"><img :src='ICCARen' alt="~"/></a>
+					<a href="https://en.ccunesco.ca/" target="_blank"><img :src='CCUNESCOen' alt="~"/></a>
+					<a href="https://designmontreal.com/en/about-montreal-unesco-city-of-design" target="_blank"><img :src='MTLUNESCOen' alt="~"/></a>
 				</div>
 				<div class="center-col">
 					<div v-if="lang=='en'" key="en">
@@ -103,8 +105,10 @@ import CUPUMfr from '@/assets/Logo_CUPUM_couleur-fr.svg'
 import CUPUMen from '@/assets/Logo_CUPUM_couleur-en.svg'
 import ICCARfr from '@/assets/sector_shs_iccar_fr.svg'
 import ICCARen from '@/assets/sector_shs_iccar_en.svg'
-import CCUNESCOfr from '@/assets/CCUNESCO logo-colour-fr.png'
-import CCUNESCOen from '@/assets/CCUNESCO logo-colour-eng.png'
+import CCUNESCOfr from '@/assets/CCUNESCO_logo_colour_fr.png'
+import CCUNESCOen from '@/assets/CCUNESCO_logo_colour_en.png'
+import MTLUNESCOfr from '@/assets/montreal_unesco_fr.svg'
+import MTLUNESCOen from '@/assets/montreal_unesco_en.svg'
 
 import BGpic from '@/assets/photos/cupum-covid_053.jpg'
 import ChapterNav from '@/components/ChapterNav'
@@ -126,6 +130,8 @@ export default {
 			ICCARen,
 			CCUNESCOfr,
 			CCUNESCOen,
+			MTLUNESCOfr,
+			MTLUNESCOen,
 			BGpic,
 			viewHeight: Number,
 			isCurtain: Boolean
@@ -145,6 +151,9 @@ export default {
 		},
 		onResize() {
 			this.viewHeight = window.innerHeight;
+		},
+		openPage(link) {
+			window.open(link,'_blank')
 		}
 	},
 	mounted() {
@@ -317,9 +326,11 @@ export default {
 }
 
 .chaire-logo {
+	cursor: pointer;
 	display: block;
 	shape-rendering: geometricPrecision;
-	opacity: .75;
+	opacity: .8;
+	transform: translateY(0px);
 	margin: 100px auto;
 	padding: 0px;
 	height: 220px;
@@ -329,19 +340,28 @@ export default {
 
 .logo-banner {
 	text-align: center;
-	margin: 75px auto 0px auto;
-	max-width: 1100px;
+	margin: 85px auto 0px auto;
+	max-width: 1260px;
 	min-width: 600px;
 	padding: 0px 120px;
 }
+.logo-banner a {
+	text-decoration: none;
+}
 .logo-banner img {
-	vertical-align: top;
-	opacity: .75;
+	vertical-align: middle;
+	opacity: .8;
 	display: inline-block;
-	width: 45%;
-	min-width: 350px;
+	width: 28%;
+	min-width: 250px;
 	height: auto;
 	margin: 15px 2.5% 0px 2.5%;
+	transform: translateY(0px);
+	transition: all .25s;
+}
+.logo-banner a:hover img {
+	transform: translateY(-5px);
+	opacity: 1;
 }
 
 .en-notice {
