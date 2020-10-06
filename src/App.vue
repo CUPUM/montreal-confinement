@@ -174,7 +174,6 @@ h2 {
 	margin: 64px 0px 32px 0px;
 	position: relative;
 	font-weight: 200;
-	/* box-shadow: 24px 0px 24px -36px rgba(0,0,0,.5), -24px 0px 24px -36px rgba(61, 48, 48, 0.5); */
 	font-size: 36pt;
 	line-height: 1.2em;
 	text-indent: 0px;
@@ -203,7 +202,6 @@ h2::after {
 	left: -46px;
 	height: 2px;
 	background-color: rgb(120, 175, 99);
-	/* background: linear-gradient(to right, rgba(56, 56, 56,0), rgba(56, 56, 56,1)); */
 	display: inline-block;
 	position: absolute;
 	border-radius: 1px;
@@ -229,7 +227,6 @@ p {
 	font-size: 17px;
 	line-height: 26px;
 	font-weight: 400;
-	/* text-indent: 48px; */
 	margin: 26px auto;
 	color: rgb(56, 56, 56);
 }
@@ -258,7 +255,7 @@ p ul li::before, p ol li::before {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 600;
 	height: 100%;
-	color: rgb(156,156,156); /* rgb(120, 175, 99); */
+	color: rgb(156,156,156);
 }
 p ul ul {
 	padding: 4px 16px;
