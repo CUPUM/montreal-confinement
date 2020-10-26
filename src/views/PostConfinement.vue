@@ -41,7 +41,7 @@
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['2.2']" :key="currentCollaborateur+i+'2.2'" v-html="para"></p>
 								</div>
 								<div class="center-col">
-									<p>{{ collaborateurs[currentCollaborateur].nom }}<br><small><i>{{ collaborateurs[currentCollaborateur].description }}</i></small></p>
+									<p>{{ collaborateurs[currentCollaborateur].nom }},<br><small><i>{{ collaborateurs[currentCollaborateur].description }}</i></small></p>
 									<p><small>&copy; été/automne 2020</small></p>
 								</div>
 							</div>
