@@ -48,7 +48,7 @@
 				<ul>
 					<li>Alessandra Capuano,<br><i class="detail">chercheure associée à la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM), professeure titulaire au Département d’architecture et de projet (DiAP) de l’Université de Rome la Sapienza, Italie</i></li>
 					<li>Manuel Tardits,<br><i class="detail">professeur et chercheur d’architecture à l’Université Meiji et l’ICS College of Arts, Tokyo, Japon</i></li>
-					<li>Mauro Claro,<br><i class="detail">professeur et chercheur à la Faculté d’architecture et d’urbanisme (FAU) à l’Université Presbytérienne Mackenzie de Sao Paulo, Brézil</i></li>
+					<li>Mauro Claro,<br><i class="detail">professeur et chercheur à la Faculté d’architecture et d’urbanisme (FAU) à l’Université Presbytérienne Mackenzie de Sao Paulo, Brésil</i></li>
 					<!-- <li>Stefan Tischer,<br><i class="detail">professeur et chercheur à la Faculté d’architecture d’Alghero, Département d’architecture, de design et d’urbanisme Université de Sassari, Sardaigne, Italie</i></li> -->
 					<li>Imène Zaâfrane,<br><i class="detail">professeure et chercheure à l’École Nationale d’architecture et d’urbanisme de l’Université du 7 Novembre à Carthage, Tunis, Tunisie</i></li>
 					<li>Iman Benkirane,<br><i class="detail">directrice de l’École d’architecture et d’urbanisme de l’Université Euro-méditerranéenne, Fès, Maroc</i></li>

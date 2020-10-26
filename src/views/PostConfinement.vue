@@ -9,7 +9,10 @@
 				<div class="change" @click="changeCollaborator(-1)"><div class="prev"></div></div>
 				<div class="name" @click="toggleRead" :class="{'isreading': isReading}">
 					<transition :name="stepDirection" mode="out-in">
-						<span v-if="currentCollaborateur!=null" :key="currentCollaborateur">{{ collaborateurs[currentCollaborateur].nom }}</span>
+						<span v-if="currentCollaborateur!=null" :key="currentCollaborateur">
+							{{ collaborateurs[currentCollaborateur].nom }}
+							<em>&emsp;&mdash;&emsp;{{ collaborateurs[currentCollaborateur].ville }}</em>
+						</span>
 						<div class="placeholder" v-else>Sélectionnez un collaborateur sur la carte</div>
 					</transition>
 					<div v-if="currentCollaborateur!=null" class="toggle"></div>
@@ -21,22 +24,26 @@
 					<transition :name="stepDirection" mode="out-in">
 						<div class="apercu" v-if="currentCollaborateur!=null" :key="collaborateurs[currentCollaborateur].nom+'_apercu'" v-bar>
 							<div class="meta">
-							<div class="center-col">
-								<h2>Les réponses de votre ville face à la COVID-19</h2>
-									<h3>1 - Concernant l’aménagement des espaces publics, d’après vous, quelles sont les bonnes initiatives et mesures engagées et réalisées par votre ville dans la période de confinement et post-confinement{{'\xa0'}}?</h3>
-										<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.1']" :key="currentCollaborateur+i+'1.1'" v-html="para"></p>
-									<h3>2 - Quel est votre point de vue critique (ou non) concernant ces mesures{{'\xa0'}}?</h3>
-										<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.2']" :key="currentCollaborateur+i+'1.2'" v-html="para"></p>
-									<h3>3 - Quelle leçon pouvez-vous tirer de la pandémie face à l’aménagement des villes, du design urbain et de l’architecture{{'\xa0'}}?</h3>
-										<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.3']" :key="currentCollaborateur+i+'1.3'" v-html="para"></p>
-									<h3>4 - D’après vous, quels sont les enjeux les plus importants à considérer dans cette crise sanitaire{{'\xa0'}}?</h3>
-										<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.4']" :key="currentCollaborateur+i+'1.4'" v-html="para"></p>
-								<h2>Au lendemain de la COVID-19, imaginez votre ville</h2>
-									<h3>1 - En regard de cette crise sanitaire, quelles sont vos réflexions quant au devenir des villes, de l’architecture, du design urbain ou/de l’architecture de paysage{{'\xa0'}}?</h3>
-										<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['2.1']" :key="currentCollaborateur+i+'2.1'" v-html="para"></p>
-									<h3>2 - Est-ce que la crise actuelle suscite à votre avis, de nouvelles thématiques de réflexion, de recherche et de projets{{'\xa0'}}?</h3>
-										<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['2.2']" :key="currentCollaborateur+i+'2.2'" v-html="para"></p>
-							</div>
+								<div class="center-col">
+									<h2>Les réponses de votre ville face à la COVID-19</h2>
+										<h3>1 - Concernant l’aménagement des espaces publics, d’après vous, quelles sont les bonnes initiatives et mesures engagées et réalisées par votre ville dans la période de confinement et post-confinement{{'\xa0'}}?</h3>
+											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.1']" :key="currentCollaborateur+i+'1.1'" v-html="para"></p>
+										<h3>2 - Quel est votre point de vue critique (ou non) concernant ces mesures{{'\xa0'}}?</h3>
+											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.2']" :key="currentCollaborateur+i+'1.2'" v-html="para"></p>
+										<h3>3 - Quelle leçon pouvez-vous tirer de la pandémie face à l’aménagement des villes, du design urbain et de l’architecture{{'\xa0'}}?</h3>
+											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.3']" :key="currentCollaborateur+i+'1.3'" v-html="para"></p>
+										<h3>4 - D’après vous, quels sont les enjeux les plus importants à considérer dans cette crise sanitaire{{'\xa0'}}?</h3>
+											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.4']" :key="currentCollaborateur+i+'1.4'" v-html="para"></p>
+									<h2>Au lendemain de la COVID-19, imaginez votre ville</h2>
+										<h3>1 - En regard de cette crise sanitaire, quelles sont vos réflexions quant au devenir des villes, de l’architecture, du design urbain ou/de l’architecture de paysage{{'\xa0'}}?</h3>
+											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['2.1']" :key="currentCollaborateur+i+'2.1'" v-html="para"></p>
+										<h3>2 - Est-ce que la crise actuelle suscite à votre avis, de nouvelles thématiques de réflexion, de recherche et de projets{{'\xa0'}}?</h3>
+											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['2.2']" :key="currentCollaborateur+i+'2.2'" v-html="para"></p>
+								</div>
+								<div class="center-col">
+									<p>{{ collaborateurs[currentCollaborateur].nom }}<br><small><i>{{ collaborateurs[currentCollaborateur].description }}</i></small></p>
+									<p><small>&copy; été/automne 2020</small></p>
+								</div>
 							</div>
 						</div>
 					</transition>
@@ -67,11 +74,11 @@ export default {
 	data() {
 		return {
 			collaborateurs: [
-				{nom: 'Alessandra Capuano', coords: [41.902782, 12.496365]},
-				{nom: 'Manuel Tardits', coords: [35.689487, 139.691711]},
-				{nom: 'Mauro Claro', coords: [-23.550520, -46.633308]},
-				{nom: 'Imène Zâafrane', coords: [36.852921, 10.321725]},
-				{nom: 'Iman Benkirane', coords: [34.033333, -5.000000]}
+				{nom: 'Alessandra Capuano', ville: 'Rome (Italie)', description: 'chercheure associée à la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM), professeure titulaire au Département d’architecture et de projet (DiAP) de l’Université de Rome la Sapienza, Italie', coords: [41.902782, 12.496365]},
+				{nom: 'Manuel Tardits', ville: 'Tokyo (Japon)', description: 'professeur et chercheur d’architecture à l’Université Meiji et l’ICS College of Arts, Tokyo, Japon', coords: [35.689487, 139.691711]},
+				{nom: 'Mauro Claro', ville: 'Sao Paulo (Brésil)', description: 'professeur et chercheur à la Faculté d’architecture et d’urbanisme (FAU) à l’Université Presbytérienne Mackenzie de Sao Paulo, Brésil', coords: [-23.550520, -46.633308]},
+				{nom: 'Imène Zâafrane', ville: 'Tunis (Tunisie)', description: 'professeure et chercheure à l’École Nationale d’architecture et d’urbanisme de l’Université du 7 Novembre à Carthage, Tunis, Tunisie', coords: [36.852921, 10.321725]},
+				{nom: 'Iman Benkirane', ville: 'Fès (Maroc)', description: 'directrice de l’École d’architecture et d’urbanisme de l’Université Euro-méditerranéenne, Fès, Maroc', coords: [34.033333, -5.000000]}
 			],
 			currentCollaborateur: null,
 			isReading: false,
@@ -95,7 +102,7 @@ export default {
 		this.tiles = new L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 			subdomains: 'abcd',
-			opacity: .35,
+			opacity: 1,
 		});
 		this.tiles.addTo(this.collaborateursMap);
 		this.collaborateursMap.invalidateSize();
@@ -107,14 +114,9 @@ export default {
 
 		var markerGroup = L.featureGroup();
 		this.collaborateurs.forEach(city => {
-			// let ID = city.coords.join('');
 			L.circleMarker(city.coords, {
 				radius: 20,
 				className: "test",
-				// stroke: false,
-				// fill: true,
-				// fillColor: 'rgb(120, 175, 99)',
-				// fillOpacity: .8,
 			}).addTo(this.collaborateursMap).on('click', () => {
 				this.setByName(city.nom);
 				this.focusMap(city.coords);
@@ -239,7 +241,7 @@ section {
 	display: flex;
 	flex-direction: row;
 	font-size: 20pt;
-	font-weight: 600;
+	font-weight: 500;
 	width: 100%;
 	line-height: 2em;
 	vertical-align: middle;
@@ -251,7 +253,7 @@ section {
 	position: relative;
 	text-align: center;
 	flex-grow: 1;
-	background-color: rgba(255,255,255,.8);
+	background-color: rgba(255,255,255,.9);
 	box-shadow: 0px 6px 16px -10px rgba(0,0,0,.35);
 	border-radius: 6px;
 	margin: 0px 8px;
@@ -260,14 +262,15 @@ section {
 	padding: 0px 2em;
 }
 .name .placeholder {
-	font-weight: 300;
-	font-style: italic;
-	font-size: 20pt;
+	color: rgb(82,82,82);
+	font-weight: 400;
+	/* font-style: italic; */
+	font-size: 20px;
 }
 .name span {
 	display: inline-block;
 	position: relative;
-	color: rgb(42,44,46);
+	color: rgb(44,46,48);
 }
 .name span::before,
 .name span::after {
@@ -292,6 +295,12 @@ section {
 .name:hover span::after {
 	left: 0px;
 	width: 100%;
+}
+
+.name span em {
+	font-style: normal;
+	font-weight: 200;
+	color: rgb(72,74,76);
 }
 
 .toggle {

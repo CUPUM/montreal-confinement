@@ -355,7 +355,7 @@ export default {
 	width: 28%;
 	min-width: 250px;
 	height: auto;
-	margin: 15px 2.5% 0px 2.5%;
+	margin: 20px 2.5%;
 	transform: translateY(0px);
 	transition: all .25s;
 }
