@@ -1,6 +1,6 @@
 <template>
 	<div id="timelist-container">
-		<div class="meta" v-bar ref="vbar">
+		<div class="meta" v-bar ref="vbartimelist">
 			<ul id="timelist">
 				<li v-for="(initiative, i) in dataArray" class="timecard-container" :key="initiative.id+'_'+i" :data-index="initiative.index">
 					<input type="radio"
@@ -102,6 +102,9 @@ export default {
 		this.$nextTick(() => {
 			window.addEventListener('resize', this.onResize);
 		})
+	},
+	activated() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbartimelist)
 	},
 	beforeDestroy() {
 		window.removeEventListener('resize', this.onResize); 

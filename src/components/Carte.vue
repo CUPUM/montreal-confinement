@@ -90,7 +90,8 @@ export default {
 			this.map = L.map('carte-initiatives', {
 				zoomControl: false,
 				zoomSnap: 0.25,
-				renderer: L.canvas()
+				renderer: L.canvas(),
+				// preferCanvas: true,
 			}).fitBounds(this.cityBounds);
 			this.tileLayer = new L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
 				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',

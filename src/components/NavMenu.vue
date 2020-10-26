@@ -1,24 +1,28 @@
 <template>
 	<div id="menu" v-on:click="closeNav" v-bind:class="{ 'show': isNav }" v-bind:style="{ transitionDelay: (routes.length-1)*staggerDelay+.4+'s' }">
 		<div id="backdrop" v-bind:class="{ 'show': isNav }"></div>
-		<nav id="nav" v-bind:class="{ 'show': isNav }">
-			<ul>
-				<router-link 
-				v-for="(route, i) in routes"
-				v-bind:key="route.id" 
-				v-bind:to="{ name: route.name }"
-				tag="li" 
-				v-bind:class="{ 'show': isNav, 'sub-chapter': route.isSubChapter }"
-				v-bind:style="{ transitionDelay: i*staggerDelay+'s'}"
-				class="noselect"
-				>
-					<div class="highlighter"></div>
-					<span class="inner-wrapper" v-bind:style="{ transitionDelay: i*staggerDelay+'s'}">
-						<span><span class="chapter-number">{{ route.chapter+subChapter(route) }}&emsp;&mdash;</span>&emsp;{{ route.title }}</span>
-					</span>
-				</router-link>
-			</ul>
-		</nav>
+		<div class="meta nav-meta" v-bind:class="{ 'show': isNav }">
+		<div class="meta" v-bar ref="vbar">
+			<nav id="nav">
+				<ul>
+					<router-link 
+					v-for="(route, i) in routes"
+					v-bind:key="route.id" 
+					v-bind:to="{ name: route.name }"
+					tag="li" 
+					v-bind:class="{ 'show': isNav, 'sub-chapter': route.isSubChapter }"
+					v-bind:style="{ transitionDelay: i*staggerDelay+'s'}"
+					class="noselect"
+					>
+						<div class="highlighter"></div>
+						<span class="inner-wrapper" v-bind:style="{ transitionDelay: i*staggerDelay+'s'}">
+							<span><span class="chapter-number">{{ route.chapter+subChapter(route) }}&emsp;&mdash;</span>&emsp;{{ route.title }}</span>
+						</span>
+					</router-link>
+				</ul>
+			</nav>
+		</div>
+		</div>
 	</div>
 </template>
 
@@ -57,6 +61,7 @@ export default {
 		}
 	},
 	mounted() {
+		this.$vuebar.refreshScrollbar(this.$refs.vbar)
 	},
 	watch: {
 		$route() {
@@ -122,10 +127,12 @@ nav {
 	vertical-align: middle;
 	padding: 0px 90px;
 	overflow-y: auto;
+}
+.nav-meta {
 	opacity: 0;
 	transition: opacity .75s;
 }
-nav.show {
+.nav-meta.show {
 	opacity: 1;
 }
 nav ul {
