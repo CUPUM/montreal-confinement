@@ -25,19 +25,19 @@
 						<div class="apercu" v-if="currentCollaborateur!=null" :key="collaborateurs[currentCollaborateur].nom+'_apercu'" v-bar>
 							<div class="meta">
 								<div class="center-col">
-									<h2>Les réponses de votre ville face à la COVID-19</h2>
-										<h3>1 - Concernant l’aménagement des espaces publics, d’après vous, quelles sont les bonnes initiatives et mesures engagées et réalisées par votre ville dans la période de confinement et post-confinement{{'\xa0'}}?</h3>
+									<h3>Les réponses de votre ville face à la COVID-19</h3>
+										<h4>1 - Concernant l’aménagement des espaces publics, d’après vous, quelles sont les bonnes initiatives et mesures engagées et réalisées par votre ville dans la période de confinement et post-confinement{{'\xa0'}}?</h4>
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.1']" :key="currentCollaborateur+i+'1.1'" v-html="para"></p>
-										<h3>2 - Quel est votre point de vue critique (ou non) concernant ces mesures{{'\xa0'}}?</h3>
+										<h4>2 - Quel est votre point de vue critique (ou non) concernant ces mesures{{'\xa0'}}?</h4>
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.2']" :key="currentCollaborateur+i+'1.2'" v-html="para"></p>
-										<h3>3 - Quelle leçon pouvez-vous tirer de la pandémie face à l’aménagement des villes, du design urbain et de l’architecture{{'\xa0'}}?</h3>
+										<h4>3 - Quelle leçon pouvez-vous tirer de la pandémie face à l’aménagement des villes, du design urbain et de l’architecture{{'\xa0'}}?</h4>
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.3']" :key="currentCollaborateur+i+'1.3'" v-html="para"></p>
-										<h3>4 - D’après vous, quels sont les enjeux les plus importants à considérer dans cette crise sanitaire{{'\xa0'}}?</h3>
+										<h4>4 - D’après vous, quels sont les enjeux les plus importants à considérer dans cette crise sanitaire{{'\xa0'}}?</h4>
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.4']" :key="currentCollaborateur+i+'1.4'" v-html="para"></p>
-									<h2>Au lendemain de la COVID-19, imaginez votre ville</h2>
-										<h3>1 - En regard de cette crise sanitaire, quelles sont vos réflexions quant au devenir des villes, de l’architecture, du design urbain ou/de l’architecture de paysage{{'\xa0'}}?</h3>
+									<h3>Au lendemain de la COVID-19, imaginez votre ville</h3>
+										<h4>1 - En regard de cette crise sanitaire, quelles sont vos réflexions quant au devenir des villes, de l’architecture, du design urbain ou/de l’architecture de paysage{{'\xa0'}}?</h4>
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['2.1']" :key="currentCollaborateur+i+'2.1'" v-html="para"></p>
-										<h3>2 - Est-ce que la crise actuelle suscite à votre avis, de nouvelles thématiques de réflexion, de recherche et de projets{{'\xa0'}}?</h3>
+										<h4>2 - Est-ce que la crise actuelle suscite à votre avis, de nouvelles thématiques de réflexion, de recherche et de projets{{'\xa0'}}?</h4>
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['2.2']" :key="currentCollaborateur+i+'2.2'" v-html="para"></p>
 								</div>
 								<div class="center-col">
