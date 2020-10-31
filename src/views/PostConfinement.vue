@@ -4,16 +4,16 @@
 	<div id="post-confinement" class="view-scroll">
 		<PageTitle/>
 		<section>
-			<div id="collaborateurs-map"></div>
-			<div class="collaborateur">
+			<div id="collaborateurs-map" :style="{opacity: isReading? .35 : 1}"></div>
+			<div class="collaborateur noselect">
 				<div class="change" @click="changeCollaborator(-1)"><div class="prev"></div></div>
 				<div class="name" @click="toggleRead" :class="{'isreading': isReading}">
 					<transition :name="stepDirection" mode="out-in">
 						<span v-if="currentCollaborateur!=null" :key="currentCollaborateur">
 							{{ collaborateurs[currentCollaborateur].nom }}
-							<em>&emsp;&mdash;&emsp;{{ collaborateurs[currentCollaborateur].ville }}</em>
+							<em>&emsp;&mdash;&emsp;{{ collaborateurs[currentCollaborateur].ville }}&emsp;&mdash;&emsp;{{ collaborateurs[currentCollaborateur].mois }}</em>
 						</span>
-						<div class="placeholder" v-else>Sélectionnez un collaborateur sur la carte</div>
+						<span class="placeholder" v-else @click="currentCollaborateur=0">Sélectionnez un collaborateur sur la carte</span>
 					</transition>
 					<div v-if="currentCollaborateur!=null" class="toggle"></div>
 				</div>
@@ -24,8 +24,13 @@
 					<transition :name="stepDirection" mode="out-in">
 						<div class="apercu" v-if="currentCollaborateur!=null" :key="collaborateurs[currentCollaborateur].nom+'_apercu'" v-bar>
 							<div class="meta">
+								<div v-if="collaborateurs[currentCollaborateur].photo!=undefined" class="vitrine">
+									<div :style="{backgroundImage: `url(${require('@/assets/photos/photos-vitrine/'+collaborateurs[currentCollaborateur].photo)})`}"></div>
+									<img :src="require(`@/assets/photos/photos-vitrine/${collaborateurs[currentCollaborateur].photo}`)" alt="">
+									<p v-html="collaborateurs[currentCollaborateur].credit"></p>
+								</div>
 								<div class="center-col">
-									<h3>Les réponses de votre ville face à la COVID-19</h3>
+									<h2>Les réponses de votre ville face à la COVID-19</h2>
 										<h4>1 - Concernant l’aménagement des espaces publics, d’après vous, quelles sont les bonnes initiatives et mesures engagées et réalisées par votre ville dans la période de confinement et post-confinement{{'\xa0'}}?</h4>
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.1']" :key="currentCollaborateur+i+'1.1'" v-html="para"></p>
 										<h4>2 - Quel est votre point de vue critique (ou non) concernant ces mesures{{'\xa0'}}?</h4>
@@ -34,15 +39,16 @@
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.3']" :key="currentCollaborateur+i+'1.3'" v-html="para"></p>
 										<h4>4 - D’après vous, quels sont les enjeux les plus importants à considérer dans cette crise sanitaire{{'\xa0'}}?</h4>
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['1.4']" :key="currentCollaborateur+i+'1.4'" v-html="para"></p>
-									<h3>Au lendemain de la COVID-19, imaginez votre ville</h3>
+									<h2>Au lendemain de la COVID-19, imaginez votre ville</h2>
 										<h4>1 - En regard de cette crise sanitaire, quelles sont vos réflexions quant au devenir des villes, de l’architecture, du design urbain ou/de l’architecture de paysage{{'\xa0'}}?</h4>
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['2.1']" :key="currentCollaborateur+i+'2.1'" v-html="para"></p>
 										<h4>2 - Est-ce que la crise actuelle suscite à votre avis, de nouvelles thématiques de réflexion, de recherche et de projets{{'\xa0'}}?</h4>
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['2.2']" :key="currentCollaborateur+i+'2.2'" v-html="para"></p>
 								</div>
 								<div class="center-col">
-									<p>{{ collaborateurs[currentCollaborateur].nom }},<br><small><i>{{ collaborateurs[currentCollaborateur].description }}</i></small></p>
-									<p><small>&copy; été/automne 2020</small></p>
+									<p>{{ collaborateurs[currentCollaborateur].nom }}<br>
+									<small><i>{{ collaborateurs[currentCollaborateur].description }}</i></small></p>
+									<p><small>&copy; {{ collaborateurs[currentCollaborateur].nom }} &mdash; 2020</small></p>
 								</div>
 							</div>
 						</div>
@@ -74,11 +80,78 @@ export default {
 	data() {
 		return {
 			collaborateurs: [
-				{nom: 'Alessandra Capuano', ville: 'Rome (Italie)', description: 'chercheure associée à la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM), professeure titulaire au Département d’architecture et de projet (DiAP) de l’Université de Rome la Sapienza, Italie', coords: [41.902782, 12.496365]},
-				{nom: 'Manuel Tardits', ville: 'Tokyo (Japon)', description: 'professeur et chercheur d’architecture à l’Université Meiji et l’ICS College of Arts, Tokyo, Japon', coords: [35.689487, 139.691711]},
-				{nom: 'Mauro Claro', ville: 'Sao Paulo (Brésil)', description: 'professeur et chercheur à la Faculté d’architecture et d’urbanisme (FAU) à l’Université Presbytérienne Mackenzie de Sao Paulo, Brésil', coords: [-23.550520, -46.633308]},
-				{nom: 'Imène Zâafrane', ville: 'Tunis (Tunisie)', description: 'professeure et chercheure à l’École Nationale d’architecture et d’urbanisme de l’Université du 7 Novembre à Carthage, Tunis, Tunisie', coords: [36.852921, 10.321725]},
-				{nom: 'Iman Benkirane', ville: 'Fès (Maroc)', description: 'directrice de l’École d’architecture et d’urbanisme de l’Université Euro-méditerranéenne, Fès, Maroc', coords: [34.033333, -5.000000]}
+				{
+					nom: 'Alessandra Capuano',
+					ville: 'Rome (Italie)',
+					mois: 'Octobre 2020',
+					description: 'Chercheure associée à la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM), professeure titulaire au Département d’architecture et de projet (DiAP) de l’Université de Rome la Sapienza, Italie',
+					coords: [41.902782, 12.496365],
+					photo: 'Lisa_Carignani_Le_quartier_de_Casilino_Rome_Italie_2020.jpg',
+					credit: 'Carignani, L. (2020). <i>Le quartier de Casilino</i>, Rome, Italie'
+				},
+				{
+					nom: 'Manuel Tardits',
+					ville: 'Tokyo (Japon)',
+					mois: 'Août 2020',
+					description: 'Professeur et chercheur d’architecture à l’Université Meiji et l’ICS College of Arts, Tokyo, Japon',
+					coords: [35.689487, 139.691711],
+					photo: 'Thomas_Daniell_Distanciation_sociale_sur_les_berges_de_la_riviere_Kamo_Kyoto_Japon_20_aout_2020.jpg',
+					credit: 'Daniell, T. (2020, 20 août). <i>Distanciation sociale sur les berges de la rivière Kamo</i>, Kyoto, Japon (20 août 2020)'
+				},
+				{
+					nom: 'Mauro Claro',
+					ville: 'Sao Paulo (Brésil)',
+					mois: 'Août 2020',
+					description: 'Professeur et chercheur à la Faculté d’architecture et d’urbanisme (FAU) à l’Université Presbytérienne Mackenzie de Sao Paulo, Brésil',
+					coords: [-23.550520, -46.633308],
+					photo: 'Jeremias_das_Neves_Distribution_de_paniers_alimentaires_de_base_a_la_population_de_Jardim_Piratininga_pendant_la_pandémie_Sao_Paulo_30_avril_2020.jpg',
+					credit: 'Das Neves, J. (2020, 30 avril). <i>Distribution de paniers alimentaires de base à la population de Jardim Piratininga pendant la pandémie</i>, Sao Paulo, Brésil'
+				},
+				{
+					nom: 'Imène Zâafrane',
+					ville: 'Tunis (Tunisie)',
+					mois: 'Août 2020',
+					description: 'Professeure et chercheure à l’École Nationale d’architecture et d’urbanisme de l’Université du 7 Novembre à Carthage, Tunis, Tunisie',
+					coords: [36.852921, 10.321725],
+					photo: 'Jnayna_Bouali_Place_Barcelone_Tunis_Tunisie_4_mai_2020.jpg',
+					credit: 'Bouali, J. (2020, 4 mai). <i>Place Barcelone</i>, Tunis, Tunisie'
+				},
+				{
+					nom: 'Iman Benkirane',
+					ville: 'Fès (Maroc)',
+					mois: 'Août 2020',
+					description: 'Directrice et professeure de l’École d’architecture et d’urbanisme de l’Université Euro-méditerranéenne, Fès, Maroc',
+					coords: [34.033333, -5.000000],
+					photo: 'Iman_Benkirane_Avenue_Hassan_II_Fès_Maroc_20_aout_2020.jpg',
+					credit: 'Benkirane, I. (2020, 20 août). <i>Avenue Hassan II</i>, Fès, Maroc'
+				},
+				{
+					nom: 'Marlène Ghorayeb',
+					ville: 'Paris (France)',
+					mois: 'Octobre 2020',
+					description: 'Chercheure au Laboratoire Architecture Ville Urbanisme Environnement (LAVUE – UMR 7218 CNRS), École spéciale d’architecture de Paris, France',
+					coords: [48.856613, 2.352222],
+					photo: 'Un_anniversaire_célébré_entre_voisins_confinés_Paris_France.jpg',
+					credit: 'Ghorayeb, M. (2020). <i>Un anniversaire célébré entre voisins confinés</i>, Paris, France'
+				},
+				{
+					nom: 'Caroline Gagnon',
+					ville: 'Montréal (Canada)',
+					mois: 'À venir (Novembre 2020)',
+					description: 'Professeure agrégée et directrice du baccalauréat en design de produits à l’École de design de l’Université Laval, Montréal, Canada',
+					coords: [45.501690, -73.567253],
+					// photo: '',
+					// credit: ''
+				},
+				// {
+				// 	nom: 'Michelle Meza Paredes',
+				// 	ville: 'Ville de Mexico (Mexique)',
+				// 	mois: '',
+				// 	description: '',
+				// 	coords: [19.432608, -99.133209],
+				// 	photo: '',
+				// 	credit: ''
+				// }
 			],
 			currentCollaborateur: null,
 			isReading: false,
@@ -113,12 +186,13 @@ export default {
 		this.collaborateursMap.on('mousedown', () => this.isReading = false)
 
 		var markerGroup = L.featureGroup();
-		this.collaborateurs.forEach(city => {
+		this.collaborateurs.forEach((city, index) => {
 			L.circleMarker(city.coords, {
 				radius: 20,
-				className: "test",
+				className: "punaise",
 			}).addTo(this.collaborateursMap).on('click', () => {
-				this.setByName(city.nom);
+				// this.setByName(city.nom);
+				this.currentCollaborateur = index;
 				this.focusMap(city.coords);
 				this.isReading = true;
 			}).addTo(markerGroup)
@@ -133,16 +207,16 @@ export default {
 		}
 	},
 	methods: {
-		setByName(name) {
-			var index;
-			this.collaborateurs.some((e, i) => {
-				if (e.nom == name) {
-					index = i;
-					return true;
-				}
-			});
-			this.currentCollaborateur = index;
-		},
+		// setByName(name) {
+		// 	var index;
+		// 	this.collaborateurs.some((e, i) => {
+		// 		if (e.nom == name) {
+		// 			index = i;
+		// 			return true;
+		// 		}
+		// 	});
+		// 	this.currentCollaborateur = index;
+		// },
 		focusMap(coords) {
 			if (this.collaborateursMap != null && this.collaborateursMap != undefined) {
 				this.collaborateursMap.panTo(L.latLng(coords[0],coords[1]), {animate: true, duration: .75});
@@ -198,6 +272,10 @@ export default {
 	height: 100%;
 }
 
+h2 {
+	margin: 32px 0px 24px 0px;
+}
+
 section {
 	display: flex;
 	flex-direction: column;
@@ -220,9 +298,10 @@ section {
 	background: white;
 	z-index: -1;
 	/* opacity: .35; */
+	transition: opacity .35s;
 }
 
-::v-deep .test {
+::v-deep .punaise {
 	fill: rgb(120, 175, 99);
 	fill-opacity: .5;
 	stroke: rgb(120, 175, 99);
@@ -230,7 +309,7 @@ section {
 	stroke-opacity: .5;
 	transition: fill-opacity .2s ease-in-out, stroke-width .2s ease-in-out, stroke-opacity .2s ease-in-out;
 }
-::v-deep .test:hover {
+::v-deep .punaise:hover {
 	fill-opacity: 1;
 	stroke-width: 25px;
 	stroke-opacity: 1;
@@ -243,7 +322,7 @@ section {
 	font-size: 20pt;
 	font-weight: 500;
 	width: 100%;
-	line-height: 2em;
+	line-height: 1.5em;
 	vertical-align: middle;
 	margin-bottom: 12px;
 }
@@ -258,19 +337,14 @@ section {
 	border-radius: 6px;
 	margin: 0px 8px;
 	overflow: hidden;
-	white-space: nowrap;
-	padding: 0px 2em;
-}
-.name .placeholder {
-	color: rgb(82,82,82);
-	font-weight: 400;
-	/* font-style: italic; */
-	font-size: 20px;
+	/* white-space: nowrap; */
+	padding: 0em 2em;
 }
 .name span {
 	display: inline-block;
 	position: relative;
 	color: rgb(44,46,48);
+	padding: .25em;
 }
 .name span::before,
 .name span::after {
@@ -296,7 +370,10 @@ section {
 	left: 0px;
 	width: 100%;
 }
-
+.name span.placeholder {
+	color: rgb(82,82,82);
+	font-weight: 400;
+}
 .name span em {
 	font-style: normal;
 	font-weight: 200;
@@ -305,9 +382,9 @@ section {
 
 .toggle {
 	position: absolute;
-	right: 20px;
+	right: .5em;
 	display: inline-block;
-	height: 100%;
+	height: 2em;
 	width: 2em;
 	transform: rotate(0deg);
 	transition: all .3s cubic-bezier(.7,0,.3,1);
@@ -407,7 +484,8 @@ section {
 	flex-grow: 1;
 	overflow: hidden;
 	background-color: rgba(251,252,253,1);
-	box-shadow: 0px 4px 16px -12px rgba(0,0,0,.35);
+	/* box-shadow: 0px 4px 16px -12px rgba(0,0,0,.35); */
+	box-shadow: 2px 12px 25px -10px rgba(0,0,0,.5);
 	border-radius: 12px;
 }
 .read-enter-active,
@@ -424,6 +502,52 @@ section {
 	position: relative;
 	height: 100%;
 }
+
+.apercu .vitrine {
+	text-align: center;
+	position: relative;
+	/* box-shadow: inset 0px -45px 25px -28px rgba(48, 48, 48, 0.5); */
+	width: 100%;
+	height: 65vh;
+	overflow: hidden;
+}
+.apercu .vitrine div {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	filter: blur(10px);
+	-webkit-filter: blur(75px);
+}
+.apercu .vitrine img {
+	position: relative;
+	z-index: 2;
+	height: 100%;
+	width: auto;
+}
+.apercu .vitrine p {
+	position: absolute;
+	text-align: left;
+	box-shadow: inset 0px -75px 50px -52px rgb(32,32,32,.75);
+	text-shadow: 1px 1px 4px rgba(0,0,0,.5);
+	letter-spacing: .25px;
+	z-index: 3;
+	width: 100%;
+	padding: 60px 12px 4px 12px;
+	font-size: 12px;
+	font-weight: 300;
+	line-height: 1.5em;
+	color: white;
+	margin: 0px;
+	left: 0px;
+	bottom: 0px;
+}
+
 .apercu .center-col {
 	padding-bottom: 120px;
 }

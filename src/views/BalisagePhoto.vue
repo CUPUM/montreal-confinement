@@ -61,7 +61,7 @@
 <script>
 import ChapterNav from '@/components/ChapterNav'
 import PageTitle from '@/components/PageTitle'
-import Descriptions from '@/assets/photos/descriptions.json'
+import Descriptions from '@/assets/texts/descriptions.json'
 
 export default {
 	name: 'BalisagePhoto',
@@ -113,7 +113,7 @@ export default {
 		}
 	},
 	mounted() {
-		this.importAll(require.context('../assets/photos/', true, /\.(?:jpg|jpeg|gif|png)$/))
+		this.importAll(require.context('../assets/photos/balisage/', true, /\.(?:jpg|jpeg|gif|png)$/))
 	}
 }
 </script>

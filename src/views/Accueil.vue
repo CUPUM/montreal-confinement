@@ -110,7 +110,7 @@ import CCUNESCOen from '@/assets/CCUNESCO_logo_colour_en.png'
 import MTLUNESCOfr from '@/assets/montreal_unesco_fr.svg'
 import MTLUNESCOen from '@/assets/montreal_unesco_en.svg'
 
-import BGpic from '@/assets/photos/cupum-covid_053.jpg'
+import BGpic from '@/assets/photos/balisage/cupum-covid_053.jpg'
 import ChapterNav from '@/components/ChapterNav'
 import { store } from '@/store.js'
 

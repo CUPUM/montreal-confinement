@@ -27,31 +27,34 @@
 			<h4>Direction scientifique</h4>
 			<p>
 				<ul>
-					<li>Philippe Poullaouec-Gonidec,<br><i class="detail">professeur et titulaire de la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM)</i></li>
+					<li>Philippe Poullaouec-Gonidec<br><i class="detail">Professeur et titulaire de la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM)</i></li>
 				</ul>
 			</p>
 			<h4>Chercheurs</h4>
 			<p>
 				<ul>
-					<li>Emmanuel Beaudry Marchand,<br><i class="detail">agent de recherche de la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM)</i></li>
-					<li>Chlo&eacute; L&eacute;vesque,<br><i class="detail">auxiliaire de recherche de la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM)</i></li>
+					<li>Emmanuel Beaudry Marchand<br><i class="detail">Agent de recherche de la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM)</i></li>
+					<li>Chlo&eacute; L&eacute;vesque<br><i class="detail">Auxiliaire de recherche de la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM)</i></li>
 				</ul>
 			</p>
 			<h4>Chercheur conseiller</h4>
 			<p>
 				<ul>
-					<li>Sylvain Paquette,<br><i class="detail">professeur titulaire et chercheur associ&eacute; &agrave; la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM)</i></li>
+					<li>Sylvain Paquette<br><i class="detail">Professeur titulaire et chercheur associ&eacute; &agrave; la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM)</i></li>
 				</ul>
 			</p>
 			<h4>Collaborateurs scientifiques</h4>
 			<p>
 				<ul>
-					<li>Alessandra Capuano,<br><i class="detail">chercheure associée à la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM), professeure titulaire au Département d’architecture et de projet (DiAP) de l’Université de Rome la Sapienza, Italie</i></li>
-					<li>Manuel Tardits,<br><i class="detail">professeur et chercheur d’architecture à l’Université Meiji et l’ICS College of Arts, Tokyo, Japon</i></li>
-					<li>Mauro Claro,<br><i class="detail">professeur et chercheur à la Faculté d’architecture et d’urbanisme (FAU) à l’Université Presbytérienne Mackenzie de Sao Paulo, Brésil</i></li>
-					<!-- <li>Stefan Tischer,<br><i class="detail">professeur et chercheur à la Faculté d’architecture d’Alghero, Département d’architecture, de design et d’urbanisme Université de Sassari, Sardaigne, Italie</i></li> -->
-					<li>Imène Zaâfrane,<br><i class="detail">professeure et chercheure à l’École Nationale d’architecture et d’urbanisme de l’Université du 7 Novembre à Carthage, Tunis, Tunisie</i></li>
-					<li>Iman Benkirane,<br><i class="detail">directrice de l’École d’architecture et d’urbanisme de l’Université Euro-méditerranéenne, Fès, Maroc</i></li>
+					<li>Alessandra Capuano<br><i class="detail">Chercheure associée à la Chaire UNESCO en paysage urbain de l’Université de Montréal (CUPUM), professeure titulaire au Département d’architecture et de projet (DiAP) de l’Université de Rome la Sapienza, Italie</i></li>
+					<li>Manuel Tardits<br><i class="detail">Professeur et chercheur d’architecture à l’Université Meiji et l’ICS College of Arts, Tokyo, Japon</i></li>
+					<li>Mauro Claro<br><i class="detail">Professeur et chercheur à la Faculté d’architecture et d’urbanisme (FAU) à l’Université Presbytérienne Mackenzie de Sao Paulo, Brésil</i></li>
+					<!-- <li>Stefan Tischer<br><i class="detail">Professeur et chercheur à la Faculté d’architecture d’Alghero, Département d’architecture, de design et d’urbanisme Université de Sassari, Sardaigne, Italie</i></li> -->
+					<li>Imène Zaâfrane<br><i class="detail">Professeure et chercheure à l’École Nationale d’architecture et d’urbanisme de l’Université du 7 Novembre à Carthage, Tunis, Tunisie</i></li>
+					<li>Iman Benkirane<br><i class="detail">Directrice et professeure de l’École d’architecture et d’urbanisme de l’Université Euro-méditerranéenne, Fès, Maroc</i></li>
+					<li>Marlène Ghorayeb<br><i class="detail">Chercheure au Laboratoire Architecture Ville Urbanisme Environnement (LAVUE – UMR 7218 CNRS), École spéciale d’architecture de Paris, France</i></li>
+					<li>Caroline Gagnon<br><i class="detail">Professeure agrégée et directrice du baccalauréat en design de produits à l’École de design de l’Université Laval, Montréal, Canada</i></li>
+					<!-- <li>Michelle Meza Paredes</li> -->
 				</ul>
 			</p>
 
