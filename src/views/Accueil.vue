@@ -15,9 +15,9 @@
 					<transition name="splashswitch" mode="in-out">
 						<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1700 860" v-if="lang=='fr'" key="fr">
 							<defs>
-								<svg:style type="text/css">
-									@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap'); <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
-								</svg:style>
+								<!-- <svg:style type="text/css">
+									@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+								</svg:style> -->
 								<mask id="splash-text-mask" x="0" y="0">
 									<rect x="-10000" y="-10000" width="20000" height="20000" fill="white"/>
 									<text font-family="Poppins" font-size="210" font-weight="600" x="0" y="210" class="splash-text">Montréal /</text>
@@ -30,9 +30,9 @@
 						</svg>
 						<svg preserveAspectRatio="xMinYMid" viewBox="0 0 1700 860" v-if="lang=='en'" key="en">
 							<defs>
-								<svg:style type="text/css">
-									@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap'); <!-- Sinon la font ne load pas toujours correctement sur Chrome... -->
-								</svg:style>
+								<!-- <svg:style type="text/css">
+									@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+								</svg:style> -->
 								<mask id="splash-text-mask-en" x="0" y="0">
 									<rect x="-10000" y="-10000" width="20000" height="20000" fill="white"/>
 									<text font-family="Poppins" font-size="210" font-weight="600" x="0" y="210" class="splash-text">Montreal /</text>

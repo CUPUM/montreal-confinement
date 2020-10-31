@@ -142,7 +142,7 @@ export default {
 	max-width: 750px;
 	height: 400px;
 	margin: 0px;
-	padding: 2px;
+	padding: 0px;
 	overflow: hidden;
 	transition: all .25s ease-in-out;
 	/* box-shadow: 1px 3px 5px -3px rgba(0,0,0,.5); */

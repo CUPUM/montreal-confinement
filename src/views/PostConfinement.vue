@@ -25,8 +25,10 @@
 						<div class="apercu" v-if="currentCollaborateur!=null" :key="collaborateurs[currentCollaborateur].nom+'_apercu'" v-bar>
 							<div class="meta">
 								<div v-if="collaborateurs[currentCollaborateur].photo!=undefined" class="vitrine">
-									<div :style="{backgroundImage: `url(${require('@/assets/photos/photos-vitrine/'+collaborateurs[currentCollaborateur].photo)})`}"></div>
-									<img :src="require(`@/assets/photos/photos-vitrine/${collaborateurs[currentCollaborateur].photo}`)" alt="">
+									<!-- <div :style="{backgroundImage: `url(${require('@/assets/photos/photos-vitrine/'+collaborateurs[currentCollaborateur].photo)})`}"></div>
+									<img :src="require(`@/assets/photos/photos-vitrine/${collaborateurs[currentCollaborateur].photo}`)" alt=""> -->
+									<div :style="{backgroundImage: `url(${loadedPhotos[currentCollaborateur].src})`}"></div>
+									<img :src="loadedPhotos[currentCollaborateur].src" alt="">
 									<p v-html="collaborateurs[currentCollaborateur].credit"></p>
 								</div>
 								<div class="center-col">
@@ -160,6 +162,16 @@ export default {
 		}
 	},
 	created() {
+		// Preloading des photos
+		this.loadedPhotos = [];
+		this.collaborateurs.forEach(c => {
+			if (c.photo!=undefined) {
+				let img = new Image();
+				img.src = require(`@/assets/photos/photos-vitrine/${c.photo}`)
+				this.loadedPhotos.push(img);
+			}
+		})
+		// Leaflet prep
 		this.collaborateursMap = null // Pour initier sans observer
 		this.tiles = null
 	},
@@ -197,7 +209,6 @@ export default {
 				this.isReading = true;
 			}).addTo(markerGroup)
 		});
-
 		this.collaborateursMap.setMaxBounds( [[-90,-180], [90,180]] );
 		this.collaborateursMap.fitBounds(markerGroup.getBounds(), {padding: [25,25]});
 	},
@@ -533,7 +544,7 @@ section {
 .apercu .vitrine p {
 	position: absolute;
 	text-align: left;
-	box-shadow: inset 0px -75px 50px -52px rgb(32,32,32,.75);
+	box-shadow: inset 0px -70px 50px -52px rgb(32,32,32,.75);
 	text-shadow: 1px 1px 4px rgba(0,0,0,.5);
 	letter-spacing: .25px;
 	z-index: 3;
