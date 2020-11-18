@@ -1,9 +1,11 @@
 <template>
 	<div id="app">
-		<div v-if="lang=='fr'" class="mobile-notice">
-			<p><em>Prendre note :</em> Le visionnement de ce site sur un écran ou une fenêtre de petite taille n'est pas conseillé. Certaines visualisations risquent de ne pas être affichées adéquatement.</p>
-			<p>Pour une meilleure expérience, veuillez utiliser un appareil avec un écran plus grand ou, si possible, agrandir la fenêtre de votre fureteur.</p>
-		</div>
+		<transition name="notice">
+			<div v-if="lang=='fr'" class="mobile-notice">
+				<p><em>Prendre note :</em> Le visionnement de ce site sur un écran ou une fenêtre de petite taille n'est pas conseillé. Certaines visualisations risquent de ne pas être affichées adéquatement.</p>
+				<p>Pour une meilleure expérience, veuillez utiliser un appareil avec un écran plus grand ou, si possible, agrandir la fenêtre de votre fureteur.</p>
+			</div>
+		</transition>
 		<div id="view-container">
 			<!-- <div id="spinner"></div> -->
 			<transition name="view-change" mode="out-in">
@@ -334,6 +336,16 @@ a.reference-link::before {
 a.reference-link:hover::before {
 	left: 0;
 	width: 100%;
+}
+
+.notice-enter-active,
+.notice-leave-active {
+	transition: all .5s ease;
+}
+.notice-enter,
+.notice-leave-to {
+	max-height: 0px !important;
+	padding: 0px !important;
 }
 
 .mobile-notice {
