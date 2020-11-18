@@ -131,14 +131,14 @@ export default {
 				const anchor = document.querySelector(store.scrollHash)
 				this.$refs.vbar.firstChild.scrollTo({top: anchor.offsetTop, behavior: 'smooth'})
 			}, 500)
-			setTimeout(() => {
-				if (store.scrollHash === '#download') {
-					this.isHighlighted = true;
-				}
+			if (store.scrollHash === '#download') {
 				setTimeout(() => {
-					this.isHighlighted = false;
-				}, 2250)
-			}, 1250)
+					this.isHighlighted = true;
+					setTimeout(() => {
+						this.isHighlighted = false;
+					}, 2250)
+				}, 1250)
+			}
 		}
 	},
 	data() {
