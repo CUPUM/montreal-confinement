@@ -53,7 +53,7 @@
 					<li>Imène Zaâfrane<br><i class="detail">Professeure et chercheure à l’École Nationale d’architecture et d’urbanisme de l’Université du 7 Novembre à Carthage, Tunis, Tunisie</i></li>
 					<li>Iman Benkirane<br><i class="detail">Directrice et professeure de l’École d’architecture et d’urbanisme de l’Université Euro-méditerranéenne, Fès, Maroc</i></li>
 					<li>Marlène Ghorayeb<br><i class="detail">Chercheure au Laboratoire Architecture Ville Urbanisme Environnement (LAVUE – UMR 7218 CNRS), École spéciale d’architecture de Paris, France</i></li>
-					<li>Caroline Gagnon<br><i class="detail">Professeure agrégée et directrice du baccalauréat en design de produits à l’École de design de l’Université Laval, Montréal, Canada</i></li>
+					<!-- <li>Caroline Gagnon<br><i class="detail">Professeure agrégée et directrice du baccalauréat en design de produits à l’École de design de l’Université Laval, Montréal, Canada</i></li> -->
 					<!-- <li>Michelle Meza Paredes</li> -->
 				</ul>
 			</p>

@@ -189,9 +189,11 @@ export default {
 	},
 	activated() {
 		this.$vuebar.refreshScrollbar(this.$refs.vbar)
-		if (store.scrollHash!=null) {
-			const anchor = document.querySelector(store.scrollHash)
-			this.$refs.vbar.firstChild.scrollTo({top: anchor.offsetTop, behavior: 'smooth'})
+		if (store.scrollHash !== null) {
+			setTimeout(() => {
+				const anchor = document.querySelector(store.scrollHash)
+				this.$refs.vbar.firstChild.scrollTo({top: anchor.offsetTop, behavior: 'smooth'})
+			}, 500)
 		}
 	},
 	data() {

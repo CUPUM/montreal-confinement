@@ -88,9 +88,14 @@
 					<a href="https://designmontreal.com/en/about-montreal-unesco-city-of-design" target="_blank"><img :src='MTLUNESCOen' alt="~"/></a>
 				</div>
 				<div class="center-col">
-					<div v-if="lang=='en'" key="en">
+					<div v-if="lang=='en'" key="en" id="download">
 						<p class="en-notice"><i>Interactive website available only in french</i></p>
-						<a href="/Montreal_Landscape_in_Lockdown_CUPUM_2020.pdf" target="_blank" class="download">Download the research report as a <i>pdf</i></a>
+						<transition name="fade">
+							<div class="highlight" v-if="isHighlighted"></div>
+						</transition>
+						<a href="/Montreal_Landscape_in_Lockdown_CUPUM_2020.pdf" target="_blank" class="download">
+							Download the research report as a <i>pdf</i>
+						</a>
 					</div>
 				</div>
 			</section>
@@ -121,6 +126,20 @@ export default {
 	},
 	activated() {
 		this.$vuebar.refreshScrollbar(this.$refs.vbar)
+		if (store.scrollHash !== null) {
+			setTimeout(() => {
+				const anchor = document.querySelector(store.scrollHash)
+				this.$refs.vbar.firstChild.scrollTo({top: anchor.offsetTop, behavior: 'smooth'})
+			}, 500)
+			setTimeout(() => {
+				if (store.scrollHash === '#download') {
+					this.isHighlighted = true;
+				}
+				setTimeout(() => {
+					this.isHighlighted = false;
+				}, 2250)
+			}, 1250)
+		}
 	},
 	data() {
 		return {
@@ -134,7 +153,8 @@ export default {
 			MTLUNESCOen,
 			BGpic,
 			viewHeight: Number,
-			isCurtain: Boolean
+			isCurtain: Boolean,
+			isHighlighted: false,
 		}
 	},
 	created() {
@@ -412,5 +432,31 @@ export default {
 	width: 20px;
 	height: 20px;
 	background: linear-gradient(45deg, rgb(177, 221, 153) 50%, rgb(244, 246, 248) 50%);
+}
+
+#download {
+	position: relative;
+}
+.highlight {
+	opacity: .65;
+	position: absolute;
+	width: 350px;
+	height: 350px;
+	border-radius: 50%;
+	background-color: transparent;
+	box-shadow: 0px 0px 200px 100px rgb(166, 216, 147);
+	bottom: -60px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.fade-enter-active {
+	transition: all .75s;
+}
+.fade-leave-active {
+	transition: all 2s;
+}
+.fade-enter,
+.fade-leave-to {
+	opacity: 0 !important;
 }
 </style>

@@ -3,6 +3,9 @@
 	<div class="meta" v-bar ref="vbar">
 	<div id="post-confinement" class="view-scroll">
 		<PageTitle/>
+		<div class="center-col">
+			<p>Dans la foulée des éléments conclusifs de la réflexion sur le confinement montréalais et pour compléter celle-ci, ce présent chapitre sous la forme d’un question/réponse communique les propos de certains partenaires internationaux de la Chaire UNESCO en paysage urbain (CUPUM) sur le confinement et le post-confinement de la COVID-19. Les réponses de ces experts des villes de Fès, de Paris, de Rome, de Sao Paulo, de Tokyo et de Tunis apportent un éclairage complémentaire aux constats de la réflexion montréalaise. Leurs propos révèlent des singularités et de profondes similitudes face à cette crise sanitaire.</p>
+		</div>
 		<section>
 			<div id="collaborateurs-map" :style="{opacity: isReading? .35 : 1}"></div>
 			<div class="collaborateur noselect">
@@ -106,8 +109,8 @@ export default {
 					mois: 'Août 2020',
 					description: 'Professeur et chercheur à la Faculté d’architecture et d’urbanisme (FAU) à l’Université Presbytérienne Mackenzie de Sao Paulo, Brésil',
 					coords: [-23.550520, -46.633308],
-					photo: 'Jeremias_das_Neves_Distribution_de_paniers_alimentaires_de_base_a_la_population_de_Jardim_Piratininga_pendant_la_pandémie_Sao_Paulo_30_avril_2020.jpg',
-					credit: 'Das Neves, J. (2020, 30 avril). <i>Distribution de paniers alimentaires de base à la population de Jardim Piratininga pendant la pandémie</i>, Sao Paulo, Brésil'
+					photo: 'Sao_Paulo_Pedro_Mascaro_10_mai_2020.jpg',
+					credit: 'Mascaro, P. (2020, 10 mai). <i>Voie express de Minhocão</i>, Sao Paulo, Brésil'
 				},
 				{
 					nom: 'Imène Zâafrane',
@@ -136,15 +139,15 @@ export default {
 					photo: 'Un_anniversaire_célébré_entre_voisins_confinés_Paris_France.jpg',
 					credit: 'Ghorayeb, M. (2020). <i>Un anniversaire célébré entre voisins confinés</i>, Paris, France'
 				},
-				{
-					nom: 'Caroline Gagnon',
-					ville: 'Montréal (Canada)',
-					mois: 'À venir (Novembre 2020)',
-					description: 'Professeure agrégée et directrice du baccalauréat en design de produits à l’École de design de l’Université Laval, Montréal, Canada',
-					coords: [45.501690, -73.567253],
-					// photo: '',
-					// credit: ''
-				},
+				// {
+				// 	nom: 'Caroline Gagnon',
+				// 	ville: 'Montréal (Canada)',
+				// 	mois: 'À venir (Novembre 2020)',
+				// 	description: 'Professeure agrégée et directrice du baccalauréat en design de produits à l’École de design de l’Université Laval, Montréal, Canada',
+				// 	coords: [45.501690, -73.567253],
+				// 	// photo: '',
+				// 	// credit: ''
+				// },
 				// {
 				// 	nom: 'Michelle Meza Paredes',
 				// 	ville: 'Ville de Mexico (Mexique)',
@@ -275,7 +278,6 @@ export default {
 .page-title {
 	position: relative;
 	z-index: 1;
-	margin-bottom: 0px;
 }
 
 #post-confinement {
@@ -292,7 +294,7 @@ section {
 	flex-direction: column;
 	position: relative;
 	z-index: 0;
-	margin: 0px;
+	margin: 80px 0px 0px 0px;
 	padding: 50px 120px;
 	height: 100%;
 	width: 100%;

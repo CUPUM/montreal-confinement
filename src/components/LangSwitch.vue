@@ -24,12 +24,15 @@ export default {
 	computed: {
 		currentLang: {
 			get() {
-				return store.lang
+				return store.lang;
 			},
 			set(value) {
 				mutations.setLang(value)
-				if (this.$route.name == "Accueil") {
-					this.$router.push({path: '/'+value})
+				if (this.$route.name === 'Accueil') {
+					this.$router.push({path: '/'+value});
+				}
+				else if (value === 'en') {
+					this.$router.push({path: '/'+value, hash: '#download'});
 				}
 			}
 		},

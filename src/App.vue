@@ -1,5 +1,9 @@
 <template>
 	<div id="app">
+		<div v-if="lang=='fr'" class="mobile-notice">
+			<p><em>Prendre note :</em> Le visionnement de ce site sur un écran ou une fenêtre de petite taille n'est pas conseillé. Certaines visualisations risquent de ne pas être affichées adéquatement.</p>
+			<p>Pour une meilleure expérience, veuillez utiliser un appareil avec un écran plus grand ou, si possible, agrandir la fenêtre de votre fureteur.</p>
+		</div>
 		<div id="view-container">
 			<!-- <div id="spinner"></div> -->
 			<transition name="view-change" mode="out-in">
@@ -330,6 +334,41 @@ a.reference-link::before {
 a.reference-link:hover::before {
 	left: 0;
 	width: 100%;
+}
+
+.mobile-notice {
+	overflow: hidden;
+	background-color: white;
+	position: relative;
+	height: auto;
+	padding: 0px;
+	transition: all .35s ease;
+}
+@media screen and (max-width: 1000px) {
+	.mobile-notice {
+		max-height: 500px;
+		padding: 18px 0px 36px 0px;
+	}
+}
+@media screen and (min-width: 1001px) {
+	.mobile-notice {
+		max-height: 0px;
+		padding: 0px;
+	}
+}
+.mobile-notice p {
+	line-height: 1.5em;
+	display: block;
+	margin: 10px;
+	position: relative;
+	font-size: 9pt;
+	color: rgb(64,65,66);
+	padding: 0px 96px 0px 24px;
+	text-align: left;
+}
+.mobile-notice em {
+	font-weight: 500;
+	color: rgb(120, 175, 99);
 }
 
 
