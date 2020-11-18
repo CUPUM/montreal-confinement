@@ -136,7 +136,7 @@ export default {
 					this.isHighlighted = true;
 					setTimeout(() => {
 						this.isHighlighted = false;
-					}, 2250)
+					}, 1250)
 				}, 1250)
 			}
 		}
@@ -438,7 +438,7 @@ export default {
 	position: relative;
 }
 .highlight {
-	opacity: .65;
+	opacity: .75;
 	position: absolute;
 	width: 350px;
 	height: 350px;
