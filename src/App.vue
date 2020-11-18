@@ -1,12 +1,12 @@
 <template>
 	<div id="app">
-		<transition name="notice">
-			<div v-if="lang=='fr'" class="mobile-notice">
-				<p><em>Prendre note :</em> Le visionnement de ce site sur un écran ou une fenêtre de petite taille n'est pas conseillé. Certaines visualisations risquent de ne pas être affichées adéquatement.</p>
-				<p>Pour une meilleure expérience, veuillez utiliser un appareil avec un écran plus grand ou, si possible, agrandir la fenêtre de votre fureteur.</p>
-			</div>
-		</transition>
 		<div id="view-container">
+			<transition name="notice">
+				<div v-if="lang=='fr'" class="mobile-notice">
+					<p><em>Prendre note :</em> Le visionnement de ce site sur un écran ou une fenêtre de petite taille n'est pas conseillé. Certaines visualisations risquent de ne pas être affichées adéquatement.</p>
+					<p>Pour une meilleure expérience, veuillez utiliser un appareil avec un écran plus grand ou, si possible, agrandir la fenêtre de votre fureteur.</p>
+				</div>
+			</transition>
 			<!-- <div id="spinner"></div> -->
 			<transition name="view-change" mode="out-in">
 				<keep-alive>
@@ -359,7 +359,7 @@ a.reference-link:hover::before {
 @media screen and (max-width: 1000px) {
 	.mobile-notice {
 		max-height: 500px;
-		padding: 18px 0px 36px 0px;
+		padding: 12px 0px 24px 0px;
 	}
 }
 @media screen and (min-width: 1001px) {
@@ -371,7 +371,7 @@ a.reference-link:hover::before {
 .mobile-notice p {
 	line-height: 1.5em;
 	display: block;
-	margin: 10px;
+	margin: 8px 0px 0px 0px;
 	position: relative;
 	font-size: 9pt;
 	color: rgb(64,65,66);
