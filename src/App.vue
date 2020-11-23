@@ -57,8 +57,10 @@ export default {
 	beforeCreate() {
 		var fontObs = new FontFaceObserver('Poppins');
 		fontObs.load().then(() => {
-			console.log('Poppins loaded!');
 			mutations.setFontState(true);
+			setTimeout(() => {
+				window.dispatchEvent(new Event('resize'));
+			}, 10);
 		});
 	}
 }

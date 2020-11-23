@@ -4,7 +4,7 @@
 	<div id="accueil" ref="accueil" class="view-scroll">
 
 		<transition appear name="splash-image">
-			<div id="splash" :style="fontLoaded? {width: '100%'} : {width: '100.1%'}">
+			<div id="splash">
 				<!-- <div id="splash-inner" :style="{backgroundImage: `url('${BGpic}')`}"> -->
 				<div id="splash-inner" v-lazy:background-image="BGpic">
 					<!-- <div class="img-wrapper">
