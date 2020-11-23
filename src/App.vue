@@ -1,12 +1,12 @@
 <template>
 	<div id="app">
+		<transition name="notice">
+			<div v-if="lang=='fr'" class="mobile-notice">
+				<p><em>Prendre note :</em> Le visionnement de ce site sur un écran ou une fenêtre de petite taille n'est pas conseillé. Certaines visualisations risquent de ne pas être affichées adéquatement.</p>
+				<p>Pour une meilleure expérience, veuillez utiliser un appareil avec un écran plus grand ou, si possible, agrandir la fenêtre de votre fureteur.</p>
+			</div>
+		</transition>
 		<div id="view-container">
-			<transition name="notice">
-				<div v-if="lang=='fr'" class="mobile-notice">
-					<p><em>Prendre note :</em> Le visionnement de ce site sur un écran ou une fenêtre de petite taille n'est pas conseillé. Certaines visualisations risquent de ne pas être affichées adéquatement.</p>
-					<p>Pour une meilleure expérience, veuillez utiliser un appareil avec un écran plus grand ou, si possible, agrandir la fenêtre de votre fureteur.</p>
-				</div>
-			</transition>
 			<!-- <div id="spinner"></div> -->
 			<transition name="view-change" mode="out-in">
 				<keep-alive>
@@ -344,12 +344,15 @@ a.reference-link:hover::before {
 }
 .notice-enter,
 .notice-leave-to {
+	opacity: 0;
 	max-height: 0px !important;
 	padding: 0px !important;
 }
 
 .mobile-notice {
-	overflow: hidden;
+	opacity: 1;
+	top: 0px;
+	/* overflow: hidden; */
 	background-color: white;
 	position: relative;
 	height: auto;
@@ -358,12 +361,14 @@ a.reference-link:hover::before {
 }
 @media screen and (max-width: 1000px) {
 	.mobile-notice {
+		opacity: 1;
 		max-height: 500px;
 		padding: 12px 0px 24px 0px;
 	}
 }
 @media screen and (min-width: 1001px) {
 	.mobile-notice {
+		opacity: 0;
 		max-height: 0px;
 		padding: 0px;
 	}

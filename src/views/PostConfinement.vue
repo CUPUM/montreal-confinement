@@ -49,8 +49,11 @@
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['2.1']" :key="currentCollaborateur+i+'2.1'" v-html="para"></p>
 										<h4>2 - Est-ce que la crise actuelle suscite à votre avis, de nouvelles thématiques de réflexion, de recherche et de projets{{'\xa0'}}?</h4>
 											<p v-for="(para, i) in apercus[collaborateurs[currentCollaborateur].nom]['2.2']" :key="currentCollaborateur+i+'2.2'" v-html="para"></p>
-								</div>
-								<div class="center-col">
+								<br>
+									<p v-if="collaborateurs[currentCollaborateur].note!=undefined">
+										<small><i>Note : </i></small><br>
+										<small v-html="collaborateurs[currentCollaborateur].note"></small>
+									</p>
 									<p>{{ collaborateurs[currentCollaborateur].nom }}<br>
 									<small><i>{{ collaborateurs[currentCollaborateur].description }}</i></small></p>
 									<p><small>&copy; {{ collaborateurs[currentCollaborateur].nom }} &mdash; 2020</small></p>
@@ -110,7 +113,8 @@ export default {
 					description: 'Professeur et chercheur à la Faculté d’architecture et d’urbanisme (FAU) à l’Université Presbytérienne Mackenzie de Sao Paulo, Brésil',
 					coords: [-23.550520, -46.633308],
 					photo: 'Sao_Paulo_Pedro_Mascaro_10_mai_2020.jpg',
-					credit: 'Mascaro, P. (2020, 10 mai). <i>Voie express de Minhocão</i>, Sao Paulo, Brésil'
+					credit: 'Mascaro, P. (2020, 10 mai). <i>Voie express de Minhocão</i>, Sao Paulo, Brésil',
+					note: 'L’auteur remercie Mme Aya Saito, chercheure du groupe de recherche <i>Urban Issues</i> - Faculté d’architecture et d’urbanisme (FAU) à l’Université Presbytérienne Mackenzie pour son aide scientifique.'
 				},
 				{
 					nom: 'Imène Zâafrane',
@@ -187,6 +191,9 @@ export default {
 			zoomSnap: 1,
 			// renderer: L.SVG(),
 		}).setView( L.latLng(0,0), 4 );
+
+		this.collaborateursMap.getContainer().focus = () => {};
+
 		this.tiles = new L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 			subdomains: 'abcd',
@@ -208,8 +215,8 @@ export default {
 			}).addTo(this.collaborateursMap).on('click', () => {
 				// this.setByName(city.nom);
 				this.currentCollaborateur = index;
-				this.focusMap(city.coords);
 				this.isReading = true;
+				this.focusMap(city.coords);
 			}).addTo(markerGroup)
 		});
 		this.collaborateursMap.setMaxBounds( [[-90,-180], [90,180]] );
@@ -233,7 +240,10 @@ export default {
 		// },
 		focusMap(coords) {
 			if (this.collaborateursMap != null && this.collaborateursMap != undefined) {
-				this.collaborateursMap.panTo(L.latLng(coords[0],coords[1]), {animate: true, duration: .75});
+				setTimeout(() => {
+					this.collaborateursMap.panTo(L.latLng(coords[0],coords[1]), {animate: true, duration: .75}) 
+				}, this.isReading? 250 : 0);
+
 				if (this.currentMarker!=null) {
 					this.collaborateursMap.removeLayer(this.currentMarker);
 				}
