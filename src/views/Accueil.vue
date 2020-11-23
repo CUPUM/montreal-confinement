@@ -4,7 +4,7 @@
 	<div id="accueil" ref="accueil" class="view-scroll">
 
 		<transition appear name="splash-image">
-			<div id="splash">
+			<div id="splash" :style="fontLoaded? {width: '100%'} : {width: '100.1%'}">
 				<!-- <div id="splash-inner" :style="{backgroundImage: `url('${BGpic}')`}"> -->
 				<div id="splash-inner" v-lazy:background-image="BGpic">
 					<!-- <div class="img-wrapper">
@@ -171,6 +171,9 @@ export default {
 	computed: {
 		lang() {
 			return store.lang
+		},
+		fontLoaded() {
+			return store.fontLoaded
 		}
 	},
 	methods : {
@@ -215,6 +218,7 @@ export default {
 	padding: 0px 110px;
 	margin: 75px 0px 0px 0px;
 	overflow: hidden;
+	transition: width .2s;
 }
 #splash-inner {
 	position: relative;
@@ -268,13 +272,13 @@ export default {
 	background-attachment: fixed; */
 }
 text.splash-text {
-	font-family: 'Poppins';
+	font-family: 'Poppins', sans-serif;
 	font-weight: 600;
 	font-size: 210px;
 	fill: black;
 }
 text.splash-text.date {
-	font-family: 'Poppins';
+	font-family: 'Poppins', sans-serif;
 	font-weight: 300;
 	font-size: 42px;
 	fill: black;

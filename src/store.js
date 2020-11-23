@@ -1,6 +1,7 @@
 import Vue from "vue";
 
 export const store = Vue.observable({
+	fontLoaded: false,
 	isNav: false,
 	lang: 'fr',
 	runningDate: null,
@@ -10,6 +11,10 @@ export const store = Vue.observable({
 });
 
 export const mutations = {
+	setFontState(state) {
+		store.fontLoaded = state
+	},
+
 	toggleNav() {
 		store.isNav = !store.isNav
 	},

@@ -28,11 +28,12 @@
 </template>
 
 <script>
+import * as FontFaceObserver from 'fontfaceobserver'
 import NavMenu from '@/components/NavMenu'
 import NavButton from '@/components/NavButton'
 import LangSwitch from '@/components/LangSwitch'
 import ChairLink from '@/components/ChairLink'
-import { store } from '@/store.js'
+import { store, mutations } from '@/store.js'
 
 export default {
 	components: {
@@ -40,6 +41,10 @@ export default {
 		NavButton,
 		LangSwitch,
 		ChairLink
+	},
+	data() {
+		return {
+		}
 	},
 	computed: {
 		lang() {
@@ -49,10 +54,12 @@ export default {
 			return (store.lang =='fr' || (store.lang =='en' && this.$route.name!='Accueil')) ? true : false
 		}
 	},
-	mounted() {
-		// document.fonts.ready.then(function() {
-		// 	fontsLoaded = true
-		// })
+	beforeCreate() {
+		var fontObs = new FontFaceObserver('Poppins');
+		fontObs.load().then(() => {
+			console.log('Poppins loaded!');
+			mutations.setFontState(true);
+		});
 	}
 }
 </script>
