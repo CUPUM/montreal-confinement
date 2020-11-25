@@ -20,14 +20,11 @@
 								</svg:style> -->
 								<mask id="splash-text-mask" x="0" y="0">
 									<rect x="-10000" y="-10000" width="20000" height="20000" fill="white"/>
-									<!-- <text font-family="Poppins" font-size="210" font-weight="600" x="0" y="210" class="splash-text">Montréal /</text>
-									<text font-family="Poppins" font-size="210" font-weight="600" x="0" y="500" class="splash-text">paysage</text>
-									<text font-family="Poppins" font-size="210" font-weight="600" x="0" y="790" class="splash-text">en confinement</text>
-									<text font-family="Poppins" font-size="42" font-weight="300" letter-spacing=".5" x="1225" y="455" class="splash-text date">13 mars &mdash; 16 mai 2020</text> -->
-									<text x="0" y="210" class="splash-text">Montréal /</text>
-									<text x="0" y="500" class="splash-text">paysage</text>
-									<text x="0" y="790" class="splash-text">en confinement</text>
-									<text x="1225" y="455" class="splash-text date">13 mars &mdash; 16 mai 2020</text>
+									<text x="0" y="210" class="splash-text" :class="{'shown': fontLoaded}">Montréal /</text>
+									<text x="0" y="500" class="splash-text" :class="{'shown': fontLoaded}">paysage</text>
+									<text x="0" y="790" class="splash-text" :class="{'shown': fontLoaded}">en confinement</text>
+									<text x="1225" y="455" class="splash-text date" :class="{'shown': fontLoaded}">13 mars &mdash; 16 mai 2020</text>
+									<text x="0" y="0" class="splash-text font-trigger" v-if="fontLoaded"></text>
 								</mask>
 							</defs>
 							<rect x="-10000" y="-10000" width="20000" height="20000" mask="url(#splash-text-mask)" fill="rgb(244, 246, 248)"/>
@@ -39,14 +36,11 @@
 								</svg:style> -->
 								<mask id="splash-text-mask-en" x="0" y="0">
 									<rect x="-10000" y="-10000" width="20000" height="20000" fill="white"/>
-									<!-- <text font-family="Poppins" font-size="210" font-weight="600" x="0" y="210" class="splash-text">Montreal /</text>
-									<text font-family="Poppins" font-size="207" font-weight="600" x="0" y="500" class="splash-text">landscape</text>
-									<text font-family="Poppins" font-size="207" font-weight="600" x="0" y="790" class="splash-text">under lockdown</text>
-									<text font-family="Poppins" font-size="42" font-weight="300" letter-spacing=".5" x="1180" y="455" class="splash-text date">march 13 &mdash; may 16 2020</text> -->
-									<text x="0" y="210" class="splash-text">Montreal /</text>
-									<text x="0" y="500" class="splash-text">landscape</text>
-									<text x="0" y="790" class="splash-text">under lockdown</text>
-									<text x="1180" y="455" class="splash-text date">march 13 &mdash; may 16 2020</text>
+									<text x="0" y="210" class="splash-text" :class="{'shown': fontLoaded}">Montreal /</text>
+									<text x="0" y="500" class="splash-text" :class="{'shown': fontLoaded}">landscape</text>
+									<text x="0" y="790" class="splash-text" :class="{'shown': fontLoaded}">under lockdown</text>
+									<text x="1180" y="455" class="splash-text date" :class="{'shown': fontLoaded}">march 13 &mdash; may 16 2020</text>
+									<text x="0" y="0" class="splash-text font-trigger" v-if="fontLoaded"></text>
 								</mask>
 							</defs>
 							<rect x="-10000" y="-10000" width="20000" height="20000" mask="url(#splash-text-mask-en)" fill="rgb(244, 246, 248)"/>
@@ -272,11 +266,13 @@ export default {
 	background-attachment: fixed; */
 }
 text.splash-text {
+	opacity: 0;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 600;
 	font-size: 210px;
 	fill: black;
-	font-display: swap;
+	font-display: block;
+	transition: opacity 2s;
 }
 text.splash-text.date {
 	font-family: 'Poppins', sans-serif;
@@ -284,7 +280,10 @@ text.splash-text.date {
 	font-size: 42px;
 	fill: black;
 	letter-spacing: .5px;
-	font-display: swap;
+	font-display: block;
+}
+text.shown {
+	opacity: 1;
 }
 
 .splash-image-enter-active,

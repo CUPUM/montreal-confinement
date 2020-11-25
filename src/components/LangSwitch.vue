@@ -8,7 +8,7 @@
 		<input type="radio" id="fr" name="lang" value="fr" v-model="currentLang">
 		<label for="fr" ref="frlabel">FR</label>
 
-		<div v-if="ready" class="highlighter" :style="{left:style.left, bottom:style.top, width:style.width, height: '2px'}"></div>
+		<div v-if="ready && fontLoaded" class="highlighter" :style="{left:style.left, bottom:style.top, width:style.width, height: '2px'}"></div>
 	</div>
 </template>
 
@@ -50,6 +50,9 @@ export default {
 				top:y-vpadding+'px',
 				left:x-hpadding+'px'
 			}
+		},
+		fontLoaded() {
+			return store.fontLoaded;
 		}
 	},
 	methods: {

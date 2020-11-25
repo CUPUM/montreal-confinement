@@ -59,6 +59,7 @@ export default {
 		fontObs.load().then(() => {
 			setTimeout(() => {
 				mutations.setFontState(true);
+				// console.log('Poppins loaded!');
 				// window.dispatchEvent(new Event('resize'));
 			}, 25);
 		});
