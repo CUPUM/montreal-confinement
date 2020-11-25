@@ -276,6 +276,7 @@ text.splash-text {
 	font-weight: 600;
 	font-size: 210px;
 	fill: black;
+	font-display: swap;
 }
 text.splash-text.date {
 	font-family: 'Poppins', sans-serif;
@@ -283,6 +284,7 @@ text.splash-text.date {
 	font-size: 42px;
 	fill: black;
 	letter-spacing: .5px;
+	font-display: swap;
 }
 
 .splash-image-enter-active,
